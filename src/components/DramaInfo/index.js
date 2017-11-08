@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
+// we need to require from react-sigma/lib/ to make build work
 import {
   Sigma,
   EdgeShapes,
@@ -8,7 +9,7 @@ import {
   NOverlap,
   RelativeSize,
   RandomizeNodePositions
-} from 'react-sigma';
+} from 'react-sigma/lib/';
 
 const edgeColor = '#999';
 const nodeColor = '#555';
