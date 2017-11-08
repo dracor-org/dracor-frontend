@@ -12,5 +12,13 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:8383",
+      "pathRewrite": {
+        "^/api": "/exist/restxq/dracor"
+      }
+    }
   }
 }
