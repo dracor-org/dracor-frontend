@@ -5247,6 +5247,10 @@ react-scripts@1.0.17:
   optionalDependencies:
     fsevents "1.1.2"
 
+react-sigma@^1.2.29:
+  version "1.2.29"
+  resolved "https://registry.yarnpkg.com/react-sigma/-/react-sigma-1.2.29.tgz#a34ac5143537d6803c2d2aca36413adf1a2320cb"
+
 react@^16.0.0:
   version "16.0.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.0.0.tgz#ce7df8f1941b036f02b2cca9dbd0cb1f0e855e2d"
