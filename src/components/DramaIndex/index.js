@@ -57,7 +57,11 @@ class DramaIndex extends Component {
               <br/>
               <small>{d.author.key}</small>
             </td>
-            <td><Link to={`${this.props.match.url}/${d.id}`}>{d.title}</Link></td>
+            <td>
+              <Link to={`${this.props.match.url}/${d.id}`}>{d.title}</Link>
+              <br/>
+              <small>{d.subtitle}</small>
+            </td>
             <td>{d.source}</td>
           </tr>
         )}
