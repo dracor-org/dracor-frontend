@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import { Grid, Navbar } from 'react-bootstrap';
 import DramaIndex from './components/DramaIndex';
+import DramaInfo from './components/DramaInfo';
 import './App.css';
 
 class App extends Component {
@@ -27,12 +28,12 @@ class App extends Component {
           <Grid>
             <Switch>
               <Route exact path="/" component={Home}/>
-              <Route path="/:corpusId" component={DramaIndex}/>
+              <Route exact path="/:corpusId" component={DramaIndex}/>
+              <Route path="/:corpusId/:dramaId" component={DramaInfo}/>
             </Switch>
           </Grid>
         </div>
       </Router>
-
     );
   }
 }
