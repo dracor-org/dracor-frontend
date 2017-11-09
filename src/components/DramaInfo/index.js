@@ -49,7 +49,7 @@ function getCooccurrences (segments) {
 function makeGraph (persons, segments) {
   const nodes = [];
   persons.forEach(p => {
-    nodes.push({id: p.id, label: p.name});
+    nodes.push({id: p.id, label: p.name || `#${p.id}`});
   });
   const cooccurrences = getCooccurrences(segments);
   const edges = [];
@@ -178,7 +178,7 @@ class DramaInfo extends Component {
                   <li key={p.id}>
                     <OverlayTrigger placement="right"
                       overlay={<Tooltip id={`tootip-${p.id}`}>{p.id}</Tooltip>}>
-                      <span>{p.name}</span>
+                      {p.name ? <span>{p.name}</span> : <em>{p.id}</em>}
                     </OverlayTrigger>
                   </li>)
               }
