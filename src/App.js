@@ -5,7 +5,7 @@ import {
   Switch,
   Link
 } from 'react-router-dom';
-import { Grid, Navbar, Modal } from 'react-bootstrap';
+import { Grid, Modal, Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import DramaIndex from './components/DramaIndex';
 import DramaInfo from './components/DramaInfo';
 import './App.css';
@@ -23,6 +23,12 @@ class App extends Component {
                 </Navbar.Brand>
                 <Navbar.Toggle />
               </Navbar.Header>
+              <Route path="/" component={CorpusNav}/>
+              <Nav pullRight>
+                <NavItem href="https://dracor.org/ezlinavis/" target="_blank">
+                  Easy Linavis
+                </NavItem>
+              </Nav>
             </Grid>
           </Navbar>
           <Grid>
@@ -38,6 +44,23 @@ class App extends Component {
     );
   }
 }
+
+const CorpusNav = ({match, history}) => (
+  <Nav>
+    <NavDropdown title="Corpora" id="corpora-menu">
+      <MenuItem
+        eventKey="ger"
+        onSelect={key => history.push(`/${key}`)}
+        >German Drama Corpus
+      </MenuItem>
+      <MenuItem
+        eventKey="rus"
+        onSelect={key => history.push(`/${key}`)}
+        >Russian Drama Corpus
+      </MenuItem>
+    </NavDropdown>
+  </Nav>
+)
 
 const Home = () => (
   <div>
