@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import { Row, Col, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 // we need to require from react-sigma/lib/ to make build work
 import {
   Sigma,
   EdgeShapes,
   NodeShapes,
   ForceAtlas2,
-  NOverlap,
   RelativeSize,
   RandomizeNodePositions
 } from 'react-sigma/lib/';
+
+import './index.css'
 
 const edgeColor = '#999';
 const nodeColor = '#555';
@@ -74,15 +75,15 @@ class DramaInfo extends Component {
     this.state = { data: null };
   }
 
-  componentWillReceiveProps ({match}) {
-    const {corpusId, dramaId} = match.params;
-    if (match.url !== this.props.match.url) {
+  componentWillReceiveProps (next) {
+    const {corpusId, dramaId} = next;
+    if (dramaId !== this.props.dramaId || corpusId !== this.props.corpusId) {
       this.load(corpusId, dramaId);
     }
   }
 
   componentWillMount () {
-    const {corpusId, dramaId} = this.props.match.params;
+    const {corpusId, dramaId} = this.props;
     this.load(corpusId, dramaId);
   }
 
@@ -131,15 +132,6 @@ class DramaInfo extends Component {
     };
 
     const graph = this.state.graph;
-
-    // let layout;
-    // if (this.state.graphLayout === 'noverlap') {
-    //   layout = <NOverlap gridSize={10} maxIterations={100}/>;
-    // } else if (this.state.graphLayout === 'noverlap') {
-    //   layout = <ForceLink background easing="cubicInOut"/>;
-    // } else {
-    //   layout = <ForceAtlas2 {...layoutOptions}/>;
-    // }
     const layout = <ForceAtlas2 {...layoutOptions}/>;
 
     let sigma = null;
@@ -163,16 +155,16 @@ class DramaInfo extends Component {
 
     const persons = data.persons || [];
     return (
-      <div>
+      <div className="drama-info">
         <h3>{data.author.name}</h3>
         <h2>
           {data.title}
           <br/>
           <small>{data.subtitle}</small>
         </h2>
-        <Row>
-          <Col md={3}>
-            <p>Segments: {data.segments.length}</p>
+        <p>Segments: {data.segments.length}</p>
+        <div className="drama-info__cols">
+          <div className="drama-info__cast">
             <ol>{
                 persons.map(p =>
                   <li key={p.id}>
@@ -183,11 +175,12 @@ class DramaInfo extends Component {
                   </li>)
               }
             </ol>
-          </Col>
-          <Col md={9} style={{height: '500px', display: 'flex', paddong: '5px'}}>
+          </div>
+
+          <div className="drama-info__graph">
             {sigma}
-          </Col>
-        </Row>
+          </div>
+        </div>
       </div>
     );
   }

@@ -1,0 +1,31 @@
+.drama-info {
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.drama-info h2, h3 {
+  margin-top: 0
+}
+
+.drama-info__cols {
+  display: flex;
+  flex: 1;
+  align-items: stretch;
+}
+
+.drama-info__cast {
+  flex: 1.5;
+  overflow-y: scroll;
+  margin-right: 10px;
+}
+
+.drama-info__graph {
+  /* required for sigma canvas to show properly */
+  display: flex;
+  flex: 3;
+  padding: 5px;
+  border: 1px solid white;
+}
