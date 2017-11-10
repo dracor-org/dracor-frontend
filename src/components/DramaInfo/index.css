@@ -1,4 +1,5 @@
 .drama-info {
+  position: relative;
   overflow: hidden;
   height: 100%;
   display: flex;
@@ -7,7 +8,15 @@
 }
 
 .drama-info h2, h3 {
-  margin-top: 0
+  margin-top: 0;
+  padding-right: 85px;
+}
+
+.drama-info__stats {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
 }
 
 .drama-info__cols {

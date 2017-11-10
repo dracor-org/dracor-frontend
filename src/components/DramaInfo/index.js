@@ -153,6 +153,15 @@ class DramaInfo extends Component {
 
     console.log(sigma);
 
+    // graph density (d = actual edges / possible edges)
+    // possible edges = n*(n-1)/2  [n: number f nodes]
+    // see https://en.wikipedia.org/wiki/Dense_graph
+    const numNodes = graph.nodes.length;
+    const numEdges = graph.edges.length;
+    const density = numNodes > 0
+      ? Math.round(2 * numEdges / (numNodes * (numNodes-1)) * 100) / 100
+      : 'n/a';
+
     const persons = data.persons || [];
     return (
       <div className="drama-info">
@@ -162,7 +171,10 @@ class DramaInfo extends Component {
           <br/>
           <small>{data.subtitle}</small>
         </h2>
-        <p>Segments: {data.segments.length}</p>
+        <p className="drama-info__stats">
+          Segments: {data.segments.length}<br/>
+          Density: {density}
+        </p>
         <div className="drama-info__cols">
           <div className="drama-info__cast">
             <ol>{
