@@ -177,6 +177,7 @@ class DramaInfo extends Component {
         </p>
         <div className="drama-info__cols">
           <div className="drama-info__cast">
+            <h4>Cast list (in order of appearance)</h4>
             <ol>{
                 persons.map(p =>
                   <li key={p.id}>
