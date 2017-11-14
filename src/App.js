@@ -8,6 +8,7 @@ import {
 import { Grid, Modal, Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import DramaIndex from './components/DramaIndex';
 import DramaInfo from './components/DramaInfo';
+import Metrics from './components/Metrics';
 import './App.css';
 
 class App extends Component {
@@ -65,10 +66,7 @@ const CorpusNav = ({match, history}) => (
 const Home = () => (
   <div>
     <h2>Welcome</h2>
-    <ul>
-      <li><Link to="/ger">German Drama Corpus</Link></li>
-      <li><Link to="/rus">Russian Drama Corpus</Link></li>
-    </ul>
+    <Metrics/>
   </div>
 )
 
