@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {Table, Tr, Td} from 'reactable';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import './index.css';
 
@@ -8,7 +8,7 @@ function splitAuthor (name) {
   if (/, /.test(name)) {
     return name;
   }
-  let parts = name.split(' ');
+  const parts = name.split(' ');
   const last = parts.pop();
   return `${last}, ${parts.join(' ')}`;
 }
@@ -17,7 +17,7 @@ class DramaIndex extends Component {
   constructor (props) {
     super(props);
     console.log(props);
-    this.state = { data: null };
+    this.state = {data: null};
   }
 
   componentWillReceiveProps ({match}) {
@@ -33,30 +33,32 @@ class DramaIndex extends Component {
 
   load (corpusId) {
     const url = `/api/${corpusId}/index`;
-    const opts = {}
+    const opts = {};
     console.log('loading %s', url);
-    fetch(url, opts).then((response) => {
-      return response.json()
-    }).then((data) => {
+    fetch(url, opts).then(response => {
+      return response.json();
+    }).then(data => {
       console.log(data);
       this.setState({data});
-    }).catch((ex) => {
-      console.log('parsing failed', ex)
-    })
+    }).catch(ex => {
+      console.log('parsing failed', ex);
+    });
   }
 
   renderTable () {
-    const data = this.state.data
+    const data = this.state.data;
     if (!data || !data.dramas) {
       return null;
     }
     return (
-      <Table className="table"
-        sortable={true}
+      <Table
+        className="table"
+        sortable
         defaultSort={{column: 'Author', direction: 'asc'}}
-        filterable={['Author', 'Title', 'Source']}>
+        filterable={['Author', 'Title', 'Source']}
+      >
         {data.dramas.map((d, i) => {
-          const authorName = splitAuthor(d.author.name)
+          const authorName = splitAuthor(d.author.name);
           return (
             <Tr key={d.id}>
               <Td column="Author" value={authorName}>
@@ -100,9 +102,9 @@ class DramaIndex extends Component {
 
   render () {
     return (
-      this.state.data
-      ? <div><h2>{this.state.data.title}</h2>{this.renderTable()}</div>
-      : <em>loading...</em>
+      this.state.data ?
+        <div><h2>{this.state.data.title}</h2>{this.renderTable()}</div> :
+        <em>loading...</em>
     );
   }
 }

@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   Link
 } from 'react-router-dom';
-import { Grid, Modal, Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import {Grid, Modal, Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 import DramaIndex from './components/DramaIndex';
 import DramaInfo from './components/DramaInfo';
 import Metrics from './components/Metrics';
 import './App.css';
 
 class App extends Component {
-  render() {
+  render () {
     return (
       <Router>
         <div>
@@ -22,7 +22,7 @@ class App extends Component {
                 <Navbar.Brand>
                   <Link to="/">Dracor</Link>
                 </Navbar.Brand>
-                <Navbar.Toggle />
+                <Navbar.Toggle/>
               </Navbar.Header>
               <Route path="/" component={CorpusNav}/>
               <Nav pullRight>
@@ -52,23 +52,23 @@ const CorpusNav = ({match, history}) => (
       <MenuItem
         eventKey="ger"
         onSelect={key => history.push(`/${key}`)}
-        >German Drama Corpus
+      >German Drama Corpus
       </MenuItem>
       <MenuItem
         eventKey="rus"
         onSelect={key => history.push(`/${key}`)}
-        >Russian Drama Corpus
+      >Russian Drama Corpus
       </MenuItem>
     </NavDropdown>
   </Nav>
-)
+);
 
 const Home = () => (
   <div>
     <h2>Welcome</h2>
     <Metrics/>
   </div>
-)
+);
 
 class InfoModal extends Component {
   close () {
@@ -78,15 +78,17 @@ class InfoModal extends Component {
 
   render () {
     return (
-      <Modal show={true} bsSize="large" onHide={this.close.bind(this)}>
+      <Modal show bsSize="large" onHide={this.close.bind(this)}>
         <Modal.Header closeButton>
           <Modal.Title>network</Modal.Title>
         </Modal.Header>
-        ​<Modal.Body style={{
-          height:'75vh',
+        ​<Modal.Body
+          style={{
+            height: '75vh',
           /* adjust for that Modal puts between header and body */
-          marginTop: '-1.2em'
-        }}>
+            marginTop: '-1.2em'
+          }}
+        >
           <DramaInfo {...this.props.match.params}/>
         </Modal.Body>
       </Modal>

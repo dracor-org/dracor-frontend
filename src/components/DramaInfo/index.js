@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { OverlayTrigger, Tooltip } from 'react-bootstrap';
+import React, {Component} from 'react';
+import {OverlayTrigger, Tooltip} from 'react-bootstrap';
 // we need to require from react-sigma/lib/ to make build work
 import {
   Sigma,
@@ -10,7 +10,7 @@ import {
   RandomizeNodePositions
 } from 'react-sigma/lib/';
 
-import './index.css'
+import './index.css';
 
 const edgeColor = '#999';
 const nodeColor = '#555';
@@ -72,7 +72,7 @@ class DramaInfo extends Component {
   constructor (props) {
     super(props);
     console.log(props);
-    this.state = { data: null };
+    this.state = {data: null};
   }
 
   componentWillReceiveProps (next) {
@@ -90,20 +90,20 @@ class DramaInfo extends Component {
   load (corpusId, dramaId) {
     const url = `/api/${corpusId}/${dramaId}/info`;
     console.log('loading %s', url);
-    fetch(url, {}).then((response) => {
-      return response.json()
-    }).then((data) => {
-      const graph = makeGraph(data.persons, data.segments)
+    fetch(url, {}).then(response => {
+      return response.json();
+    }).then(data => {
+      const graph = makeGraph(data.persons, data.segments);
       console.log(data);
       console.log(graph);
       this.setState({data, graph});
-    }).catch((ex) => {
-      console.log('parsing failed', ex)
-    })
+    }).catch(ex => {
+      console.log('parsing failed', ex);
+    });
   }
 
   renderData () {
-    const data = this.state.data
+    const data = this.state.data;
     if (!data) {
       return null;
     }
@@ -136,19 +136,21 @@ class DramaInfo extends Component {
 
     let sigma = null;
     if (graph && graph.nodes.length > 0) {
-      sigma = (<Sigma
-        renderer="canvas"
-        graph={graph}
-        settings={settings}
-        style={{display: 'flex', flexGrow: 1}}
+      sigma = (
+        <Sigma
+          renderer="canvas"
+          graph={graph}
+          settings={settings}
+          style={{display: 'flex', flexGrow: 1}}
         >
-        <EdgeShapes default="line"/>
-        <NodeShapes default="circle"/>
-        <RandomizeNodePositions>
-          {layout}
-          <RelativeSize initialSize={15}/>
-        </RandomizeNodePositions>
-      </Sigma>);
+          <EdgeShapes default="line"/>
+          <NodeShapes default="circle"/>
+          <RandomizeNodePositions>
+            {layout}
+            <RelativeSize initialSize={15}/>
+          </RandomizeNodePositions>
+        </Sigma>
+      );
     }
 
     console.log(sigma);
@@ -158,9 +160,9 @@ class DramaInfo extends Component {
     // see https://en.wikipedia.org/wiki/Dense_graph
     const numNodes = graph.nodes.length;
     const numEdges = graph.edges.length;
-    const density = numNodes > 0
-      ? Math.round(2 * numEdges / (numNodes * (numNodes-1)) * 100) / 100
-      : 'n/a';
+    const density = numNodes > 0 ?
+      Math.round(2 * numEdges / (numNodes * (numNodes - 1)) * 100) / 100 :
+      'n/a';
 
     const persons = data.persons || [];
     return (
@@ -180,12 +182,14 @@ class DramaInfo extends Component {
             <h4>Cast list (in order of appearance)</h4>
             <ol>{
                 persons.map(p =>
-                  <li key={p.id}>
-                    <OverlayTrigger placement="right"
-                      overlay={<Tooltip id={`tootip-${p.id}`}>{p.id}</Tooltip>}>
+                  (<li key={p.id}>
+                    <OverlayTrigger
+                      placement="right"
+                      overlay={<Tooltip id={`tootip-${p.id}`}>{p.id}</Tooltip>}
+                    >
                       {p.name ? <span>{p.name}</span> : <em>{p.id}</em>}
                     </OverlayTrigger>
-                  </li>)
+                   </li>))
               }
             </ol>
           </div>
