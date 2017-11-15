@@ -53,8 +53,13 @@
       "react/forbid-component-props": 0,
       "react/jsx-no-bind": 0,
       "react/jsx-space-before-closing": 0,
+      "react/prop-types": [
+        1,
+        {
+          "ignore": []
+        }
+      ],
       "unicorn/filename-case": 0
     }
   }
-
 }
