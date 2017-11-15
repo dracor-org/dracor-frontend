@@ -5260,6 +5260,10 @@ react@^16.0.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
+reactable@dracor-org/reactable:
+  version "0.14.1"
+  resolved "https://codeload.github.com/dracor-org/reactable/tar.gz/9309e880a53989e5c18331f0c9e6f123c5fcb84f"
+
 read-all-stream@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/read-all-stream/-/read-all-stream-3.1.0.tgz#35c3e177f2078ef789ee4bfafa4373074eaef4fa"

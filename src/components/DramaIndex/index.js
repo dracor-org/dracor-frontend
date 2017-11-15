@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Table, Tr, Td} from 'reactable';
 import { Link } from 'react-router-dom';
 
 class DramaIndex extends Component {
@@ -39,34 +40,38 @@ class DramaIndex extends Component {
       return null;
     }
     return (
-      <table className="table">
-        <thead>
-          <tr>
-            <th></th>
-            <th>Author</th>
-            <th>Title</th>
-            <th>Source</th>
-          </tr>
-        </thead>
-        <tbody>
+      <Table className="table"
+        sortable={true}
+        defaultSort={{column: 'Author', direction: 'asc'}}
+        filterable={['Author', 'Title', 'Source']}>
         {data.dramas.map((d, i) =>
-          <tr key={d.id}>
-            <td>{i + 1}</td>
-            <td>
-              {d.author.name}
-              <br/>
-              <small>{d.author.key}</small>
-            </td>
-            <td>
-              <Link to={`${this.props.match.url}/${d.id}`}>{d.title}</Link>
-              <br/>
-              <small>{d.subtitle}</small>
-            </td>
-            <td>{d.source}</td>
-          </tr>
+          <Tr key={d.id}>
+            <Td column="Author" value={d.author.name}>
+              <span>
+                {d.author.name}
+                <br/>
+                <small>
+                  {d.author.key}
+                </small>
+              </span>
+            </Td>
+            <Td column="Title" value={d.title}>
+              <span>
+                <Link to={`${this.props.match.url}/${d.id}`}>
+                  {d.title}
+                </Link>
+                <br/>
+                <small>
+                  {d.subtitle}
+                </small>
+              </span>
+            </Td>
+            <Td column="Source">
+              {d.source}
+            </Td>
+          </Tr>
         )}
-        </tbody>
-      </table>
+      </Table>
     );
   }
 
