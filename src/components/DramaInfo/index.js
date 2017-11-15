@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {OverlayTrigger, Tooltip} from 'react-bootstrap';
 // we need to require from react-sigma/lib/ to make build work
 import {
@@ -209,5 +210,10 @@ class DramaInfo extends Component {
     );
   }
 }
+
+DramaInfo.propTypes = {
+  corpusId: PropTypes.string.isRequired,
+  dramaId: PropTypes.string.isRequired
+};
 
 export default DramaInfo;
