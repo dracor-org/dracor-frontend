@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {Table, Tr, Td} from 'reactable';
 import { Link } from 'react-router-dom';
 
+import './index.css';
+
 class DramaIndex extends Component {
   constructor (props) {
     super(props);
