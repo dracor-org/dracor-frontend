@@ -66,6 +66,15 @@ class DramaIndex extends Component {
                 </small>
               </span>
             </Td>
+            <Td column="Written" value={parseInt(d.writtenYear) || 0}>
+              {d.writtenYear}
+            </Td>
+            <Td column="Premiered" value={parseInt(d.premiereYear) || 0}>
+              {d.premiereYear}
+            </Td>
+            <Td column="Printed" value={parseInt(d.printYear) || 0}>
+              {d.printYear}
+            </Td>
             <Td column="Source">
               {d.source}
             </Td>
