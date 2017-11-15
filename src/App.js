@@ -11,6 +11,56 @@ import DramaInfo from './components/DramaInfo';
 import Metrics from './components/Metrics';
 import './App.css';
 
+const Home = () => (
+  <div>
+    <h2>Welcome</h2>
+    <Metrics/>
+  </div>
+);
+
+const CorpusNav = ({history}) => (
+  <Nav>
+    <NavDropdown title="Corpora" id="corpora-menu">
+      <MenuItem
+        eventKey="ger"
+        onSelect={key => history.push(`/${key}`)}
+      >German Drama Corpus
+      </MenuItem>
+      <MenuItem
+        eventKey="rus"
+        onSelect={key => history.push(`/${key}`)}
+      >Russian Drama Corpus
+      </MenuItem>
+    </NavDropdown>
+  </Nav>
+);
+
+class InfoModal extends Component {
+  close () {
+    const url = `/${this.props.match.params.corpusId}`;
+    this.props.history.push(url);
+  }
+
+  render () {
+    return (
+      <Modal show bsSize="large" onHide={this.close.bind(this)}>
+        <Modal.Header closeButton>
+          <Modal.Title>network</Modal.Title>
+        </Modal.Header>
+        <Modal.Body
+          style={{
+            height: '75vh',
+          /* adjust for that Modal puts between header and body */
+            marginTop: '-1.2em'
+          }}
+        >
+          <DramaInfo {...this.props.match.params}/>
+        </Modal.Body>
+      </Modal>
+    );
+  }
+}
+
 class App extends Component {
   render () {
     return (
@@ -42,56 +92,6 @@ class App extends Component {
           </Grid>
         </div>
       </Router>
-    );
-  }
-}
-
-const CorpusNav = ({match, history}) => (
-  <Nav>
-    <NavDropdown title="Corpora" id="corpora-menu">
-      <MenuItem
-        eventKey="ger"
-        onSelect={key => history.push(`/${key}`)}
-      >German Drama Corpus
-      </MenuItem>
-      <MenuItem
-        eventKey="rus"
-        onSelect={key => history.push(`/${key}`)}
-      >Russian Drama Corpus
-      </MenuItem>
-    </NavDropdown>
-  </Nav>
-);
-
-const Home = () => (
-  <div>
-    <h2>Welcome</h2>
-    <Metrics/>
-  </div>
-);
-
-class InfoModal extends Component {
-  close () {
-    const url = `/${this.props.match.params.corpusId}`;
-    this.props.history.push(url);
-  }
-
-  render () {
-    return (
-      <Modal show bsSize="large" onHide={this.close.bind(this)}>
-        <Modal.Header closeButton>
-          <Modal.Title>network</Modal.Title>
-        </Modal.Header>
-        ​<Modal.Body
-          style={{
-            height: '75vh',
-          /* adjust for that Modal puts between header and body */
-            marginTop: '-1.2em'
-          }}
-        >
-          <DramaInfo {...this.props.match.params}/>
-        </Modal.Body>
-      </Modal>
     );
   }
 }

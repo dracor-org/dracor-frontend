@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {Row, Col} from 'react-bootstrap';
 
+// eslint-disable-next-line no-new-wrappers
 const fn = val => new Number(val).toLocaleString('en');
 
 class Metrics extends Component {
@@ -21,8 +22,8 @@ class Metrics extends Component {
     }).then(data => {
       console.log(data);
       this.setState({data});
-    }).catch(ex => {
-      console.log('parsing failed', ex);
+    }).catch(err => {
+      console.log('parsing failed', err);
     });
   }
 
@@ -33,8 +34,8 @@ class Metrics extends Component {
     }
     return (
       <Row>
-        {data.metrics.map((m, i) => (
-          <Col md={6} key={`metrics-${m.corpus.name}`}>
+        {data.metrics.map(m => (
+          <Col key={`metrics-${m.corpus.name}`} md={6}>
             <h3><Link to={`/${m.corpus.name}`}>{m.corpus.title}</Link></h3>
             <table className="table">
               <tbody>

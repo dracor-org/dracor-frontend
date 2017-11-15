@@ -40,8 +40,8 @@ class DramaIndex extends Component {
     }).then(data => {
       console.log(data);
       this.setState({data});
-    }).catch(ex => {
-      console.log('parsing failed', ex);
+    }).catch(err => {
+      console.log('parsing failed', err);
     });
   }
 
@@ -57,7 +57,7 @@ class DramaIndex extends Component {
         defaultSort={{column: 'Author', direction: 'asc'}}
         filterable={['Author', 'Title', 'Source']}
       >
-        {data.dramas.map((d, i) => {
+        {data.dramas.map(d => {
           const authorName = splitAuthor(d.author.name);
           return (
             <Tr key={d.id}>
@@ -81,13 +81,13 @@ class DramaIndex extends Component {
                   </small>
                 </span>
               </Td>
-              <Td column="Written" value={parseInt(d.writtenYear) || 0}>
+              <Td column="Written" value={parseInt(d.writtenYear, 10) || 0}>
                 {d.writtenYear}
               </Td>
-              <Td column="Premiered" value={parseInt(d.premiereYear) || 0}>
+              <Td column="Premiered" value={parseInt(d.premiereYear, 10) || 0}>
                 {d.premiereYear}
               </Td>
-              <Td column="Printed" value={parseInt(d.printYear) || 0}>
+              <Td column="Printed" value={parseInt(d.printYear, 10) || 0}>
                 {d.printYear}
               </Td>
               <Td column="Source">

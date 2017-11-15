@@ -97,8 +97,8 @@ class DramaInfo extends Component {
       console.log(data);
       console.log(graph);
       this.setState({data, graph});
-    }).catch(ex => {
-      console.log('parsing failed', ex);
+    }).catch(err => {
+      console.log('parsing failed', err);
     });
   }
 
@@ -181,15 +181,16 @@ class DramaInfo extends Component {
           <div className="drama-info__cast">
             <h4>Cast list (in order of appearance)</h4>
             <ol>{
-                persons.map(p =>
-                  (<li key={p.id}>
+                persons.map(p => (
+                  <li key={p.id}>
                     <OverlayTrigger
                       placement="right"
                       overlay={<Tooltip id={`tootip-${p.id}`}>{p.id}</Tooltip>}
                     >
                       {p.name ? <span>{p.name}</span> : <em>{p.id}</em>}
                     </OverlayTrigger>
-                   </li>))
+                  </li>
+                ))
               }
             </ol>
           </div>
