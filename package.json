@@ -26,5 +26,35 @@
         "^/api": "/exist/restxq/dracor"
       }
     }
+  },
+  "devDependencies": {
+    "eslint": "^4.11.0",
+    "eslint-config-xo-react": "^0.14.0",
+    "eslint-plugin-react": "^7.4.0",
+    "xo": "^0.18.2"
+  },
+  "xo": {
+    "extends": "xo-react",
+    "space": true,
+    "semicolon": true,
+    "envs": [
+      "browser"
+    ],
+    "rules": {
+      "space-before-function-paren": [
+        "error",
+        "always"
+      ],
+      "capitalized-comments": 0,
+      "func-names": 0,
+      "max-params": 0,
+      "spaced-comment": 0,
+      "import/no-unassigned-import": 0,
+      "react/forbid-component-props": 0,
+      "react/jsx-no-bind": 0,
+      "react/jsx-space-before-closing": 0,
+      "unicorn/filename-case": 0
+    }
   }
+
 }
