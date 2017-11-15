@@ -4,6 +4,15 @@ import { Link } from 'react-router-dom';
 
 import './index.css';
 
+function splitAuthor (name) {
+  if (/, /.test(name)) {
+    return name;
+  }
+  let parts = name.split(' ');
+  const last = parts.pop();
+  return `${last}, ${parts.join(' ')}`;
+}
+
 class DramaIndex extends Component {
   constructor (props) {
     super(props);
@@ -46,42 +55,45 @@ class DramaIndex extends Component {
         sortable={true}
         defaultSort={{column: 'Author', direction: 'asc'}}
         filterable={['Author', 'Title', 'Source']}>
-        {data.dramas.map((d, i) =>
-          <Tr key={d.id}>
-            <Td column="Author" value={d.author.name}>
-              <span>
-                {d.author.name}
-                <br/>
-                <small>
-                  {d.author.key}
-                </small>
-              </span>
-            </Td>
-            <Td column="Title" value={d.title}>
-              <span>
-                <Link to={`${this.props.match.url}/${d.id}`}>
-                  {d.title}
-                </Link>
-                <br/>
-                <small>
-                  {d.subtitle}
-                </small>
-              </span>
-            </Td>
-            <Td column="Written" value={parseInt(d.writtenYear) || 0}>
-              {d.writtenYear}
-            </Td>
-            <Td column="Premiered" value={parseInt(d.premiereYear) || 0}>
-              {d.premiereYear}
-            </Td>
-            <Td column="Printed" value={parseInt(d.printYear) || 0}>
-              {d.printYear}
-            </Td>
-            <Td column="Source">
-              {d.source}
-            </Td>
-          </Tr>
-        )}
+        {data.dramas.map((d, i) => {
+          const authorName = splitAuthor(d.author.name)
+          return (
+            <Tr key={d.id}>
+              <Td column="Author" value={authorName}>
+                <span>
+                  {authorName}
+                  <br/>
+                  <small>
+                    {d.author.key}
+                  </small>
+                </span>
+              </Td>
+              <Td column="Title" value={d.title}>
+                <span>
+                  <Link to={`${this.props.match.url}/${d.id}`}>
+                    {d.title}
+                  </Link>
+                  <br/>
+                  <small>
+                    {d.subtitle}
+                  </small>
+                </span>
+              </Td>
+              <Td column="Written" value={parseInt(d.writtenYear) || 0}>
+                {d.writtenYear}
+              </Td>
+              <Td column="Premiered" value={parseInt(d.premiereYear) || 0}>
+                {d.premiereYear}
+              </Td>
+              <Td column="Printed" value={parseInt(d.printYear) || 0}>
+                {d.printYear}
+              </Td>
+              <Td column="Source">
+                {d.source}
+              </Td>
+            </Tr>
+          );
+        })}
       </Table>
     );
   }
