@@ -89,7 +89,7 @@ class DramaInfo extends Component {
   }
 
   load (corpusId, dramaId) {
-    const url = `/api/${corpusId}/${dramaId}/info`;
+    const url = `/api/corpus/${corpusId}/play/${dramaId}`;
     console.log('loading %s', url);
     fetch(url, {}).then(response => {
       return response.json();

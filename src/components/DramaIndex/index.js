@@ -32,7 +32,7 @@ class DramaIndex extends Component {
   }
 
   load (corpusId) {
-    const url = `/api/${corpusId}/index`;
+    const url = `/api/corpus/${corpusId}`;
     const opts = {};
     console.log('loading %s', url);
     fetch(url, opts).then(response => {
