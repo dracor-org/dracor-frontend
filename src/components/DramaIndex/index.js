@@ -90,8 +90,8 @@ class DramaIndex extends Component {
               <Td column="Printed" value={parseInt(d.printYear, 10) || 0}>
                 {d.printYear}
               </Td>
-              <Td column="Source">
-                {d.source}
+              <Td column="Source" value={d.source}>
+                {d.sourceUrl ? <a href={d.sourceUrl}>{d.source}</a> : d.source}
               </Td>
             </Tr>
           );
