@@ -76,7 +76,7 @@ class App extends Component {
               </Navbar.Header>
               <Route path="/" component={CorpusNav}/>
               <Nav pullRight>
-                <NavItem href="https://dracor.org/ezlinavis/" target="_blank">
+                <NavItem href="https://ezlinavis.dracor.org/" target="_blank">
                   Easy Linavis
                 </NavItem>
               </Nav>
