@@ -179,6 +179,8 @@ class DramaInfo extends Component {
         </h2>
         <p className="drama-info__stats">
           Segments: {data.segments.length}<br/>
+          All-in at segment {data.allInSegment + ' '}
+          (at {Math.round(data.allInIndex * 100)}%)<br/>
           Density: {density}<br/>
           <a href={csvUrl} download={`${dramaId}.csv`}>Download CSV</a>
         </p>
