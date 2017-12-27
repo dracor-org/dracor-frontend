@@ -165,6 +165,9 @@ class DramaInfo extends Component {
       Math.round(2 * numEdges / (numNodes * (numNodes - 1)) * 100) / 100 :
       'n/a';
 
+    const {corpusId, dramaId} = this.props;
+    const csvUrl = `/api/corpus/${corpusId}/play/${dramaId}/networkdata/csv`;
+
     const persons = data.persons || [];
     return (
       <div className="drama-info">
@@ -176,7 +179,8 @@ class DramaInfo extends Component {
         </h2>
         <p className="drama-info__stats">
           Segments: {data.segments.length}<br/>
-          Density: {density}
+          Density: {density}<br/>
+          <a href={csvUrl} download={`${dramaId}.csv`}>Download CSV</a>
         </p>
         <div className="drama-info__cols">
           <div className="drama-info__cast">
