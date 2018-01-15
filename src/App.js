@@ -15,6 +15,10 @@ const Home = () => (
   <div>
     <h2>Welcome</h2>
     <Metrics/>
+    <div className="logos">
+      <img src="/img/hse.png" alt="Higher School of Economics"/>
+      <img src="/img/uni-potsdam.svg" alt="Universität Potsdam"/>
+    </div>
   </div>
 );
 
