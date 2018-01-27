@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {OverlayTrigger, Tooltip} from 'react-bootstrap';
+import {Tooltip} from 'reactstrap';
 // we need to require from react-sigma/lib/ to make build work
 import {
   Sigma,
@@ -69,6 +69,40 @@ function makeGraph (persons, segments) {
     });
   });
   return {nodes, edges};
+}
+
+class TooltipItem extends Component {
+  constructor (props) {
+    super(props);
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      tooltipOpen: false
+    };
+  }
+
+  toggle () {
+    this.setState(prevState => ({tooltipOpen: !prevState.tooltipOpen}));
+  }
+
+  render () {
+    const {tooltipOpen} = this.state;
+    const {id, placement, children} = this.props;
+    const tid = `tooltip-${id}`;
+    return (
+      <span id={tid}>
+        {children}
+        <Tooltip
+          delay={{show: 0, hide: 25}}
+          isOpen={tooltipOpen}
+          placement={placement}
+          target={tid}
+          toggle={this.toggle}
+        >
+          {id}
+        </Tooltip>
+      </span>
+    );
+  }
 }
 
 class DramaInfo extends Component {
@@ -199,12 +233,9 @@ class DramaInfo extends Component {
             <ol>
               {persons.map(p => (
                 <li key={p.id}>
-                  <OverlayTrigger
-                    placement="right"
-                    overlay={<Tooltip id={`tootip-${p.id}`}>{p.id}</Tooltip>}
-                  >
+                  <TooltipItem id={p.id} placement="right">
                     {p.name ? <span>{p.name}</span> : <em>{p.id}</em>}
-                  </OverlayTrigger>
+                  </TooltipItem>
                 </li>
               ))}
             </ol>
