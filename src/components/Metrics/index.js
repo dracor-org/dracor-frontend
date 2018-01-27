@@ -31,7 +31,7 @@ class Metrics extends Component {
   }
 
   renderData () {
-    const data = this.state.data;
+    const {data} = this.state;
     if (!data || !data.metrics) {
       return null;
     }
@@ -83,7 +83,8 @@ class Metrics extends Component {
   }
 
   render () {
-    return this.state.data ? this.renderData() : <em>loading...</em>;
+    const {data} = this.state;
+    return data ? this.renderData() : <em>loading...</em>;
   }
 }
 

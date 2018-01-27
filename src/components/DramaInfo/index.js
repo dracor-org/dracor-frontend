@@ -79,8 +79,8 @@ class DramaInfo extends Component {
   }
 
   componentWillReceiveProps (next) {
-    const {corpusId, dramaId} = next;
-    if (dramaId !== this.props.dramaId || corpusId !== this.props.corpusId) {
+    const {corpusId, dramaId} = this.props;
+    if (dramaId !== next.dramaId || corpusId !== next.corpusId) {
       this.load(corpusId, dramaId);
     }
   }
@@ -109,7 +109,7 @@ class DramaInfo extends Component {
   }
 
   renderData () {
-    const data = this.state.data;
+    const {data, graph} = this.state;
     if (!data) {
       return null;
     }
@@ -137,7 +137,6 @@ class DramaInfo extends Component {
       strongGravityMode: false
     };
 
-    const graph = this.state.graph;
     const layout = <ForceAtlas2 {...layoutOptions}/>;
 
     let sigma = null;
@@ -218,7 +217,8 @@ class DramaInfo extends Component {
   }
 
   render () {
-    return this.state.data ? this.renderData() : <em>loading...</em>;
+    const {data} = this.state;
+    return data ? this.renderData() : <em>loading...</em>;
   }
 }
 

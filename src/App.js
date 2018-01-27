@@ -40,11 +40,13 @@ const CorpusNav = ({history}) => (
 
 class InfoModal extends Component {
   close () {
-    const url = `/${this.props.match.params.corpusId}`;
-    this.props.history.push(url);
+    const {match, history} = this.props;
+    const url = `/${match.params.corpusId}`;
+    history.push(url);
   }
 
   render () {
+    const {match} = this.props;
     return (
       <Modal show bsSize="large" onHide={this.close.bind(this)}>
         <Modal.Header closeButton>
@@ -57,7 +59,7 @@ class InfoModal extends Component {
             marginTop: '-1.2em'
           }}
         >
-          <DramaInfo {...this.props.match.params}/>
+          <DramaInfo {...match.params}/>
         </Modal.Body>
       </Modal>
     );

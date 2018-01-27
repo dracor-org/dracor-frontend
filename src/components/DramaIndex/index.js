@@ -20,9 +20,10 @@ class DramaIndex extends Component {
     this.state = {data: null};
   }
 
-  componentWillReceiveProps ({match}) {
-    if (match.params.corpusId !== this.props.match.params.corpusId) {
-      this.load(match.params.corpusId);
+  componentWillReceiveProps (next) {
+    const {match} = this.props;
+    if (match.params.corpusId !== next.match.params.corpusId) {
+      this.load(next.match.params.corpusId);
     }
   }
 
@@ -49,7 +50,8 @@ class DramaIndex extends Component {
   }
 
   renderTable () {
-    const data = this.state.data;
+    const {data} = this.state;
+    const {match} = this.props;
     if (!data || !data.dramas) {
       return null;
     }
@@ -73,7 +75,7 @@ class DramaIndex extends Component {
               </Td>
               <Td column="Title" value={d.title}>
                 <span>
-                  <Link to={`${this.props.match.url}/${d.id}`}>{d.title}</Link>
+                  <Link to={`${match.url}/${d.id}`}>{d.title}</Link>
                   <br/>
                   <small>{d.subtitle}</small>
                 </span>
@@ -98,9 +100,10 @@ class DramaIndex extends Component {
   }
 
   render () {
-    return this.state.data ? (
+    const {data} = this.state;
+    return data ? (
       <div>
-        <h2>{this.state.data.title}</h2>
+        <h2>{data.title}</h2>
         {this.renderTable()}
       </div>
     ) : (
