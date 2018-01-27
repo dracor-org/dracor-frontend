@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {Row, Col} from 'react-bootstrap';
+import {Row, Col} from 'reactstrap';
 
 // eslint-disable-next-line no-new-wrappers
 const fn = val => new Number(val).toLocaleString('en');
@@ -38,7 +38,7 @@ class Metrics extends Component {
     return (
       <Row>
         {data.metrics.map(m => (
-          <Col key={`metrics-${m.corpus.name}`} md={6}>
+          <Col key={`metrics-${m.corpus.name}`} lg={6} sm={12} xs={12}>
             <h3>
               <Link to={`/${m.corpus.name}`}>{m.corpus.title}</Link>
             </h3>
