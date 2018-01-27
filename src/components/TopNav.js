@@ -62,6 +62,9 @@ export default class TopNav extends Component {
     this.setState(prevState => ({isOpen: !prevState.isOpen}));
   }
 
+  // allow us to use 'toggle'
+  /* eslint "react/jsx-handler-names": 0 */
+
   render () {
     const {isOpen} = this.state;
     return (
