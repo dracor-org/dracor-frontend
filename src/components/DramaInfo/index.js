@@ -1,17 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Helmet} from 'react-helmet';
-// we need to require from react-sigma/lib/ to make build work
-import {
-  Sigma,
-  EdgeShapes,
-  NodeShapes,
-  ForceAtlas2,
-  RelativeSize,
-  RandomizeNodePositions
-} from 'react-sigma/lib/';
 import PlayMetrics from '../PlayMetrics';
 import CastList from '../CastList';
+import NetworkGraph from '../NetworkGraph';
 
 import './index.css';
 
@@ -116,54 +108,6 @@ class DramaInfo extends Component {
       return null;
     }
 
-    const settings = {
-      maxEdgeSize: 5,
-      defaultLabelSize: 15,
-      defaultEdgeColor: edgeColor, // FIXME: this does not seem to work
-      defaultNodeColor: nodeColor,
-      labelThreshold: 5,
-      labelSize: 'fixed',
-      drawLabels: true,
-      drawEdges: true
-    };
-
-    const layoutOptions = {
-      iterationsPerRender: 1,
-      edgeWeightInfluence: 0,
-      timeout: 1000,
-      adjustSizes: false,
-      gravity: 3,
-      slowDown: 5,
-      linLogMode: true,
-      outboundAttractionDistribution: false,
-      strongGravityMode: false
-    };
-
-    const layout = <ForceAtlas2 {...layoutOptions}/>;
-
-    let sigma = null;
-    if (graph && graph.nodes.length > 0) {
-      sigma = (
-        <Sigma
-          renderer="canvas"
-          graph={graph}
-          settings={settings}
-          style={{display: 'flex', flexGrow: 1}}
-        >
-          <EdgeShapes default="line"/>
-          <NodeShapes default="circle"/>
-          <RandomizeNodePositions>
-            {layout}
-            <RelativeSize initialSize={15}/>
-          </RandomizeNodePositions>
-        </Sigma>
-      );
-    }
-
-    console.log(sigma);
-
-    const {corpusId, dramaId} = this.props;
-
     const persons = data.persons || [];
     return (
       <div className="drama-info">
@@ -176,16 +120,19 @@ class DramaInfo extends Component {
           <br/>
           <small>{data.subtitle}</small>
         </h2>
+
         <div className="drama-info__stats">
           <PlayMetrics {...{data, graph}}/>
         </div>
+
         <div className="drama-info__cols">
           <div className="drama-info__cast">
             <h4>Cast list (in order of appearance)</h4>
             <CastList cast={persons}/>
           </div>
-
-          <div className="drama-info__graph">{sigma}</div>
+          <div className="drama-info__graph">
+            <NetworkGraph {...{graph, nodeColor, edgeColor}}/>
+          </div>
         </div>
       </div>
     );
