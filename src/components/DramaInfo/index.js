@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Helmet} from 'react-helmet';
+import {Card, CardHeader, CardBody} from 'reactstrap';
 import PlayMetrics from '../PlayMetrics';
 import CastList from '../CastList';
 import NetworkGraph from '../NetworkGraph';
@@ -108,30 +109,69 @@ class DramaInfo extends Component {
       return null;
     }
 
-    const cast = data.cast || [];
     return (
-      <div className="drama-info">
+      <div className="h-100 d-md-flex flex-md-column">
         <Helmet titleTemplate="%s - Dracor.org">
           <title>{`${data.author.name}: ${data.title}`}</title>
         </Helmet>
-        <h3>{data.author.name}</h3>
-        <h2>
-          {data.title}
-          <br/>
-          <small>{data.subtitle}</small>
-        </h2>
 
-        <div className="drama-info__stats">
-          <PlayMetrics {...{data, graph}}/>
-        </div>
+        <header>
+          <h4>{data.author.name}</h4>
+          <h2>
+            {data.title}
+            <br/>
+            <small>{data.subtitle}</small>
+          </h2>
+        </header>
 
-        <div className="drama-info__cols">
-          <div className="drama-info__cast">
-            <h4>Cast list (in order of appearance)</h4>
-            <CastList cast={cast}/>
-          </div>
-          <div className="drama-info__graph">
-            <NetworkGraph {...{graph, nodeColor, edgeColor}}/>
+        <div className="d-md-flex" style={{flexGrow: 1}}>
+          <Card
+            id="network-graph"
+            className="mb-2 order-2 ml-md-2"
+            style={{flex: 1}}
+          >
+            <CardHeader>
+              Network
+              <a href="#network-metrics" className="float-right d-md-none">
+                metrics
+              </a>
+            </CardHeader>
+            <CardBody className="d-flex" style={{minHeight: '50vh'}}>
+              <NetworkGraph {...{graph, nodeColor, edgeColor}}/>
+            </CardBody>
+          </Card>
+
+          <div className="d-flex flex-column">
+            <Card
+              id="cast-list"
+              className="mb-2 order-md-2"
+              style={{flexGrow: 1}}
+            >
+              <CardHeader>
+                Cast list (in order of appearance)
+              </CardHeader>
+              <CardBody className="position-relative">
+                <div className="cast-list-wrapper px-md-4 my-md-4">
+                  <CastList cast={data.cast || []}/>
+                </div>
+              </CardBody>
+            </Card>
+
+            <Card
+              id="network-metrics"
+              className="mb-2 order-md-1"
+              style={{flexShrink: 0}}
+            >
+              <CardHeader>
+                Metrics
+                <a href="#network-graph" className="float-right d-md-none">
+                  graph
+                </a>
+              </CardHeader>
+              <CardBody>
+                <PlayMetrics {...{data, graph}}/>
+              </CardBody>
+            </Card>
           </div>
         </div>
       </div>
