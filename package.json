@@ -43,7 +43,7 @@
     ],
     "rules": {
       "space-before-function-paren": [
-        "error",
+        "warn",
         "always"
       ],
       "capitalized-comments": 0,
@@ -51,9 +51,25 @@
       "max-params": 0,
       "spaced-comment": 0,
       "import/no-unassigned-import": 0,
+      "operator-linebreak": [
+        1,
+        "after",
+        {
+          "overrides": {
+            "?": "before",
+            ":": "before"
+          }
+        }
+      ],
+      "react/destructuring-assignment": [
+        1,
+        "always"
+      ],
       "react/forbid-component-props": 0,
+      "react/jsx-one-expression-per-line": 0,
       "react/jsx-no-bind": 0,
       "react/jsx-space-before-closing": 0,
+      "react/jsx-tag-spacing": 1,
       "react/prop-types": [
         1,
         {
