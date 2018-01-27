@@ -30,8 +30,8 @@ class App extends Component {
       <Router>
         <div className="d-flex flex-column" style={{height: '100%'}}>
           <TopNav/>
-          <div className="content" style={{display: 'flex', flex: 1}}>
-            <Container>
+          <div className="content d-flex" style={{flex: 1}}>
+            <Container fluid>
               <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/:corpusId" component={DramaIndex}/>

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Route} from 'react-router-dom';
 import {
-  Container,
   Collapse,
   Navbar,
   NavbarToggler,
@@ -69,22 +68,20 @@ export default class TopNav extends Component {
     const {isOpen} = this.state;
     return (
       <Navbar color="light" light expand="md" className="mb-4">
-        <Container>
-          <NavbarBrand href="/">Dracor</NavbarBrand>
-          <NavbarToggler onClick={this.toggle}/>
-          <Collapse isOpen={isOpen} navbar>
-            <Nav className="mr-auto" navbar>
-              <Route path="/" component={CorporaDropdown}/>
-            </Nav>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="https://ezlinavis.dracor.org/">
-                  Easy Linavis
-                </NavLink>
-              </NavItem>
-            </Nav>
-          </Collapse>
-        </Container>
+        <NavbarBrand href="/">Dracor</NavbarBrand>
+        <NavbarToggler onClick={this.toggle}/>
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="mr-auto" navbar>
+            <Route path="/" component={CorporaDropdown}/>
+          </Nav>
+          <Nav className="ml-auto" navbar>
+            <NavItem>
+              <NavLink href="https://ezlinavis.dracor.org/">
+                Easy Linavis
+              </NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
       </Navbar>
     );
   }
