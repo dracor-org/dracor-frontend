@@ -5,13 +5,17 @@ import {Helmet} from 'react-helmet';
 
 import './index.css';
 
-function splitAuthor (name) {
+function splitAuthorName (name) {
   if (/, /.test(name)) {
     return name;
   }
   const parts = name.split(' ');
   const last = parts.pop();
   return `${last}, ${parts.join(' ')}`;
+}
+
+function splitAuthors (authors) {
+  return authors.map(author => splitAuthorName(author.name));
 }
 
 class DramaIndex extends Component {
@@ -64,14 +68,15 @@ class DramaIndex extends Component {
         filterable={['Author', 'Title', 'Source']}
       >
         {data.dramas.map(d => {
-          const authorName = splitAuthor(d.author.name);
+          const authors = splitAuthors(d.authors).join(' · ');
+          const keys = d.authors.map(a => a.key).join(' · ');
           return (
             <Tr key={d.id}>
-              <Td column="Author" value={authorName}>
+              <Td column="Author" value={authors}>
                 <span>
-                  {authorName}
+                  {authors}
                   <br/>
-                  <small>{d.author.key}</small>
+                  <small>{keys}</small>
                 </span>
               </Td>
               <Td column="Title" value={d.title}>

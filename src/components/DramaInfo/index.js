@@ -116,7 +116,7 @@ class DramaInfo extends Component {
         </Helmet>
 
         <header>
-          <h4>{data.author.name}</h4>
+          <h4>{data.authors.map(a => a.name).join(' · ')}</h4>
           <h2>
             {data.title}
             <br/>
