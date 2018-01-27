@@ -25,6 +25,8 @@ class PlayMetrics extends Component {
         All-in at segment {data.allInSegment + ' '}
         (at {allInPercentage}%)
         <br/>
+        <span title="number of characters">Network size</span>: {numNodes}
+        <br/>
         Density: {density}
         <br/>
         <a href={csvUrl} download={`${data.id}.csv`}>
