@@ -35,14 +35,17 @@ class DramaIndex extends Component {
     const url = `/api/corpus/${corpusId}`;
     const opts = {};
     console.log('loading %s', url);
-    fetch(url, opts).then(response => {
-      return response.json();
-    }).then(data => {
-      console.log(data);
-      this.setState({data});
-    }).catch(err => {
-      console.log('parsing failed', err);
-    });
+    fetch(url, opts)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+        this.setState({data});
+      })
+      .catch(err => {
+        console.log('parsing failed', err);
+      });
   }
 
   renderTable () {
@@ -65,20 +68,14 @@ class DramaIndex extends Component {
                 <span>
                   {authorName}
                   <br/>
-                  <small>
-                    {d.author.key}
-                  </small>
+                  <small>{d.author.key}</small>
                 </span>
               </Td>
               <Td column="Title" value={d.title}>
                 <span>
-                  <Link to={`${this.props.match.url}/${d.id}`}>
-                    {d.title}
-                  </Link>
+                  <Link to={`${this.props.match.url}/${d.id}`}>{d.title}</Link>
                   <br/>
-                  <small>
-                    {d.subtitle}
-                  </small>
+                  <small>{d.subtitle}</small>
                 </span>
               </Td>
               <Td column="Written" value={parseInt(d.writtenYear, 10) || 0}>
@@ -101,10 +98,13 @@ class DramaIndex extends Component {
   }
 
   render () {
-    return (
-      this.state.data ?
-        <div><h2>{this.state.data.title}</h2>{this.renderTable()}</div> :
-        <em>loading...</em>
+    return this.state.data ? (
+      <div>
+        <h2>{this.state.data.title}</h2>
+        {this.renderTable()}
+      </div>
+    ) : (
+      <em>loading...</em>
     );
   }
 }

@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
+import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Link
-} from 'react-router-dom';
-import {Grid, Modal, Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
+  Grid,
+  Modal,
+  Navbar,
+  Nav,
+  NavItem,
+  NavDropdown,
+  MenuItem
+} from 'react-bootstrap';
 import DramaIndex from './components/DramaIndex';
 import DramaInfo from './components/DramaInfo';
 import Metrics from './components/Metrics';
@@ -25,15 +28,11 @@ const Home = () => (
 const CorpusNav = ({history}) => (
   <Nav>
     <NavDropdown title="Corpora" id="corpora-menu">
-      <MenuItem
-        eventKey="ger"
-        onSelect={key => history.push(`/${key}`)}
-      >German Drama Corpus
+      <MenuItem eventKey="ger" onSelect={key => history.push(`/${key}`)}>
+        German Drama Corpus
       </MenuItem>
-      <MenuItem
-        eventKey="rus"
-        onSelect={key => history.push(`/${key}`)}
-      >Russian Drama Corpus
+      <MenuItem eventKey="rus" onSelect={key => history.push(`/${key}`)}>
+        Russian Drama Corpus
       </MenuItem>
     </NavDropdown>
   </Nav>
@@ -54,7 +53,7 @@ class InfoModal extends Component {
         <Modal.Body
           style={{
             height: '75vh',
-          /* adjust for that Modal puts between header and body */
+            /* adjust for that Modal puts between header and body */
             marginTop: '-1.2em'
           }}
         >

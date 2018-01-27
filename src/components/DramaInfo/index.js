@@ -41,9 +41,11 @@ function getCooccurrences (segments) {
   });
 
   const cooccurrences = [];
-  Object.keys(map).sort().forEach(key => {
-    cooccurrences.push(map[key]);
-  });
+  Object.keys(map)
+    .sort()
+    .forEach(key => {
+      cooccurrences.push(map[key]);
+    });
 
   return cooccurrences;
 }
@@ -91,16 +93,19 @@ class DramaInfo extends Component {
   load (corpusId, dramaId) {
     const url = `/api/corpus/${corpusId}/play/${dramaId}`;
     console.log('loading %s', url);
-    fetch(url, {}).then(response => {
-      return response.json();
-    }).then(data => {
-      const graph = makeGraph(data.persons, data.segments);
-      console.log(data);
-      console.log(graph);
-      this.setState({data, graph});
-    }).catch(err => {
-      console.log('parsing failed', err);
-    });
+    fetch(url, {})
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        const graph = makeGraph(data.persons, data.segments);
+        console.log(data);
+        console.log(graph);
+        this.setState({data, graph});
+      })
+      .catch(err => {
+        console.log('parsing failed', err);
+      });
   }
 
   renderData () {
@@ -161,9 +166,10 @@ class DramaInfo extends Component {
     // see https://en.wikipedia.org/wiki/Dense_graph
     const numNodes = graph.nodes.length;
     const numEdges = graph.edges.length;
-    const density = numNodes > 0 ?
-      Math.round(2 * numEdges / (numNodes * (numNodes - 1)) * 100) / 100 :
-      'n/a';
+    const density =
+      numNodes > 0
+        ? Math.round(2 * numEdges / (numNodes * (numNodes - 1)) * 100) / 100
+        : 'n/a';
 
     const {corpusId, dramaId} = this.props;
     const csvUrl = `/api/corpus/${corpusId}/play/${dramaId}/networkdata/csv`;
@@ -178,42 +184,41 @@ class DramaInfo extends Component {
           <small>{data.subtitle}</small>
         </h2>
         <p className="drama-info__stats">
-          Segments: {data.segments.length}<br/>
+          Segments: {data.segments.length}
+          <br/>
           All-in at segment {data.allInSegment + ' '}
           (at {Math.round(data.allInIndex * 100)}%)<br/>
-          Density: {density}<br/>
-          <a href={csvUrl} download={`${dramaId}.csv`}>Download CSV</a>
+          Density: {density}
+          <br/>
+          <a href={csvUrl} download={`${dramaId}.csv`}>
+            Download CSV
+          </a>
         </p>
         <div className="drama-info__cols">
           <div className="drama-info__cast">
             <h4>Cast list (in order of appearance)</h4>
-            <ol>{
-                persons.map(p => (
-                  <li key={p.id}>
-                    <OverlayTrigger
-                      placement="right"
-                      overlay={<Tooltip id={`tootip-${p.id}`}>{p.id}</Tooltip>}
-                    >
-                      {p.name ? <span>{p.name}</span> : <em>{p.id}</em>}
-                    </OverlayTrigger>
-                  </li>
-                ))
-              }
+            <ol>
+              {persons.map(p => (
+                <li key={p.id}>
+                  <OverlayTrigger
+                    placement="right"
+                    overlay={<Tooltip id={`tootip-${p.id}`}>{p.id}</Tooltip>}
+                  >
+                    {p.name ? <span>{p.name}</span> : <em>{p.id}</em>}
+                  </OverlayTrigger>
+                </li>
+              ))}
             </ol>
           </div>
 
-          <div className="drama-info__graph">
-            {sigma}
-          </div>
+          <div className="drama-info__graph">{sigma}</div>
         </div>
       </div>
     );
   }
 
   render () {
-    return (
-      this.state.data ? this.renderData() : <em>loading...</em>
-    );
+    return this.state.data ? this.renderData() : <em>loading...</em>;
   }
 }
 

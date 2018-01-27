@@ -17,14 +17,17 @@ class Metrics extends Component {
 
   load () {
     const url = `/api/metrics`;
-    fetch(url, {}).then(response => {
-      return response.json();
-    }).then(data => {
-      console.log(data);
-      this.setState({data});
-    }).catch(err => {
-      console.log('parsing failed', err);
-    });
+    fetch(url, {})
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+        this.setState({data});
+      })
+      .catch(err => {
+        console.log('parsing failed', err);
+      });
   }
 
   renderData () {
@@ -36,7 +39,9 @@ class Metrics extends Component {
       <Row>
         {data.metrics.map(m => (
           <Col key={`metrics-${m.corpus.name}`} md={6}>
-            <h3><Link to={`/${m.corpus.name}`}>{m.corpus.title}</Link></h3>
+            <h3>
+              <Link to={`/${m.corpus.name}`}>{m.corpus.title}</Link>
+            </h3>
             <table className="table">
               <tbody>
                 <tr>
@@ -44,19 +49,29 @@ class Metrics extends Component {
                   <td>{fn(m.plays)}</td>
                 </tr>
                 <tr>
-                  <th><code>person</code></th>
-                  <td>{fn(m.characters)} (male: {m.male}, female: {m.female})</td>
+                  <th>
+                    <code>person</code>
+                  </th>
+                  <td>
+                    {fn(m.characters)} (male: {m.male}, female: {m.female})
+                  </td>
                 </tr>
                 <tr>
-                  <th><code>text</code></th>
+                  <th>
+                    <code>text</code>
+                  </th>
                   <td>{fn(m.text)}</td>
                 </tr>
                 <tr>
-                  <th><code>sp</code></th>
+                  <th>
+                    <code>sp</code>
+                  </th>
                   <td>{fn(m.sp)}</td>
                 </tr>
                 <tr>
-                  <th><code>stage</code></th>
+                  <th>
+                    <code>stage</code>
+                  </th>
                   <td>{fn(m.stage)}</td>
                 </tr>
               </tbody>
@@ -68,9 +83,7 @@ class Metrics extends Component {
   }
 
   render () {
-    return (
-      this.state.data ? this.renderData() : <em>loading...</em>
-    );
+    return this.state.data ? this.renderData() : <em>loading...</em>;
   }
 }
 
