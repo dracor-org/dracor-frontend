@@ -233,7 +233,7 @@ class DramaInfo extends Component {
             <ol>
               {persons.map(p => (
                 <li key={p.id}>
-                  <TooltipItem id={p.id} placement="right">
+                  <TooltipItem id={p.id} placement="top">
                     {p.name ? <span>{p.name}</span> : <em>{p.id}</em>}
                   </TooltipItem>
                 </li>
