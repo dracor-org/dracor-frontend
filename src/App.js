@@ -1,17 +1,10 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
-import {
-  Grid,
-  Modal,
-  Navbar,
-  Nav,
-  NavItem,
-  NavDropdown,
-  MenuItem
-} from 'react-bootstrap';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {Container, Modal, ModalHeader, ModalBody} from 'reactstrap';
 import DramaIndex from './components/DramaIndex';
 import DramaInfo from './components/DramaInfo';
 import Metrics from './components/Metrics';
+import TopNav from './components/TopNav';
 import './App.css';
 
 const Home = () => (
@@ -25,20 +18,19 @@ const Home = () => (
   </div>
 );
 
-const CorpusNav = ({history}) => (
-  <Nav>
-    <NavDropdown title="Corpora" id="corpora-menu">
-      <MenuItem eventKey="ger" onSelect={key => history.push(`/${key}`)}>
-        German Drama Corpus
-      </MenuItem>
-      <MenuItem eventKey="rus" onSelect={key => history.push(`/${key}`)}>
-        Russian Drama Corpus
-      </MenuItem>
-    </NavDropdown>
-  </Nav>
-);
-
 class InfoModal extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      modal: true
+    };
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle () {
+    this.setState(prevState => ({modal: !prevState.modal}));
+  }
+
   close () {
     const {match, history} = this.props;
     const url = `/${match.params.corpusId}`;
@@ -47,12 +39,16 @@ class InfoModal extends Component {
 
   render () {
     const {match} = this.props;
+    const {modal} = this.state;
     return (
-      <Modal show bsSize="large" onHide={this.close.bind(this)}>
-        <Modal.Header closeButton>
-          <Modal.Title>network</Modal.Title>
-        </Modal.Header>
-        <Modal.Body
+      <Modal
+        isOpen={modal}
+        toggle={this.toggle}
+        onClosed={this.close.bind(this)}
+        size="lg"
+      >
+        <ModalHeader toggle={this.toggle}>network</ModalHeader>
+        <ModalBody
           style={{
             height: '75vh',
             /* adjust for that Modal puts between header and body */
@@ -60,7 +56,7 @@ class InfoModal extends Component {
           }}
         >
           <DramaInfo {...match.params}/>
-        </Modal.Body>
+        </ModalBody>
       </Modal>
     );
   }
@@ -71,30 +67,14 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Navbar>
-            <Grid>
-              <Navbar.Header>
-                <Navbar.Brand>
-                  <Link to="/">Dracor</Link>
-                </Navbar.Brand>
-                <Navbar.Toggle/>
-              </Navbar.Header>
-              <Route path="/" component={CorpusNav}/>
-              <Nav pullRight>
-                <NavItem href="https://ezlinavis.dracor.org/" target="_blank">
-                  Easy Linavis
-                </NavItem>
-              </Nav>
-            </Grid>
-          </Navbar>
-          <Grid>
+          <TopNav/>
+          <Container>
             <Switch>
               <Route exact path="/" component={Home}/>
               <Route path="/:corpusId" component={DramaIndex}/>
-              <Route path="/:corpusId/:dramaId" component={DramaInfo}/>
             </Switch>
             <Route path="/:corpusId/:dramaId" component={InfoModal}/>
-          </Grid>
+          </Container>
         </div>
       </Router>
     );
