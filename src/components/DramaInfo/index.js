@@ -44,9 +44,9 @@ function getCooccurrences (segments) {
   return cooccurrences;
 }
 
-function makeGraph (persons, segments) {
+function makeGraph (cast, segments) {
   const nodes = [];
-  persons.forEach(p => {
+  cast.forEach(p => {
     nodes.push({id: p.id, label: p.name || `#${p.id}`});
   });
   const cooccurrences = getCooccurrences(segments);
@@ -92,7 +92,7 @@ class DramaInfo extends Component {
         return response.json();
       })
       .then(data => {
-        const graph = makeGraph(data.persons, data.segments);
+        const graph = makeGraph(data.cast, data.segments);
         console.log(data);
         console.log(graph);
         this.setState({data, graph});
@@ -108,7 +108,7 @@ class DramaInfo extends Component {
       return null;
     }
 
-    const persons = data.persons || [];
+    const cast = data.cast || [];
     return (
       <div className="drama-info">
         <Helmet titleTemplate="%s - Dracor.org">
@@ -128,7 +128,7 @@ class DramaInfo extends Component {
         <div className="drama-info__cols">
           <div className="drama-info__cast">
             <h4>Cast list (in order of appearance)</h4>
-            <CastList cast={persons}/>
+            <CastList cast={cast}/>
           </div>
           <div className="drama-info__graph">
             <NetworkGraph {...{graph, nodeColor, edgeColor}}/>
