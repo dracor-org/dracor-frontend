@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Tooltip} from 'reactstrap';
 import {Helmet} from 'react-helmet';
 // we need to require from react-sigma/lib/ to make build work
 import {
@@ -11,6 +10,7 @@ import {
   RelativeSize,
   RandomizeNodePositions
 } from 'react-sigma/lib/';
+import CastList from '../CastList';
 
 import './index.css';
 
@@ -70,40 +70,6 @@ function makeGraph (persons, segments) {
     });
   });
   return {nodes, edges};
-}
-
-class TooltipItem extends Component {
-  constructor (props) {
-    super(props);
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      tooltipOpen: false
-    };
-  }
-
-  toggle () {
-    this.setState(prevState => ({tooltipOpen: !prevState.tooltipOpen}));
-  }
-
-  render () {
-    const {tooltipOpen} = this.state;
-    const {id, placement, children} = this.props;
-    const tid = `tooltip-${id}`;
-    return (
-      <span id={tid}>
-        {children}
-        <Tooltip
-          delay={{show: 0, hide: 25}}
-          isOpen={tooltipOpen}
-          placement={placement}
-          target={tid}
-          toggle={this.toggle}
-        >
-          {id}
-        </Tooltip>
-      </span>
-    );
-  }
 }
 
 class DramaInfo extends Component {
@@ -234,15 +200,7 @@ class DramaInfo extends Component {
         <div className="drama-info__cols">
           <div className="drama-info__cast">
             <h4>Cast list (in order of appearance)</h4>
-            <ol>
-              {persons.map(p => (
-                <li key={p.id}>
-                  <TooltipItem id={p.id} placement="top">
-                    {p.name ? <span>{p.name}</span> : <em>{p.id}</em>}
-                  </TooltipItem>
-                </li>
-              ))}
-            </ol>
+            <CastList cast={persons}/>
           </div>
 
           <div className="drama-info__graph">{sigma}</div>
