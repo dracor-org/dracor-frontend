@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import {Container, Modal, ModalHeader, ModalBody} from 'reactstrap';
+import {Container} from 'reactstrap';
 import DramaIndex from './components/DramaIndex';
 import DramaInfo from './components/DramaInfo';
 import Metrics from './components/Metrics';
@@ -18,63 +18,27 @@ const Home = () => (
   </div>
 );
 
-class InfoModal extends Component {
-  constructor (props) {
-    super(props);
-    this.state = {
-      modal: true
-    };
-    this.toggle = this.toggle.bind(this);
-  }
-
-  toggle () {
-    this.setState(prevState => ({modal: !prevState.modal}));
-  }
-
-  close () {
-    const {match, history} = this.props;
-    const url = `/${match.params.corpusId}`;
-    history.push(url);
-  }
-
-  render () {
-    const {match} = this.props;
-    const {modal} = this.state;
-    return (
-      <Modal
-        isOpen={modal}
-        toggle={this.toggle}
-        onClosed={this.close.bind(this)}
-        size="lg"
-      >
-        <ModalHeader toggle={this.toggle}>network</ModalHeader>
-        <ModalBody
-          style={{
-            height: '75vh',
-            /* adjust for that Modal puts between header and body */
-            marginTop: '-1.2em'
-          }}
-        >
-          <DramaInfo {...match.params}/>
-        </ModalBody>
-      </Modal>
-    );
-  }
-}
+const DramaPage = ({match}) => (
+  <div style={{height: '100%'}}>
+    <DramaInfo {...match.params}/>
+  </div>
+);
 
 class App extends Component {
   render () {
     return (
       <Router>
-        <div>
+        <div className="d-flex flex-column" style={{height: '100%'}}>
           <TopNav/>
-          <Container>
-            <Switch>
-              <Route exact path="/" component={Home}/>
-              <Route path="/:corpusId" component={DramaIndex}/>
-            </Switch>
-            <Route path="/:corpusId/:dramaId" component={InfoModal}/>
-          </Container>
+          <div className="content" style={{display: 'flex', flex: 1}}>
+            <Container>
+              <Switch>
+                <Route exact path="/" component={Home}/>
+                <Route exact path="/:corpusId" component={DramaIndex}/>
+                <Route path="/:corpusId/:dramaId" component={DramaPage}/>
+              </Switch>
+            </Container>
+          </div>
         </div>
       </Router>
     );
