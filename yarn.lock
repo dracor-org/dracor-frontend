@@ -2247,9 +2247,9 @@ eslint-config-react-app@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/eslint-config-react-app/-/eslint-config-react-app-2.0.1.tgz#fd0503da01ae608f0c6ae8861de084975142230e"
 
-eslint-config-xo-react@^0.14.0:
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-xo-react/-/eslint-config-xo-react-0.14.0.tgz#eaa3ecc14d3860b495f64dfc19a8674d21a93d40"
+eslint-config-xo-react@^0.15.0:
+  version "0.15.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-xo-react/-/eslint-config-xo-react-0.15.0.tgz#9dd9858cbeff2094d775db25ffb5f79b98c546e4"
 
 eslint-config-xo@^0.18.0:
   version "0.18.2"
@@ -2348,7 +2348,7 @@ eslint-plugin-promise@^3.4.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-3.6.0.tgz#54b7658c8f454813dc2a870aff8152ec4969ba75"
 
-eslint-plugin-react@7.4.0, eslint-plugin-react@^7.4.0:
+eslint-plugin-react@7.4.0:
   version "7.4.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.4.0.tgz#300a95861b9729c087d362dd64abcc351a74364a"
   dependencies:
@@ -2356,6 +2356,15 @@ eslint-plugin-react@7.4.0, eslint-plugin-react@^7.4.0:
     has "^1.0.1"
     jsx-ast-utils "^2.0.0"
     prop-types "^15.5.10"
+
+eslint-plugin-react@^7.5.1:
+  version "7.5.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.5.1.tgz#52e56e8d80c810de158859ef07b880d2f56ee30b"
+  dependencies:
+    doctrine "^2.0.0"
+    has "^1.0.1"
+    jsx-ast-utils "^2.0.0"
+    prop-types "^15.6.0"
 
 eslint-plugin-unicorn@^2.1.0:
   version "2.1.2"
