@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Tooltip} from 'reactstrap';
+import {Helmet} from 'react-helmet';
 // we need to require from react-sigma/lib/ to make build work
 import {
   Sigma,
@@ -210,6 +211,9 @@ class DramaInfo extends Component {
     const persons = data.persons || [];
     return (
       <div className="drama-info">
+        <Helmet titleTemplate="%s - Dracor.org">
+          <title>{`${data.author.name}: ${data.title}`}</title>
+        </Helmet>
         <h3>{data.author.name}</h3>
         <h2>
           {data.title}

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Table, Tr, Td} from 'reactable';
 import {Link} from 'react-router-dom';
+import {Helmet} from 'react-helmet';
 
 import './index.css';
 
@@ -103,6 +104,9 @@ class DramaIndex extends Component {
     const {data} = this.state;
     return data ? (
       <div>
+        <Helmet titleTemplate="%s - Dracor.org">
+          <title>{data.title}</title>
+        </Helmet>
         <h2>{data.title}</h2>
         {this.renderTable()}
       </div>
