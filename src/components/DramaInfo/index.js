@@ -10,6 +10,7 @@ import {
   RelativeSize,
   RandomizeNodePositions
 } from 'react-sigma/lib/';
+import PlayMetrics from '../PlayMetrics';
 import CastList from '../CastList';
 
 import './index.css';
@@ -161,18 +162,7 @@ class DramaInfo extends Component {
 
     console.log(sigma);
 
-    // graph density (d = actual edges / possible edges)
-    // possible edges = n*(n-1)/2  [n: number f nodes]
-    // see https://en.wikipedia.org/wiki/Dense_graph
-    const numNodes = graph.nodes.length;
-    const numEdges = graph.edges.length;
-    const density =
-      numNodes > 0
-        ? Math.round(2 * numEdges / (numNodes * (numNodes - 1)) * 100) / 100
-        : 'n/a';
-
     const {corpusId, dramaId} = this.props;
-    const csvUrl = `/api/corpus/${corpusId}/play/${dramaId}/networkdata/csv`;
 
     const persons = data.persons || [];
     return (
@@ -186,17 +176,9 @@ class DramaInfo extends Component {
           <br/>
           <small>{data.subtitle}</small>
         </h2>
-        <p className="drama-info__stats">
-          Segments: {data.segments.length}
-          <br/>
-          All-in at segment {data.allInSegment + ' '}
-          (at {Math.round(data.allInIndex * 100)}%)<br/>
-          Density: {density}
-          <br/>
-          <a href={csvUrl} download={`${dramaId}.csv`}>
-            Download CSV
-          </a>
-        </p>
+        <div className="drama-info__stats">
+          <PlayMetrics {...{data, graph}}/>
+        </div>
         <div className="drama-info__cols">
           <div className="drama-info__cast">
             <h4>Cast list (in order of appearance)</h4>
