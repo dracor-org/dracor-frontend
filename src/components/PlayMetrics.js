@@ -30,9 +30,27 @@ class PlayMetrics extends Component {
         }
       }
     }
+
+    let maxDegree = 0;
+    let maxDegreeIds = [];
+    const degrees = jsnx.degree(G);
+    for (const d of degrees) {
+      const id = d[0];
+      const degree = d[1];
+      if (degree === maxDegree) {
+        maxDegreeIds.push(id);
+      } else if (degree > maxDegree) {
+        maxDegree = degree;
+        maxDegreeIds = [];
+        maxDegreeIds.push(id);
+      }
+    }
+
     this.setState({
       density,
       diameter,
+      maxDegree,
+      maxDegreeIds,
       averagePathLength: sum / numPairs,
       averageClustering: jsnx.averageClustering(G)
     });
@@ -43,6 +61,8 @@ class PlayMetrics extends Component {
     const {
       density,
       diameter,
+      maxDegree,
+      maxDegreeIds,
       averagePathLength,
       averageClustering
     } = this.state;
@@ -69,6 +89,8 @@ class PlayMetrics extends Component {
         Average path length: {round(averagePathLength)}
         <br/>
         Average clustering coefficient: {round(averageClustering)}
+        <br/>
+        Maximum degree: {maxDegree} (<em>{maxDegreeIds.join(', ')}</em>)
         <br/>
         <a href={csvUrl} download={`${data.id}.csv`}>
           Download CSV
