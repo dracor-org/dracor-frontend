@@ -33,13 +33,19 @@ class PlayMetrics extends Component {
     this.setState({
       density,
       diameter,
-      averagePathLength: sum / numPairs
+      averagePathLength: sum / numPairs,
+      averageClustering: jsnx.averageClustering(G)
     });
   }
 
   render () {
     const {data, graph} = this.props;
-    const {density, diameter, averagePathLength} = this.state;
+    const {
+      density,
+      diameter,
+      averagePathLength,
+      averageClustering
+    } = this.state;
 
     const csvUrl = `/api/corpus/${data.corpus}/play/${data.id}/networkdata/csv`;
 
@@ -61,6 +67,8 @@ class PlayMetrics extends Component {
         Diameter: {diameter}
         <br/>
         Average path length: {round(averagePathLength)}
+        <br/>
+        Average clustering coefficient: {round(averageClustering)}
         <br/>
         <a href={csvUrl} download={`${data.id}.csv`}>
           Download CSV
