@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Helmet} from 'react-helmet';
-import {Card, CardHeader, CardBody} from 'reactstrap';
+import {Card, CardHeader, CardBody, CardFooter} from 'reactstrap';
 import PlayMetrics from '../PlayMetrics';
 import CastList from '../CastList';
 import NetworkGraph from '../NetworkGraph';
@@ -109,6 +109,8 @@ class DramaInfo extends Component {
       return null;
     }
 
+    const csvUrl = `/api/corpus/${data.corpus}/play/${data.id}/networkdata/csv`;
+
     return (
       <div className="h-100 d-md-flex flex-md-column">
         <Helmet titleTemplate="%s - Dracor.org">
@@ -171,6 +173,11 @@ class DramaInfo extends Component {
               <CardBody>
                 <PlayMetrics {...{data, graph}}/>
               </CardBody>
+              <CardFooter className="text-center">
+                <a href={csvUrl} download={`${data.id}.csv`}>
+                  Download CSV
+                </a>
+              </CardFooter>
             </Card>
           </div>
         </div>

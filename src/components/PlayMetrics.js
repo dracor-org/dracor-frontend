@@ -71,8 +71,6 @@ class PlayMetrics extends Component {
       averageClustering
     } = this.state;
 
-    const csvUrl = `/api/corpus/${data.corpus}/play/${data.id}/networkdata/csv`;
-
     const numNodes = graph.nodes.length;
 
     const allInPercentage = Math.round(data.allInIndex * 100);
@@ -97,10 +95,6 @@ class PlayMetrics extends Component {
         Average degree: {round(averageDegree)}
         <br/>
         Maximum degree: {maxDegree} (<em>{maxDegreeIds.join(', ')}</em>)
-        <br/>
-        <a href={csvUrl} download={`${data.id}.csv`}>
-          Download CSV
-        </a>
       </div>
     );
   }
