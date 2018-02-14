@@ -9,7 +9,7 @@ function round (n) {
 
 class PlayMetrics extends Component {
   componentWillMount () {
-    const {graph} = this.props;
+    const {graph, data} = this.props;
     const G = new jsnx.Graph();
     G.addNodesFrom(graph.nodes.map(n => n.id));
     G.addEdgesFrom(graph.edges.map(e => [e.source, e.target]));
@@ -48,7 +48,13 @@ class PlayMetrics extends Component {
       }
     }
 
+    const names = {};
+    data.cast.forEach(c => {
+      names[c.id] = c.name;
+    });
+
     this.setState({
+      names,
       density,
       diameter,
       maxDegree,
@@ -62,6 +68,7 @@ class PlayMetrics extends Component {
   render () {
     const {data, graph} = this.props;
     const {
+      names,
       density,
       diameter,
       maxDegree,
@@ -70,6 +77,8 @@ class PlayMetrics extends Component {
       averagePathLength,
       averageClustering
     } = this.state;
+
+    const maxDegreeNames = maxDegreeIds.map(id => names[id]);
 
     const numNodes = graph.nodes.length;
 
@@ -94,7 +103,7 @@ class PlayMetrics extends Component {
         <br/>
         Average degree: {round(averageDegree)}
         <br/>
-        Maximum degree: {maxDegree} (<em>{maxDegreeIds.join(', ')}</em>)
+        Maximum degree: {maxDegree} (<em>{maxDegreeNames.join(', ')}</em>)
       </div>
     );
   }
