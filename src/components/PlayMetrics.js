@@ -78,7 +78,7 @@ class PlayMetrics extends Component {
       averageClustering
     } = this.state;
 
-    const maxDegreeNames = maxDegreeIds.map(id => names[id]);
+    const maxDegreeNames = maxDegreeIds.map(id => names[id]).join(', ');
 
     const numNodes = graph.nodes.length;
 
@@ -103,7 +103,11 @@ class PlayMetrics extends Component {
         <br/>
         Average degree: {round(averageDegree)}
         <br/>
-        Maximum degree: {maxDegree} (<em>{maxDegreeNames.join(', ')}</em>)
+        Maximum degree: {maxDegree} ({
+          maxDegreeIds.length > 2
+          ? <span title={maxDegreeNames}>{maxDegreeIds.length} characters</span>
+          : <span>{maxDegreeNames}</span>
+        })
       </div>
     );
   }
