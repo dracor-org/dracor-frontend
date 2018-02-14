@@ -79,7 +79,7 @@ class PlayMetrics extends Component {
       averageClustering
     } = this.state;
 
-    const maxDegreeNames = maxDegreeIds.map(id => names[id]).join(', ');
+    const maxDegreeNames = maxDegreeIds.map(id => names[id] || id).join(', ');
 
     const numNodes = graph.nodes.length;
 
