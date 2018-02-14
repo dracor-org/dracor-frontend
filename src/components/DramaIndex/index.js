@@ -65,7 +65,14 @@ class DramaIndex extends Component {
         className="table"
         sortable
         defaultSort={{column: 'Author', direction: 'asc'}}
-        filterable={['Author', 'Title', 'Source']}
+        filterable={[
+          'Author',
+          'Title',
+          'Source',
+          'Written',
+          'Premiered',
+          'Printed']
+        }
       >
         {data.dramas.map(d => {
           const authors = splitAuthors(d.authors).join(' · ');
