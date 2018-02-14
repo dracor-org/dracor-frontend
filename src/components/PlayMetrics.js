@@ -15,6 +15,7 @@ class PlayMetrics extends Component {
     G.addEdgesFrom(graph.edges.map(e => [e.source, e.target]));
     const paths = jsnx.shortestPathLength(G);
     const density = jsnx.density(G);
+
     let diameter = 0;
     let sum = 0;
     let numPairs = 0;
@@ -26,7 +27,7 @@ class PlayMetrics extends Component {
           numPairs++;
         }
         if (l > diameter) {
-          diameter += l;
+          diameter = l;
         }
       }
     }
