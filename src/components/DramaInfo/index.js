@@ -1,7 +1,16 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Helmet} from 'react-helmet';
-import {Card, CardHeader, CardBody, CardFooter} from 'reactstrap';
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Nav,
+  NavItem,
+  NavLink
+} from 'reactstrap';
+import classnames from 'classnames';
 import PlayMetrics from '../PlayMetrics';
 import CastList from '../CastList';
 import NetworkGraph from '../NetworkGraph';
@@ -109,6 +118,17 @@ class DramaInfo extends Component {
       return null;
     }
 
+    let tab = document.location.hash.replace('#', '');
+    if (['network', 'speech'].indexOf(tab) === -1) {
+      tab = 'network';
+    }
+    let tabContent = null;
+    if (tab === 'speech') {
+      tabContent = <h1>Speech distribution</h1>;
+    } else {
+      tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor}}/>;
+    }
+
     const csvUrl = `/api/corpus/${data.corpus}/play/${data.id}/networkdata/csv`;
 
     return (
@@ -133,14 +153,31 @@ class DramaInfo extends Component {
             style={{flex: 1}}
           >
             <CardHeader>
-              Network
-              <a href="#network-metrics" className="float-right d-md-none">
-                metrics
-              </a>
+              <Nav tabs className="card-header-tabs">
+                <NavItem>
+                  <NavLink
+                    href="#network"
+                    className={classnames({active: tab === 'network'})}
+                  >
+                    Network
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink
+                    href="#speech"
+                    className={classnames({active: tab === 'speech'})}
+                  >
+                    Speech distribution
+                  </NavLink>
+                </NavItem>
+              </Nav>
             </CardHeader>
             <CardBody className="d-flex" style={{minHeight: '50vh'}}>
-              <NetworkGraph {...{graph, nodeColor, edgeColor}}/>
+              {tabContent}
             </CardBody>
+            <CardFooter className="text-center d-md-none">
+              <a href="#network-metrics">metrics</a>
+            </CardFooter>
           </Card>
 
           <div className="d-flex flex-column">
