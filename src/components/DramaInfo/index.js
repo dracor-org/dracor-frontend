@@ -14,6 +14,7 @@ import classnames from 'classnames';
 import PlayMetrics from '../PlayMetrics';
 import CastList from '../CastList';
 import NetworkGraph from '../NetworkGraph';
+import SpeechDistribution from '../SpeechDistribution';
 
 import './index.css';
 
@@ -124,7 +125,7 @@ class DramaInfo extends Component {
     }
     let tabContent = null;
     if (tab === 'speech') {
-      tabContent = <h1>Speech distribution</h1>;
+      tabContent = <SpeechDistribution segments={data.segments}/>;
     } else {
       tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor}}/>;
     }

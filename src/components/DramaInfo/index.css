@@ -13,3 +13,9 @@
     overflow-y: scroll;
   }
 }
+
+@media (max-width: 768px) {
+  .speech-dist-container {
+    flex-direction: column;
+  }
+}
