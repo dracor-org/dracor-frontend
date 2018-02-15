@@ -4,10 +4,12 @@
   "private": true,
   "dependencies": {
     "bootstrap": "4",
+    "chart.js": "^2.7.1",
     "classnames": "^2.2.5",
     "jsnetworkx": "fkling/JSNetworkX#v0.3.4",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
+    "react-chartjs-2": "^2.7.0",
     "react-dom": "^16.0.0",
     "react-helmet": "^5.2.0",
     "react-router-dom": "^4.2.2",
