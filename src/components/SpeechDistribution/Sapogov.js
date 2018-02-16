@@ -40,8 +40,9 @@ class Sapogov extends Component {
         }],
         yAxes: [{
           type: 'linear',
-          beginAtZero: true,
-          ticks: {beginAtZero: true},
+          ticks: {
+            beginAtZero: true
+          },
           scaleLabel: {
             labelString: 'number of characters',
             display: true
@@ -61,6 +62,19 @@ class Sapogov extends Component {
     });
 
     options.scales.xAxes[0].labels = labels;
+
+    // adjust step size to avoid decimal numbers but still take advantage of the
+    // nice numbers algorithm when numbers are higher (see
+    // http://www.chartjs.org/docs/latest/axes/radial/linear.html#step-size)
+    let max = 0;
+    data.datasets[0].data.forEach(n => {
+      if (n > max) {
+        max = n;
+      }
+    });
+    if (max < 10) {
+      options.scales.yAxes[0].ticks.stepSize = 1;
+    }
 
     return <Line data={data} options={options}/>;
   }
