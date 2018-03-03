@@ -77,6 +77,7 @@ class DramaIndex extends Component {
         {data.dramas.map(d => {
           const authors = splitAuthors(d.authors).join(' · ');
           const keys = d.authors.map(a => a.key).join(' · ');
+          const teiUrl = `/api/corpus/${match.params.corpusId}/play/${d.id}/tei`;
           return (
             <Tr key={d.id}>
               <Td column="Author" value={authors}>
@@ -103,7 +104,11 @@ class DramaIndex extends Component {
                 {d.printYear}
               </Td>
               <Td column="Source" value={d.source}>
-                {d.sourceUrl ? <a href={d.sourceUrl}>{d.source}</a> : d.source}
+                <span>
+                  {d.sourceUrl ? <a href={d.sourceUrl}>{d.source}</a> : d.source}
+                  <br/>
+                  (<a href={teiUrl} target="_blank">TEI version</a>)
+                </span>
               </Td>
             </Tr>
           );
