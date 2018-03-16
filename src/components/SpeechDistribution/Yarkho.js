@@ -33,7 +33,13 @@ class Yarkho extends Component {
     const options = {
       scales: {
         xAxes: [{
-          type: 'category',
+          type: 'linear',
+          display: true,
+          ticks: {
+            callback: value => parseInt(value, 10),
+            min: 1,
+            stepSize: 1
+          },
           scaleLabel: {
             labelString: 'number of characters per scene (monologues, dialogues, polylogues)',
             display: true
@@ -65,8 +71,11 @@ class Yarkho extends Component {
       }
     });
 
-    options.scales.xAxes[0].labels = Object.keys(yarkho);
-    data.datasets[0].data = Object.keys(yarkho).map(k => yarkho[k]);
+    data.datasets[0].data = Object.keys(yarkho).map(
+      k => {
+        return {x: parseInt(k, 10), y: yarkho[k]};
+      }
+    );
 
     // adjust step size to avoid decimal numbers but still take advantage of the
     // nice numbers algorithm when numbers are higher (see
