@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Tooltip} from 'reactstrap';
+import Octicon from 'react-octicon';
 
 class TooltipItem extends Component {
   constructor (props) {
@@ -42,6 +43,12 @@ const CastList = ({cast}) => (
       <li key={member.id}>
         <TooltipItem id={member.id} placement="top">
           {member.name ? <span>{member.name}</span> : <em>{member.id}</em>}
+          {'  '}
+          {
+            member.isGroup
+            ? <Octicon style={{color: 'gray'}} name="organization"/>
+            : null
+          }
         </TooltipItem>
       </li>
     ))}
