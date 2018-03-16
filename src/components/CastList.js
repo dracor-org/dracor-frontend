@@ -46,7 +46,7 @@ const CastList = ({cast}) => (
           {'  '}
           {
             member.isGroup
-            ? <Octicon style={{color: 'gray'}} name="organization"/>
+            ? <Octicon style={{color: 'gray'}} name="organization" title="group"/>
             : null
           }
         </TooltipItem>
