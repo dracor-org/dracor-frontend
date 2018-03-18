@@ -59,6 +59,7 @@ class Yarkho extends Component {
     };
 
     const yarkho = {};
+    let maxSpeakers = 0;
 
     segments.forEach(seg => {
       const numSpeakers = seg.speakers ? seg.speakers.length : 0;
@@ -69,7 +70,18 @@ class Yarkho extends Component {
           yarkho[numSpeakers] = 1;
         }
       }
+      if (numSpeakers > maxSpeakers) {
+        maxSpeakers = numSpeakers;
+      }
     });
+
+    // interpolate zeros for those mono/polylogues below the maximum number of
+    // speakers that don't occur
+    for (let n = 1; n < maxSpeakers; n++) {
+      if (!yarkho[n]) {
+        yarkho[n] = 0;
+      }
+    }
 
     data.datasets[0].data = Object.keys(yarkho).map(
       k => {
