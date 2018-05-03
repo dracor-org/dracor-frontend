@@ -18,6 +18,10 @@ function splitAuthors (authors) {
   return authors.map(author => splitAuthorName(author.name));
 }
 
+function join (base, path) {
+  return base.replace(/\/$/, '') + '/' + path;
+}
+
 class DramaIndex extends Component {
   constructor (props) {
     super(props);
@@ -89,7 +93,7 @@ class DramaIndex extends Component {
               </Td>
               <Td column="Title" value={d.title}>
                 <span>
-                  <Link to={`${match.url}/${d.id}`}>{d.title}</Link>
+                  <Link to={join(match.url, d.id)}>{d.title}</Link>
                   <br/>
                   <small>{d.subtitle}</small>
                 </span>
