@@ -15,13 +15,14 @@ const Home = () => (
       <img src="/img/hse.png" alt="Higher School of Economics"/>
       <img src="/img/uni-potsdam.svg" alt="Universität Potsdam"/>
     </div>
-    <div style={{textAlign: 'center', maxWidth: '700px', margin: '1em auto'}}>
+    <div style={{textAlign: 'center', maxWidth: '750px', margin: '1em auto'}}>
       <small>
         <em>
-          {`The two TEI drama corpora hosted on dracor.org are in pre-alpha 
-            state. Feel free to use them, but there are some issues that still
-            have to be resolved before the official release, which will happen
-            in the second half of 2018. – dracor.org is edited by `
+          {`The two TEI drama corpora (and possibly more in the future) hosted
+            on dracor.org are in pre-alpha state. Feel free to use them, but
+            there are some issues that still have to be resolved before the
+            official release, which will happen in the second half of 2018. –
+            dracor.org is edited by `
           }
           <a href="https://www.hse.ru/en/org/persons/182492735">
             Frank&nbsp;Fischer
@@ -30,7 +31,7 @@ const Home = () => (
           <a href="https://www.uni-potsdam.de/de/lit-19-jhd/peertrilcke.html">
             Peer&nbsp;Trilcke
           </a>
-          {' (University of Potsdam)'}
+          {' (University of Potsdam).'}
         </em>
       </small>
     </div>
