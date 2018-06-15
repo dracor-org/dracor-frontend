@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {Row, Col} from 'reactstrap';
 
+// Numbers received from the API can be in scientific notation (e.g.
+// 8.248968E6), which is why we need to use parseFloat.
 // eslint-disable-next-line no-new-wrappers
-const fn = val => new Number(val).toLocaleString('en');
+const fn = val => new Number(parseFloat(val)).toLocaleString('en');
 
 class Metrics extends Component {
   constructor (props) {
@@ -60,19 +62,19 @@ class Metrics extends Component {
                   <th>
                     <code>text</code>
                   </th>
-                  <td>{fn(m.text)}</td>
+                  <td>{fn(m.wordcount.text)} tokens</td>
                 </tr>
                 <tr>
                   <th>
                     <code>sp</code>
                   </th>
-                  <td>{fn(m.sp)}</td>
+                  <td>{fn(m.sp)} ({fn(m.wordcount.sp)} tokens)</td>
                 </tr>
                 <tr>
                   <th>
                     <code>stage</code>
                   </th>
-                  <td>{fn(m.stage)}</td>
+                  <td>{fn(m.stage)} ({fn(m.wordcount.stage)} tokens)</td>
                 </tr>
               </tbody>
             </table>
