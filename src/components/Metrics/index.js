@@ -76,6 +76,12 @@ class Metrics extends Component {
                   </th>
                   <td>{fn(m.stage)} ({fn(m.wordcount.stage)} tokens)</td>
                 </tr>
+                <tr>
+                  <th>
+                    Last update
+                  </th>
+                  <td>{(new Date(m.updated)).toLocaleString()}</td>
+                </tr>
               </tbody>
             </table>
           </Col>
