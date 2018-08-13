@@ -119,13 +119,15 @@ class DramaInfo extends Component {
       return null;
     }
 
+    const groups = data.cast.filter(m => Boolean(m.isGroup)).map(m => m.id);
+
     let tab = document.location.hash.replace('#', '');
     if (['network', 'speech'].indexOf(tab) === -1) {
       tab = 'network';
     }
     let tabContent = null;
     if (tab === 'speech') {
-      tabContent = <SpeechDistribution segments={data.segments}/>;
+      tabContent = <SpeechDistribution segments={data.segments} {...{groups}}/>;
     } else {
       tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor}}/>;
     }

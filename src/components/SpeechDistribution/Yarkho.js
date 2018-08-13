@@ -4,7 +4,7 @@ import {Line} from 'react-chartjs-2';
 
 class Yarkho extends Component {
   render () {
-    const {segments} = this.props;
+    const {groups, segments} = this.props;
 
     const data = {
       datasets: [
@@ -29,6 +29,22 @@ class Yarkho extends Component {
         }
       ]
     };
+
+    if (groups.length > 0) {
+      data.datasets.push({
+        label: 'non-group characters only',
+        fill: false,
+        backgroundColor: 'rgba(79,181,198,1)',
+        borderColor: 'rgba(79,181,198,1)',
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: 'rgba(79,181,198,1)',
+        pointHoverBorderColor: 'rgba(220,220,220,1)',
+        pointRadius: 1,
+        pointHitRadius: 10,
+        lineTension: 0,
+        data: []
+      });
+    }
 
     const options = {
       scales: {
@@ -59,15 +75,27 @@ class Yarkho extends Component {
     };
 
     const yarkho = {};
+    const nonGroups = {};
     let maxSpeakers = 0;
 
     segments.forEach(seg => {
       const numSpeakers = seg.speakers ? seg.speakers.length : 0;
+      const numNonGroups = numSpeakers ? seg.speakers.filter(
+        id => groups.indexOf(id) === -1
+      ).length : 0;
+
       if (numSpeakers > 0) {
         if (yarkho[numSpeakers]) {
           yarkho[numSpeakers]++;
         } else {
           yarkho[numSpeakers] = 1;
+        }
+      }
+      if (numNonGroups > 0) {
+        if (nonGroups[numNonGroups]) {
+          nonGroups[numNonGroups]++;
+        } else {
+          nonGroups[numNonGroups] = 1;
         }
       }
       if (numSpeakers > maxSpeakers) {
@@ -81,6 +109,9 @@ class Yarkho extends Component {
       if (!yarkho[n]) {
         yarkho[n] = 0;
       }
+      if (!nonGroups[n]) {
+        nonGroups[n] = 0;
+      }
     }
 
     data.datasets[0].data = Object.keys(yarkho).map(
@@ -88,6 +119,13 @@ class Yarkho extends Component {
         return {x: parseInt(k, 10), y: yarkho[k]};
       }
     );
+    if (groups.length > 0) {
+      data.datasets[1].data = Object.keys(nonGroups).map(
+        k => {
+          return {x: parseInt(k, 10), y: nonGroups[k]};
+        }
+      );
+    }
 
     // adjust step size to avoid decimal numbers but still take advantage of the
     // nice numbers algorithm when numbers are higher (see
@@ -107,6 +145,7 @@ class Yarkho extends Component {
 }
 
 Yarkho.propTypes = {
+  groups: PropTypes.array.isRequired,
   segments: PropTypes.array.isRequired
 };
 

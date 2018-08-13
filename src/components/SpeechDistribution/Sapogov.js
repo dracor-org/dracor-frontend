@@ -4,7 +4,7 @@ import {Line} from 'react-chartjs-2';
 
 class Sapogov extends Component {
   render () {
-    const {segments} = this.props;
+    const {groups, segments} = this.props;
 
     const data = {
       datasets: [
@@ -28,6 +28,21 @@ class Sapogov extends Component {
         }
       ]
     };
+
+    if (groups.length > 0) {
+      data.datasets.push({
+        label: 'non-group characters only',
+        fill: false,
+        backgroundColor: 'rgba(79,181,198,1)',
+        borderColor: 'rgba(79,181,198,1)',
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: 'rgba(79,181,198,1)',
+        pointHoverBorderColor: 'rgba(220,220,220,1)',
+        pointRadius: 1,
+        pointHitRadius: 10,
+        data: []
+      });
+    }
 
     const options = {
       scales: {
@@ -59,6 +74,13 @@ class Sapogov extends Component {
       labels.push(n);
       //labels.push(seg.title ? seg.title.split(' | ') : n);
       data.datasets[0].data.push(numSpeakers);
+
+      if (numSpeakers && groups.length > 0) {
+        const numNonGroups = seg.speakers.filter(
+          id => groups.indexOf(id) === -1
+        ).length;
+        data.datasets[1].data.push(numNonGroups);
+      }
     });
 
     options.scales.xAxes[0].labels = labels;
@@ -81,6 +103,7 @@ class Sapogov extends Component {
 }
 
 Sapogov.propTypes = {
+  groups: PropTypes.array.isRequired,
   segments: PropTypes.array.isRequired
 };
 

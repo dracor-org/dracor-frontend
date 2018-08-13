@@ -5,16 +5,16 @@ import Yarkho from './SpeechDistribution/Yarkho';
 
 class SpeechDistribution extends Component {
   render () {
-    const {segments} = this.props;
+    const {groups, segments} = this.props;
 
     return (
       <div style={{width: '100%'}}>
         <div className="speech-dist-container d-flex">
           <div style={{position: 'relative', width: '90%'}}>
-            <Sapogov segments={segments}/>
+            <Sapogov {...{groups, segments}}/>
           </div>
           <div style={{position: 'relative', width: '90%'}}>
-            <Yarkho segments={segments}/>
+            <Yarkho {...{groups, segments}}/>
           </div>
         </div>
         <br/>
@@ -32,6 +32,7 @@ class SpeechDistribution extends Component {
 }
 
 SpeechDistribution.propTypes = {
+  groups: PropTypes.array.isRequired,
   segments: PropTypes.array.isRequired
 };
 
