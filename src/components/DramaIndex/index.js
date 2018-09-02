@@ -6,7 +6,9 @@ import {Helmet} from 'react-helmet';
 import './index.css';
 
 function splitAuthorName (name) {
-  if (/, /.test(name)) {
+  // just pass through names that already have been split (i.e. having a comma)
+  // or are just a single names (e.g. Klabund)
+  if (/, /.test(name) || /^[^ ]+$/.test(name)) {
     return name;
   }
   const parts = name.split(' ');
