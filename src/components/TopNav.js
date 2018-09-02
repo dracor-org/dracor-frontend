@@ -42,6 +42,9 @@ class CorporaDropdown extends Component {
           <DropdownItem onClick={() => history.push('/rus')}>
             Russian Drama Corpus
           </DropdownItem>
+          <DropdownItem onClick={() => history.push('/shake')}>
+            Shakespeare Drama Corpus
+          </DropdownItem>
         </DropdownMenu>
       </Dropdown>
     );
