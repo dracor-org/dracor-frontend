@@ -40,7 +40,14 @@ class Metrics extends Component {
     return (
       <Row>
         {data.metrics.map(m => (
-          <Col key={`metrics-${m.corpus.name}`} lg={6} sm={12} xs={12}>
+          <Col
+            key={`metrics-${m.corpus.name}`}
+            xl={4}
+            lg={6}
+            md={6}
+            sm={12}
+            xs={12}
+          >
             <h3>
               <Link to={`/${m.corpus.name}`}>{m.corpus.title}</Link>
             </h3>
