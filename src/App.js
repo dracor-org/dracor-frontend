@@ -18,12 +18,16 @@ const Home = () => (
     <div style={{textAlign: 'center', maxWidth: '750px', margin: '1em auto'}}>
       <small>
         <em>
-          {`The two TEI drama corpora (and possibly more in the future) hosted
-            on dracor.org are in pre-alpha state. Feel free to use them, but
+          {`Our two in-house TEI corpora (RusDraCor and GerDraCor) hosted on
+            dracor.org are in public-alpha state. Feel free to use them, but
             there are some issues that still have to be resolved before the
-            official release, which will happen in the second half of 2018. –
-            dracor.org is edited by `
+            official release, which might happen in early 2019. – ShakeDraCor
+            was derived from the `
           }
+          <a href="https://www.folgerdigitaltexts.org/">
+            Shakespeare Folger Library
+          </a>
+          {`. – dracor.org is edited by `}
           <a href="https://www.hse.ru/en/org/persons/182492735">
             Frank&nbsp;Fischer
           </a>
