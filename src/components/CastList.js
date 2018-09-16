@@ -19,7 +19,7 @@ class TooltipItem extends Component {
   render () {
     const {tooltipOpen} = this.state;
     const {id, placement, children} = this.props;
-    const tid = `tooltip-${id}`;
+    const tid = `tooltip-${id}`.replace(/\./g, '-');
     return (
       <span id={tid}>
         {children}
