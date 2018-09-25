@@ -75,8 +75,9 @@ class Sapogov extends Component {
       //labels.push(seg.title ? seg.title.split(' | ') : n);
       data.datasets[0].data.push(numSpeakers);
 
-      if (numSpeakers && groups.length > 0) {
-        const numNonGroups = seg.speakers.filter(
+      if (groups.length > 0) {
+        const speakers = seg.speakers || [];
+        const numNonGroups = speakers.filter(
           id => groups.indexOf(id) === -1
         ).length;
         data.datasets[1].data.push(numNonGroups);
