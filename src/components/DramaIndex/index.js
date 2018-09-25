@@ -96,8 +96,18 @@ class DramaIndex extends Component {
               <Td column="Title" value={d.title}>
                 <span>
                   <Link to={join(match.url, d.id)}>{d.title}</Link>
-                  <br/>
-                  <small>{d.subtitle}</small>
+                  {d.subtitle ? <small><br/>{d.subtitle}</small> : null}
+                  {d.wikidataId ?
+                    <small>
+                      <br/>
+                      <a
+                        href={`https://www.wikidata.org/wiki/${d.wikidataId}`}
+                        title="Wikidata"
+                      >
+                        {d.wikidataId}
+                      </a>
+                    </small>
+                  : null}
                 </span>
               </Td>
               <Td column="Written" value={parseInt(d.writtenYear, 10) || 0}>
