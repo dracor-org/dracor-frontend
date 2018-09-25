@@ -82,7 +82,20 @@ class DramaIndex extends Component {
       >
         {data.dramas.map(d => {
           const authors = splitAuthors(d.authors).join(' · ');
-          const keys = d.authors.map(a => a.key).join(' · ');
+          const keys = d.authors.map(a => {
+            const matches = a.key.match(/^Wikidata:(Q[0-9]+)$/);
+            if (matches) {
+              const id = matches[1];
+              return (
+                <span key={id}>
+                  Wikidata:
+                  {' '}
+                  <a href={`https://www.wikidata.org/wiki/${id}`}>{id}</a>
+                </span>
+              );
+            }
+            return <span key={a.key}>{a.key}</span>;
+          });
           const teiUrl = `/api/corpus/${match.params.corpusId}/play/${d.id}/tei`;
           return (
             <Tr key={d.id}>
@@ -90,7 +103,16 @@ class DramaIndex extends Component {
                 <span>
                   {authors}
                   <br/>
-                  <small>{keys}</small>
+                  <small>
+                    {
+                      keys.map((elem, i) => (
+                        <span key={`authorkey-${elem.key}`}>
+                          {Boolean(i) && ' · '}
+                          {elem}
+                        </span>
+                      ))
+                    }
+                  </small>
                 </span>
               </Td>
               <Td column="Title" value={d.title}>
