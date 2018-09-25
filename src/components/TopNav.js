@@ -76,6 +76,14 @@ export default class TopNav extends Component {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <Route path="/" component={CorporaDropdown}/>
+            <NavItem>
+              <NavLink
+                href="https://dracor.org/documentation/api/"
+                target="dracor-swagger"
+              >
+                API
+              </NavLink>
+            </NavItem>
           </Nav>
           <Nav className="ml-auto" navbar>
             <NavItem>
