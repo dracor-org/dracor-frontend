@@ -100,6 +100,8 @@ class DramaIndex extends Component {
                   {d.wikidataId ?
                     <small>
                       <br/>
+                      Wikidata:
+                      {' '}
                       <a
                         href={`https://www.wikidata.org/wiki/${d.wikidataId}`}
                         title="Wikidata"
