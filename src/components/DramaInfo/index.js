@@ -133,6 +133,7 @@ class DramaInfo extends Component {
     }
 
     const csvUrl = `/api/corpus/${data.corpus}/play/${data.id}/networkdata/csv`;
+    const gexfUrl = `/api/corpus/${data.corpus}/play/${data.id}/networkdata/gexf`;
 
     return (
       <div className="h-100 d-md-flex flex-md-column">
@@ -214,9 +215,10 @@ class DramaInfo extends Component {
                 <PlayMetrics {...{data, graph}}/>
               </CardBody>
               <CardFooter className="text-center">
-                <a href={csvUrl} download={`${data.id}.csv`}>
-                  Download CSV
-                </a>
+                {'Download: '}
+                <a href={csvUrl} download={`${data.id}.csv`}>CSV</a>
+                {' · '}
+                <a href={gexfUrl} download={`${data.id}.gexf`}>GEXF</a>
               </CardFooter>
             </Card>
           </div>
