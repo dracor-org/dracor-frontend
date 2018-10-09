@@ -215,10 +215,12 @@ class DramaInfo extends Component {
                 <PlayMetrics {...{data, graph}}/>
               </CardBody>
               <CardFooter className="text-center">
-                {'Download: '}
-                <a href={csvUrl} download={`${data.id}.csv`}>CSV</a>
-                {' · '}
-                <a href={gexfUrl} download={`${data.id}.gexf`}>GEXF</a>
+                <small>
+                  {'Download network data: '}
+                  <a href={csvUrl} download={`${data.id}.csv`}>CSV</a>
+                  {' · '}
+                  <a href={gexfUrl} download={`${data.id}.gexf`}>GEXF</a>
+                </small>
               </CardFooter>
             </Card>
           </div>
