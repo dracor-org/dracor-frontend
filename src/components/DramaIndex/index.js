@@ -44,7 +44,7 @@ class DramaIndex extends Component {
   }
 
   load (corpusId) {
-    const url = `/api/corpus/${corpusId}`;
+    const url = `/api/corpora/${corpusId}`;
     const opts = {};
     console.log('loading %s', url);
     fetch(url, opts)
@@ -96,7 +96,7 @@ class DramaIndex extends Component {
             }
             return <span key={a.key}>{a.key}</span>;
           });
-          const teiUrl = `/api/corpus/${match.params.corpusId}/play/${d.id}/tei`;
+          const teiUrl = `/api/corpora/${match.params.corpusId}/play/${d.id}/tei`;
           return (
             <Tr key={d.id}>
               <Td column="Author" value={authors}>

@@ -96,7 +96,7 @@ class DramaInfo extends Component {
   }
 
   load (corpusId, dramaId) {
-    const url = `/api/corpus/${corpusId}/play/${dramaId}`;
+    const url = `/api/corpora/${corpusId}/play/${dramaId}`;
     console.log('loading %s', url);
     fetch(url, {})
       .then(response => {
@@ -132,8 +132,8 @@ class DramaInfo extends Component {
       tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor}}/>;
     }
 
-    const csvUrl = `/api/corpus/${data.corpus}/play/${data.id}/networkdata/csv`;
-    const gexfUrl = `/api/corpus/${data.corpus}/play/${data.id}/networkdata/gexf`;
+    const csvUrl = `/api/corpora/${data.corpus}/play/${data.id}/networkdata/csv`;
+    const gexfUrl = `/api/corpora/${data.corpus}/play/${data.id}/networkdata/gexf`;
 
     return (
       <div className="h-100 d-md-flex flex-md-column">
