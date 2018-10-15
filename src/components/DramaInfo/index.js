@@ -137,7 +137,7 @@ class DramaInfo extends Component {
 
     return (
       <div className="h-100 d-md-flex flex-md-column">
-        <Helmet titleTemplate="%s - Dracor.org">
+        <Helmet titleTemplate="%s - DraCor">
           <title>{`${data.author.name}: ${data.title}`}</title>
         </Helmet>
 

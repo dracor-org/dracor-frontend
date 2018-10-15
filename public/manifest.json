@@ -1,6 +1,6 @@
 {
-  "short_name": "Dracor.org",
-  "name": "Dracor.org Website",
+  "short_name": "DraCor",
+  "name": "Drama Corpora Project Website",
   "icons": [],
   "start_url": "./index.html",
   "display": "standalone",

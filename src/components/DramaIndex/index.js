@@ -161,7 +161,7 @@ class DramaIndex extends Component {
     const {data} = this.state;
     return data ? (
       <div>
-        <Helmet titleTemplate="%s - Dracor.org">
+        <Helmet titleTemplate="%s - DraCor">
           <title>{data.title}</title>
         </Helmet>
         <h2>{data.title}</h2>

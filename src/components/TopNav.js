@@ -71,7 +71,7 @@ export default class TopNav extends Component {
     const {isOpen} = this.state;
     return (
       <Navbar color="light" light expand="md" className="mb-4">
-        <NavbarBrand href="/">Dracor</NavbarBrand>
+        <NavbarBrand href="/">Drama Corpora Project (DraCor)</NavbarBrand>
         <NavbarToggler onClick={this.toggle}/>
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
