@@ -75,6 +75,7 @@ class DramaIndex extends Component {
           'Author',
           'Title',
           'Source',
+          'Network Size',
           'Written',
           'Premiered',
           'Printed']
@@ -133,6 +134,9 @@ class DramaIndex extends Component {
                     </small>
                   : null}
                 </span>
+              </Td>
+              <Td column="Network Size" value={parseInt(d.networkSize, 10) || 0}>
+                {d.networkSize}
               </Td>
               <Td column="Written" value={parseInt(d.writtenYear, 10) || 0}>
                 {d.writtenYear}
