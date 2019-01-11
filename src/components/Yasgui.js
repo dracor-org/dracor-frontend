@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Helmet} from 'react-helmet';
 import yasgui from 'yasgui/dist/yasgui';
 
 import 'yasgui/dist/yasgui.min.css';
@@ -20,7 +21,14 @@ class Yasgui extends Component {
   }
 
   render () {
-    return <div id="yasgui"/>;
+    return (
+      <div>
+        <Helmet titleTemplate="%s - DraCor">
+          <title>SPARQL</title>
+        </Helmet>
+        <div id="yasgui"/>
+      </div>
+    );
   }
 }
 
