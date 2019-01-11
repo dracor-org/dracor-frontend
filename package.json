@@ -18,7 +18,8 @@
     "react-sigma": "^1.2.29",
     "reactable": "dracor-org/reactable",
     "reactstrap": "5.0.0-alpha.4",
-    "whatwg-fetch": "^2.0.3"
+    "whatwg-fetch": "^2.0.3",
+    "yasgui": "^2.7.29"
   },
   "scripts": {
     "start": "react-scripts start",
