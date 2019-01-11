@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Route} from 'react-router-dom';
+import {Route, NavLink as RouterNavLink} from 'react-router-dom';
 import {
   Collapse,
   Navbar,
@@ -76,6 +76,11 @@ export default class TopNav extends Component {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <Route path="/" component={CorporaDropdown}/>
+            <NavItem>
+              <RouterNavLink to="/sparql" className="nav-link">
+                SPARQL
+              </RouterNavLink>
+            </NavItem>
             <NavItem>
               <NavLink
                 href="https://dracor.org/documentation/api/"
