@@ -18,7 +18,7 @@ class Metrics extends Component {
   }
 
   load () {
-    const url = `/api/metrics`;
+    const url = `/api/corpora?include=metrics`;
     fetch(url, {})
       .then(response => {
         return response.json();
@@ -34,14 +34,14 @@ class Metrics extends Component {
 
   renderData () {
     const {data} = this.state;
-    if (!data || !data.metrics) {
+    if (!data || data.length === 0) {
       return null;
     }
     return (
       <Row>
-        {data.metrics.map(m => (
+        {data.map(m => (
           <Col
-            key={`metrics-${m.corpus.name}`}
+            key={`metrics-${m.name}`}
             xl={4}
             lg={6}
             md={6}
@@ -49,45 +49,49 @@ class Metrics extends Component {
             xs={12}
           >
             <h3>
-              <Link to={`/${m.corpus.name}`}>{m.corpus.title}</Link>
+              <Link to={`/${m.name}`}>{m.title}</Link>
             </h3>
             <table className="table">
               <tbody>
                 <tr>
                   <th>Number of plays</th>
-                  <td>{fn(m.plays)}</td>
+                  <td>{fn(m.metrics.plays)}</td>
                 </tr>
                 <tr>
                   <th>
                     <code>person</code>
                   </th>
                   <td>
-                    {fn(m.characters)} (male: {m.male}, female: {m.female})
+                    {fn(m.metrics.characters)} (male: {m.metrics.male}, female: {m.metrics.female})
                   </td>
                 </tr>
                 <tr>
                   <th>
                     <code>text</code>
                   </th>
-                  <td>{fn(m.wordcount.text)} tokens</td>
+                  <td>{fn(m.metrics.wordcount.text)} tokens</td>
                 </tr>
                 <tr>
                   <th>
                     <code>sp</code>
                   </th>
-                  <td>{fn(m.sp)} ({fn(m.wordcount.sp)} tokens)</td>
+                  <td>
+                    {fn(m.metrics.sp)} ({fn(m.metrics.wordcount.sp)} tokens)
+                  </td>
                 </tr>
                 <tr>
                   <th>
                     <code>stage</code>
                   </th>
-                  <td>{fn(m.stage)} ({fn(m.wordcount.stage)} tokens)</td>
+                  <td>
+                    {fn(m.metrics.stage)} ({fn(m.metrics.wordcount.stage)} tokens)
+                  </td>
                 </tr>
                 <tr>
                   <th>
                     Last update
                   </th>
-                  <td>{(new Date(m.updated)).toLocaleString()}</td>
+                  <td>{(new Date(m.metrics.updated)).toLocaleString()}</td>
                 </tr>
               </tbody>
             </table>
