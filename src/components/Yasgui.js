@@ -4,9 +4,13 @@ import yasgui from 'yasgui/dist/yasgui';
 
 import 'yasgui/dist/yasgui.min.css';
 
+yasgui.defaults.catalogueEndpoints = [
+  {endpoint: 'https://dracor.org/api/sparql', title: 'Dracor'},
+  {endpoint: 'https://query.wikidata.org/sparql', title: 'Wikidata'}
+];
+
 class Yasgui extends Component {
   componentDidMount () {
-    console.log(yasgui);
     yasgui(document.getElementById('yasgui'), {
       yasqe: {
         sparql: {
