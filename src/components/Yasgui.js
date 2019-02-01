@@ -12,6 +12,9 @@ yasgui.defaults.catalogueEndpoints = [
 class Yasgui extends Component {
   componentDidMount () {
     yasgui(document.getElementById('yasgui'), {
+      api: {
+        urlShortener: 'https://dracor.org/shorten'
+      },
       yasqe: {
         sparql: {
           endpoint: 'https://dracor.org/api/sparql',
