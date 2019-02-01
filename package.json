@@ -37,12 +37,18 @@
     }
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
     "eslint": "^4.11.0",
     "eslint-config-xo-react": "^0.15.0",
     "eslint-plugin-react": "^7.5.1",
     "xo": "^0.18.2"
   },
   "xo": {
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "sourceType": "module",
+      "allowImportExportEverywhere": true
+    },
     "extends": "xo-react",
     "space": true,
     "semicolon": true,
