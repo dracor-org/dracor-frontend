@@ -15,8 +15,11 @@ import PlayMetrics from '../PlayMetrics';
 import CastList from '../CastList';
 import NetworkGraph from '../NetworkGraph';
 import SpeechDistribution from '../SpeechDistribution';
+import config from '../../config';
 
 import './index.css';
+
+const {apiUrl} = config;
 
 const edgeColor = '#999';
 const nodeColor = '#555';
@@ -96,7 +99,7 @@ class DramaInfo extends Component {
   }
 
   load (corpusId, dramaId) {
-    const url = `/api/corpora/${corpusId}/play/${dramaId}`;
+    const url = `${apiUrl}/corpora/${corpusId}/play/${dramaId}`;
     console.log('loading %s', url);
     fetch(url, {})
       .then(response => {
@@ -132,8 +135,10 @@ class DramaInfo extends Component {
       tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor}}/>;
     }
 
-    const csvUrl = `/api/corpora/${data.corpus}/play/${data.id}/networkdata/csv`;
-    const gexfUrl = `/api/corpora/${data.corpus}/play/${data.id}/networkdata/gexf`;
+    const csvUrl =
+      `${apiUrl}/corpora/${data.corpus}/play/${data.id}/networkdata/csv`;
+    const gexfUrl =
+      `${apiUrl}/corpora/${data.corpus}/play/${data.id}/networkdata/gexf`;
 
     return (
       <div className="h-100 d-md-flex flex-md-column">

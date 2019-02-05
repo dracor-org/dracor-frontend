@@ -2,8 +2,11 @@ import React, {Component} from 'react';
 import {Table, Tr, Td} from 'reactable';
 import {Link} from 'react-router-dom';
 import {Helmet} from 'react-helmet';
+import config from '../../config';
 
 import './index.css';
+
+const {apiUrl} = config;
 
 function splitAuthorName (name) {
   // just pass through names that already have been split (i.e. having a comma)
@@ -44,7 +47,7 @@ class DramaIndex extends Component {
   }
 
   load (corpusId) {
-    const url = `/api/corpora/${corpusId}`;
+    const url = `${apiUrl}/corpora/${corpusId}`;
     const opts = {};
     console.log('loading %s', url);
     fetch(url, opts)
@@ -97,7 +100,8 @@ class DramaIndex extends Component {
             }
             return <span key={a.key}>{a.key}</span>;
           });
-          const teiUrl = `/api/corpora/${match.params.corpusId}/play/${d.id}/tei`;
+          const teiUrl =
+            `${apiUrl}/corpora/${match.params.corpusId}/play/${d.id}/tei`;
           return (
             <Tr key={d.id}>
               <Td column="Author" value={authors}>
