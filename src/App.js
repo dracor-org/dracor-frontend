@@ -6,6 +6,7 @@ import DramaInfo from './components/DramaInfo';
 import Metrics from './components/Metrics';
 import TopNav from './components/TopNav';
 import Yasgui from './components/Yasgui';
+import APIDoc from './components/APIDoc';
 import './App.css';
 
 const Home = () => (
@@ -60,6 +61,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/sparql" component={Yasgui}/>
+                <Route exact path="/documentation/api" component={APIDoc}/>
                 <Route exact path="/:corpusId" component={DramaIndex}/>
                 <Route path="/:corpusId/:dramaId" component={DramaPage}/>
               </Switch>

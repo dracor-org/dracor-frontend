@@ -82,12 +82,9 @@ export default class TopNav extends Component {
               </RouterNavLink>
             </NavItem>
             <NavItem>
-              <NavLink
-                href="https://dracor.org/documentation/api/"
-                target="dracor-swagger"
-              >
+              <RouterNavLink to="/documentation/api" className="nav-link">
                 API
-              </NavLink>
+              </RouterNavLink>
             </NavItem>
           </Nav>
           <Nav className="ml-auto" navbar>
