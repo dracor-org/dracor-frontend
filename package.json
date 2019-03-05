@@ -30,7 +30,7 @@
   },
   "proxy": {
     "/api": {
-      "target": "http://localhost:8383",
+      "target": "http://localhost:8080",
       "pathRewrite": {
         "^/api": "/exist/restxq"
       }
