@@ -29,10 +29,16 @@
     "deployment": "yarn run build && rsync -av build/ root@dracor.org:/var/www/html/"
   },
   "proxy": {
-    "/api": {
+    "/api/": {
       "target": "http://localhost:8080",
       "pathRewrite": {
         "^/api": "/exist/restxq"
+      }
+    },
+    "/api.yaml": {
+      "target": "http://localhost:8080",
+      "pathRewrite": {
+        "^/api.yaml": "/exist/apps/dracor/api.yaml"
       }
     }
   },
