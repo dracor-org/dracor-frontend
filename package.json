@@ -1,6 +1,6 @@
 {
   "name": "dracor-frontend",
-  "version": "0.18.0",
+  "version": "0.19.0",
   "private": true,
   "dependencies": {
     "bootstrap": ">=4.3.1",
