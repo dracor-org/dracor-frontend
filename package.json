@@ -14,7 +14,7 @@
     "react-helmet": "^5.2.0",
     "react-octicon": "^3.0.1",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.17",
+    "react-scripts": "2.1.8",
     "react-sigma": "^1.2.29",
     "reactable": "dracor-org/reactable",
     "reactstrap": "5.0.0-alpha.4",
@@ -99,5 +99,11 @@
       ],
       "unicorn/filename-case": 0
     }
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
