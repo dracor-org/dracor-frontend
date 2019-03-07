@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {Container} from 'reactstrap';
+import asyncComponent from './components/AsyncComponent';
 import DramaIndex from './components/DramaIndex';
 import DramaInfo from './components/DramaInfo';
 import Metrics from './components/Metrics';
 import TopNav from './components/TopNav';
-import Yasgui from './components/Yasgui';
-import APIDoc from './components/APIDoc';
 import './App.css';
+
+const AsyncYasgui = asyncComponent(() => import('./components/Yasgui'));
+const AsyncAPIDoc = asyncComponent(() => import('./components/APIDoc'));
 
 const Home = () => (
   <div>
@@ -60,8 +62,8 @@ class App extends Component {
             <Container fluid>
               <Switch>
                 <Route exact path="/" component={Home}/>
-                <Route exact path="/sparql" component={Yasgui}/>
-                <Route exact path="/documentation/api" component={APIDoc}/>
+                <Route exact path="/sparql" component={AsyncYasgui}/>
+                <Route exact path="/documentation/api" component={AsyncAPIDoc}/>
                 <Route exact path="/:corpusId" component={DramaIndex}/>
                 <Route path="/:corpusId/:dramaId" component={DramaPage}/>
               </Switch>
