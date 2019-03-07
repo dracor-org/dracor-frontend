@@ -155,7 +155,7 @@ class DramaIndex extends Component {
                 <span>
                   {d.sourceUrl ? <a href={d.sourceUrl}>{d.source}</a> : d.source}
                   <br/>
-                  (<a href={teiUrl} target="_blank">TEI version</a>)
+                  (<a href={teiUrl} target="_blank" rel="noopener noreferrer">TEI version</a>)
                 </span>
               </Td>
             </Tr>
