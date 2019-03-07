@@ -6,6 +6,7 @@
     "bootstrap": ">=4.3.1",
     "chart.js": "^2.7.1",
     "classnames": "^2.2.5",
+    "http-proxy-middleware": "^0.19.1",
     "jsnetworkx": "fkling/JSNetworkX#v0.3.4",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
@@ -28,20 +29,6 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deployment": "yarn run build && rsync -av build/ root@dracor.org:/var/www/html/"
-  },
-  "proxy": {
-    "/api/": {
-      "target": "http://localhost:8080",
-      "pathRewrite": {
-        "^/api": "/exist/restxq"
-      }
-    },
-    "/api.yaml": {
-      "target": "http://localhost:8080",
-      "pathRewrite": {
-        "^/api.yaml": "/exist/apps/dracor/api.yaml"
-      }
-    }
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
