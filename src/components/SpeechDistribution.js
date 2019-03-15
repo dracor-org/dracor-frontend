@@ -24,7 +24,7 @@ class SpeechDistribution extends Component {
             Sapogov 1974
           </a>
           {', '}
-          <a href="http://rvb.ru/philologica/04/04iarxo.htm">Yarkho 1997</a>
+          <a href="https://doi.org/10.1515/jlt-2019-0002">Yarkho 2019</a>
         </p>
       </div>
     );
