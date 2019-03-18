@@ -1,0 +1,4 @@
+/* workaround class name collision between bootstrap and swagger-ui */
+.swagger-ui .col {
+  width: initial;
+}
