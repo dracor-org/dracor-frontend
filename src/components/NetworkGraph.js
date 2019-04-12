@@ -26,9 +26,9 @@ class NetworkGraph extends Component {
     };
 
     const layoutOptions = {
-      iterationsPerRender: 1,
+      iterationsPerRender: 40,
       edgeWeightInfluence: 0,
-      timeout: 1000,
+      timeout: 2000,
       adjustSizes: false,
       gravity: 3,
       slowDown: 5,
