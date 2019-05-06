@@ -25,9 +25,13 @@ const Home = () => (
           {`Our two in-house TEI corpora (RusDraCor and GerDraCor) hosted on
             dracor.org are in public-alpha state. Feel free to use them, but
             there are some issues that still have to be resolved before the
-            official release, which might happen in early 2019. – ShakeDraCor
-            was derived from the `
+            official release, which is planned for the second half of 2019. –
+            SpanDraCor is based on our fork of the `
           }
+          <a href="https://github.com/GHEDI/BETTE">
+            BETTE corpus
+          </a>
+          {`. – ShakeDraCor was derived from the `}
           <a href="https://www.folgerdigitaltexts.org/">
             Shakespeare Folger Library
           </a>
