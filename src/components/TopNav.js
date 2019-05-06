@@ -13,14 +13,37 @@ import {
   DropdownMenu,
   DropdownItem
 } from 'reactstrap';
+import config from '../config';
+
+const {apiUrl} = config;
 
 class CorporaDropdown extends Component {
   constructor (props) {
     super(props);
     this.toggle = this.toggle.bind(this);
     this.state = {
+      corpora: [],
       isOpen: false
     };
+  }
+
+  componentWillMount () {
+    this.load();
+  }
+
+  load () {
+    const url = `${apiUrl}/corpora`;
+    fetch(url, {})
+      .then(response => {
+        return response.json();
+      })
+      .then(corpora => {
+        console.log(corpora);
+        this.setState({corpora});
+      })
+      .catch(err => {
+        console.log('parsing failed', err);
+      });
   }
 
   toggle () {
@@ -28,26 +51,25 @@ class CorporaDropdown extends Component {
   }
 
   render () {
-    const {isOpen} = this.state;
+    const {isOpen, corpora} = this.state;
     const {history} = this.props;
+
+    const items = corpora.map(c => {
+      const path = `/${c.name}`;
+      return (
+        <DropdownItem key={c.name} onClick={() => history.push(path)}>
+          {c.title}
+        </DropdownItem>
+      );
+    });
+
     return (
       <Dropdown isOpen={isOpen} toggle={this.toggle}>
         <DropdownToggle nav caret>
           Corpora
         </DropdownToggle>
         <DropdownMenu>
-          <DropdownItem onClick={() => history.push('/ger')}>
-            German Drama Corpus
-          </DropdownItem>
-          <DropdownItem onClick={() => history.push('/rus')}>
-            Russian Drama Corpus
-          </DropdownItem>
-          <DropdownItem onClick={() => history.push('/shake')}>
-            Shakespeare Drama Corpus
-          </DropdownItem>
-          <DropdownItem onClick={() => history.push('/span')}>
-            Spanish Drama Corpus
-          </DropdownItem>
+          {items}
         </DropdownMenu>
       </Dropdown>
     );
