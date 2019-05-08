@@ -62,7 +62,7 @@ class Metrics extends Component {
                 </tr>
                 <tr>
                   <th>
-                    <code>person</code>
+                    <code>person</code> + <code>personGrp</code>
                   </th>
                   <td>
                     {fn(m.metrics.characters)} (male: {m.metrics.male}, female: {m.metrics.female})
