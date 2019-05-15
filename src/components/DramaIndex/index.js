@@ -87,7 +87,7 @@ class DramaIndex extends Component {
         {data.dramas.map(d => {
           const authors = splitAuthors(d.authors).join(' · ');
           const keys = d.authors.map(a => {
-            const matches = a.key.match(/^Wikidata:(Q[0-9]+)$/);
+            const matches = a.key.match(/^[Ww]ikidata:(Q[0-9]+)$/);
             if (matches) {
               const id = matches[1];
               return (
