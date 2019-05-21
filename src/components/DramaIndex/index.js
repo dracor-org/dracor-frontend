@@ -121,7 +121,10 @@ class DramaIndex extends Component {
             `${apiUrl}/corpora/${match.params.corpusId}/play/${d.id}/tei`;
           return (
             <Tr key={d.id}>
-              <Td column="Author" value={authors}>
+              <Td
+                column="Author"
+                value={`${authors} ${keys.map(e => e.key).join(' ')}`}
+              >
                 <span>
                   {authors}
                   <br/>
@@ -137,7 +140,10 @@ class DramaIndex extends Component {
                   </small>
                 </span>
               </Td>
-              <Td column="Title" value={d.title}>
+              <Td
+                column="Title"
+                value={`${d.title} ${d.subtitle} ${d.wikidataId}`}
+              >
                 <span>
                   <Link to={join(match.url, d.id)}>{d.title}</Link>
                   {d.subtitle ? <small><br/>{d.subtitle}</small> : null}
@@ -161,7 +167,7 @@ class DramaIndex extends Component {
               </Td>
               <Td
                 column="Year (normalized)"
-                value={parseInt(d.yearNormalized, 10) || 0}
+                value={`${d.yearNormalized} ${d.writtenYear} ${d.premiereYear} ${d.printYear}`}
                 align="center"
               >
                 <span>
