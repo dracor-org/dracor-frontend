@@ -80,10 +80,8 @@ class DramaIndex extends Component {
           'Title',
           'Source',
           'Network Size',
-          'Written',
-          'Premiered',
-          'Printed']
-        }
+          'Year (normalized)'
+        ]}
       >
         {data.dramas.map(d => {
           const authors = splitAuthors(d.authors).join(' · ');
