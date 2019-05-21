@@ -11,3 +11,13 @@ th.reactable-header-sort-asc:after {
   padding-left: 10px;
   padding-bottom: 5px;
 }
+
+.year-details {
+  font-size: 80%;
+  white-space: nowrap;
+}
+
+.year-details > span {
+  display: inline-block;
+  margin-right: 4px;
+}

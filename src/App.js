@@ -1,12 +1,20 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {Container} from 'reactstrap';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {
+  faBook,
+  faPenFancy,
+  faTheaterMasks
+} from '@fortawesome/free-solid-svg-icons';
 import asyncComponent from './components/AsyncComponent';
 import DramaIndex from './components/DramaIndex';
 import DramaInfo from './components/DramaInfo';
 import Metrics from './components/Metrics';
 import TopNav from './components/TopNav';
 import './App.css';
+
+library.add(faBook, faPenFancy, faTheaterMasks);
 
 const AsyncYasgui = asyncComponent(() => import('./components/Yasgui'));
 const AsyncAPIDoc = asyncComponent(() => import('./components/APIDoc'));

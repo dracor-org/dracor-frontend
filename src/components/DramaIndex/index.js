@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Table, Tr, Td} from 'reactable';
 import {Link} from 'react-router-dom';
 import {Helmet} from 'react-helmet';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import config from '../../config';
 
 import './index.css';
@@ -100,6 +101,24 @@ class DramaIndex extends Component {
             }
             return <span key={a.key}>{a.key}</span>;
           });
+          const yWritten = d.writtenYear ? (
+            <span title="written">
+              <FontAwesomeIcon icon="pen-fancy" size="sm"/>&nbsp;
+              {d.writtenYear}
+            </span>
+          ) : null;
+          const yPrint = d.printYear ? (
+            <span title="printed">
+              <FontAwesomeIcon icon="book" size="sm"/>&nbsp;
+              {d.printYear}
+            </span>
+          ) : null;
+          const yPremiere = d.premiereYear ? (
+            <span title="premiered">
+              <FontAwesomeIcon icon="theater-masks" size="sm"/>&nbsp;
+              {d.premiereYear}
+            </span>
+          ) : null;
           const teiUrl =
             `${apiUrl}/corpora/${match.params.corpusId}/play/${d.id}/tei`;
           return (
@@ -142,14 +161,22 @@ class DramaIndex extends Component {
               <Td column="Network Size" value={parseInt(d.networkSize, 10) || 0}>
                 {d.networkSize}
               </Td>
-              <Td column="Written" value={parseInt(d.writtenYear, 10) || 0}>
-                {d.writtenYear}
-              </Td>
-              <Td column="Premiered" value={parseInt(d.premiereYear, 10) || 0}>
-                {d.premiereYear}
-              </Td>
-              <Td column="Printed" value={parseInt(d.printYear, 10) || 0}>
-                {d.printYear}
+              <Td
+                column="Year (normalized)"
+                value={parseInt(d.yearNormalized, 10) || 0}
+                align="center"
+              >
+                <span>
+                  {d.yearNormalized}
+                  <br/>
+                  <span className="year-details">
+                    {yWritten}
+                    {' '}
+                    {yPremiere}
+                    {' '}
+                    {yPrint}
+                  </span>
+                </span>
               </Td>
               <Td column="Source" value={d.source}>
                 <span>
