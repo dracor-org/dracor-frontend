@@ -30,6 +30,7 @@ function getCooccurrences (segments) {
     if (!s.speakers) {
       return;
     }
+
     // make sure each speaker occurs only once in scene
     const speakers = s.speakers.filter((v, i, a) => a.indexOf(v) === i);
     speakers.forEach((c, i) => {
@@ -111,8 +112,8 @@ class DramaInfo extends Component {
         console.log(graph);
         this.setState({data, graph});
       })
-      .catch(err => {
-        console.log('parsing failed', err);
+      .catch(error => {
+        console.log('parsing failed', error);
       });
   }
 
@@ -128,6 +129,7 @@ class DramaInfo extends Component {
     if (['network', 'speech'].indexOf(tab) === -1) {
       tab = 'network';
     }
+
     let tabContent = null;
     if (tab === 'speech') {
       tabContent = <SpeechDistribution segments={data.segments} {...{groups}}/>;
@@ -212,6 +214,7 @@ class DramaInfo extends Component {
             >
               <CardHeader>
                 Metrics
+                {' '}
                 <a href="#network-graph" className="float-right d-md-none">
                   graph
                 </a>

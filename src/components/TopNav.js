@@ -41,8 +41,8 @@ class CorporaDropdown extends Component {
         console.log(corpora);
         this.setState({corpora});
       })
-      .catch(err => {
-        console.log('parsing failed', err);
+      .catch(error => {
+        console.log('parsing failed', error);
       });
   }
 
@@ -95,11 +95,11 @@ export default class TopNav extends Component {
   render () {
     const {isOpen} = this.state;
     return (
-      <Navbar color="light" light expand="md" className="mb-4">
+      <Navbar light color="light" expand="md" className="mb-4">
         <NavbarBrand href="/">Drama Corpora Project (DraCor)</NavbarBrand>
         <NavbarToggler onClick={this.toggle}/>
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
+        <Collapse navbar isOpen={isOpen}>
+          <Nav navbar className="mr-auto">
             <Route path="/" component={CorporaDropdown}/>
             <NavItem>
               <RouterNavLink to="/sparql" className="nav-link">
@@ -112,7 +112,7 @@ export default class TopNav extends Component {
               </RouterNavLink>
             </NavItem>
           </Nav>
-          <Nav className="ml-auto" navbar>
+          <Nav navbar className="ml-auto">
             <NavItem>
               <NavLink href="https://ezlinavis.dracor.org/">
                 Easy Linavis

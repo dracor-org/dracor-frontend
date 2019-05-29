@@ -15,6 +15,7 @@ function splitAuthorName (name) {
   if (/, /.test(name) || /^[^ ]+$/.test(name)) {
     return name;
   }
+
   const parts = name.split(' ');
   const last = parts.pop();
   return `${last}, ${parts.join(' ')}`;
@@ -59,8 +60,8 @@ class DramaIndex extends Component {
         console.log(data);
         this.setState({data});
       })
-      .catch(err => {
-        console.log('parsing failed', err);
+      .catch(error => {
+        console.log('parsing failed', error);
       });
   }
 
@@ -70,10 +71,11 @@ class DramaIndex extends Component {
     if (!data || !data.dramas) {
       return null;
     }
+
     return (
       <Table
-        className="table"
         sortable
+        className="table"
         defaultSort={{column: 'Author', direction: 'asc'}}
         filterable={[
           'Author',
@@ -86,7 +88,7 @@ class DramaIndex extends Component {
         {data.dramas.map(d => {
           const authors = splitAuthors(d.authors).join(' · ');
           const keys = d.authors.map(a => {
-            const matches = a.key.match(/^[Ww]ikidata:(Q[0-9]+)$/);
+            const matches = a.key.match(/^[Ww]ikidata:(Q\d+)$/);
             if (matches) {
               const id = matches[1];
               return (
@@ -97,6 +99,7 @@ class DramaIndex extends Component {
                 </span>
               );
             }
+
             return <span key={a.key}>{a.key}</span>;
           });
           const yWritten = d.writtenYear ? (
@@ -159,7 +162,7 @@ class DramaIndex extends Component {
                         {d.wikidataId}
                       </a>
                     </small>
-                  : null}
+                    : null}
                 </span>
               </Td>
               <Td column="Network Size" value={parseInt(d.networkSize, 10) || 0}>
@@ -185,8 +188,7 @@ class DramaIndex extends Component {
               <Td column="Source" value={d.source}>
                 <span>
                   {d.sourceUrl ? <a href={d.sourceUrl}>{d.source}</a> : d.source}
-                  <br/>
-                  (<a href={teiUrl} target="_blank" rel="noopener noreferrer">TEI version</a>)
+                  <br/>(<a href={teiUrl} target="_blank" rel="noopener noreferrer">TEI version</a>)
                 </span>
               </Td>
             </Tr>

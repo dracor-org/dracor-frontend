@@ -26,6 +26,7 @@ class PlayMetrics extends Component {
         if (x[0] !== y[0]) {
           numPairs++;
         }
+
         if (l > diameter) {
           diameter = l;
         }
@@ -106,8 +107,8 @@ class PlayMetrics extends Component {
         <br/>
         Maximum degree: {maxDegree} ({
           maxDegreeIds.length > 2
-          ? <span title={maxDegreeNames}>{maxDegreeIds.length} characters</span>
-          : <span>{maxDegreeNames}</span>
+            ? <span title={maxDegreeNames}>{maxDegreeIds.length} characters</span>
+            : <span>{maxDegreeNames}</span>
         })
       </div>
     );

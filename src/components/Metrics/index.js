@@ -7,8 +7,7 @@ const {apiUrl} = config;
 
 // Numbers received from the API can be in scientific notation (e.g.
 // 8.248968E6), which is why we need to use parseFloat.
-// eslint-disable-next-line no-new-wrappers
-const fn = val => new Number(parseFloat(val)).toLocaleString('en');
+const fn = val => Number(parseFloat(val)).toLocaleString('en');
 
 class Metrics extends Component {
   constructor (props) {
@@ -30,8 +29,8 @@ class Metrics extends Component {
         console.log(data);
         this.setState({data});
       })
-      .catch(err => {
-        console.log('parsing failed', err);
+      .catch(error => {
+        console.log('parsing failed', error);
       });
   }
 
@@ -40,6 +39,7 @@ class Metrics extends Component {
     if (!data || data.length === 0) {
       return null;
     }
+
     return (
       <Row>
         {data.map(m => (
@@ -68,8 +68,8 @@ class Metrics extends Component {
                     {fn(m.metrics.characters)}
                     {
                       m.metrics.male + m.metrics.female > 0
-                      ? ` (male: ${m.metrics.male}, female: ${m.metrics.female})`
-                      : ''
+                        ? ` (male: ${m.metrics.male}, female: ${m.metrics.female})`
+                        : ''
                     }
                   </td>
                 </tr>

@@ -91,6 +91,7 @@ class Yarkho extends Component {
           yarkho[numSpeakers] = 1;
         }
       }
+
       if (numNonGroups > 0) {
         if (nonGroups[numNonGroups]) {
           nonGroups[numNonGroups]++;
@@ -98,6 +99,7 @@ class Yarkho extends Component {
           nonGroups[numNonGroups] = 1;
         }
       }
+
       if (numSpeakers > maxSpeakers) {
         maxSpeakers = numSpeakers;
       }
@@ -109,6 +111,7 @@ class Yarkho extends Component {
       if (!yarkho[n]) {
         yarkho[n] = 0;
       }
+
       if (!nonGroups[n]) {
         nonGroups[n] = 0;
       }

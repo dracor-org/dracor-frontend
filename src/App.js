@@ -39,11 +39,11 @@ const Home = () => (
           <a href="https://github.com/GHEDI/BETTE">
             BETTE corpus
           </a>
-          {`. – ShakeDraCor was derived from the `}
+          {'. – ShakeDraCor was derived from the '}
           <a href="https://www.folgerdigitaltexts.org/">
             Shakespeare Folger Library
           </a>
-          {`. – dracor.org is edited by `}
+          {'. – dracor.org is edited by '}
           <a href="https://www.hse.ru/en/org/persons/182492735">
             Frank&nbsp;Fischer
           </a>

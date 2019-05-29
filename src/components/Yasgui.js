@@ -23,7 +23,7 @@ LIMIT 10`;
 
 class Yasgui extends Component {
   componentDidMount () {
-    yasgui(document.getElementById('yasgui'), {
+    yasgui(document.querySelector('#yasgui'), {
       api: {
         urlShortener: 'https://dracor.org/shorten'
       },
