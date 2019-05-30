@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {Helmet} from 'react-helmet';
 import BootstrapTable from 'react-bootstrap-table-next';
+import ToolkitProvider, {Search} from 'react-bootstrap-table2-toolkit';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import config from '../../config';
 
@@ -9,6 +10,7 @@ import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import './index.css';
 
 const {apiUrl} = config;
+const {SearchBar} = Search;
 
 function splitAuthorName (name) {
   // just pass through names that already have been split (i.e. having a comma)
@@ -177,11 +179,15 @@ class DramaIndex extends Component {
       dataField: 'authorNames',
       text: 'Authors',
       sort: true,
+      filterValue: (cell, row) =>
+        `${cell} ${row.authors.map(a => a.key).join(' ')}`,
       formatter: formatAuthor
     }, {
       dataField: 'title',
       text: 'Title',
       sort: true,
+      filterValue: (cell, row) =>
+        `${row.title} ${row.subtitle} ${row.wikidataId}`,
       formatter: (cell, row) => formatTitle(row, match)
     }, {
       dataField: 'networkSize',
@@ -192,6 +198,8 @@ class DramaIndex extends Component {
       dataField: 'yearNormalized',
       text: 'Year (normalized)',
       sort: true,
+      filterValue: (cell, row) => `${row.yearNormalized} ${row.writtenYear} ` +
+        `${row.premiereYear} ${row.printYear}`,
       formatter: (cell, row) => formatYear(row)
     }, {
       dataField: 'source',
@@ -206,12 +214,21 @@ class DramaIndex extends Component {
           <title>{data.title}</title>
         </Helmet>
         <h2>{data.title}</h2>
-        <BootstrapTable
-          bootstrap4
+        <ToolkitProvider
+          search
           keyField="id"
           data={data.dramas}
           columns={columns}
-        />
+        >
+          {
+            props => (
+              <div>
+                <SearchBar {...props.searchProps}/>
+                <BootstrapTable {...props.baseProps} bootstrap4/>
+              </div>
+            )
+          }
+        </ToolkitProvider>
       </div>
     ) : (
       <em>loading...</em>
