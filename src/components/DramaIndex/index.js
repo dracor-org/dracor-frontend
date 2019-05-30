@@ -175,6 +175,7 @@ class DramaIndex extends Component {
   render () {
     const {data} = this.state;
     const {match} = this.props;
+
     const columns = [{
       dataField: 'authorNames',
       text: 'Authors',
@@ -208,6 +209,11 @@ class DramaIndex extends Component {
       formatter: (cell, row) => formatSource(row, data.name)
     }];
 
+    const defaultSorted = [{
+      dataField: 'authorNames',
+      order: 'asc'
+    }];
+
     return data ? (
       <div>
         <Helmet titleTemplate="%s - DraCor">
@@ -224,7 +230,12 @@ class DramaIndex extends Component {
             props => (
               <div>
                 <SearchBar {...props.searchProps}/>
-                <BootstrapTable {...props.baseProps} bootstrap4/>
+                <BootstrapTable
+                  {...props.baseProps}
+                  bootstrap4
+                  defaultSorted={defaultSorted}
+                  defaultSortDirection="asc"
+                />
               </div>
             )
           }
