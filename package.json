@@ -21,7 +21,7 @@
     "react-scripts": "3.0.1",
     "react-sigma": "^1.2.30",
     "reactable": "dracor-org/reactable",
-    "reactstrap": "5.0.0-alpha.4",
+    "reactstrap": "8.0.0",
     "swagger-ui-react": "^3.22.2",
     "whatwg-fetch": "^3.0.0",
     "yasgui": "^2.7.29"
