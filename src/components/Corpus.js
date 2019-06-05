@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom';
 import {DracorContext} from '../context';
 import api from '../api';
 import CorpusIndex from './CorpusIndex';
-import DramaInfo from './DramaInfo';
+import Play from './Play';
 
 function splitAuthorName (name) {
   // just pass through names that already have been split (i.e. having a comma)
@@ -23,7 +23,7 @@ function splitAuthors (authors) {
 
 const PlayPage = ({match}) => (
   <div style={{height: '100%'}}>
-    <DramaInfo {...match.params}/>
+    <Play {...match.params}/>
   </div>
 );
 
@@ -70,7 +70,7 @@ const Corpus = ({match, location}) => {
     );
   }
 
-  return <Route path={`${match.path}/:dramaId`} component={PlayPage}/>;
+  return <Route path={`${match.path}/:playId`} component={PlayPage}/>;
 };
 
 export default Corpus;
