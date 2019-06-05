@@ -6,6 +6,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.18",
     "@fortawesome/free-solid-svg-icons": "^5.8.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
+    "apisauce": "^1.0.2",
     "bootstrap": ">=4.3.1",
     "chart.js": "^2.8.0",
     "classnames": "^2.2.6",
@@ -24,7 +25,6 @@
     "react-sigma": "^1.2.30",
     "reactstrap": "8.0.0",
     "swagger-ui-react": "^3.22.2",
-    "whatwg-fetch": "^3.0.0",
     "yasgui": "^2.7.29"
   },
   "scripts": {
