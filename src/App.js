@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {Container} from 'reactstrap';
 import {library} from '@fortawesome/fontawesome-svg-core';
@@ -63,27 +63,25 @@ const DramaPage = ({match}) => (
   </div>
 );
 
-class App extends Component {
-  render () {
-    return (
-      <Router>
-        <div className="d-flex flex-column" style={{height: '100%'}}>
-          <TopNav/>
-          <div className="content d-flex" style={{flex: 1}}>
-            <Container fluid>
-              <Switch>
-                <Route exact path="/" component={Home}/>
-                <Route exact path="/sparql" component={AsyncYasgui}/>
-                <Route exact path="/documentation/api" component={AsyncAPIDoc}/>
-                <Route exact path="/:corpusId" component={DramaIndex}/>
-                <Route path="/:corpusId/:dramaId" component={DramaPage}/>
-              </Switch>
-            </Container>
-          </div>
+const App = () => {
+  return (
+    <Router>
+      <div className="d-flex flex-column" style={{height: '100%'}}>
+        <TopNav/>
+        <div className="content d-flex" style={{flex: 1}}>
+          <Container fluid>
+            <Switch>
+              <Route exact path="/" component={Home}/>
+              <Route exact path="/sparql" component={AsyncYasgui}/>
+              <Route exact path="/documentation/api" component={AsyncAPIDoc}/>
+              <Route exact path="/:corpusId" component={DramaIndex}/>
+              <Route path="/:corpusId/:dramaId" component={DramaPage}/>
+            </Switch>
+          </Container>
         </div>
-      </Router>
-    );
-  }
-}
+      </div>
+    </Router>
+  );
+};
 
 export default App;
