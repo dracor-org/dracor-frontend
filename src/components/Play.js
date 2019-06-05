@@ -82,17 +82,25 @@ function makeGraph (cast, segments) {
 const PlayInfo = ({corpusId, playId}) => {
   const [play, setPlay] = useState(null);
   const [graph, setGraph] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchPlay () {
+      setError(null);
       const url = `/corpora/${corpusId}/play/${playId}`;
       console.log('loading play %s ...', url);
       try {
         const response = await api.get(url);
-        const {cast, segments} = response.data;
-        const graph = makeGraph(cast, segments);
-        setPlay(response.data);
-        setGraph(graph);
+        if (response.ok) {
+          const {cast, segments} = response.data;
+          const graph = makeGraph(cast, segments);
+          setPlay(response.data);
+          setGraph(graph);
+        } else if (response.status === 404) {
+          setError(new Error('not found'));
+        } else {
+          setError(response.originalError);
+        }
       } catch (error) {
         console.error(error);
       }
@@ -100,6 +108,15 @@ const PlayInfo = ({corpusId, playId}) => {
 
     fetchPlay();
   }, [corpusId, playId]);
+
+  if (error && error.message === 'not found') {
+    return <p>No such play!</p>;
+  }
+
+  if (error) {
+    console.log(error);
+    return <p>Error!</p>;
+  }
 
   if (!play) {
     return <p>Loading...</p>;
