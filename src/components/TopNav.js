@@ -13,37 +13,17 @@ import {
   DropdownMenu,
   DropdownItem
 } from 'reactstrap';
-import config from '../config';
-
-const {apiUrl} = config;
+import {DracorContext} from '../context';
 
 class CorporaDropdown extends Component {
+  static contextType = DracorContext;
+
   constructor (props) {
     super(props);
     this.toggle = this.toggle.bind(this);
     this.state = {
-      corpora: [],
       isOpen: false
     };
-  }
-
-  componentWillMount () {
-    this.load();
-  }
-
-  load () {
-    const url = `${apiUrl}/corpora`;
-    fetch(url, {})
-      .then(response => {
-        return response.json();
-      })
-      .then(corpora => {
-        console.log(corpora);
-        this.setState({corpora});
-      })
-      .catch(error => {
-        console.log('parsing failed', error);
-      });
   }
 
   toggle () {
@@ -51,8 +31,9 @@ class CorporaDropdown extends Component {
   }
 
   render () {
-    const {isOpen, corpora} = this.state;
+    const {isOpen} = this.state;
     const {history} = this.props;
+    const {corpora} = this.context;
 
     const items = corpora.map(c => {
       const path = `/${c.name}`;
