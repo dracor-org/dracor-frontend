@@ -10,22 +10,15 @@ import {
 import api from './api';
 import {DracorContext} from './context';
 import asyncComponent from './components/AsyncComponent';
-import DramaIndex from './components/DramaIndex';
-import DramaInfo from './components/DramaInfo';
 import Home from './components/Home';
 import TopNav from './components/TopNav';
+import Corpus from './components/Corpus';
 import './App.css';
 
 library.add(faBook, faPenFancy, faTheaterMasks);
 
 const AsyncYasgui = asyncComponent(() => import('./components/Yasgui'));
 const AsyncAPIDoc = asyncComponent(() => import('./components/APIDoc'));
-
-const DramaPage = ({match}) => (
-  <div style={{height: '100%'}}>
-    <DramaInfo {...match.params}/>
-  </div>
-);
 
 const App = () => {
   const [corpora, setCorpora] = useState([]);
@@ -55,8 +48,7 @@ const App = () => {
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/sparql" component={AsyncYasgui}/>
                 <Route exact path="/documentation/api" component={AsyncAPIDoc}/>
-                <Route exact path="/:corpusId" component={DramaIndex}/>
-                <Route path="/:corpusId/:dramaId" component={DramaPage}/>
+                <Route path="/:corpusId" component={Corpus}/>
               </Switch>
             </Container>
           </div>

@@ -1,0 +1,9 @@
+.year-details {
+  font-size: 80%;
+  white-space: nowrap;
+}
+
+.year-details > span {
+  display: inline-block;
+  margin-right: 4px;
+}
