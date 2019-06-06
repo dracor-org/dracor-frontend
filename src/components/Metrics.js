@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {Row, Col} from 'reactstrap';
-import api from '../../api';
+import api from '../api';
 
 // Numbers received from the API can be in scientific notation (e.g.
 // 8.248968E6), which is why we need to use parseFloat.
