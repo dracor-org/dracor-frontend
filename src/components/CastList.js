@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Tooltip} from 'reactstrap';
-import Octicon from 'react-octicon';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 class TooltipItem extends Component {
   constructor (props) {
@@ -46,7 +46,7 @@ const CastList = ({cast}) => (
           {'  '}
           {
             member.isGroup
-              ? <Octicon style={{color: 'gray'}} name="organization" title="group"/>
+              ? <FontAwesomeIcon icon="users" size="sm" style={{color: 'gray'}}/>
               : null
           }
         </TooltipItem>
