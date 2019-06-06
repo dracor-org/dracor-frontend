@@ -1,20 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {Container} from 'reactstrap';
-import {library} from '@fortawesome/fontawesome-svg-core';
-import {
-  faBook,
-  faPenFancy,
-  faTheaterMasks
-} from '@fortawesome/free-solid-svg-icons';
 import api from './api';
 import {DracorContext} from './context';
 import asyncComponent from './components/AsyncComponent';
 import Home from './components/Home';
 import TopNav from './components/TopNav';
 import Corpus from './components/Corpus';
-
-library.add(faBook, faPenFancy, faTheaterMasks);
+import './icons';
 
 const AsyncYasgui = asyncComponent(() => import('./components/Yasgui'));
 const AsyncAPIDoc = asyncComponent(() => import('./components/APIDoc'));
