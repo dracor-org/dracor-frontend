@@ -13,7 +13,6 @@ import asyncComponent from './components/AsyncComponent';
 import Home from './components/Home';
 import TopNav from './components/TopNav';
 import Corpus from './components/Corpus';
-import './App.css';
 
 library.add(faBook, faPenFancy, faTheaterMasks);
 
