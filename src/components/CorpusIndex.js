@@ -67,28 +67,36 @@ function formatTitle (d, corpusId) {
   );
 }
 
+function formatEra (year) {
+  if (year === null) {
+    return '';
+  }
+
+  return year < 0 ? `${year * -1} BCE` : String(year);
+}
+
 function formatYear (d) {
   const yWritten = d.writtenYear ? (
     <span title="written">
       <FontAwesomeIcon icon="pen-fancy" size="sm"/>&nbsp;
-      {d.writtenYear}
+      {formatEra(d.writtenYear)}
     </span>
   ) : null;
   const yPrint = d.printYear ? (
     <span title="printed">
       <FontAwesomeIcon icon="book" size="sm"/>&nbsp;
-      {d.printYear}
+      {formatEra(d.printYear)}
     </span>
   ) : null;
   const yPremiere = d.premiereYear ? (
     <span title="premiered">
       <FontAwesomeIcon icon="theater-masks" size="sm"/>&nbsp;
-      {d.premiereYear}
+      {formatEra(d.premiereYear)}
     </span>
   ) : null;
   return (
     <span>
-      {d.yearNormalized}
+      {formatEra(d.yearNormalized)}
       <br/>
       <span className="year-details">
         {yWritten}
