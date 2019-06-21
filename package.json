@@ -11,7 +11,6 @@
     "chart.js": "^2.8.0",
     "classnames": "^2.2.6",
     "http-proxy-middleware": "^0.19.1",
-    "jsnetworkx": "fkling/JSNetworkX#v0.3.4",
     "prop-types": "^15.7.2",
     "react": "16.8.6",
     "react-bootstrap-table-next": "^3.1.3",

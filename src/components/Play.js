@@ -226,7 +226,7 @@ const PlayInfo = ({corpusId, playId}) => {
               </a>
             </CardHeader>
             <CardBody>
-              <PlayMetrics data={play} graph={graph}/>
+              <PlayMetrics play={play}/>
             </CardBody>
             <CardFooter className="text-center">
               <small>

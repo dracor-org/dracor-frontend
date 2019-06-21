@@ -1,123 +1,95 @@
-import React, {Component} from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
-
-const jsnx = require('jsnetworkx/jsnetworkx.js');
+import api from '../api';
 
 function round (n) {
   return Math.round(n * 100) / 100;
 }
 
-class PlayMetrics extends Component {
-  componentWillMount () {
-    const {graph, data} = this.props;
-    const G = new jsnx.Graph();
-    G.addNodesFrom(graph.nodes.map(n => n.id));
-    G.addEdgesFrom(graph.edges.map(e => [e.source, e.target]));
-    const paths = jsnx.shortestPathLength(G);
-    const density = jsnx.density(G);
+const PlayMetrics = ({play}) => {
+  const [metrics, setMetrics] = useState(null);
+  const [error, setError] = useState(null);
 
-    let diameter = 0;
-    let sum = 0;
-    let numPairs = 0;
-    for (const x of paths.entries()) {
-      for (const y of x[1].entries()) {
-        const l = y[1];
-        sum += l;
-        if (x[0] !== y[0]) {
-          numPairs++;
+  useEffect(() => {
+    const fetchMetrics = async () => {
+      setError(null);
+      const url = `/corpora/${play.corpus}/play/${play.name}/metrics`;
+      try {
+        const response = await api.get(url);
+        if (response.ok) {
+          setMetrics(response.data);
+        } else if (response.status === 404) {
+          setError(new Error('not found'));
+        } else {
+          setError(response.originalError);
         }
-
-        if (l > diameter) {
-          diameter = l;
-        }
+      } catch (error) {
+        console.error(error);
       }
-    }
+    };
 
-    let sumDegrees = 0;
-    let maxDegree = 0;
-    let maxDegreeIds = [];
-    const degrees = jsnx.degree(G);
-    for (const d of degrees) {
-      const id = d[0];
-      const degree = d[1];
-      sumDegrees += degree;
-      if (degree === maxDegree) {
-        maxDegreeIds.push(id);
-      } else if (degree > maxDegree) {
-        maxDegree = degree;
-        maxDegreeIds = [];
-        maxDegreeIds.push(id);
-      }
-    }
+    fetchMetrics();
+  }, [play]);
 
-    const names = {};
-    data.cast.forEach(c => {
-      names[c.id] = c.name;
-    });
-
-    this.setState({
-      names,
-      density,
-      diameter,
-      maxDegree,
-      maxDegreeIds,
-      averageDegree: sumDegrees / graph.nodes.length,
-      averagePathLength: sum / numPairs,
-      averageClustering: jsnx.averageClustering(G)
-    });
+  if (error) {
+    console.log(error);
+    return <p>Error!</p>;
   }
 
-  render () {
-    const {data, graph} = this.props;
-    const {
-      names,
-      density,
-      diameter,
-      maxDegree,
-      maxDegreeIds,
-      averageDegree,
-      averagePathLength,
-      averageClustering
-    } = this.state;
-
-    const maxDegreeNames = maxDegreeIds.map(id => names[id] || id).join(', ');
-
-    const numNodes = graph.nodes.length;
-
-    const allInPercentage = Math.round(data.allInIndex * 100);
-
-    return (
-      <div>
-        Segments: {data.segments.length}
-        <br/>
-        All-in at segment {data.allInSegment + ' '}
-        (at {allInPercentage}%)
-        <br/>
-        <span title="number of characters">Network size</span>: {numNodes}
-        <br/>
-        Density: {round(density)}
-        <br/>
-        Diameter: {diameter}
-        <br/>
-        Average path length: {round(averagePathLength)}
-        <br/>
-        Average clustering coefficient: {round(averageClustering)}
-        <br/>
-        Average degree: {round(averageDegree)}
-        <br/>
-        Maximum degree: {maxDegree} ({
-          maxDegreeIds.length > 2
-            ? <span title={maxDegreeNames}>{maxDegreeIds.length} characters</span>
-            : <span>{maxDegreeNames}</span>
-        })
-      </div>
-    );
+  if (!metrics) {
+    return <p>Loading...</p>;
   }
-}
+
+  const {
+    size,
+    density,
+    diameter,
+    maxDegree,
+    maxDegreeIds,
+    averageDegree,
+    averagePathLength,
+    averageClustering
+  } = metrics;
+
+  const names = {};
+  play.cast.forEach(c => {
+    names[c.id] = c.name;
+  });
+
+  const maxDegreeNames = maxDegreeIds.map(id => names[id] || id).join(', ');
+
+  const allInPercentage = Math.round(play.allInIndex * 100);
+
+  return (
+    <div>
+      Segments: {play.segments.length}
+      <br/>
+      All-in at segment {play.allInSegment + ' '}
+      (at {allInPercentage}%)
+      <br/>
+      <span title="number of characters">Network size</span>: {size}
+      <br/>
+      Density: {round(density)}
+      <br/>
+      Diameter: {diameter}
+      <br/>
+      Average path length: {round(averagePathLength)}
+      <br/>
+      Average clustering coefficient: {round(averageClustering)}
+      <br/>
+      Average degree: {round(averageDegree)}
+      <br/>
+      Maximum degree: {maxDegree} ({
+        metrics.maxDegreeIds.length > 2
+          ? <span title={maxDegreeNames}>{maxDegreeIds.length} characters</span>
+          : <span>{maxDegreeNames}</span>
+      })
+    </div>
+  );
+};
 
 PlayMetrics.propTypes = {
-  data: PropTypes.object.isRequired,
-  graph: PropTypes.object.isRequired
+  play: PropTypes.object.isRequired
 };
 
 export default PlayMetrics;
