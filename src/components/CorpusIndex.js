@@ -155,6 +155,10 @@ const CorpusIndex = ({data}) => {
     text: 'Source',
     sort: true,
     formatter: (cell, row) => formatSource(row, data.name)
+  }, {
+    dataField: 'id',
+    text: 'ID',
+    sort: true
   }];
 
   const defaultSorted = [{
