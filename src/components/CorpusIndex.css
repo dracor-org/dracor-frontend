@@ -1,3 +1,7 @@
+table.table.corpus {
+  table-layout: auto;
+}
+
 .year-details {
   font-size: 80%;
   white-space: nowrap;

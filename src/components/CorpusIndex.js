@@ -186,6 +186,7 @@ const CorpusIndex = ({data}) => {
                 bootstrap4
                 defaultSorted={defaultSorted}
                 defaultSortDirection="asc"
+                classes="corpus"
               />
             </div>
           )
