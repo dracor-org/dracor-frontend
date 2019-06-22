@@ -48,7 +48,7 @@ function formatAuthor (authorNames, d) {
 function formatTitle (d, corpusId) {
   return (
     <span>
-      <Link to={`/${corpusId}/${d.id}`}>{d.title}</Link>
+      <Link to={`/${corpusId}/${d.name}`}>{d.title}</Link>
       {d.subtitle ? <small><br/>{d.subtitle}</small> : null}
       {d.wikidataId ?
         <small>
@@ -169,7 +169,7 @@ const CorpusIndex = ({data}) => {
       </Helmet>
       <ToolkitProvider
         search
-        keyField="id"
+        keyField="name"
         data={data.dramas}
         columns={columns}
       >
