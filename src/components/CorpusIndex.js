@@ -110,7 +110,7 @@ function formatYear (d) {
 }
 
 function formatSource (d, corpusId) {
-  const teiUrl = `${apiUrl}/corpora/${corpusId}/play/${d.id}/tei`;
+  const teiUrl = `${apiUrl}/corpora/${corpusId}/play/${d.name}/tei`;
   return (
     <span>
       {d.sourceUrl ? <a href={d.sourceUrl}>{d.source}</a> : d.source}
