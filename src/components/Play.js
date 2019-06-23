@@ -144,9 +144,9 @@ const PlayInfo = ({corpusId, playId}) => {
   }
 
   const csvUrl =
-    `${apiUrl}/corpora/${play.corpus}/play/${play.id}/networkdata/csv`;
+    `${apiUrl}/corpora/${play.corpus}/play/${play.name}/networkdata/csv`;
   const gexfUrl =
-    `${apiUrl}/corpora/${play.corpus}/play/${play.id}/networkdata/gexf`;
+    `${apiUrl}/corpora/${play.corpus}/play/${play.name}/networkdata/gexf`;
 
   return (
     <div className="h-100 d-md-flex flex-md-column">
@@ -231,9 +231,13 @@ const PlayInfo = ({corpusId, playId}) => {
             <CardFooter className="text-center">
               <small>
                 {'Download network data: '}
-                <a href={csvUrl} download={`${play.id}.csv`}>CSV</a>
+                <a href={csvUrl} download={`${play.id}-${play.name}.csv`}>
+                  CSV
+                </a>
                 {' · '}
-                <a href={gexfUrl} download={`${play.id}.gexf`}>GEXF</a>
+                <a href={gexfUrl} download={`${play.id}-${play.name}.gexf`}>
+                  GEXF
+                </a>
               </small>
             </CardFooter>
           </Card>
