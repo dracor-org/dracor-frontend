@@ -5,6 +5,7 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import ToolkitProvider, {Search} from 'react-bootstrap-table2-toolkit';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {apiUrl} from '../config';
+import IdLink from './IdLink';
 
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import './CorpusIndex.css';
@@ -13,19 +14,7 @@ const {SearchBar} = Search;
 
 function formatAuthor (authorNames, d) {
   const keys = d.authors.map(a => {
-    const matches = a.key.match(/^[Ww]ikidata:(Q\d+)$/);
-    if (matches) {
-      const id = matches[1];
-      return (
-        <span key={id}>
-          Wikidata:
-          {' '}
-          <a href={`https://www.wikidata.org/wiki/${id}`}>{id}</a>
-        </span>
-      );
-    }
-
-    return <span key={a.key}>{a.key}</span>;
+    return a.key ? <IdLink key={a.key} showLabel>{a.key}</IdLink> : null;
   });
   return (
     <span>
@@ -50,19 +39,12 @@ function formatTitle (d, corpusId) {
     <span>
       <Link to={`/${corpusId}/${d.name}`}>{d.title}</Link>
       {d.subtitle ? <small><br/>{d.subtitle}</small> : null}
-      {d.wikidataId ?
+      {d.wikidataId && (
         <small>
           <br/>
-          Wikidata:
-          {' '}
-          <a
-            href={`https://www.wikidata.org/wiki/${d.wikidataId}`}
-            title="Wikidata"
-          >
-            {d.wikidataId}
-          </a>
+          <IdLink showLabel>{`wikidata:${d.wikidataId}`}</IdLink>
         </small>
-        : null}
+      )}
     </span>
   );
 }
