@@ -148,14 +148,16 @@ const PlayInfo = ({corpusId, playId}) => {
   const gexfUrl =
     `${apiUrl}/corpora/${play.corpus}/play/${play.name}/networkdata/gexf`;
 
+  const authors = play.authors.map(a => a.name).join(' · ');
+
   return (
     <div className="h-100 d-md-flex flex-md-column">
       <Helmet titleTemplate="%s - DraCor">
-        <title>{`${play.author.name}: ${play.title}`}</title>
+        <title>{`${authors}: ${play.title}`}</title>
       </Helmet>
 
       <header>
-        <h4>{play.authors.map(a => a.name).join(' · ')}</h4>
+        <h4>{authors}</h4>
         <h2>
           {play.title}
           <br/>
