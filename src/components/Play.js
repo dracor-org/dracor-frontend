@@ -11,6 +11,8 @@ import {
 } from 'reactstrap';
 import classnames from 'classnames';
 import api from '../api';
+import IdLink from './IdLink';
+import Years from './Years';
 import PlayMetrics from './PlayMetrics';
 import CastList from './CastList';
 import NetworkGraph from './NetworkGraph';
@@ -83,6 +85,7 @@ const PlayInfo = ({corpusId, playId}) => {
   const [play, setPlay] = useState(null);
   const [graph, setGraph] = useState(null);
   const [error, setError] = useState(null);
+  const [box, setBox] = useState('cast');
 
   useEffect(() => {
     async function fetchPlay () {
@@ -108,6 +111,11 @@ const PlayInfo = ({corpusId, playId}) => {
 
     fetchPlay();
   }, [corpusId, playId]);
+
+  function toggle (b) {
+    setBox(b === box ? null : b);
+    console.log(box);
+  }
 
   if (error && error.message === 'not found') {
     return <p>No such play!</p>;
@@ -143,10 +151,9 @@ const PlayInfo = ({corpusId, playId}) => {
     tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor}}/>;
   }
 
-  const csvUrl =
-    `${apiUrl}/corpora/${play.corpus}/play/${play.name}/networkdata/csv`;
-  const gexfUrl =
-    `${apiUrl}/corpora/${play.corpus}/play/${play.name}/networkdata/gexf`;
+  const playUrl = `${apiUrl}/corpora/${play.corpus}/play/${play.name}`;
+  const csvUrl = `${playUrl}/networkdata/csv`;
+  const gexfUrl = `${playUrl}/networkdata/gexf`;
 
   const authors = play.authors.map(a => a.name).join(' · ');
 
@@ -156,19 +163,135 @@ const PlayInfo = ({corpusId, playId}) => {
         <title>{`${authors}: ${play.title}`}</title>
       </Helmet>
 
-      <header>
-        <h4>{authors}</h4>
-        <h2>
-          {play.title}
-          <br/>
-          <small>{play.subtitle}</small>
-        </h2>
-      </header>
-
       <div className="d-md-flex" style={{flexGrow: 1}}>
+
+        {/* left column */}
+        <div className="d-flex flex-column">
+
+          {/* basic meta data */}
+          <Card id="play-meta-data" className="mb-2">
+            <CardBody>
+              <ul className="mb-0">
+                {play.authors.map(a => (
+                  <li key={a.key}>
+                    {a.name}{' '}
+                    (<IdLink>{a.key}</IdLink>)
+                  </li>
+                ))}
+                <li>
+                  <h1>{play.title}</h1>
+                  {play.wikidataId && (
+                    <>
+                      {' '}
+                      (<IdLink>{`wikidata:${play.wikidataId}`}</IdLink>)
+                    </>
+                  )}
+                </li>
+                {play.subtitle && (
+                  <li><em>{play.subtitle}</em></li>
+                )}
+                <li>
+                  <Years
+                    written={play.yearWritten}
+                    premiere={play.yearPremiered}
+                    print={play.yearPrinted}
+                  />
+                </li>
+                {play.source && (
+                  <li>
+                    Source:{' '}
+                    {play.source.url
+                      ? <a href={play.source.url}>{play.source.name}</a>
+                      : play.source.name}
+                  </li>
+                )}
+                <li>Dracor: <em>{play.id}</em></li>
+              </ul>
+            </CardBody>
+          </Card>
+
+          <Card id="download" className="mb-2">
+            <CardHeader onClick={() => toggle('download')}>
+              Download
+            </CardHeader>
+            {box === 'download' && (
+              <CardBody>
+                <ul>
+                  <li>
+                    {'network data: '}
+                    <a href={csvUrl} download={`${play.id}-${play.name}.csv`}>
+                      CSV
+                    </a>
+                    {' · '}
+                    <a href={gexfUrl} download={`${play.id}-${play.name}.gexf`}>
+                      GEXF
+                    </a>
+                  </li>
+                  <li>
+                    spoken text:{' '}
+                    <a
+                      href={`${playUrl}/spoken-text`}
+                      download={`${play.id}-${play.name}-spoken.txt`}
+                    >
+                      TXT
+                    </a>
+                  </li>
+                  <li>
+                    spoken text by character:{' '}
+                    <a
+                      href={`${playUrl}/spoken-text-by-character.json`}
+                      download={`${play.id}-${play.name}-spoken.json`}
+                    >
+                      JSON
+                    </a>
+                  </li>
+                  <li>
+                    stage directions:{' '}
+                    <a
+                      href={`${playUrl}/stage-directions`}
+                      download={`${play.id}-${play.name}-stage.txt`}
+                    >
+                      TXT
+                    </a>
+                  </li>
+                </ul>
+              </CardBody>
+            )}
+          </Card>
+
+          <Card id="network-metrics" className="mb-2">
+            <CardHeader onClick={() => toggle('metrics')}>
+              Network Metrics
+            </CardHeader>
+            {box === 'metrics' && (
+              <CardBody>
+                <PlayMetrics play={play}/>
+              </CardBody>
+            )}
+          </Card>
+
+          <Card
+            id="cast-list"
+            className="mb-2"
+            style={{flexGrow: box === 'cast' ? 1 : 0}}
+          >
+            <CardHeader onClick={() => toggle('cast')}>
+              Cast list (in order of appearance)
+            </CardHeader>
+            {box === 'cast' && (
+              <CardBody className="position-relative">
+                <div className="cast-list-wrapper px-md-4 my-md-4">
+                  <CastList cast={play.cast || []}/>
+                </div>
+              </CardBody>
+            )}
+          </Card>
+        </div>
+
+        {/* tabbed area */}
         <Card
           id="network-graph"
-          className="mb-2 order-2 ml-md-2"
+          className="mb-2 ml-md-2"
           style={{flex: 1}}
         >
           <CardHeader>
@@ -198,53 +321,8 @@ const PlayInfo = ({corpusId, playId}) => {
             <a href="#network-metrics">metrics</a>
           </CardFooter>
         </Card>
-
-        <div className="d-flex flex-column">
-          <Card
-            id="cast-list"
-            className="mb-2 order-md-2"
-            style={{flexGrow: 1}}
-          >
-            <CardHeader>
-              Cast list (in order of appearance)
-            </CardHeader>
-            <CardBody className="position-relative">
-              <div className="cast-list-wrapper px-md-4 my-md-4">
-                <CastList cast={play.cast || []}/>
-              </div>
-            </CardBody>
-          </Card>
-
-          <Card
-            id="network-metrics"
-            className="mb-2 order-md-1"
-            style={{flexShrink: 0}}
-          >
-            <CardHeader>
-              Metrics
-              {' '}
-              <a href="#network-graph" className="float-right d-md-none">
-                graph
-              </a>
-            </CardHeader>
-            <CardBody>
-              <PlayMetrics play={play}/>
-            </CardBody>
-            <CardFooter className="text-center">
-              <small>
-                {'Download network data: '}
-                <a href={csvUrl} download={`${play.id}-${play.name}.csv`}>
-                  CSV
-                </a>
-                {' · '}
-                <a href={gexfUrl} download={`${play.id}-${play.name}.gexf`}>
-                  GEXF
-                </a>
-              </small>
-            </CardFooter>
-          </Card>
-        </div>
       </div>
+
     </div>
   );
 };

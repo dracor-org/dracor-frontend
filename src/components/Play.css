@@ -19,3 +19,25 @@
     flex-direction: column;
   }
 }
+
+.card-header:last-child {
+  border-bottom: none;
+}
+
+#play-meta-data h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+#play-meta-data ul, #download ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  #play-meta-data ul {
+    max-width: 400px;
+  }
+}
