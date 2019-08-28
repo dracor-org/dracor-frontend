@@ -41,3 +41,18 @@
     max-width: 400px;
   }
 }
+
+#play-meta-data .years span {
+  display: inline-block;
+  padding-right: .3rem;
+}
+
+.tei-frame {
+  flex-grow: 1;
+}
+
+.tei-frame iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}

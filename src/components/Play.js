@@ -140,20 +140,27 @@ const PlayInfo = ({corpusId, playId}) => {
   const groups = play.cast.filter(m => Boolean(m.isGroup)).map(m => m.id);
 
   let tab = document.location.hash.replace('#', '');
-  if (['network', 'speech'].indexOf(tab) === -1) {
+  if (['network', 'speech', 'tei'].indexOf(tab) === -1) {
     tab = 'network';
-  }
-
-  let tabContent = null;
-  if (tab === 'speech') {
-    tabContent = <SpeechDistribution segments={play.segments} {...{groups}}/>;
-  } else {
-    tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor}}/>;
   }
 
   const playUrl = `${apiUrl}/corpora/${play.corpus}/play/${play.name}`;
   const csvUrl = `${playUrl}/networkdata/csv`;
   const gexfUrl = `${playUrl}/networkdata/gexf`;
+  const teiUrl = `${playUrl}/tei`;
+
+  let tabContent = null;
+  if (tab === 'speech') {
+    tabContent = <SpeechDistribution segments={play.segments} {...{groups}}/>;
+  } else if (tab === 'tei') {
+    tabContent = (
+      <div className="tei-frame">
+        <iframe src={teiUrl}/>
+      </div>
+    );
+  } else {
+    tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor}}/>;
+  }
 
   const authors = play.authors.map(a => a.name).join(' · ');
 
@@ -310,6 +317,14 @@ const PlayInfo = ({corpusId, playId}) => {
                   className={classnames({active: tab === 'speech'})}
                 >
                   Speech distribution
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  href="#tei"
+                  className={classnames({active: tab === 'tei'})}
+                >
+                  TEI
                 </NavLink>
               </NavItem>
             </Nav>
