@@ -190,7 +190,7 @@ const PlayInfo = ({corpusId, playId}) => {
                 {play.subtitle && (
                   <li><em>{play.subtitle}</em></li>
                 )}
-                <li>
+                <li className="years mt-2">
                   <Years
                     written={play.yearWritten}
                     premiere={play.yearPremiered}
