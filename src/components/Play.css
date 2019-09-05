@@ -19,3 +19,40 @@
     flex-direction: column;
   }
 }
+
+.card-header:last-child {
+  border-bottom: none;
+}
+
+#play-meta-data h1 {
+  font-size: 1.4rem;
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+#play-meta-data ul, #download ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  #play-meta-data ul {
+    max-width: 400px;
+  }
+}
+
+#play-meta-data .years span {
+  display: inline-block;
+  padding-right: .3rem;
+}
+
+.tei-frame {
+  flex-grow: 1;
+}
+
+.tei-frame iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}

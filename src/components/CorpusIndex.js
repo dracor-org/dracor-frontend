@@ -3,8 +3,9 @@ import {Link} from 'react-router-dom';
 import {Helmet} from 'react-helmet';
 import BootstrapTable from 'react-bootstrap-table-next';
 import ToolkitProvider, {Search} from 'react-bootstrap-table2-toolkit';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {apiUrl} from '../config';
+import IdLink from './IdLink';
+import Years from './Years';
 
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import './CorpusIndex.css';
@@ -13,19 +14,7 @@ const {SearchBar} = Search;
 
 function formatAuthor (authorNames, d) {
   const keys = d.authors.map(a => {
-    const matches = a.key.match(/^[Ww]ikidata:(Q\d+)$/);
-    if (matches) {
-      const id = matches[1];
-      return (
-        <span key={id}>
-          Wikidata:
-          {' '}
-          <a href={`https://www.wikidata.org/wiki/${id}`}>{id}</a>
-        </span>
-      );
-    }
-
-    return <span key={a.key}>{a.key}</span>;
+    return a.key ? <IdLink key={a.key} showLabel>{a.key}</IdLink> : null;
   });
   return (
     <span>
@@ -50,19 +39,12 @@ function formatTitle (d, corpusId) {
     <span>
       <Link to={`/${corpusId}/${d.name}`}>{d.title}</Link>
       {d.subtitle ? <small><br/>{d.subtitle}</small> : null}
-      {d.wikidataId ?
+      {d.wikidataId && (
         <small>
           <br/>
-          Wikidata:
-          {' '}
-          <a
-            href={`https://www.wikidata.org/wiki/${d.wikidataId}`}
-            title="Wikidata"
-          >
-            {d.wikidataId}
-          </a>
+          <IdLink showLabel>{`wikidata:${d.wikidataId}`}</IdLink>
         </small>
-        : null}
+      )}
     </span>
   );
 }
@@ -76,34 +58,16 @@ function formatEra (year) {
 }
 
 function formatYear (d) {
-  const yWritten = d.writtenYear ? (
-    <span title="written">
-      <FontAwesomeIcon icon="pen-fancy" size="sm"/>&nbsp;
-      {formatEra(d.writtenYear)}
-    </span>
-  ) : null;
-  const yPrint = d.printYear ? (
-    <span title="printed">
-      <FontAwesomeIcon icon="book" size="sm"/>&nbsp;
-      {formatEra(d.printYear)}
-    </span>
-  ) : null;
-  const yPremiere = d.premiereYear ? (
-    <span title="premiered">
-      <FontAwesomeIcon icon="theater-masks" size="sm"/>&nbsp;
-      {formatEra(d.premiereYear)}
-    </span>
-  ) : null;
   return (
     <span>
       {formatEra(d.yearNormalized)}
       <br/>
       <span className="year-details">
-        {yWritten}
-        {' '}
-        {yPremiere}
-        {' '}
-        {yPrint}
+        <Years
+          written={d.writtenYear}
+          premiere={d.premiereYear}
+          print={d.printYear}
+        />
       </span>
     </span>
   );
