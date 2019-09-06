@@ -28,6 +28,10 @@ const Home = () => (
           <a href="http://www.perseus.tufts.edu/hopper/opensource/download">
             Perseus Digital Library
           </a>
+          {', and SweDraCor from '}
+          <a href="https://litteraturbanken.se/dramawebben">
+            Dramawebben
+          </a>
           {'. – dracor.org is edited by '}
           <a href="https://www.hse.ru/en/org/persons/182492735">
             Frank&nbsp;Fischer
