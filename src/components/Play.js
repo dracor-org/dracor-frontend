@@ -212,14 +212,14 @@ const PlayInfo = ({corpusId, playId}) => {
                       : play.source.name}
                   </li>
                 )}
-                <li>Dracor: <em>{play.id}</em></li>
+                <li>DraCor: <em>{play.id}</em></li>
               </ul>
             </CardBody>
           </Card>
 
           <Card id="download" className="mb-2">
             <CardHeader onClick={() => toggle('download')}>
-              Download
+              Downloads
             </CardHeader>
             {box === 'download' && (
               <CardBody>
