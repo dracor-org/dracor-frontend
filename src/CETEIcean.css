@@ -1564,6 +1564,9 @@ tei-stage {
   margin-bottom: 1em;
   font-style: italic;
 }
+tei-p tei-stage, tei-l tei-stage, tei-speaker ~ tei-stage {
+  display: inline;
+}
 tei-stamp {
   display: block;
   margin-top: 1em;
