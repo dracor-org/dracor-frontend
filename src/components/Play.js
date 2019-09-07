@@ -17,6 +17,7 @@ import PlayMetrics from './PlayMetrics';
 import CastList from './CastList';
 import NetworkGraph from './NetworkGraph';
 import SpeechDistribution from './SpeechDistribution';
+import TEIPanel from './TEIPanel';
 
 import './Play.css';
 
@@ -153,11 +154,7 @@ const PlayInfo = ({corpusId, playId}) => {
   if (tab === 'speech') {
     tabContent = <SpeechDistribution segments={play.segments} {...{groups}}/>;
   } else if (tab === 'tei') {
-    tabContent = (
-      <div className="tei-frame">
-        <iframe src={teiUrl}/>
-      </div>
-    );
+    tabContent = <TEIPanel url={teiUrl}/>;
   } else {
     tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor}}/>;
   }
