@@ -1513,7 +1513,8 @@ tei-sourceDesc {
   display: none;
 }
 tei-sp {
-  /*empty rule set*/
+  display: block;
+  margin-bottom: 1em;
 }
 tei-space:before {
   font-weight: bold;
