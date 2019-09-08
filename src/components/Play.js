@@ -209,6 +209,12 @@ const PlayInfo = ({corpusId, playId}) => {
                       : play.source.name}
                   </li>
                 )}
+                {play.originalSource && (
+                  <li>
+                    Original Source:{' '}
+                    {play.originalSource}
+                  </li>
+                )}
                 <li>DraCor: <em>{play.id}</em></li>
               </ul>
             </CardBody>
