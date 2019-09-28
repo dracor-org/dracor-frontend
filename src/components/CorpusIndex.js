@@ -13,8 +13,8 @@ import './CorpusIndex.css';
 const {SearchBar} = Search;
 
 function formatAuthor (authorNames, d) {
-  const keys = d.authors.map(a => {
-    return a.key ? <IdLink key={a.key} showLabel>{a.key}</IdLink> : null;
+  const keys = d.authors.filter(a => a.key).map(a => {
+    return <IdLink key={a.key} showLabel>{a.key}</IdLink>;
   });
   return (
     <span>
