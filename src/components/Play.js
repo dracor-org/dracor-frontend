@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Helmet} from 'react-helmet';
 import {
+  Button,
   Card,
   CardHeader,
   CardBody,
@@ -9,6 +10,7 @@ import {
   NavItem,
   NavLink
 } from 'reactstrap';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import classnames from 'classnames';
 import api from '../api';
 import IdLink from './IdLink';
@@ -82,11 +84,16 @@ function makeGraph (cast, segments) {
   return {nodes, edges};
 }
 
+// TODO: refactor to reduce complexity
+// see https://eslint.org/docs/rules/complexity
+/* eslint "complexity": ["error", 30] */
+
 const PlayInfo = ({corpusId, playId}) => {
   const [play, setPlay] = useState(null);
   const [graph, setGraph] = useState(null);
   const [error, setError] = useState(null);
   const [box, setBox] = useState('cast');
+  const [fullMeta, setFullMeta] = useState(false);
 
   useEffect(() => {
     async function fetchPlay () {
@@ -170,11 +177,25 @@ const PlayInfo = ({corpusId, playId}) => {
       <div className="d-md-flex" style={{flexGrow: 1}}>
 
         {/* left column */}
-        <div className="d-flex flex-column">
+        <div className="d-flex flex-column play-info-column">
 
           {/* basic meta data */}
           <Card id="play-meta-data" className="mb-2">
             <CardBody>
+              <Button
+                outline
+                className="meta-data-toggler"
+                size="sm"
+                color="link"
+                style={{color: 'black'}}
+                title={`show ${fullMeta ? 'less' : 'more'}`}
+                onClick={() => setFullMeta(!fullMeta)}
+              >
+                <FontAwesomeIcon
+                  size="sm"
+                  icon={`caret-${fullMeta ? 'down' : 'up'}`}
+                />
+              </Button>
               <ul className="mb-0">
                 {play.authors.map(a => (
                   <li key={a.key}>
@@ -201,21 +222,25 @@ const PlayInfo = ({corpusId, playId}) => {
                     print={play.yearPrinted}
                   />
                 </li>
-                {play.source && (
-                  <li>
-                    Source:{' '}
-                    {play.source.url
-                      ? <a href={play.source.url}>{play.source.name}</a>
-                      : play.source.name}
-                  </li>
+                {fullMeta && (
+                  <>
+                    {play.source && (
+                      <li>
+                        Source:{' '}
+                        {play.source.url
+                          ? <a href={play.source.url}>{play.source.name}</a>
+                          : play.source.name}
+                      </li>
+                    )}
+                    {play.originalSource && (
+                      <li>
+                        Original Source:{' '}
+                        {play.originalSource}
+                      </li>
+                    )}
+                    <li>DraCor: <em>{play.id}</em></li>
+                  </>
                 )}
-                {play.originalSource && (
-                  <li>
-                    Original Source:{' '}
-                    {play.originalSource}
-                  </li>
-                )}
-                <li>DraCor: <em>{play.id}</em></li>
               </ul>
             </CardBody>
           </Card>

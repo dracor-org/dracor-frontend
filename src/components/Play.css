@@ -12,6 +12,11 @@
     right: 0;
     overflow-y: scroll;
   }
+
+  /* fix info column width in two column layout */
+  .play-info-column {
+    width: 380px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -24,10 +29,15 @@
   border-bottom: none;
 }
 
+#play-meta-data {
+  position: relative;
+}
+
 #play-meta-data h1 {
   font-size: 1.4rem;
   margin-bottom: 0;
   display: inline-block;
+  position: relative;
 }
 
 #play-meta-data ul, #download ul {
@@ -42,9 +52,20 @@
   }
 }
 
+/* leave space for .meta-data-toggler */
+#play-meta-data ul > li:first-of-type {
+  padding-right: 35px;
+}
+
 #play-meta-data .years span {
   display: inline-block;
   padding-right: .3rem;
+}
+
+#play-meta-data .meta-data-toggler {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
 }
 
 .tei-frame {
