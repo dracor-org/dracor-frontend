@@ -45,7 +45,7 @@ const PlayMetrics = ({play}) => {
     density,
     diameter,
     maxDegree,
-    maxDegreeIds,
+    maxDegreeIds = [],
     averageDegree,
     averagePathLength,
     averageClustering
@@ -80,7 +80,7 @@ const PlayMetrics = ({play}) => {
       Average degree: {round(averageDegree)}
       <br/>
       Maximum degree: {maxDegree} ({
-        metrics.maxDegreeIds.length > 2
+        maxDegreeIds.length > 2
           ? <span title={maxDegreeNames}>{maxDegreeIds.length} characters</span>
           : <span>{maxDegreeNames}</span>
       })
