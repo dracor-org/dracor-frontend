@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {Route, NavLink as RouterNavLink} from 'react-router-dom';
+import {faGithub} from '@fortawesome/free-brands-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
   Collapse,
   Navbar,
@@ -97,6 +99,11 @@ export default class TopNav extends Component {
             <NavItem>
               <NavLink href="https://ezlinavis.dracor.org/">
                 Easy Linavis
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="https://github.com/dracor-org" title="GitHub">
+                <FontAwesomeIcon icon={faGithub} size="lg"/>
               </NavLink>
             </NavItem>
           </Nav>
