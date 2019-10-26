@@ -97,7 +97,10 @@ export default class TopNav extends Component {
           </Nav>
           <Nav navbar className="ml-auto">
             <NavItem>
-              <NavLink href="https://ezlinavis.dracor.org/">
+              <NavLink
+                href="https://ezlinavis.dracor.org/"
+                title="Simple Network Visualization for Literary Texts"
+              >
                 Easy Linavis
               </NavLink>
             </NavItem>
