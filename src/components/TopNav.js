@@ -105,7 +105,10 @@ export default class TopNav extends Component {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/dracor-org" title="GitHub">
+              <NavLink
+                href="https://github.com/dracor-org"
+                title="DraCor GitHub"
+              >
                 <FontAwesomeIcon icon={faGithub} size="lg"/>
               </NavLink>
             </NavItem>
