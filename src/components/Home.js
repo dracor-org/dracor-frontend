@@ -46,7 +46,9 @@ const Home = () => (
           </a>
           {' (Higher School of Economics, Moscow).'}
           <br/>
-          {'Technical lead: Carsten Milling (Berlin).'}
+          {'Technical lead: Carsten Milling (Berlin). '}
+          {'Co-leads: Ingo Börner (Austrian Academy of Sciences, Vienna), '}
+          {'Mathias Göbel (Göttingen State and University Library).'}
         </em>
       </small>
     </div>
