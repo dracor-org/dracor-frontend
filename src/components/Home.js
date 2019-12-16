@@ -32,7 +32,13 @@ const Home = () => (
           <a href="https://litteraturbanken.se/dramawebben">
             Dramawebben
           </a>
-          {'. – dracor.org is edited by '}
+          {', and AlsDraCor from the '}
+          <a href="https://git.unistra.fr/ruizfabo/methal-sources">
+            MeThAL project
+          </a>
+          {' at University of Strasbourg.'}
+          <br/>
+          {'dracor.org is edited by '}
           <a href="https://www.hse.ru/en/org/persons/182492735">
             Frank&nbsp;Fischer
           </a>
