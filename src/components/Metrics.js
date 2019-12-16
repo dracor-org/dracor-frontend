@@ -7,6 +7,18 @@ import api from '../api';
 // 8.248968E6), which is why we need to use parseFloat.
 const fn = val => Number(parseFloat(val)).toLocaleString('en');
 
+function byNumOfPlays (a, b) {
+  if (a.metrics.plays > b.metrics.plays) {
+    return 1;
+  }
+
+  if (a.metrics.plays < b.metrics.plays) {
+    return -1;
+  }
+
+  return 0;
+}
+
 const Metrics = () => {
   const [data, setData] = useState(null);
 
@@ -29,7 +41,7 @@ const Metrics = () => {
 
   return (
     <Row>
-      {data.map(m => (
+      {data.sort(byNumOfPlays).reverse().map(m => (
         <Col
           key={`metrics-${m.name}`}
           xl={4}
