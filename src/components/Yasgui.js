@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
 import {Helmet} from 'react-helmet';
 import yasgui from 'yasgui/dist/yasgui';
+import {apiUrl, shortenerUrl as urlShortener} from '../config';
 
 import 'yasgui/dist/yasgui.min.css';
 
+const endpoint = `${apiUrl}/sparql`;
+
 yasgui.defaults.catalogueEndpoints = [
-  {endpoint: 'https://dracor.org/api/sparql', title: 'Dracor'},
+  {endpoint, title: 'DraCor'},
   {endpoint: 'https://query.wikidata.org/sparql', title: 'Wikidata'}
 ];
 
@@ -25,11 +28,11 @@ class Yasgui extends Component {
   componentDidMount () {
     yasgui(document.querySelector('#yasgui'), {
       api: {
-        urlShortener: 'https://dracor.org/shorten'
+        urlShortener
       },
       yasqe: {
         sparql: {
-          endpoint: 'https://dracor.org/api/sparql',
+          endpoint,
           acceptHeaderSelect: 'application/sparql-results+xml',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded'

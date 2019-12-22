@@ -16,6 +16,7 @@ import {
   DropdownItem
 } from 'reactstrap';
 import {DracorContext} from '../context';
+import {ezlinavisUrl} from '../config';
 
 class CorporaDropdown extends Component {
   static contextType = DracorContext;
@@ -98,7 +99,7 @@ export default class TopNav extends Component {
           <Nav navbar className="ml-auto">
             <NavItem>
               <NavLink
-                href="https://ezlinavis.dracor.org/"
+                href={ezlinavisUrl}
                 title="Simple Network Visualization for Literary Texts"
               >
                 Easy Linavis
