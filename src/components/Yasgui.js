@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {Helmet} from 'react-helmet';
 import yasgui from 'yasgui/dist/yasgui';
-import {apiUrl, shortenerUrl as urlShortener} from '../config';
+import {sparqlUrl, shortenerUrl as urlShortener} from '../config';
 
 import 'yasgui/dist/yasgui.min.css';
 
-const endpoint = `${apiUrl}/sparql`;
+const endpoint = sparqlUrl;
 
 yasgui.defaults.catalogueEndpoints = [
   {endpoint, title: 'DraCor'},
