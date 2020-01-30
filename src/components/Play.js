@@ -155,6 +155,8 @@ const PlayInfo = ({corpusId, playId}) => {
   const playUrl = `${apiUrl}/corpora/${play.corpus}/play/${play.name}`;
   const csvUrl = `${playUrl}/networkdata/csv`;
   const gexfUrl = `${playUrl}/networkdata/gexf`;
+  const csvRelationsUrl = `${playUrl}/relations/csv`;
+  const gexfRelationsUrl = `${playUrl}/relations/gexf`;
   const teiUrl = `${playUrl}/tei`;
 
   let tabContent = null;
@@ -262,6 +264,24 @@ const PlayInfo = ({corpusId, playId}) => {
                       GEXF
                     </a>
                   </li>
+                  {play.relations && (
+                    <li>
+                      {'relation data: '}
+                      <a
+                        href={csvRelationsUrl}
+                        download={`${play.id}-${play.name}-relations.csv`}
+                      >
+                        CSV
+                      </a>
+                      {' · '}
+                      <a
+                        href={gexfRelationsUrl}
+                        download={`${play.id}-${play.name}-relations.gexf`}
+                      >
+                        GEXF
+                      </a>
+                    </li>
+                  )}
                   <li>
                     spoken text:{' '}
                     <a
