@@ -18,6 +18,7 @@ import Years from './Years';
 import PlayMetrics from './PlayMetrics';
 import CastList from './CastList';
 import NetworkGraph from './NetworkGraph';
+import RelationsGraph from './RelationsGraph';
 import SpeechDistribution from './SpeechDistribution';
 import TEIPanel from './TEIPanel';
 
@@ -27,6 +28,8 @@ const apiUrl = api.getBaseURL();
 
 const edgeColor = '#999';
 const nodeColor = '#555';
+
+const tabNames = ['network', 'speech', 'tei', 'relations'];
 
 function getCooccurrences (segments) {
   const map = {};
@@ -148,7 +151,10 @@ const PlayInfo = ({corpusId, playId}) => {
   const groups = play.cast.filter(m => Boolean(m.isGroup)).map(m => m.id);
 
   let tab = document.location.hash.replace('#', '');
-  if (['network', 'speech', 'tei'].indexOf(tab) === -1) {
+  if (
+    tabNames.indexOf(tab) === -1 ||
+    (tab === 'relations' && !play.relations)
+  ) {
     tab = 'network';
   }
 
@@ -164,6 +170,8 @@ const PlayInfo = ({corpusId, playId}) => {
     tabContent = <SpeechDistribution segments={play.segments} {...{groups}}/>;
   } else if (tab === 'tei') {
     tabContent = <TEIPanel url={teiUrl}/>;
+  } else if (tab === 'relations') {
+    tabContent = <RelationsGraph {...{play, nodeColor, edgeColor}}/>;
   } else {
     tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor}}/>;
   }
@@ -359,6 +367,16 @@ const PlayInfo = ({corpusId, playId}) => {
                   Network
                 </NavLink>
               </NavItem>
+              {play.relations && (
+                <NavItem>
+                  <NavLink
+                    href="#relations"
+                    className={classnames({active: tab === 'relations'})}
+                  >
+                    Relations
+                  </NavLink>
+                </NavItem>
+              )}
               <NavItem>
                 <NavLink
                   href="#speech"
