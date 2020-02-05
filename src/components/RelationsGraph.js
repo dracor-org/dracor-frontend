@@ -10,6 +10,18 @@ import {
   RandomizeNodePositions
 } from 'react-sigma/lib/';
 
+/* eslint-disable camelcase */
+const edgeColors = {
+  parent_of: '#469990', // teal
+  lover_of: '#e6194B', // red
+  related_with: '#808000', // olive
+  associated_with: '#42d4f4', // navy
+  siblings: '#3cb44b', // green
+  spouses: '#911eb4', // purple
+  friends: '#800000' // maroon
+};
+/* eslint-enable camelcase */
+
 const RelationsGraph = ({play, nodeColor, edgeColor}) => {
   const nodes = play.cast.map(c => ({id: c.id, label: c.name || `#${c.id}`}));
   const edges = (play.relations || []).map((r, i) => ({
@@ -17,7 +29,7 @@ const RelationsGraph = ({play, nodeColor, edgeColor}) => {
     source: r.source,
     target: r.target,
     label: r.type,
-    color: edgeColor,
+    color: edgeColors[r.type] || edgeColor,
     type: r.directed ? 'curvedArrow' : 'curve'
   }));
   const graph = {nodes, edges};
@@ -27,6 +39,7 @@ const RelationsGraph = ({play, nodeColor, edgeColor}) => {
     defaultLabelSize: 14,
     defaultEdgeColor: edgeColor, // FIXME: this does not seem to work
     defaultNodeColor: nodeColor,
+    edgeLabelColor: 'edge',
     labelThreshold: 2,
     labelSize: 'fixed',
     drawLabels: true,
