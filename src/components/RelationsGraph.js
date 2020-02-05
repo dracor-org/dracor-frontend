@@ -40,12 +40,13 @@ const RelationsGraph = ({play, nodeColor, edgeColor}) => {
     defaultEdgeColor: edgeColor, // FIXME: this does not seem to work
     defaultNodeColor: nodeColor,
     edgeLabelColor: 'edge',
-    labelThreshold: 2,
+    labelThreshold: 3,
     labelSize: 'fixed',
     drawLabels: true,
     drawEdges: true,
     drawEdgeLabels: true,
     edgeLabelSize: 'proportional',
+    minNodeSize: 2,
     minArrowSize: 10
   };
 
