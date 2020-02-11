@@ -26,8 +26,8 @@ import './Play.css';
 
 const apiUrl = api.getBaseURL();
 
-const edgeColor = '#999';
-const nodeColor = '#555';
+const edgeColor = '#DCE1EB';
+const nodeColor = '#1F2448';
 
 const tabNames = ['network', 'speech', 'text', 'relations'];
 
@@ -138,7 +138,7 @@ const PlayInfo = ({corpusId, playId}) => {
   }
 
   if (!play) {
-    return <p>Loading...</p>;
+    return <p className="loading">Loading...</p>;
   }
 
   if (!graph) {
