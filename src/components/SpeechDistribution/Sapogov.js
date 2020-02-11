@@ -5,22 +5,21 @@ import {Line} from 'react-chartjs-2';
 class Sapogov extends Component {
   render () {
     const {groups, segments} = this.props;
-
     const data = {
       datasets: [
         {
           label: 'Speech distribution (as described in Sapogov 1974)',
-          fill: false,
-          backgroundColor: 'rgba(179,181,198,1)',
-          borderColor: 'rgba(179,181,198,1)',
+          fill: true,
+          backgroundColor: 'rgba(220,225,232,.1)',
+          borderColor: '#DCE1E8',
           borderDash: [],
           borderDashOffset: 0.0,
-          pointBorderColor: 'rgba(179,181,198,1)',
+          pointBorderColor: '#DCE1E8',
           pointBackgroundColor: '#fff',
           pointBorderWidth: 1,
           pointHoverRadius: 5,
-          pointHoverBackgroundColor: 'rgba(179,181,198,1)',
-          pointHoverBorderColor: 'rgba(220,220,220,1)',
+          pointHoverBackgroundColor: '#DCE1E8',
+          pointHoverBorderColor: '#1F2448',
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
@@ -32,12 +31,12 @@ class Sapogov extends Component {
     if (groups.length > 0) {
       data.datasets.push({
         label: 'non-group characters only',
-        fill: false,
-        backgroundColor: 'rgba(79,181,198,1)',
-        borderColor: 'rgba(79,181,198,1)',
+        fill: true,
+        backgroundColor: 'rgba(255,247,38,.1)',
+        borderColor: '#FFF726',
         pointHoverRadius: 5,
-        pointHoverBackgroundColor: 'rgba(79,181,198,1)',
-        pointHoverBorderColor: 'rgba(220,220,220,1)',
+        pointHoverBackgroundColor: '#FFF726',
+        pointHoverBorderColor: '#1F2448',
         pointRadius: 1,
         pointHitRadius: 10,
         data: []

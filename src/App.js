@@ -5,6 +5,7 @@ import api from './api';
 import {DracorContext} from './context';
 import asyncComponent from './components/AsyncComponent';
 import Home from './components/Home';
+import About from './components/About';
 import TopNav from './components/TopNav';
 import Corpus from './components/Corpus';
 import './icons';
@@ -42,6 +43,7 @@ const App = () => {
             <Container fluid>
               <Switch>
                 <Route exact path="/" component={Home}/>
+                <Route exact path="/about" component={About}/>
                 <Route exact path="/sparql" component={AsyncYasgui}/>
                 <Route exact path="/documentation/api" component={AsyncAPIDoc}/>
                 <Route path="/:corpusId" component={Corpus}/>

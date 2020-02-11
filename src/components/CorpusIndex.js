@@ -37,7 +37,7 @@ function formatAuthor (authorNames, d) {
 function formatTitle (d, corpusId) {
   return (
     <span>
-      <Link to={`/${corpusId}/${d.name}`}>{d.title}</Link>
+      <Link className="drama-title" to={`/${corpusId}/${d.name}`}>{d.title}</Link>
       {d.subtitle ? <small><br/>{d.subtitle}</small> : null}
       {d.wikidataId && (
         <small>
@@ -59,7 +59,7 @@ function formatEra (year) {
 
 function formatYear (d) {
   return (
-    <span>
+    <span className="year">
       {formatEra(d.yearNormalized)}
       <br/>
       <span className="year-details">
