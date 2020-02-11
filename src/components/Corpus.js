@@ -59,11 +59,11 @@ const Corpus = ({match, location}) => {
   }, [corpusId, validCorpus]);
 
   if (!validCorpus) {
-    return <p>No such corpus <em>{corpusId}</em>.</p>;
+    return <p className="loading">No such corpus <em>{corpusId}</em>.</p>;
   }
 
   if (!corpus) {
-    return <p>Loading...</p>;
+    return <p className="loading">Loading...</p>;
   }
 
   if (match.url === location.pathname) {
