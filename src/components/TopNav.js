@@ -80,10 +80,15 @@ export default class TopNav extends Component {
     const {isOpen} = this.state;
     return (
       <Navbar light color="light" expand="md" className="mb-4">
-        <NavbarBrand href="/">Drama Corpora Project (DraCor)</NavbarBrand>
+        <NavbarBrand title="Drama Corpora Project (DraCor)" href="/"/>
         <NavbarToggler onClick={this.toggle}/>
         <Collapse navbar isOpen={isOpen}>
           <Nav navbar className="mr-auto">
+            <NavItem>
+              <RouterNavLink to="/" className="nav-link">
+                Home
+              </RouterNavLink>
+            </NavItem>
             <Route path="/" component={CorporaDropdown}/>
             <NavItem>
               <RouterNavLink to="/sparql" className="nav-link">
@@ -95,8 +100,6 @@ export default class TopNav extends Component {
                 API
               </RouterNavLink>
             </NavItem>
-          </Nav>
-          <Nav navbar className="ml-auto">
             <NavItem>
               <NavLink
                 href={ezlinavisUrl}
@@ -106,10 +109,22 @@ export default class TopNav extends Component {
               </NavLink>
             </NavItem>
             <NavItem>
+              <RouterNavLink
+                to="/about"
+                className="nav-link"
+                title="About the Drama Corpora Project"
+              >
+                About
+              </RouterNavLink>
+            </NavItem>
+          </Nav>
+          <Nav navbar className="ml-auto">
+            <NavItem>
               <NavLink
                 href="https://github.com/dracor-org"
                 title="DraCor GitHub"
               >
+                <span>DraCor GitHub</span>
                 <FontAwesomeIcon icon={faGithub} size="lg"/>
               </NavLink>
             </NavItem>
