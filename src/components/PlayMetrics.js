@@ -37,7 +37,7 @@ const PlayMetrics = ({play}) => {
   }
 
   if (!metrics) {
-    return <p className="loading">Loading...</p>;
+    return <p>Loading...</p>;
   }
 
   const {
