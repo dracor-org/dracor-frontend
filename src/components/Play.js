@@ -204,7 +204,7 @@ const PlayInfo = ({corpusId, playId}) => {
               >
                 <FontAwesomeIcon
                   size="sm"
-                  icon={`caret-${fullMeta ? 'down' : 'up'}`}
+                  icon={`caret-${fullMeta ? 'up' : 'down'}`}
                 />
               </Button>
               <ul className="mb-0">
