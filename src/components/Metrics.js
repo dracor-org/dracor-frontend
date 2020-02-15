@@ -32,32 +32,31 @@ const settings = {
   responsive: [{
     breakpoint: 2100,
     settings: {
-      slidesToShow: 5,
-      infinite: true
+      slidesToShow: 5
     }
   }, {
     breakpoint: 1800,
     settings: {
-      slidesToShow: 4,
-      infinite: true
+      slidesToShow: 4
     }
   }, {
     breakpoint: 1450,
     settings: {
-      slidesToShow: 3,
-      infinite: true
+      slidesToShow: 3
     }
   }, {
     breakpoint: 1150,
     settings: {
-      slidesToShow: 2,
-      infinite: true
+      slidesToShow: 2
     }
   }, {
     breakpoint: 800,
     settings: {
       slidesToShow: 1,
-      dots: true
+      dots: true,
+      autoplay: true,
+      centerPadding: '25px',
+      arrows: false
     }
   }]
 };
