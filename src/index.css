@@ -211,16 +211,12 @@ a {
 }
 
 .container-fluid h2 {
-  margin: 0 .6em .6em;
+  margin-bottom: .6em;
   color: #1F2448;
   font-size: 3.5em;
   font-weight: 400;
   border-bottom: solid .1em #FFF726;
   width: fit-content;
-}
-
-.search-label {
-  margin: 0 2.1em;
 }
 
 .search-label .form-control {
@@ -247,9 +243,8 @@ a {
 }
 
 table.table.corpus {
-  margin: 2em 2em 3em;
+  margin: 2em 0 3em;
   color: #1F2448;
-  width: calc(100% - 4em);
 }
 
 table.table.corpus tr:nth-child(odd) {
@@ -270,6 +265,10 @@ table.table.corpus th:focus {
   outline: none;
 }
 
+.container-fluid {
+  padding: 0 3.3em 3.3em;
+}
+
 .drama-title {
   font-size: 1.5em;
   color: #1F2448;
@@ -286,13 +285,17 @@ table.table.corpus th:focus {
 }
 
 .h-100 {
-    height: calc(100vh - 15.5em) !important;
+    height: calc(100vh - 18.7em) !important;
 }
 
 .card {
   border: 0;
   border-radius: .5em;
   box-shadow: 0 7px 5px 0 rgba(0, 0, 0, 0.2), 0 10px 1em 0 rgba(0,0,0,.08);
+}
+
+#network-graph .card-body {
+  padding: 0;
 }
 
 .card-header {
@@ -319,12 +322,16 @@ table.table.corpus th:focus {
 }
 
 .nav-tabs .nav-link {
-    border: 0;
+  color: #FFF;
+}
+
+.nav-tabs .nav-link {
+  border: 0;
 }
 
 .nav-tabs .nav-item {
-    margin-bottom: -2px;
-    border: 0px solid transparent;
+  margin-bottom: -2px;
+  border: 0px solid transparent;
 }
 
 .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
@@ -356,6 +363,36 @@ table.table.corpus th:focus {
   vertical-align: -0.125em;
 }
 
+.yasgui .nav-tabs {
+  background-color: #DCE1E8;
+}
+
+.yasgui .yasr {
+  padding-bottom: 5px;
+}
+
+.yasgui .tab-content {
+  box-shadow: 0 7px 5px 0 rgba(0, 0, 0, 0.2), 0 10px 1em 0 rgba(0,0,0,.08);
+}
+
+.yasgui .yasr .yasr_btn.selected, .yasgui .yasr .yasr_btn:focus {
+  background-color: #1F2448 !important;
+  border-color: #1F2448 !important;
+}
+
+.yasgui svg {
+  vertical-align: inherit;
+  fill: #1F2448;
+}
+
+.yasgui .nav-tabs>li>a {
+  border-radius: 8px 8px 0 0 !important;
+}
+
+.yasgui a {
+  color: #1F2448 !important;
+}
+
 @media only screen and (max-width: 1280px) {
    .navbar-nav li, .navbar-nav .dropdown {
     font-size: 1.4em;
@@ -366,7 +403,7 @@ table.table.corpus th:focus {
     margin: 1.8em 0em 1.8em 1.8em;
   }
   .h-100 {
-    height: 100% !important;
+    height: calc(100vh - 17.1em) !important;
     min-height: 72vh;
   }
   .d-flex {
@@ -390,11 +427,44 @@ table.table.corpus th:focus {
     margin: 1.3em 0em 1.3em 1.3em;
   }
     .h-100 {
+    height: calc(100vh - 13.8em) !important;
     min-height: 77vh;
+  }
+  .container-fluid {
+    padding: 0 2.5em 2.5em;
   }
 }
 
 @media only screen and (max-width: 767px) {
+  body {
+    border: none;
+  }
+  .mb-4, .my-4 {
+    margin-bottom: 1em !important;
+  }
+  .navbar {
+    padding: 0;
+    background-color: #1F2448 !important;
+  }
+  .navbar-brand {
+    background-image: url(/img/DraCor-white.svg);
+    width: 2.2em;
+    height: 2.2em;
+    margin: 1em;
+  }
+  .navbar-light .navbar-toggler-icon {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="rgb(255, 255, 255)"><rect y="0" width="100%" height="12%" rx="0%" ry="0%" /><rect y="40%" width="100%" height="12%" rx="0%" ry="0%" /><rect y="80%" width="100%" height="12%" rx="0%" ry="0%" /></svg>') center / 100% 100% no-repeat;
+  }
+  .navbar-light .navbar-nav .nav-link {
+    color: #FFF;
+    border-bottom: solid #FFF .17em;
+  }
+  .navbar-light .navbar-nav .nav-link.active {
+    color: #FFF;
+  }
+  .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+    color: #FFF726;
+  }
   .navbar-light .navbar-nav .nav-link {
     margin-right: 0;
     line-height: 2em;
@@ -413,6 +483,39 @@ table.table.corpus th:focus {
     display: none;
   }
   .navbar-collapse {
-    padding: 1.6em;
+    padding: 1.3em;
+  }
+  .h-100 {
+    height: 100% !important;
+  }
+  .container-fluid {
+  padding: 0 1em 1em;
+  }
+  .container-fluid h2 {
+    font-size: 2em;
+    margin: 0 0 .6em;
+  }
+  .corpus-card table {
+    font-size: .9em;
+  }
+  .corpus-card table tbody tr {
+    height: 3.5rem;
+  }
+  .logos img {
+    height: 150px;
+    padding: 2em 2em 2em 0;
+  }
+  .search-label .form-control {
+    width: 91vw;
+  }
+  table.table.corpus {
+    margin: 1em -1em;
+  }
+  .logo-left img, .logo-right img {
+    height: 150px;
+    padding: 2em 1.5em 2em 1.5em;
+  }
+  .loading {
+  padding: 16em 0;
   }
 }
