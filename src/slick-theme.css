@@ -83,7 +83,7 @@
 }
 [dir='rtl'] .slick-prev
 {
-    right: 30%px;
+    right: 30%;
     left: auto;
 }
 .slick-prev:after
@@ -201,4 +201,13 @@
 {
     opacity: .75;
     color: #1F2448;
+}
+
+@media only screen and (max-width: 1280px) {
+    .slick-prev {
+        left: 20%;
+    }
+    .slick-next {
+        right: 20%;
+    }
 }
