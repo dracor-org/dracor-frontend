@@ -4,7 +4,7 @@ const About = () => {
 	return (
   		<div>
   			<h2>Drama Corpora Project</h2>
-    		<div style={{textAlign: 'left', maxWidth: '800px', padding: '2.2em', lineHeight: '1.7em', color: '#1F2448'}}>
+    		<div style={{textAlign: 'left', maxWidth: '800px', lineHeight: '1.7em', color: '#1F2448'}}>
           {`Our two in-house TEI corpora (RusDraCor and GerDraCor) hosted on
             dracor.org are in public-beta state. Feel free to use them, but
             there are some issues that still have to be resolved before the
