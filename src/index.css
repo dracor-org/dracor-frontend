@@ -117,6 +117,7 @@ a {
   display: inline-block;;
   height: 200px;
   padding: 2em;
+  margin-top: 2em;
 }
 
 .loading {
@@ -243,7 +244,7 @@ a {
 }
 
 table.table.corpus {
-  margin: 2em 0 3em;
+  margin: 2em 0 0;
   color: #1F2448;
 }
 
@@ -302,6 +303,10 @@ table.table.corpus th:focus {
   color: #FFF;
   background-color: #1F2448;
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-body p {
+  margin: 1em;
 }
 
 .card-header:last-child:hover {
@@ -363,6 +368,10 @@ table.table.corpus th:focus {
   vertical-align: -0.125em;
 }
 
+.speech-dist-container {
+  padding: 1em;
+}
+
 .yasgui .nav-tabs {
   background-color: #DCE1E8;
 }
@@ -403,14 +412,10 @@ table.table.corpus th:focus {
     margin: 1.8em 0em 1.8em 1.8em;
   }
   .h-100 {
-    height: calc(100vh - 17.1em) !important;
-    min-height: 72vh;
+    min-height: calc(100vh - 17.1em);
   }
   .d-flex {
     flex-direction: column;
-  }
-  .d-md-flex {
-    margin-bottom: .25em;
   }
   .speech-dist-container.d-flex > div {
     width: 100% !important;
@@ -426,9 +431,8 @@ table.table.corpus th:focus {
     height: 3em;
     margin: 1.3em 0em 1.3em 1.3em;
   }
-    .h-100 {
-    height: calc(100vh - 13.8em) !important;
-    min-height: 77vh;
+  .h-100 {
+    min-height: calc(100% - 13.8em);
   }
   .container-fluid {
     padding: 0 2.5em 2.5em;
@@ -487,6 +491,9 @@ table.table.corpus th:focus {
   }
   .h-100 {
     height: 100% !important;
+  }
+  .mb-2, .my-2 {
+    margin-bottom: 1rem !important;
   }
   .container-fluid {
   padding: 0 1em 1em;
