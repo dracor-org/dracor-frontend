@@ -93,7 +93,7 @@ const Metrics = () => {
           sm={12}
           xs={12}
         >
-          <h1><span>{m.name}</span>DraCor</h1>
+          <Link to={`/${m.name}`}><h1><span>{m.name}</span>DraCor</h1></Link>
           <h3>
             <Link to={`/${m.name}`}>{m.title}</Link>
           </h3>
