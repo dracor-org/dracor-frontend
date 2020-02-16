@@ -139,6 +139,14 @@ a {
   outline: none;
 }
 
+.corpus-card a {
+  color: #1F2448;
+}
+
+.corpus-card a:hover {
+  text-decoration: none;
+}
+
 .corpus-card h1 {
   background-color: #fff;
   padding: .75rem;
