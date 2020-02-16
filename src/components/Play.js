@@ -210,7 +210,9 @@ const PlayInfo = ({corpusId, playId}) => {
                 {play.authors.map(a => (
                   <li key={a.key}>
                     {a.name}{' '}
-                    (<IdLink>{a.key}</IdLink>)
+                    {a.key && '('}
+                    {a.key && <IdLink>{a.key}</IdLink>}
+                    {a.key && ')'}
                   </li>
                 ))}
                 <li>
