@@ -285,10 +285,6 @@ table.table.corpus th:focus {
   font-size: 60% !important;
 }
 
-.h-100 {
-    height: calc(100vh - 18.7em) !important;
-}
-
 .card {
   border: 0;
   border-radius: .5em;
