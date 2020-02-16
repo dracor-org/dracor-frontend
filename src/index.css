@@ -301,6 +301,10 @@ table.table.corpus th:focus {
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
+.h-100 {
+  min-height: calc(100vh - 18.6em);
+}
+
 .card-body p {
   margin: 1em;
 }
