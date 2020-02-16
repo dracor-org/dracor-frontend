@@ -40,7 +40,12 @@ const Corpus = ({match, location}) => {
         const response = await api.get(`/corpora/${corpusId}`);
         response.data.dramas.forEach(d => {
           d.networkSize = parseInt(d.networkSize, 10) || 0;
-          d.authorNames = splitAuthors(d.authors).join(' · ');
+          if (d.authors) {
+            d.authorNames = splitAuthors(d.authors).join(' · ');
+          } else {
+            d.authors = [];
+            d.authorNames = 'Anonymous';
+          }
         });
         setCorpus(response.data);
       } catch (error) {
