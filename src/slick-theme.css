@@ -88,11 +88,11 @@
 }
 .slick-prev:after
 {
-    content: '🡐';
+    content: '\1f850';
 }
 [dir='rtl'] .slick-prev:after
 {
-    content: '🡒';
+    content: '\1f852';
 }
 
 .slick-next
@@ -106,11 +106,11 @@
 }
 .slick-next:after
 {
-    content: '🡒';
+    content: '\1f852';
 }
 [dir='rtl'] .slick-next:after
 {
-    content: '🡐';
+    content: '\1f850';
 }
 
 /* Dots */
