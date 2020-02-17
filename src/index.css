@@ -353,7 +353,6 @@ table.table.corpus th:focus {
 }
 
 .nav-link.active:hover, .nav-link.active:focus {
-  border-color: #FFF;
   color: #1F2448;
 }
 
