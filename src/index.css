@@ -357,6 +357,7 @@ table.table.corpus th:focus {
 .drama-title {
   font-size: 1.5em;
   color: var(--secondary-accent);
+  line-height: 1;
 }
 
 .year {
