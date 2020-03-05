@@ -26,7 +26,7 @@ import './Play.css';
 
 const apiUrl = api.getBaseURL();
 
-const edgeColor = '#DCE1EB';
+const edgeColor = '#49cc9065';
 const nodeColor = '#1F2448';
 
 const tabNames = ['network', 'speech', 'text', 'relations'];
@@ -266,7 +266,7 @@ const PlayInfo = ({corpusId, playId}) => {
               <CardBody>
                 <ul>
                   <li>
-                    {'network data: '}
+                    {'Network data: '}
                     <a href={csvUrl} download={`${play.id}-${play.name}.csv`}>
                       CSV
                     </a>
@@ -281,7 +281,7 @@ const PlayInfo = ({corpusId, playId}) => {
                   </li>
                   {play.relations && (
                     <li>
-                      {'relation data: '}
+                      {'Relation data: '}
                       <a
                         href={csvRelationsUrl}
                         download={`${play.id}-${play.name}-relations.csv`}
@@ -298,7 +298,7 @@ const PlayInfo = ({corpusId, playId}) => {
                     </li>
                   )}
                   <li>
-                    spoken text:{' '}
+                    Spoken text:{' '}
                     <a
                       href={`${playUrl}/spoken-text`}
                       download={`${play.id}-${play.name}-spoken.txt`}
@@ -307,7 +307,7 @@ const PlayInfo = ({corpusId, playId}) => {
                     </a>
                   </li>
                   <li>
-                    spoken text by character:{' '}
+                    Spoken text by character:{' '}
                     <a
                       href={`${playUrl}/spoken-text-by-character.json`}
                       download={`${play.id}-${play.name}-spoken.json`}
@@ -316,7 +316,7 @@ const PlayInfo = ({corpusId, playId}) => {
                     </a>
                   </li>
                   <li>
-                    stage directions:{' '}
+                    Stage directions:{' '}
                     <a
                       href={`${playUrl}/stage-directions`}
                       download={`${play.id}-${play.name}-stage.txt`}
