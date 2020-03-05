@@ -3,6 +3,18 @@
  * breakpoint we use a media query to style the cast list wrapper to be
  * scrollable on medium (and up) displays
  */
+.cast-list-wrapper::-webkit-scrollbar, .ceteicean::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+.cast-list-wrapper::-webkit-scrollbar-track, .ceteicean::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+.cast-list-wrapper::-webkit-scrollbar-thumb, .ceteicean::-webkit-scrollbar-thumb {
+  background: #1F2448;
+}
+
 @media (min-width: 768px) {
   #cast-list.card .card-body > div.cast-list-wrapper {
     position: absolute;
@@ -84,5 +96,5 @@
 
 /* fix overflow of CETEIcean content */
 .tei-frame #TEI {
-  padding: 20px;
+  padding: 35px;
 }

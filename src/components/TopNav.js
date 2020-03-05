@@ -17,6 +17,7 @@ import {
 } from 'reactstrap';
 import {DracorContext} from '../context';
 import {ezlinavisUrl} from '../config';
+import Headroom from 'react-headroom';
 
 class CorporaDropdown extends Component {
   static contextType = DracorContext;
@@ -79,6 +80,7 @@ export default class TopNav extends Component {
   render () {
     const {isOpen} = this.state;
     return (
+      <Headroom disableInlineStyles>
       <Navbar light color="light" expand="md" className="mb-4">
         <NavbarBrand title="Drama Corpora Project (DraCor)" href="/"/>
         <NavbarToggler onClick={this.toggle}/>
@@ -131,6 +133,7 @@ export default class TopNav extends Component {
           </Nav>
         </Collapse>
       </Navbar>
+      </Headroom>
     );
   }
 }
