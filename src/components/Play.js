@@ -161,6 +161,7 @@ const PlayInfo = ({corpusId, playId}) => {
   const playUrl = `${apiUrl}/corpora/${play.corpus}/play/${play.name}`;
   const csvUrl = `${playUrl}/networkdata/csv`;
   const gexfUrl = `${playUrl}/networkdata/gexf`;
+  const graphmlUrl = `${playUrl}/networkdata/graphml`;
   const csvRelationsUrl = `${playUrl}/relations/csv`;
   const gexfRelationsUrl = `${playUrl}/relations/gexf`;
   const teiUrl = `${playUrl}/tei`;
@@ -272,6 +273,10 @@ const PlayInfo = ({corpusId, playId}) => {
                     {' · '}
                     <a href={gexfUrl} download={`${play.id}-${play.name}.gexf`}>
                       GEXF
+                    </a>
+                    {' · '}
+                    <a href={graphmlUrl} download={`${play.id}-${play.name}.graphml`}>
+                      GraphML
                     </a>
                   </li>
                   {play.relations && (
