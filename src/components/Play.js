@@ -29,7 +29,7 @@ const apiUrl = api.getBaseURL();
 const edgeColor = '#999';
 const nodeColor = '#555';
 
-const tabNames = ['network', 'speech', 'tei', 'relations'];
+const tabNames = ['network', 'speech', 'text', 'relations'];
 
 function getCooccurrences (segments) {
   const map = {};
@@ -169,7 +169,7 @@ const PlayInfo = ({corpusId, playId}) => {
   let tabContent = null;
   if (tab === 'speech') {
     tabContent = <SpeechDistribution segments={play.segments} {...{groups}}/>;
-  } else if (tab === 'tei') {
+  } else if (tab === 'text') {
     tabContent = <TEIPanel url={teiUrl}/>;
   } else if (tab === 'relations') {
     tabContent = <RelationsGraph {...{play, nodeColor, edgeColor}}/>;
@@ -394,10 +394,10 @@ const PlayInfo = ({corpusId, playId}) => {
               </NavItem>
               <NavItem>
                 <NavLink
-                  href="#tei"
-                  className={classnames({active: tab === 'tei'})}
+                  href="#text"
+                  className={classnames({active: tab === 'text'})}
                 >
-                  TEI
+                  Full text
                 </NavLink>
               </NavItem>
             </Nav>
