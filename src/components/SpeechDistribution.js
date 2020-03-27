@@ -3,13 +3,16 @@ import PropTypes from 'prop-types';
 import {Form, FormGroup, Label, Input} from 'reactstrap';
 import Sapogov from './SpeechDistribution/Sapogov';
 import Yarkho from './SpeechDistribution/Yarkho';
+import TrilckeFischer from './SpeechDistribution/TrilckeFischer';
 
 const SpeechDistribution = ({groups, segments}) => {
-  const [chartType, setChartType] = useState('sapogov');
+  const [chartType, setChartType] = useState('trilckefischer');
 
   let chart;
   if (chartType === 'yarkho') {
     chart = <Yarkho {...{groups, segments}}/>;
+  } else if (chartType === 'trilckefischer') {
+    chart = <TrilckeFischer {...{segments}}/>;
   } else {
     chart = <Sapogov {...{groups, segments}}/>;
   }
@@ -37,6 +40,16 @@ const SpeechDistribution = ({groups, segments}) => {
               checked={chartType === 'yarkho'}
               onChange={handleChange}
             /> Yarkho
+          </Label>
+        </FormGroup>
+        <FormGroup check inline>
+          <Label check>
+            <Input
+              type="radio"
+              value="trilckefischer"
+              checked={chartType === 'trilckefischer'}
+              onChange={handleChange}
+            /> Trilcke/Fischer et al.
           </Label>
         </FormGroup>
       </Form>
