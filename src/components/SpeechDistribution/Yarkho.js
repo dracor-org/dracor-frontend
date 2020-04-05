@@ -143,7 +143,21 @@ class Yarkho extends Component {
       options.scales.yAxes[0].ticks.stepSize = 1;
     }
 
-    return <Line data={data} options={options}/>;
+    return (
+      <>
+        <Line data={data} options={options}/>
+        <p>
+          {'Cf. '}
+          <a href="http://rvb.ru/philologica/04/04iarxo.htm">
+            Yarkho 1997 (ru)
+          </a>
+          {', '}
+          <a href="https://doi.org/10.1515/jlt-2019-0002">
+            Yarkho 2019 (en)
+          </a>
+        </p>
+      </>
+    );
   }
 }
 
