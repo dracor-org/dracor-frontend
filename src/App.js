@@ -20,7 +20,11 @@ const App = () => {
     async function fetchCorpora () {
       try {
         const response = await api.get('/corpora');
-        setCorpora(response.data);
+        if (response.ok) {
+          setCorpora(response.data);
+        } else {
+          throw new Error(`Failed to load corpora. Status: ${response.status}`);
+        }
       } catch (error) {
         console.error(error);
       }
