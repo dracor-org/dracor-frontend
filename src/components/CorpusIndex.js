@@ -20,7 +20,7 @@ function formatAuthor (authorNames, d) {
     <span>
       {authorNames}
       <br/>
-      <small>
+      <small className="data-link-label">
         {
           keys.map((elem, i) => (
             <span key={`authorkey-${elem.key}`}>
@@ -40,7 +40,7 @@ function formatTitle (d, corpusId) {
       <Link className="drama-title" to={`/${corpusId}/${d.name}`}>{d.title}</Link>
       {d.subtitle ? <small><br/>{d.subtitle}</small> : null}
       {d.wikidataId && (
-        <small>
+        <small className="data-link-label">
           <br/>
           <IdLink showLabel>{`wikidata:${d.wikidataId}`}</IdLink>
         </small>
@@ -78,7 +78,15 @@ function formatSource (d, corpusId) {
   return (
     <span>
       {d.sourceUrl ? <a href={d.sourceUrl}>{d.source}</a> : d.source}
-      <br/>(<a href={teiUrl} target="_blank" rel="noopener noreferrer">TEI version</a>)
+      <br/>
+      <a
+        className="download-button"
+        href={teiUrl}
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        <img src="/img/download.svg" alt=""/> TEI version
+      </a>
     </span>
   );
 }
@@ -103,17 +111,17 @@ const CorpusIndex = ({data}) => {
       `${row.title} ${row.subtitle} ${row.wikidataId}`,
     formatter: (cell, row) => formatTitle(row, data.name)
   }, {
-    dataField: 'networkSize',
-    text: 'Network Size',
-    formatter: cell => parseInt(cell, 10) || 0,
-    sort: true
-  }, {
     dataField: 'yearNormalized',
     text: 'Year (normalized)',
     sort: true,
     filterValue: (cell, row) => `${row.yearNormalized} ${row.writtenYear} ` +
       `${row.premiereYear} ${row.printYear}`,
     formatter: (cell, row) => formatYear(row)
+  }, {
+    dataField: 'networkSize',
+    text: 'Network Size',
+    formatter: cell => parseInt(cell, 10) || 0,
+    sort: true
   }, {
     dataField: 'source',
     text: 'Source',
