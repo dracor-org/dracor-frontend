@@ -1,21 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import {Helmet} from 'react-helmet';
 import {
-  Button,
   Card,
   CardHeader,
   CardBody,
-  CardFooter,
   Nav,
   NavItem,
   NavLink
 } from 'reactstrap';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import classnames from 'classnames';
 import api from '../api';
 import IdLink from './IdLink';
 import Years from './Years';
-import PlayMetrics from './PlayMetrics';
 import CastList from './CastList';
 import NetworkGraph from './NetworkGraph';
 import RelationsGraph from './RelationsGraph';
@@ -26,8 +22,8 @@ import './Play.css';
 
 const apiUrl = api.getBaseURL();
 
-const edgeColor = '#49cc9065';
-const nodeColor = '#1F2448';
+const edgeColor = '#61affe65';
+const nodeColor = '#61affe';
 
 const tabNames = ['network', 'speech', 'text', 'relations'];
 
@@ -96,7 +92,6 @@ const PlayInfo = ({corpusId, playId}) => {
   const [graph, setGraph] = useState(null);
   const [error, setError] = useState(null);
   const [box, setBox] = useState('cast');
-  const [fullMeta, setFullMeta] = useState(false);
 
   useEffect(() => {
     async function fetchPlay () {
@@ -174,7 +169,7 @@ const PlayInfo = ({corpusId, playId}) => {
   } else if (tab === 'relations') {
     tabContent = <RelationsGraph {...{play, nodeColor, edgeColor}}/>;
   } else {
-    tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor}}/>;
+    tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor, play}}/>;
   }
 
   const authors = play.authors.map(a => a.name).join(' · ');
@@ -184,184 +179,162 @@ const PlayInfo = ({corpusId, playId}) => {
       <Helmet titleTemplate="%s - DraCor">
         <title>{`${authors}: ${play.title}`}</title>
       </Helmet>
+      <div className="play-header" id="play-header">
+        <ul className="play-title">
+          <li>
+            <h2>{play.title}</h2>
+          </li>
+          {play.subtitle && (
+            <li className="subtitle"><em>{play.subtitle}</em></li>
+          )}
+          <li className="years mt-2">
+            <Years
+              written={play.yearWritten}
+              premiere={play.yearPremiered}
+              print={play.yearPrinted}
+            />
+            {play.wikidataId && (
+              <span className="data-link-label">
+                {' '}
+                <IdLink>{`wikidata:${play.wikidataId}`}</IdLink>
+              </span>
+            )}
+          </li>
+        </ul>
+        <ul className="play-meta">
+          {play.authors.map(a => (
+            <li key={a.key} className="data-link-label" id="play-author">
+              {a.name}{' '}
+              {a.key && <IdLink>{a.key}</IdLink>}
+            </li>
+          ))}
+          <br/>
+          {play.source && (
+            <li>
+              Source:{' '}
+              {play.source.url
+                ? <a target="_blank" rel="noopener noreferrer" href={play.source.url}>{play.source.name}</a>
+                : play.source.name
+              }
+            </li>
+          )}
+
+          {play.originalSource && (
+            <li>
+              Original Source:{' '}
+              {play.originalSource}
+            </li>
+          )}
+          <li>DraCor: <em>{play.id}</em></li>
+          <li className="play-downloads">
+            Downloads:
+            {' '}
+            <span
+              className="play-downloads-item"
+              onClick={() => toggle('nd-formats')}
+            >
+              <i>network&nbsp;data</i>
+              {box === 'nd-formats' && (
+                <span className="formats">
+                  <a href={csvUrl} download={`${play.id}-${play.name}.csv`}>
+                    CSV
+                  </a>
+                  <a href={gexfUrl} download={`${play.id}-${play.name}.gexf`}>
+                    GEXF
+                  </a>
+                  <a
+                    href={graphmlUrl}
+                    download={`${play.id}-${play.name}.graphml`}
+                  >
+                    GraphML
+                  </a>
+                </span>)
+              }
+            </span>
+            {' '}
+            <span
+              className="play-downloads-item"
+              onClick={() => toggle('rd-formats')}
+            >
+              <i>relation&nbsp;data</i>
+              {box === 'rd-formats' && (
+                <span className="formats">
+                  <a
+                    href={csvRelationsUrl}
+                    download={`${play.id}-${play.name}-relations.csv`}
+                  >
+                    CSV
+                  </a>
+                  <a
+                    href={gexfRelationsUrl}
+                    download={`${play.id}-${play.name}-relations.gexf`}
+                  >
+                    GEXF
+                  </a>
+                </span>)
+              }
+            </span>
+            {' '}
+            <span
+              className="play-downloads-item"
+              onClick={() => toggle('st-formats')}
+            >
+              <i>spoken&nbsp;text</i>
+              {box === 'st-formats' && (
+                <span className="formats">
+                  <a
+                    href={`${playUrl}/spoken-text`}
+                    download={`${play.id}-${play.name}-spoken.txt`}
+                  >
+                    TXT
+                  </a>
+                </span>)
+              }
+            </span>
+            {' '}
+            <span
+              className="play-downloads-item"
+              onClick={() => toggle('stc-formats')}
+            >
+              <i>spoken&nbsp;text&nbsp;by&nbsp;character</i>
+              {box === 'stc-formats' && (
+                <span className="formats">
+                  <a
+                    href={`${playUrl}/spoken-text-by-character.json`}
+                    download={`${play.id}-${play.name}-spoken.json`}
+                  >
+                    JSON
+                  </a>
+                </span>)
+              }
+            </span>
+            {' '}
+            <span
+              className="play-downloads-item"
+              onClick={() => toggle('sd-formats')}
+            >
+              <i>stage&nbsp;directions</i>
+              {box === 'sd-formats' && (
+                <span className="formats">
+                  <a
+                    target="_blank" rel="noopener noreferrer"
+                    href={`${playUrl}/stage-directions`}
+                    download={`${play.id}-${play.name}-stage.txt`}
+                  >
+                    TXT
+                  </a>
+                </span>
+              )}
+            </span>
+          </li>
+        </ul>
+      </div>
 
       <div className="d-md-flex" style={{flexGrow: 1}}>
-
-        {/* left column */}
-        <div className="d-flex flex-column play-info-column">
-
-          {/* basic meta data */}
-          <Card id="play-meta-data" className="mb-2">
-            <CardBody>
-              <Button
-                outline
-                className="meta-data-toggler"
-                size="sm"
-                color="link"
-                style={{color: 'black'}}
-                title={`show ${fullMeta ? 'less' : 'more'}`}
-                onClick={() => setFullMeta(!fullMeta)}
-              >
-                <FontAwesomeIcon
-                  size="sm"
-                  icon={`caret-${fullMeta ? 'up' : 'down'}`}
-                />
-              </Button>
-              <ul className="mb-0">
-                {play.authors.map(a => (
-                  <li key={a.key}>
-                    {a.name}{' '}
-                    {a.key && '('}
-                    {a.key && <IdLink>{a.key}</IdLink>}
-                    {a.key && ')'}
-                  </li>
-                ))}
-                <li>
-                  <h1>{play.title}</h1>
-                  {play.wikidataId && (
-                    <>
-                      {' '}
-                      (<IdLink>{`wikidata:${play.wikidataId}`}</IdLink>)
-                    </>
-                  )}
-                </li>
-                {play.subtitle && (
-                  <li><em>{play.subtitle}</em></li>
-                )}
-                <li className="years mt-2">
-                  <Years
-                    written={play.yearWritten}
-                    premiere={play.yearPremiered}
-                    print={play.yearPrinted}
-                  />
-                </li>
-                {fullMeta && (
-                  <>
-                    {play.source && (
-                      <li>
-                        Source:{' '}
-                        {play.source.url
-                          ? <a href={play.source.url}>{play.source.name}</a>
-                          : play.source.name}
-                      </li>
-                    )}
-                    {play.originalSource && (
-                      <li>
-                        Original Source:{' '}
-                        {play.originalSource}
-                      </li>
-                    )}
-                    <li>DraCor: <em>{play.id}</em></li>
-                  </>
-                )}
-              </ul>
-            </CardBody>
-          </Card>
-
-          <Card id="download" className="mb-2">
-            <CardHeader onClick={() => toggle('download')}>
-              Downloads
-            </CardHeader>
-            {box === 'download' && (
-              <CardBody>
-                <ul>
-                  <li>
-                    {'Network data: '}
-                    <a href={csvUrl} download={`${play.id}-${play.name}.csv`}>
-                      CSV
-                    </a>
-                    {' · '}
-                    <a href={gexfUrl} download={`${play.id}-${play.name}.gexf`}>
-                      GEXF
-                    </a>
-                    {' · '}
-                    <a href={graphmlUrl} download={`${play.id}-${play.name}.graphml`}>
-                      GraphML
-                    </a>
-                  </li>
-                  {play.relations && (
-                    <li>
-                      {'Relation data: '}
-                      <a
-                        href={csvRelationsUrl}
-                        download={`${play.id}-${play.name}-relations.csv`}
-                      >
-                        CSV
-                      </a>
-                      {' · '}
-                      <a
-                        href={gexfRelationsUrl}
-                        download={`${play.id}-${play.name}-relations.gexf`}
-                      >
-                        GEXF
-                      </a>
-                    </li>
-                  )}
-                  <li>
-                    Spoken text:{' '}
-                    <a
-                      href={`${playUrl}/spoken-text`}
-                      download={`${play.id}-${play.name}-spoken.txt`}
-                    >
-                      TXT
-                    </a>
-                  </li>
-                  <li>
-                    Spoken text by character:{' '}
-                    <a
-                      href={`${playUrl}/spoken-text-by-character.json`}
-                      download={`${play.id}-${play.name}-spoken.json`}
-                    >
-                      JSON
-                    </a>
-                  </li>
-                  <li>
-                    Stage directions:{' '}
-                    <a
-                      href={`${playUrl}/stage-directions`}
-                      download={`${play.id}-${play.name}-stage.txt`}
-                    >
-                      TXT
-                    </a>
-                  </li>
-                </ul>
-              </CardBody>
-            )}
-          </Card>
-
-          <Card id="network-metrics" className="mb-2">
-            <CardHeader onClick={() => toggle('metrics')}>
-              Network Metrics
-            </CardHeader>
-            {box === 'metrics' && (
-              <CardBody>
-                <PlayMetrics play={play}/>
-              </CardBody>
-            )}
-          </Card>
-
-          <Card
-            id="cast-list"
-            className="mb-2"
-            style={{flexGrow: box === 'cast' ? 1 : 0}}
-          >
-            <CardHeader onClick={() => toggle('cast')}>
-              Cast list (in order of appearance)
-            </CardHeader>
-            {box === 'cast' && (
-              <CardBody className="position-relative">
-                <div className="cast-list-wrapper px-md-4 my-md-4">
-                  <CastList cast={play.cast || []}/>
-                </div>
-              </CardBody>
-            )}
-          </Card>
-        </div>
 
         {/* tabbed area */}
         <Card
           id="network-graph"
-          className="mb-2 ml-md-2"
           style={{flex: 1}}
         >
           <CardHeader>
@@ -402,15 +375,17 @@ const PlayInfo = ({corpusId, playId}) => {
               </NavItem>
             </Nav>
           </CardHeader>
-          <CardBody className="d-flex" style={{minHeight: '50vh'}}>
-            {tabContent}
+
+          <CardBody className="d-flex">
+            <div className="card-wrapper">{tabContent}</div>
+            <div className="cast-list-wrapper">
+              <h4>Cast list</h4>
+              <p>(in order of appearance)</p>
+              <CastList cast={play.cast || []}/>
+            </div>
           </CardBody>
-          <CardFooter className="text-center d-md-none">
-            <a href="#network-metrics">metrics</a>
-          </CardFooter>
         </Card>
       </div>
-
     </div>
   );
 };
