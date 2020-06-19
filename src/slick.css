@@ -2,8 +2,8 @@
 .slick-slider
 {
     position: relative;
-    width: calc(100% + 7em + 26px);
-    left: calc(-8em + 59px);
+    width: calc(100% + 6.6em);
+    left: -3.3em;
     display: block;
     box-sizing: border-box;
 
@@ -123,7 +123,7 @@
 
 @media only screen and (max-width: 1024px) {
     .slick-slider {
-        width: calc(100% + 5em + 32px);
+        width: calc(100% + 3.2em + 32px);
         left: calc(-7em + 56px);
     }
 }

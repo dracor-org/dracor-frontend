@@ -54,7 +54,12 @@ const SpeechDistribution = ({groups, segments}) => {
         </FormGroup>
       </Form>
       <br/>
-      {chart}
+
+      <div className="speech-dist-container d-flex">
+        <div style={{position: 'relative', width: '100%'}}>
+          {chart}
+        </div>
+      </div>
     </div>
   );
 };

@@ -12,13 +12,13 @@ import {
 
 /* eslint-disable camelcase */
 const edgeColors = {
-  parent_of: '#469990', // teal
-  lover_of: '#e6194B', // red
-  related_with: '#808000', // olive
-  associated_with: '#42d4f4', // navy
-  siblings: '#3cb44b', // green
-  spouses: '#911eb4', // purple
-  friends: '#800000' // maroon
+  parent_of: '#6f42c1', // purple
+  lover_of: '#f93e3e', // red
+  related_with: '#fca130', // orange
+  associated_with: '#61affe', // blue
+  siblings: '#49cc90', // green
+  spouses: '#e83e8c', // pink
+  friends: '#1F2448' // navy
 };
 /* eslint-enable camelcase */
 
