@@ -86,17 +86,19 @@ const TrilckeFischer = ({segments}) => {
             y={dramaChangeRate}
             label={{
               value: `Drama Change Rate: ${dramaChangeRate.toFixed(3)}`,
-              fill: 'rgba(79,181,198,1)',
+              fill: '#1F2448',
               position: dramaChangeRate > 0.9 ? 'bottom' : 'top',
               fontSize: 12
             }}
-            stroke="rgba(79,181,198,1)"
+            stroke="#aaeeff"
             strokeWidth={2}
             strokeDasharray="3 3"
           />
           <Line
+            fill
             dataKey="rate"
-            stroke="rgba(179,181,198,1)"
+            stroke="#61affe"
+            backgroundColor="#61affe1a"
             strokeWidth={3}
             activeDot={{r: 4}}
             dot={false}

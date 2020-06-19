@@ -35,22 +35,22 @@ const settings = {
       slidesToShow: 5
     }
   }, {
-    breakpoint: 1800,
+    breakpoint: 1920,
     settings: {
       slidesToShow: 4
     }
   }, {
-    breakpoint: 1450,
+    breakpoint: 1480,
     settings: {
       slidesToShow: 3
     }
   }, {
-    breakpoint: 1150,
+    breakpoint: 1020,
     settings: {
       slidesToShow: 2
     }
   }, {
-    breakpoint: 800,
+    breakpoint: 666,
     settings: {
       slidesToShow: 1,
       dots: true,
@@ -93,7 +93,9 @@ const Metrics = () => {
           sm={12}
           xs={12}
         >
-          <Link to={`/${m.name}`}><h1><span>{m.name}</span>DraCor</h1></Link>
+          <Link to={`/${m.name}`}>
+            <h1><span>{m.name}</span>DraCor</h1>
+          </Link>
           <h3>
             <Link to={`/${m.name}`}>{m.title}</Link>
           </h3>

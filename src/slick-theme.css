@@ -4,6 +4,15 @@
 {
     background: #fff url('./ajax-loader.gif') center center no-repeat;
 }
+.slick-slider::before {
+    content: '';
+    height: 7.1rem;
+    background: var(--main);
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
 
 /* Icons */
 @font-face
