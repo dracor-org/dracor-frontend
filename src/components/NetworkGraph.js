@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import PlayMetrics from './PlayMetrics';
 // we need to require from react-sigma/lib/ to make build work
 import {
   Sigma,
@@ -12,7 +13,7 @@ import {
 
 class NetworkGraph extends Component {
   render () {
-    const {graph, nodeColor, edgeColor} = this.props;
+    const {graph, nodeColor, edgeColor, play} = this.props;
 
     const settings = {
       maxEdgeSize: 5,
@@ -54,12 +55,15 @@ class NetworkGraph extends Component {
             {layout}
             <RelativeSize initialSize={15}/>
           </RandomizeNodePositions>
+          <div className="metrics"><PlayMetrics play={play}/></div>
         </Sigma>
       );
     }
 
     return sigma;
   }
+
+
 }
 
 NetworkGraph.propTypes = {
