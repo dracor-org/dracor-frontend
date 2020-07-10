@@ -23,6 +23,7 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "react-sigma": "^1.2.30",
+    "react-slick": "^0.26.1",
     "reactstrap": "8.0.0",
     "recharts": "^1.8.5",
     "swagger-ui-react": "^3.22.2",
