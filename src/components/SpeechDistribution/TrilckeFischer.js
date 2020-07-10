@@ -95,7 +95,6 @@ const TrilckeFischer = ({segments}) => {
             strokeDasharray="3 3"
           />
           <Line
-            fill
             dataKey="rate"
             stroke="#61affe"
             backgroundColor="#61affe1a"
