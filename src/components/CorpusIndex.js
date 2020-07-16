@@ -69,7 +69,7 @@ function formatSource (d, corpusId) {
   const teiUrl = `${apiUrl}/corpora/${corpusId}/play/${d.name}/tei`;
   return (
     <span>
-      {d.sourceUrl ? <a href={d.sourceUrl}>{d.source}</a> : d.source}
+      {d.sourceUrl ? <a target="_blank" rel="noopener noreferrer" href={d.sourceUrl}>{d.source}</a> : d.source}
       <br/>
       <a
         className="download-button"
