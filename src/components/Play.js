@@ -328,16 +328,7 @@ const PlayInfo = ({corpusId, playId}) => {
             </span>
           </li>
         </ul>
-      </div>
-
-      <div className="d-md-flex" style={{flexGrow: 1}}>
-
-        {/* tabbed area */}
-        <Card
-          id="network-graph"
-          style={{flex: 1}}
-        >
-          <CardHeader>
+        <CardHeader>
             <Nav tabs className="card-header-tabs">
               <NavItem>
                 <NavLink
@@ -375,7 +366,15 @@ const PlayInfo = ({corpusId, playId}) => {
               </NavItem>
             </Nav>
           </CardHeader>
+      </div>
 
+      <div className="d-md-flex" style={{flexGrow: 1}}>
+
+        {/* tabbed area */}
+        <Card
+          id="network-graph"
+          style={{flex: 1}}
+        >
           <CardBody className="d-flex">
             <div className="card-wrapper">{tabContent}</div>
             <div className="cast-list-wrapper">
