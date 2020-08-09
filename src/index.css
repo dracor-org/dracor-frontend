@@ -455,14 +455,15 @@ table.table.corpus th:focus {
   width: calc(100% + 6.6em);
   left: -3.3em;
   position: relative;
-  padding: 5em 3.3em 2em;
-  margin-top: -5em;
+  padding: 0em 3.3em 2em;
 }
 
 .play-header {
   color: var(--background-light);
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 0;
 }
 
 .play-header .subtitle {
@@ -508,6 +509,7 @@ table.table.corpus th:focus {
 .play-meta {
   width: 50%;
   font-size: .85em;
+  flex: 1;
 }
 
 .play-downloads-item {
@@ -563,8 +565,8 @@ table.table.corpus th:focus {
 }
 
 #network-graph {
-  margin-top: -2em;
-  height: calc(100vh - .7rem);
+  min-height: calc(100vh - 2.6rem);
+  height: 100%;
 }
 
 #network-graph .card-body {
@@ -581,6 +583,7 @@ table.table.corpus th:focus {
   padding: 0;
   border: 0;
   border-radius: 0;
+  flex-basis: 100%;
 }
 
 .card-header-tabs {
@@ -589,6 +592,7 @@ table.table.corpus th:focus {
 
 .h-100 {
   min-height: calc(100vh - 152px);
+  height: auto !important;
 }
 
 .card-body p {
@@ -606,7 +610,7 @@ table.table.corpus th:focus {
 .nav-tabs .nav-item {
   font-size: .85rem;
   position: relative;
-  
+  margin-bottom: 0;
   margin-right: 1.5em;
 }
 
@@ -664,7 +668,7 @@ table.table.corpus th:focus {
 
 .card-wrapper {
   width: calc(100% * 3 / 4);
-  height: min(100vh - 10em, 100%);
+  /* height: min(100vh - 10em, 100%); */
   display: flex;
   position: relative;
   margin-right: 1em;
@@ -890,9 +894,6 @@ table.table.corpus th:focus {
     height: 3em;
     margin: 1em 0em 1em 1.8em;
   }
-  #network-graph {
-    margin-top: -2.2em;
-  }
   .slick-slider::before {
     height: 6.9rem !important;
   }
@@ -952,7 +953,7 @@ table.table.corpus th:focus {
     margin-right: .8em;
   }
   .container-fluid {
-    padding: 0 2.5em .5em;
+    padding: 0 2.5em 0em;
   }
   .slick-slider::before {
     height: 6.85rem !important;
@@ -960,7 +961,10 @@ table.table.corpus th:focus {
   .play-header, .h-header, .swagger-ui .info {
     width: calc(100% + 5em);
     left: -2.5em;
-    padding: 5em 2.5em 2em;
+    padding: 0em 2.5em 2em;
+  }
+  .play-header {
+    padding-bottom: 0;
   }
   .swagger-ui .info {
     margin: -5em 0 30px 0 !important;
@@ -974,9 +978,6 @@ table.table.corpus th:focus {
   #network-graph .card-body {
     margin-top: 2.5em;
     margin-bottom: 2.5em;
-  }
-  #network-graph {
-    height: calc(100vh - 1.1rem);
   }
   .cast-list-wrapper {
     height: calc(100vh - 10em);
@@ -1034,9 +1035,6 @@ table.table.corpus th:focus {
   .navbar-collapse {
     padding: 1.3em;
   }
-  .h-100 {
-    height: 100% !important;
-  }
   .h-header + div {
     margin-top: 1em;
   }
@@ -1068,17 +1066,17 @@ table.table.corpus th:focus {
   .play-header, .h-header, .swagger-ui .info {
     width: calc(100% + 2em);
     left: -1em;
-    padding: 5em 1.3em 1em;
+    padding: 0em 1.3em 1em;
     flex-direction: column;
   }
   .play-header {
-    padding-bottom: 2em;
+    padding-bottom: 0;
   }
   .play-title, .play-meta, .card-wrapper, .cast-list-wrapper {
     width: 100%;
   }
   #network-graph {
-    height: calc(100vh - 1.6rem);
+    min-height: calc(100vh - 4.1em);
   }
   #network-graph .card-body {
     flex-direction: column;
@@ -1107,10 +1105,10 @@ table.table.corpus th:focus {
     display: none;
   }
   .card-wrapper {
-    height: min(100vh + 15em, 100%);
+    min-height: calc(100vh - 4.2em);
   }
   .cast-list-wrapper {
     margin-top: 2em;
-    height: calc(100vh - 9em);
+    height: auto;
   }
 }

@@ -213,9 +213,9 @@
 
 @media only screen and (max-width: 1280px) {
     .slick-prev {
-        left: 20%;
+        left: 15%;
     }
     .slick-next {
-        right: 20%;
+        right: 15%;
     }
 }
