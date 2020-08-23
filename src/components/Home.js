@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {DracorContext} from '../context';
 import Metrics from './Metrics';
 import '../slick-theme.css';
 import '../slick.css';
 
 const Home = () => {
+  const {apiInfo} = useContext(DracorContext);
+
   return (
     <div>
       <Metrics/>
@@ -21,7 +24,6 @@ const Home = () => {
           </p>
         </div>
         <div className="current-year">
-          <h6>&nbsp;</h6>
           <p>Drama Corpora Project <br/>2020</p>
         </div>
         <div className="license">
@@ -35,6 +37,21 @@ const Home = () => {
           </a>.
         </div>
       </div>
+      {apiInfo.version && (
+        <div className="mb-3" style={{textAlign: 'center'}}>
+          This site runs on DraCor API
+          {' '}
+          <a href={`https://github.com/dracor-org/dracor-api/releases/tag/v${apiInfo.version}`}>
+            {apiInfo.version}
+          </a>
+          {' '}
+          using eXist-db
+          {' '}
+          <a href={`https://github.com/eXist-db/exist/releases/tag/eXist-${apiInfo.existdb}`}>
+            {apiInfo.existdb}
+          </a>.
+        </div>
+      )}
     </div>
   );
 };
