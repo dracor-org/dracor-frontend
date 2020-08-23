@@ -15,7 +15,26 @@ const AsyncYasgui = asyncComponent(() => import('./components/Yasgui'));
 const AsyncAPIDoc = asyncComponent(() => import('./components/APIDoc'));
 
 const App = () => {
+  const [apiInfo, setApiInfo] = useState([]);
   const [corpora, setCorpora] = useState([]);
+
+  useEffect(() => {
+    console.log('fetching API info...');
+    async function fetchInfo () {
+      try {
+        const response = await api.get('/info');
+        if (response.ok) {
+          setApiInfo(response.data);
+        } else {
+          throw new Error(`Failed to load API info. Status: ${response.status}`);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    fetchInfo();
+  }, []);
 
   useEffect(() => {
     console.log('fetching corpora...');
@@ -37,7 +56,7 @@ const App = () => {
 
   return (
     <Router>
-      <DracorContext.Provider value={{corpora}}>
+      <DracorContext.Provider value={{corpora, apiInfo}}>
         <div className="d-flex flex-column" style={{height: '100%'}}>
           <TopNav/>
           <div className="content d-flex" style={{flex: 1}}>
