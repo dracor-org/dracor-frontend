@@ -1,9 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Helmet} from 'react-helmet';
 import {
-  Card,
-  CardHeader,
-  CardBody,
   Nav,
   NavItem,
   NavLink
@@ -328,8 +325,8 @@ const PlayInfo = ({corpusId, playId}) => {
             </span>
           </li>
         </ul>
-        <CardHeader>
-            <Nav tabs className="card-header-tabs">
+        <div className="fullwidth">
+            <Nav tabs className="dashboard-tabs">
               <NavItem>
                 <NavLink
                   href="#network"
@@ -365,25 +362,25 @@ const PlayInfo = ({corpusId, playId}) => {
                 </NavLink>
               </NavItem>
             </Nav>
-          </CardHeader>
+          </div>
       </div>
 
       <div className="d-md-flex" style={{flexGrow: 1}}>
 
         {/* tabbed area */}
-        <Card
-          id="network-graph"
+        <div
+          id="dashboard"
           style={{flex: 1}}
         >
-          <CardBody className="d-flex">
-            <div className="card-wrapper">{tabContent}</div>
+          <div className="d-flex">
+            <div className="content-wrapper">{tabContent}</div>
             <div className="cast-list-wrapper">
               <h4>Cast list</h4>
               <p>(in order of appearance)</p>
               <CastList cast={play.cast || []}/>
             </div>
-          </CardBody>
-        </Card>
+          </div>
+        </div>
       </div>
     </div>
   );
