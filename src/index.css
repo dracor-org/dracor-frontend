@@ -35,24 +35,9 @@ body {
   transition: .3s ease-in-out;
 }
 
-
-div:hover::-webkit-scrollbar-corner {
-    width: 1rem;
-}
-
 ::-webkit-scrollbar:hover {
     height: 1rem;
     width: 1rem;
-}
-
-::-webkit-scrollbar:hover > ::-webkit-scrollbar-thumb {
-    border-radius: .5rem;
-    border: solid .2rem var(--background);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    border-radius: .5rem;
-    border: solid .2rem var(--background);
 }
 
 ::-webkit-scrollbar-track {
@@ -75,6 +60,10 @@ a:hover {
 
 .btn:focus {
   box-shadow: none;
+}
+
+.fullwidth {
+  width: 100%;
 }
 
 .navbar {
@@ -558,18 +547,18 @@ table.table.corpus th:focus {
   opacity: .8;
 }
 
-.card {
+#dashboard {
+  height: calc(100vh - 2.6rem);
   border: 0;
-  border-radius: 0;
-  background-color: transparent;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
 
-#network-graph {
-  min-height: calc(100vh - 2.6rem);
-  height: 100%;
-}
-
-#network-graph .card-body {
+#dashboard > div {
+  position: relative;
+  height: fit-content;
   padding: 1em;
   margin-top: 3em;
   margin-bottom: 3em;
@@ -579,24 +568,14 @@ table.table.corpus th:focus {
   box-shadow: 0 7px 5px 0 rgba(0, 0, 0, 0.2), 0 10px 1em 0 rgba(0,0,0,.08), 0 4px 0px 0 #33405220;
 }
 
-.card-header {
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  flex-basis: 100%;
-}
-
-.card-header-tabs {
+.dashboard-tabs {
   margin: 0;
+  border-bottom: none;
 }
 
 .h-100 {
   min-height: calc(100vh - 152px);
   height: auto !important;
-}
-
-.card-body p {
-  margin: 1em;
 }
 
 .nav-tabs .nav-link {
@@ -666,15 +645,16 @@ table.table.corpus th:focus {
   vertical-align: -0.125em;
 }
 
-.card-wrapper {
+.content-wrapper {
   width: calc(100% * 3 / 4);
-  /* height: min(100vh - 10em, 100%); */
+  height: calc(100vh - 11em);
   display: flex;
   position: relative;
   margin-right: 1em;
+  overflow-y: scroll;
 }
 
-.card-wrapper .metrics div {
+.content-wrapper .metrics div {
     font-size: .65rem;
     background: var(--background);
     padding: .5rem;
@@ -725,16 +705,16 @@ table.table.corpus th:focus {
   color: var(--secondary-accent-dark) !important;
 }
 
-.cast-list-wrapper::-webkit-scrollbar, .ceteicean::-webkit-scrollbar {
+.cast-list-wrapper::-webkit-scrollbar, .content-wrapper::-webkit-scrollbar {
   width: .5rem;
 }
 
-.cast-list-wrapper::-webkit-scrollbar-track, .ceteicean::-webkit-scrollbar-track {
+.cast-list-wrapper::-webkit-scrollbar-track, .content-wrapper::-webkit-scrollbar-track {
   background: var(--background-light);
   border-radius: .25rem;
 }
 
-.cast-list-wrapper::-webkit-scrollbar-thumb, .ceteicean::-webkit-scrollbar-thumb, .ceteicean::-webkit-scrollbar-thumb:hover {
+.cast-list-wrapper::-webkit-scrollbar-thumb, .content-wrapper::-webkit-scrollbar-thumb, .content-wrapper::-webkit-scrollbar-thumb:hover {
   background: var(--main);
   border: none;
   border-radius: .25rem;
@@ -933,7 +913,7 @@ table.table.corpus th:focus {
   .headroom--unpinned {
     left: 0;
     right: 0;
-}
+  }
   .navbar-nav li, .navbar-nav .dropdown {
     font-size: 1.2em;
   }
@@ -975,7 +955,7 @@ table.table.corpus th:focus {
     color: var(--main);
     width: calc(100% + 5em);
   }
-  #network-graph .card-body {
+  #dashboard > div {
     margin-top: 2.5em;
     margin-bottom: 2.5em;
   }
@@ -983,8 +963,12 @@ table.table.corpus th:focus {
     height: calc(100vh - 10em);
     width: calc(100% / 3);
   }
-  .card-wrapper {
+  .content-wrapper {
     width: calc(100% / 3 * 2);
+  }
+  .content-wrapper .tei-frame #TEI {
+    padding: 1em;
+    overflow-x: hidden;
   }
 }
 
@@ -1072,13 +1056,14 @@ table.table.corpus th:focus {
   .play-header {
     padding-bottom: 0;
   }
-  .play-title, .play-meta, .card-wrapper, .cast-list-wrapper {
+  .play-title, .play-meta, .content-wrapper, .cast-list-wrapper {
     width: 100%;
   }
-  #network-graph {
+  #dashboard {
     min-height: calc(100vh - 4.1em);
+    height: min(100vh - 4.1em, 100%);
   }
-  #network-graph .card-body {
+  #dashboard > div {
     flex-direction: column;
     margin-top: 1em;
     margin-bottom: 1em;
@@ -1101,11 +1086,13 @@ table.table.corpus th:focus {
   .current-year {
     display: none;
   }
-  .card-wrapper .metrics div {
+  .content-wrapper .metrics div {
     display: none;
   }
-  .card-wrapper {
+  .content-wrapper {
     min-height: calc(100vh - 4.2em);
+    overflow-y: visible;
+    height: auto;
   }
   .cast-list-wrapper {
     margin-top: 2em;
