@@ -829,6 +829,7 @@ table.table.corpus th:focus {
 
 .footer {
   font-size: .8rem;
+  line-height: 1.65;
   display: flex;
   width: auto;
   margin-top: 1rem;
@@ -840,22 +841,43 @@ table.table.corpus th:focus {
 }
 
 .citation {
-  width: calc(100% / 3);
+  width: calc(50% - 8em);
 }
 
 .current-year {
-  width: calc(100% / 3);
+  width: 16em;
   text-align: center;
+  margin-top: 1.65rem;
 }
 
 .license {
   text-align: right;
-  width: calc(100% / 3);
+  width: calc(50% - 8em);
 }
 
-.license img {
-  margin-bottom: .3rem;
-  height: 1.4rem;
+.license a img {
+  margin: 0 0 .3rem .3rem;
+  height: 1.3rem;
+}
+
+.license span {
+  background-color: var(--main);
+  color: var(--background);
+  border-radius: 1em 0 0 1em ;
+  padding: .1em .3em .1em .5em;
+}
+
+.version {
+  background-color: var(--primary);
+  color: var(--background);
+  border-radius: 0 1em 1em 0;
+  padding: .1em .5em .1em .3em;
+  transition: .3s ease-in-out;
+}
+
+.version:hover{
+  background-color: #0056b3;
+  color: var(--secondary-accent);
 }
 
 @media only screen and (max-width: 1440px) {
@@ -936,9 +958,6 @@ table.table.corpus th:focus {
   }
   .footer {
     font-size: .65rem;
-  }
-  h6 {
-    font-size: .75rem;
   }
 }
 
@@ -1080,6 +1099,9 @@ table.table.corpus th:focus {
     width: 100%;
     text-align: left;
     margin-bottom: 1em;
+  }
+  .license a img {
+    margin: 0 .3rem .3rem 0;
   }
   .current-year {
     display: none;
