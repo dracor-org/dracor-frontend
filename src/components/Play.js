@@ -326,43 +326,43 @@ const PlayInfo = ({corpusId, playId}) => {
           </li>
         </ul>
         <div className="fullwidth">
-            <Nav tabs className="dashboard-tabs">
+          <Nav tabs className="dashboard-tabs">
+            <NavItem>
+              <NavLink
+                href="#network"
+                className={classnames({active: tab === 'network'})}
+              >
+                Network
+              </NavLink>
+            </NavItem>
+            {play.relations && (
               <NavItem>
                 <NavLink
-                  href="#network"
-                  className={classnames({active: tab === 'network'})}
+                  href="#relations"
+                  className={classnames({active: tab === 'relations'})}
                 >
-                  Network
+                  Relations
                 </NavLink>
               </NavItem>
-              {play.relations && (
-                <NavItem>
-                  <NavLink
-                    href="#relations"
-                    className={classnames({active: tab === 'relations'})}
-                  >
-                    Relations
-                  </NavLink>
-                </NavItem>
-              )}
-              <NavItem>
-                <NavLink
-                  href="#speech"
-                  className={classnames({active: tab === 'speech'})}
-                >
-                  Speech distribution
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink
-                  href="#text"
-                  className={classnames({active: tab === 'text'})}
-                >
-                  Full text
-                </NavLink>
-              </NavItem>
-            </Nav>
-          </div>
+            )}
+            <NavItem>
+              <NavLink
+                href="#speech"
+                className={classnames({active: tab === 'speech'})}
+              >
+                Speech distribution
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
+                href="#text"
+                className={classnames({active: tab === 'text'})}
+              >
+                Full text
+              </NavLink>
+            </NavItem>
+          </Nav>
+        </div>
       </div>
 
       <div className="d-md-flex" style={{flexGrow: 1}}>
