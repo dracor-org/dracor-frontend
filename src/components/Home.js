@@ -16,7 +16,7 @@ const Home = () => {
           <p>
             Frank Fischer et al.:
             {' '}
-            <a href="https://dev.clariah.nl/files/dh2019/boa/0268.html">
+            <a target="_blank" rel="noopener noreferrer" href="https://dev.clariah.nl/files/dh2019/boa/0268.html">
               Programmable Corpora: Introducing DraCor, an Infrastructure for the
               Research on European Drama.
             </a>
@@ -27,31 +27,29 @@ const Home = () => {
           <p>Drama Corpora Project <br/>2020</p>
         </div>
         <div className="license">
-          <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
-            <img alt="Creative Commons License" src="/img/by.svg"/>
+          <a target="_blank" rel="noopener noreferrer license" href="https://creativecommons.org/publicdomain/zero/1.0">
+          <img src="img/cc.svg" /><img src="img/cc0.svg" />
           </a>
-          <br/>This work is licensed under a
-          {' '}
-          <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
-            Creative Commons Attribution 4.0 International License
-          </a>.
-        </div>
-      </div>
-      {apiInfo.version && (
-        <div className="mb-3" style={{textAlign: 'center'}}>
-          This site runs on DraCor API
-          {' '}
-          <a href={`https://github.com/dracor-org/dracor-api/releases/tag/v${apiInfo.version}`}>
+          <br/>Unless otherwise stated, all corpora and the web design are released under <span>Creative&nbsp;Commons</span>
+          <a className="version" target="_blank" rel="noopener noreferrer license" href="https://creativecommons.org/publicdomain/zero/1.0">
+            0&nbsp;1.0
+          </a>
+          {apiInfo.version && (
+        <p className="running">
+          This site runs on <span>DraCor&nbsp;API</span>
+          <a className="version" target="_blank" rel="noopener noreferrer" href={`https://github.com/dracor-org/dracor-api/releases/tag/v${apiInfo.version}`}>
             {apiInfo.version}
           </a>
           {' '}
-          using eXist-db
-          {' '}
-          <a href={`https://github.com/eXist-db/exist/releases/tag/eXist-${apiInfo.existdb}`}>
+          using&nbsp;<span>eXist&#8209;db</span>
+          <a className="version" target="_blank" rel="noopener noreferrer" href={`https://github.com/eXist-db/exist/releases/tag/eXist-${apiInfo.existdb}`}>
             {apiInfo.existdb}
-          </a>.
+          </a>
+        </p>
+        )}
         </div>
-      )}
+
+      </div>
     </div>
   );
 };
