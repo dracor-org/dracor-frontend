@@ -313,6 +313,35 @@ a:hover {
   margin-top: 2em;
 }
 
+.corpus-description {
+  display: flex;
+}
+
+.corpus-description > div{
+  width: calc(100% - 20em);
+  margin-right: 2em;
+}
+
+.BY-NC:after {
+  content: url(/img/cc-by-nc.svg);
+  position: absolute;
+  margin-left: .3em;
+  margin-top: .1em;
+  width: 4em;
+}
+
+.CC0:after {
+  content: url(/img/cc0.svg);
+  position: absolute;
+  margin-left: .3em;
+  margin-top: .1em;
+  width: 2.6em;
+}
+
+.search-label {
+  align-self: right;
+}
+
 .search-label .form-control {
   color: var(--main);
   width: 20em;
@@ -1070,8 +1099,15 @@ table.table.corpus th:focus {
   .logos img {
     padding: 1em;
   }
+  .corpus-description {
+    flex-direction: column;
+  }
+  .corpus-description > div {
+    width: 100%;
+  }
   .search-label .form-control {
-    width: 91vw;
+    width: 94vw;
+    margin-top: .5em;
   }
   table.table.corpus {
     margin: 1em -1em -2em;
