@@ -141,7 +141,7 @@ a:hover {
   z-Index: 2;
 }
 
-.nav-item .svg-inline--fa.fa-w-16 {
+.nav-link .fa-github {
   width: 2.1em;
   height: 2.1em;
 }
@@ -167,10 +167,9 @@ a:hover {
   display: none;
 }
 
-.ml-auto, .mx-auto {
-    margin-left: 0 !important;
+.navbar-collapse .ml-auto, .navbar-collapse .mx-auto {
     margin-right: 2em;
-    margin-top: .2em !important;
+    margin-left: 0 !important;
 }
 
 .mr-auto, .mx-auto {
@@ -859,20 +858,75 @@ table.table.corpus th:focus {
   height: 1.4rem;
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1440px) {
   body {
-    font-size: 14px;
-  }
-  .navbar-nav li, .navbar-nav .dropdown {
-    font-size: 1.4em;
+    font-size: 15px;
   }
   .navbar-collapse ul {
-    margin-top: 1.2em;
+    margin-top: .8em;
+  }
+  .navbar-collapse .ml-auto, .navbar-collapse .mx-auto {
+    margin: 0;
   }
   .navbar-brand {
     width: 3em;
     height: 3em;
-    margin: 1em 0em 1em 1.8em;
+    margin: 0 0 .5em .2em;
+  }
+  .nav-link .fa-github {
+    width: 1.8em;
+    height: 1.8em;
+  }
+  .container-fluid {
+    padding: 0 1em 0;
+  }
+  .play-header, .h-header, .swagger-ui .info {
+    width: calc(100% + 2em);
+    left: -1em;
+    position: relative;
+    padding: 6em 1em .7em;
+    margin-top: -5em;
+  }
+  .play-title {
+    margin-bottom: 3em;
+  }
+  .card-wrapper {
+    height: min(100vh - 6em, 100%);
+  }
+  #network-graph {
+    margin-top: -2.1em;
+    height: calc(100vh - .5rem);
+  }
+  .slick-slider::before {
+    height: 7rem !important;
+  }
+  #network-graph .card-body {
+    margin: 1em 0 1em 0;
+  }
+  .h-header + div {
+    margin-top: 1em;
+  }
+  table.table.corpus {
+    margin: 2em -1em -1em;
+    color: #1F2448;
+    color: var(--main);
+    width: calc(100% + 2em);
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  body {
+    font-size: 14px;
+  }
+  .navbar-brand {
+    width: 2.3em;
+    height: 2.3em;
+  }
+  .navbar-nav li, .navbar-nav .dropdown {
+    font-size: 1.4em;
+  }
+  #network-graph {
+    margin-top: -2.3em;
   }
   .slick-slider::before {
     height: 6.9rem !important;
@@ -892,13 +946,6 @@ table.table.corpus th:focus {
   body {
     border: none;
   }
-    body::-webkit-scrollbar-track {
-    background: var(--background);
-  } 
-
-  body::-webkit-scrollbar-thumb {
-    background: var(--main);
-  }
   .container-fluid h2, .swagger-ui .info .title {
     font-size: 2.5em !important;
   }
@@ -914,61 +961,16 @@ table.table.corpus th:focus {
     left: 0;
     right: 0;
   }
-  .navbar-nav li, .navbar-nav .dropdown {
-    font-size: 1.2em;
-  }
-  .navbar-collapse ul {
-    margin-top: 1em;
-  }
   .navbar-brand {
     width: 2em;
     height: 2em;
-    margin: 1em 0em 1em 1em;
+  }
+  .navbar-nav li, .navbar-nav .dropdown {
+    font-size: 1.2em;
   }
   .logos img {
     height: 8em;
     padding: 1em;
-  }
-  .ml-auto, .mx-auto {
-    margin-right: .8em;
-  }
-  .container-fluid {
-    padding: 0 2.5em 0em;
-  }
-  .slick-slider::before {
-    height: 6.85rem !important;
-  }
-  .play-header, .h-header, .swagger-ui .info {
-    width: calc(100% + 5em);
-    left: -2.5em;
-    padding: 0em 2.5em 2em;
-  }
-  .play-header {
-    padding-bottom: 0;
-  }
-  .swagger-ui .info {
-    margin: -5em 0 30px 0 !important;
-    columns: 1;
-  }
-  table.table.corpus {
-    margin: 2em -2.5em -.5em;
-    color: var(--main);
-    width: calc(100% + 5em);
-  }
-  #dashboard > div {
-    margin-top: 2.5em;
-    margin-bottom: 2.5em;
-  }
-  .cast-list-wrapper {
-    height: calc(100vh - 10em);
-    width: calc(100% / 3);
-  }
-  .content-wrapper {
-    width: calc(100% / 3 * 2);
-  }
-  .content-wrapper .tei-frame #TEI {
-    padding: 1em;
-    overflow-x: hidden;
   }
 }
 
@@ -981,7 +983,6 @@ table.table.corpus th:focus {
     background: var(--main) !important;
   }
   .navbar-brand {
-    background-image: url(/img/DraCor-white.svg);
     width: 2.2em;
     height: 2.2em;
     margin: 1em;
@@ -1024,9 +1025,6 @@ table.table.corpus th:focus {
   }
   .mb-2, .my-2 {
     margin-bottom: 1rem !important;
-  }
-  .container-fluid {
-  padding: 0 1em 1em;
   }
   .container-fluid h2 {
     font-size: 2em;
