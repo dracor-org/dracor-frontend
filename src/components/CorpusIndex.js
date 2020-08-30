@@ -145,20 +145,22 @@ const CorpusIndex = ({data}) => {
         {
           props => (
             <div>
-              <SearchBar {...props.searchProps}/>
-              {(data.description || data.license) && (
-                <div>
+                <div className="corpus-description">
+                {(data.description || data.license) && (
+                  <div>
                   {data.description && (
                     <ReactMarkdown>{data.description}</ReactMarkdown>
                   )}
                   {data.licence && (
                     <p>
                       <span>Corpus licensed under </span>
-                      <a href={data.licenceUrl}>{data.licence}</a>.
+                      <a target="_blank" rel="noopener noreferrer" className={data.licence} href={data.licenceUrl}>{data.licence}</a>
                     </p>
                   )}
                 </div>
-              )}
+                )}
+                <SearchBar {...props.searchProps}/>
+                </div>
               <BootstrapTable
                 {...props.baseProps}
                 bootstrap4
