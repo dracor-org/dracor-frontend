@@ -121,16 +121,10 @@
     display: none;
 }
 
-@media only screen and (max-width: 1024px) {
-    .slick-slider {
-        width: calc(100% + 3.2em + 32px);
-        left: calc(-7em + 56px);
-    }
-}
-
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1440px) {
     .slick-slider {
         width: calc(100% + 2em);
-        left: -1em;
+        left: 0;
+        margin: 0 -1em 0 -1em;
     }
 }
