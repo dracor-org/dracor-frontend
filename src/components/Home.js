@@ -28,7 +28,8 @@ const Home = () => {
         </div>
         <div className="license">
           <a target="_blank" rel="noopener noreferrer license" href="https://creativecommons.org/publicdomain/zero/1.0">
-          <img src="img/cc.svg" /><img src="img/cc0.svg" />
+            <img src="img/cc.svg" alt="CC"/>
+            <img src="img/cc0.svg" alt="CC0"/>
           </a>
           <br/>Unless otherwise stated, all corpora and the web design are released under <span>Creative&nbsp;Commons</span>
           <a className="version" target="_blank" rel="noopener noreferrer license" href="https://creativecommons.org/publicdomain/zero/1.0">
