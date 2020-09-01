@@ -32,7 +32,6 @@ const Home = () => {
             rel="noopener noreferrer license"
             target="_blank"
           >
-            <img src="img/cc.svg" alt="CC"/>
             <img src="img/cc0.svg" alt="CC0"/>
           </a>
           <br/>Unless otherwise stated, all corpora and the web design are released under
