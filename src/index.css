@@ -470,7 +470,7 @@ table.table.corpus th:focus {
 }
 
 .play-header ul:first-child {
-  margin-right: 2em; 
+  margin-right: 2em;
 }
 
 .play-header li {
@@ -878,6 +878,10 @@ table.table.corpus th:focus {
 .version:hover{
   background-color: #0056b3;
   color: var(--secondary-accent);
+}
+
+.api-info {
+  white-space: nowrap;
 }
 
 @media only screen and (max-width: 1440px) {

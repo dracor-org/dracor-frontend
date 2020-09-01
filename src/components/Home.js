@@ -47,8 +47,8 @@ const Home = () => {
             0&nbsp;1.0
           </a>
           {apiInfo.version && (
-            <p className="running">
-              This site runs on <span>DraCor&nbsp;API</span>
+            <p className="api-info">
+              This site runs on <span>DraCor API</span>
               <a
                 className="version"
                 href={`https://github.com/dracor-org/dracor-api/releases/tag/v${apiInfo.version}`}
@@ -58,7 +58,7 @@ const Home = () => {
                 {apiInfo.version}
               </a>
               {' '}
-              using&nbsp;<span>eXist&#8209;db</span>
+              using <span>eXist-db</span>
               <a
                 className="version"
                 href={`https://github.com/eXist-db/exist/releases/tag/eXist-${apiInfo.existdb}`}
