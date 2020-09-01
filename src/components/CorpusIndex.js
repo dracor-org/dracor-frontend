@@ -164,8 +164,7 @@ const CorpusIndex = ({data}) => {
                         <span>Corpus licensed under </span>
                         <a
                           href={data.licenceUrl}
-                          className={data.licence}
-                          rel="noopener noreferrer"
+                          rel="noopener noreferrer licence"
                           target="_blank"
                         >
                           {data.licence}
