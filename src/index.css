@@ -860,14 +860,22 @@ table.table.corpus th:focus {
   height: 1.3rem;
 }
 
-.license span {
+.api-info {
+  white-space: nowrap;
+}
+
+.version-pill {
+  white-space: nowrap;
+}
+
+.version-pill > span {
   background-color: var(--main);
   color: var(--background);
   border-radius: 1em 0 0 1em ;
   padding: .1em .3em .1em .5em;
 }
 
-.version {
+.version-pill > a {
   background-color: var(--primary);
   color: var(--background);
   border-radius: 0 1em 1em 0;
@@ -875,7 +883,7 @@ table.table.corpus th:focus {
   transition: .3s ease-in-out;
 }
 
-.version:hover{
+.version-pill > a:hover{
   background-color: #0056b3;
   color: var(--secondary-accent);
 }

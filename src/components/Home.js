@@ -37,36 +37,41 @@ const Home = () => {
           </a>
           <br/>Unless otherwise stated, all corpora and the web design are released under
           {' '}
-          <span>Creative&nbsp;Commons</span>
-          <a
-            className="version"
-            href="https://creativecommons.org/publicdomain/zero/1.0"
-            rel="noopener noreferrer license"
-            target="_blank"
-          >
-            0&nbsp;1.0
-          </a>
+          <span className="version-pill">
+            <span>CreativeCommons</span>
+            <a
+              href="https://creativecommons.org/publicdomain/zero/1.0"
+              rel="noopener noreferrer license"
+              target="_blank"
+            >
+              0&nbsp;1.0
+            </a>
+          </span>
           {apiInfo.version && (
             <p className="api-info">
-              This site runs on <span>DraCor API</span>
-              <a
-                className="version"
-                href={`https://github.com/dracor-org/dracor-api/releases/tag/v${apiInfo.version}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {apiInfo.version}
-              </a>
+              This site runs on
               {' '}
-              using <span>eXist-db</span>
-              <a
-                className="version"
-                href={`https://github.com/eXist-db/exist/releases/tag/eXist-${apiInfo.existdb}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {apiInfo.existdb}
-              </a>
+              <span className="version-pill">
+                <span>DraCor API</span>
+                <a
+                  href={`https://github.com/dracor-org/dracor-api/releases/tag/v${apiInfo.version}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {apiInfo.version}
+                </a>
+              </span>
+              {' using '}
+              <span className="version-pill">
+                <span>eXist-db</span>
+                <a
+                  href={`https://github.com/eXist-db/exist/releases/tag/eXist-${apiInfo.existdb}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {apiInfo.existdb}
+                </a>
+              </span>
             </p>
           )}
         </div>
