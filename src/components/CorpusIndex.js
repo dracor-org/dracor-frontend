@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {Helmet} from 'react-helmet';
 import BootstrapTable from 'react-bootstrap-table-next';
 import ToolkitProvider, {Search} from 'react-bootstrap-table2-toolkit';
+import ReactMarkdown from 'react-markdown';
 import {apiUrl} from '../config';
 import IdLink from './IdLink';
 import Years, {formatEra} from './Years';
@@ -144,7 +145,28 @@ const CorpusIndex = ({data}) => {
         {
           props => (
             <div>
-              <SearchBar {...props.searchProps}/>
+              <div className="corpus-description">
+                {(data.description || data.license) && (
+                  <div>
+                    {data.description && (
+                      <ReactMarkdown>{data.description}</ReactMarkdown>
+                    )}
+                    {data.licence && (
+                      <p>
+                        <span>Corpus licensed under </span>
+                        <a
+                          href={data.licenceUrl}
+                          rel="noopener noreferrer licence"
+                          target="_blank"
+                        >
+                          {data.licence}
+                        </a>
+                      </p>
+                    )}
+                  </div>
+                )}
+                <SearchBar {...props.searchProps}/>
+              </div>
               <BootstrapTable
                 {...props.baseProps}
                 bootstrap4
