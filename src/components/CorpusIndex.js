@@ -5,7 +5,7 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import ToolkitProvider, {Search} from 'react-bootstrap-table2-toolkit';
 import {apiUrl} from '../config';
 import IdLink from './IdLink';
-import Years from './Years';
+import Years, {formatEra} from './Years';
 
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import './CorpusIndex.css';
@@ -49,18 +49,10 @@ function formatTitle (d, corpusId) {
   );
 }
 
-function formatEra (year) {
-  if (year === null) {
-    return '';
-  }
-
-  return year < 0 ? `${year * -1} BCE` : String(year);
-}
-
 function formatYear (d) {
   return (
     <span>
-      {formatEra(d.yearNormalized)}
+      {formatEra(d.yearNormalized, 1000)}
       <br/>
       <span className="year-details">
         <Years
