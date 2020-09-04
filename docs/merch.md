@@ -1,4 +1,4 @@
-# MERCH
+# Merch
 
 ## Card game
 
