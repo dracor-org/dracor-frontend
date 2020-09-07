@@ -47,16 +47,15 @@ const settings = {
   }, {
     breakpoint: 1020,
     settings: {
-      slidesToShow: 2
+      slidesToShow: 2,
+      arrows: false,
+      autoplay: true
     }
   }, {
     breakpoint: 666,
     settings: {
       slidesToShow: 1,
-      dots: true,
-      autoplay: true,
-      centerPadding: '25px',
-      arrows: false
+      centerPadding: '25px'
     }
   }]
 };
