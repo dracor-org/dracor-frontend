@@ -3,6 +3,8 @@
 :root {
   --main: #1F2448;
   --main-shade: #1F24480a;
+  --main-shadow: #1F244820;
+  --shadow: #1F244835;
   --minor: #1F2448;
   --major: #1F2448;
   --background: #ebf0f7;
@@ -83,7 +85,7 @@ a:hover {
 }
 
 .navbar-collapse ul {
-  margin-top: 1.3em;
+  margin-top: 2.3em;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -108,6 +110,7 @@ a:hover {
   border-bottom: none;
 }
 
+
 .headroom-wrapper {
   position: relative;
   z-index: 1;
@@ -115,11 +118,13 @@ a:hover {
 
 .headroom {
   top: 0;
+  left: 0;
+  right: 0;
 }
 
 .headroom--unfixed {
   transform: translateY(0);
-
+  position: relative;
 }
 
 .headroom--scrolled {
@@ -128,8 +133,6 @@ a:hover {
 
 .headroom--unpinned {
   position: fixed;
-  left: 0;
-  right: 0;
   transform: translateY(-100%);
 }
 
@@ -139,6 +142,7 @@ a:hover {
   left: 0;
   right: 0;
   z-Index: 2;
+  box-shadow: 0 5px 5px 0 var(--shadow), 0 4px 0px 0 var(--main-shadow);
 }
 
 .nav-link .fa-github {
@@ -170,6 +174,10 @@ a:hover {
 .navbar-collapse .ml-auto, .navbar-collapse .mx-auto {
     margin-right: 2em;
     margin-left: 0 !important;
+}
+
+.navbar-collapse .git-icon {
+  margin: 1em 2em 1em 0;
 }
 
 .mr-auto, .mx-auto {
@@ -437,7 +445,7 @@ table.table.corpus th:focus {
   background-color: var(--major);
   padding: .5em .7em;
   line-height: 3.5em;
-  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2), 0 4px 0px 0 #33405220;
+  box-shadow: 0 5px 5px 0 var(--shadow), 0 4px 0px 0 var(--main-shadow);
   white-space: nowrap;
 }
 
@@ -889,12 +897,8 @@ table.table.corpus th:focus {
   height: 1.3rem;
 }
 
-.api-info {
-  white-space: nowrap;
-}
-
-.version-pill {
-  white-space: nowrap;
+.api-info, .version-pill {
+  white-space: pre-wrap;
 }
 
 .version-pill > span {
@@ -926,7 +930,7 @@ table.table.corpus th:focus {
     font-size: 15px;
   }
   .navbar-collapse ul {
-    margin-top: .8em;
+    margin-top: .6em;
   }
   .navbar-collapse .ml-auto, .navbar-collapse .mx-auto {
     margin: 0;
@@ -934,7 +938,7 @@ table.table.corpus th:focus {
   .navbar-brand {
     width: 3em;
     height: 3em;
-    margin: 0 0 .5em .2em;
+    margin: 0;
   }
   .nav-link .fa-github {
     width: 1.8em;
@@ -950,20 +954,26 @@ table.table.corpus th:focus {
     padding: 6em 1em .7em;
     margin-top: -5em;
   }
+  .play-header {
+    padding-bottom: 0;
+  }
   .play-title {
     margin-bottom: 3em;
   }
-  .card-wrapper {
-    height: min(100vh - 6em, 100%);
+  .content-wrapper {
+    height: calc(100vh - 7em);
   }
-  #network-graph {
-    margin-top: -2.1em;
-    height: calc(100vh - .5rem);
+  #dashboard {
+    height: calc(100vh - 2.5rem);
+  }
+  #dashboard > div {
+    margin-top: 1em;
+    margin-bottom: 1em;
   }
   .slick-slider::before {
     height: 7rem !important;
   }
-  #network-graph .card-body {
+  #dashboard .card-body {
     margin: 1em 0 1em 0;
   }
   .h-header + div {
@@ -987,9 +997,6 @@ table.table.corpus th:focus {
   }
   .navbar-nav li, .navbar-nav .dropdown {
     font-size: 1.4em;
-  }
-  #network-graph {
-    margin-top: -2.3em;
   }
   .slick-slider::before {
     height: 6.9rem !important;
@@ -1115,7 +1122,7 @@ table.table.corpus th:focus {
   .play-header, .h-header, .swagger-ui .info {
     width: calc(100% + 2em);
     left: -1em;
-    padding: 0em 1.3em 1em;
+    padding: 7em 1.3em 1em;
     flex-direction: column;
   }
   .play-header {
