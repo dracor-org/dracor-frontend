@@ -37,7 +37,7 @@ const Home = () => {
           <br/>Unless otherwise stated, all corpora and the web design are released under
           {' '}
           <span className="version-pill">
-            <span>CreativeCommons</span>
+            <span>Creative&nbsp;Commons</span>
             <a
               href="https://creativecommons.org/publicdomain/zero/1.0"
               rel="noopener noreferrer license"
@@ -62,7 +62,7 @@ const Home = () => {
               </span>
               {' using '}
               <span className="version-pill">
-                <span>eXist-db</span>
+                <span>eXist‑db</span>
                 <a
                   href={`https://github.com/eXist-db/exist/releases/tag/eXist-${apiInfo.existdb}`}
                   target="_blank"
