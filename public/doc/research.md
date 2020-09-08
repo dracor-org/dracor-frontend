@@ -1,11 +1,12 @@
 # Research
 
-Collection of research articles that used data provide by DraCor:
+An (incomplete) collection of research articles using data provided through DraCor:
 
 ## 2020
 
 * Frank Fischer, Daniil Skorinkin: Social Network Analysis in Russian Literary Studies. In: Daria Gritsenko, Mariëlle Wijermars, Mikhail Kopotev (eds.): [The Palgrave Handbook of Digital Russia Studies.](https://www.palgrave.com/gp/book/9783030428549) (forthcoming)
 * Peer Trilcke, Christopher Kittel, Nils Reiter, Daria Maximova, Frank Fischer: [Opening the Stage: A Quantitative Look at Stage Directions in German Drama.](https://dh2020.adho.org/wp-content/uploads/2020/07/337_OpeningtheStageAQuantitativeLookatStageDirectionsinGermanDrama.html) In: DH2020: »carrefours/intersections«. 22–24 July 2020. Book of Abstracts. University of Ottawa.
+*  Hanno Ehrlicher, Jörg Lehmann, Nils Reiter, Marcus Willand: [A Quantitative View of Genre Poetics. Calderón de la Barca’s oeuvre and the contemporaneous poetics of drama.](https://www.digitalhumanitiescooperation.de/pamphlet-9-gattungspoetik-in-quantitativer-sicht/) In: LitLab Pamphlets, No. 9 (April 2020).
 * Jan Horstmann, Marie Flüh, Mareike Schumacher, Frank Fischer, Peer Trilcke, Jan Christoph Meister: Netzwerkanalyse spielerisch vermitteln mit DraCor und forTEXT: Zur nicht-digitalen Dissemination einer digitalen Methode in Form des Kartenspiels »Dramenquartett«. In: DHd2020: »Spielräume«. 2–6 March 2020. Book of Abstracts. Paderborn University, pp. 167–171. (DOI:10.5281/zenodo.3666690)
 *  Nathalie Wiedmer, Janis Pagel, Nils Reiter: Romeo, Freund des Mercutio: Semi-Automatische Extraktion von Beziehungen zwischen dramatischen Figuren. In: DHd2020: »Spielräume«. 2–6 March 2020. Book of Abstracts. Paderborn University, pp. 194–200. (DOI:10.5281/zenodo.3666690)
 
