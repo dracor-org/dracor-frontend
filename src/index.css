@@ -897,8 +897,8 @@ table.table.corpus th:focus {
   height: 1.3rem;
 }
 
-.api-info, .version-pill {
-  white-space: pre-wrap;
+.version-pill {
+  white-space: nowrap;
 }
 
 .version-pill > span {
@@ -919,10 +919,6 @@ table.table.corpus th:focus {
 .version-pill > a:hover{
   background-color: #0056b3;
   color: var(--secondary-accent);
-}
-
-.api-info {
-  white-space: nowrap;
 }
 
 @media only screen and (max-width: 1440px) {
@@ -971,7 +967,7 @@ table.table.corpus th:focus {
     margin-bottom: 1em;
   }
   .slick-slider::before {
-    height: 7rem !important;
+    height: 11.7rem !important;
   }
   #dashboard .card-body {
     margin: 1em 0 1em 0;
@@ -999,7 +995,7 @@ table.table.corpus th:focus {
     font-size: 1.4em;
   }
   .slick-slider::before {
-    height: 6.9rem !important;
+    height: 11.25rem !important;
   }
   .speech-dist-container.d-flex > div {
     width: 100% !important;
