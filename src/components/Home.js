@@ -60,7 +60,7 @@ const Home = () => {
                   {apiInfo.version}
                 </a>
               </span>
-              {' using  '}
+              {' using '}
               <span className="version-pill">
                 <span>eXist-db</span>
                 <a
