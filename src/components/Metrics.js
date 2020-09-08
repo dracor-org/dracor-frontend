@@ -55,7 +55,9 @@ const settings = {
     breakpoint: 666,
     settings: {
       slidesToShow: 1,
-      centerPadding: '25px'
+      centerPadding: '25px',
+      arrows: false,
+      autoplay: true
     }
   }]
 };
