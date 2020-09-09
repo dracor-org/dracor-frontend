@@ -6,11 +6,11 @@
 }
 .slick-slider::before {
     content: '';
-    height: 7.1rem;
+    height: 12.1rem;
     background: var(--main);
     display: block;
     position: absolute;
-    top: 0;
+    top: -5em;
     width: 100%;
 }
 
