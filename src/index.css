@@ -215,6 +215,8 @@ a:hover {
 }
 
 .corpus-card {
+  display: inline-block;
+  width: 100%;
 	box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2), 0 5px 1em 0 rgba(0,0,0,.08), 0 4px 0px 0 #33405220;
 	transition: .3s ease-in-out;
   border-radius: .8em;
