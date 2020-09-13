@@ -21,14 +21,14 @@ function byNumOfPlays (a, b) {
 
 const settings = {
   className: 'center',
-  centerMode: true,
+  centerMode: false,
   infinite: true,
   arrows: true,
   autoplay: false,
   dots: true,
   centerPadding: '60px',
   slidesToShow: 6,
-  speed: 1000,
+  speed: 350,
   responsive: [{
     breakpoint: 2100,
     settings: {
