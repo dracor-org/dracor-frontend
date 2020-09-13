@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {DracorContext} from '../context';
-import Metrics from './Metrics';
+import Corpora from './Corpora';
 import '../slick-theme.css';
 import '../slick.css';
 
@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <div>
-      <Metrics/>
+      <Corpora/>
       <div className="footer">
         <div className="citation">
           <h6>To cite DraCor, please use:</h6>
