@@ -12,9 +12,11 @@
 
 **DraCor aims to create an interface between traditional and digital literary studies.** The extent to which you can involve DraCor in your research on European drama (or literature in general), depends on your level of technical expertise (or support). We are part of the continuous learning process that accompanies the practice of Digital Humanities and actively support the creation of more teaching and training material around DraCor.
 
-Preferred hashtags: **#dracor_org** **#ProgrammableCorpora**
+**DraCor's stability and sustainability** are key tasks for the near future. The project has come this far thanks to the enthusiasm of volunteers, without any third-party funding. While the platform will continue to evolve in parallel with new research questions, it should also become a stable infrastructure and reference point for (digital) literary studies and beyond. This will be a major focus of our ongoing work.
 
-DraCor as a concept and the platform dracor.org were initially developed by digital humanists at Higher School of Economics, Moscow. The website is hosted at University of Potsdam. For a full list of credits, please see our Credits page.
+Preferred hashtags: **#DraCor** **#dracor_org** **#ProgrammableCorpora** **#DigitalHumanities**
+
+DraCor as a concept and the platform dracor.org were initially developed by digital humanists at Higher School of Economics, Moscow. The website is hosted at University of Potsdam. For a full list of credits, please see our [Credits page](credits).
 
 ![logo hse moscow](https://dracor.org/img/hse.png)
 ![logo potsdam](https://dracor.org/img/uni-potsdam.svg)
