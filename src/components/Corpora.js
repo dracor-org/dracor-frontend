@@ -22,38 +22,42 @@ const settings = {
   arrows: true,
   autoplay: false,
   dots: true,
-  centerPadding: '60px',
-  slidesToShow: 6,
+  swipeToSlide: true,
+  draggable: true,
+  customPadding: '60px',
+  slidesToShow: 7,
   speed: 350,
   responsive: [{
-    breakpoint: 2100,
+    breakpoint: 2300,
+    settings: {
+      slidesToShow: 6
+    }
+  }, {
+    breakpoint: 2050,
     settings: {
       slidesToShow: 5
     }
   }, {
-    breakpoint: 1920,
+    breakpoint: 1700,
     settings: {
       slidesToShow: 4
     }
   }, {
-    breakpoint: 1480,
+    breakpoint: 1200,
     settings: {
       slidesToShow: 3
     }
   }, {
-    breakpoint: 1020,
+    breakpoint: 900,
     settings: {
       slidesToShow: 2,
       arrows: false,
       autoplay: true
     }
   }, {
-    breakpoint: 666,
+    breakpoint: 767,
     settings: {
-      slidesToShow: 1,
-      centerPadding: '25px',
-      arrows: false,
-      autoplay: true
+      unslick: true
     }
   }]
 };
