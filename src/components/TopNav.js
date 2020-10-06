@@ -80,7 +80,7 @@ export default class TopNav extends Component {
   render () {
     const {isOpen} = this.state;
     return (
-      <Headroom disableInlineStyles calcHeightOnResize>
+      <Headroom disableInlineStyles calcHeightOnResize upTolerance={100}>
         <Navbar light color="light" expand="md" className="mb-4">
           <NavbarBrand title="Drama Corpora Project (DraCor)" href="/"/>
           <NavbarToggler onClick={this.toggle}/>
