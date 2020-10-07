@@ -970,17 +970,6 @@ table.table.corpus th:focus {
   top: -3em;
 }
 
-/* .doc-page h1:first-child::before {
-  content: '';
-  background-color: var(--main);
-  width: calc(100% + 1em);
-  position: absolute;
-  height: 3em;
-  z-index: -1;
-  left: -1em;
-  top: 1.75em;
-} */
-
 .swagger-ui .errors-wrapper {
   color: var(--main);
   background: var(--background-light) !important;
