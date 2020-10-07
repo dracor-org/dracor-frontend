@@ -512,6 +512,10 @@ table.table.corpus th:focus {
   margin-right: 2em;
 }
 
+.play-header .dashboard-tabs:first-child {
+  margin-right: 0;
+}
+
 .play-header li {
   list-style: none;
 }
@@ -607,8 +611,19 @@ table.table.corpus th:focus {
 }
 
 .dashboard-tabs {
+  display: inline-flex;
+  flex-flow: nowrap;
+  white-space: nowrap;
   margin: 0;
   border-bottom: none;
+  width: 100%;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+
+.dashboard-tabs::-webkit-scrollbar {
+  display: none;
 }
 
 .h-100 {
@@ -1137,6 +1152,23 @@ table.table.corpus th:focus {
     flex-direction: column;
     margin-top: 1em;
     margin-bottom: 1em;
+  }
+  .play-header .dashboard-tabs {
+    margin: 0 -1.3em;
+    width: calc(100% + 2.6em);
+    padding: 0 1.3em;
+  }
+  .play-header ul:first-child {
+    margin-right: 0;
+  }
+  .play-header .dashboard-tabs li:last-child::after {
+    content: '';
+    width: 1.3em;
+    height: 1.3em;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -1.3em;
   }
   .swagger-ui .info {
     margin: -5em 0 20px 0 !important;
