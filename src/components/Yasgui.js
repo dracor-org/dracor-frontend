@@ -42,7 +42,7 @@ class Yasgui extends Component {
         <Helmet titleTemplate="%s - DraCor">
           <title>SPARQL</title>
         </Helmet>
-        <div className="h-header"><h2>SPARQL</h2></div>
+        <div className="h-header"><h1>SPARQL</h1></div>
         <div id="yasgui"/>
       </div>
     );
