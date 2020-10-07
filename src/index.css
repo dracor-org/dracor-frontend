@@ -51,6 +51,11 @@ body {
   transition: .3s ease-in-out;
 }
 
+ul {
+  padding-inline-start: 1.2em;
+  margin-block-end: 2em;
+}
+
 a {
   color: var(--secondary-accent-dark);
   transition: .3s ease-in-out;
@@ -237,16 +242,19 @@ a:hover {
   text-decoration: none;
 }
 
-.corpus-card h1 {
+.container-fluid .corpus-card h1 {
   background-color: var(--background-light);
   color: var(--main);
   padding: .75rem;
   margin-bottom: 0;
   border-radius: .4em .4em 0 0;
   font-weight: 500;
+  font-size: 2.5rem;
+  border: 0;
+  width: auto;
 }
 
-.corpus-card h1 span{
+.container-fluid .corpus-card h1 span{
   color: var(--background-light);
   background-color: var(--main);
   padding: .05rem .45rem;
@@ -310,7 +318,7 @@ a:hover {
   line-height: 1em;
 }
 
-.container-fluid h2 {
+.container-fluid h1 {
   color: var(--background-light);
   font-size: 3.5em;
   font-weight: 400;
@@ -824,6 +832,9 @@ table.table.corpus th:focus {
   font-size: 3.5em !important;
   color: var(--background-light) !important;
   font-family: 'Rubik', sans-serif !important;
+  font-weight: 400;
+  border-bottom: .1em solid var(--secondary-accent);
+  width: fit-content;
 }
 
 .swagger-ui .wrapper {
@@ -938,6 +949,43 @@ table.table.corpus th:focus {
   color: var(--secondary-accent);
 }
 
+.doc-page {
+  position: relative;
+}
+
+.doc-page h1:first-child {
+  margin-bottom: 1.3em;
+  margin-left: 0;
+  padding-top: 0;
+}
+
+.doc-page::before {
+  content: '';
+  background-color: var(--main);
+  width: calc(100% + 6.6em);
+  position: absolute;
+  height: 10.05em;
+  z-index: -1;
+  left: -3.3em;
+  top: -3em;
+}
+
+/* .doc-page h1:first-child::before {
+  content: '';
+  background-color: var(--main);
+  width: calc(100% + 1em);
+  position: absolute;
+  height: 3em;
+  z-index: -1;
+  left: -1em;
+  top: 1.75em;
+} */
+
+.swagger-ui .errors-wrapper {
+  color: var(--main);
+  background: var(--background-light) !important;
+}
+
 @media only screen and (max-width: 1440px) {
   body {
     font-size: 15px;
@@ -972,6 +1020,15 @@ table.table.corpus th:focus {
   }
   .play-title {
     margin-bottom: 3em;
+  }
+  .doc-page h1:first-child {
+    margin-bottom: .65em;
+    padding-top: .3em;
+  }
+  .doc-page::before {
+    height: 9.8em;
+    width: calc(100% + 2em);
+    left: -1em;
   }
   .content-wrapper {
     height: calc(100vh - 7em);
@@ -1014,13 +1071,19 @@ table.table.corpus th:focus {
   .footer {
     font-size: .65rem;
   }
+  .doc-page h1:first-child {
+    margin-bottom: .6em;
+  }
+  .doc-page::before {
+    height: 9.8em;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
   body {
     border: none;
   }
-  .container-fluid h2, .swagger-ui .info .title {
+  .container-fluid h1, .swagger-ui .info .title {
     font-size: 2.5em !important;
   }
   .play-header h2 {
@@ -1045,6 +1108,13 @@ table.table.corpus th:focus {
   .logos img {
     height: 8em;
     padding: 1em;
+  }
+  .doc-page h1:first-child {
+    margin-bottom: .9em;
+    padding-top: .4em;
+  }
+  .doc-page::before {
+    height: 8.5em;
   }
 }
 
@@ -1091,13 +1161,21 @@ table.table.corpus th:focus {
   .navbar-collapse {
     padding-top: 1em;
   }
+  .doc-page h1:first-child {
+    padding-top: .8em;
+    margin-bottom: 1em;
+    margin-left: .3rem;
+  }
+  .doc-page::before {
+    height: 9.8em;
+  }
   .h-header + div {
     margin-top: 1em;
   }
   .mb-2, .my-2 {
     margin-bottom: 1rem !important;
   }
-  .container-fluid h2 {
+  .container-fluid h1 {
     font-size: 2em;
     margin: 0 0 .1em;
   }
