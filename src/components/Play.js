@@ -179,7 +179,7 @@ const PlayInfo = ({corpusId, playId}) => {
       <div className="play-header" id="play-header">
         <ul className="play-title">
           <li>
-            <h2>{play.title}</h2>
+            <h1>{play.title}</h1>
           </li>
           {play.subtitle && (
             <li className="subtitle"><em>{play.subtitle}</em></li>
