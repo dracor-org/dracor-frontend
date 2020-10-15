@@ -16,7 +16,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 ## API wrappers (experimental)
 * for Python ([PyDraCor](https://pypi.org/project/pydracor/)): Eduard Grigoryev (Moscow)
 * for R ([rdracor](https://github.com/dracor-org/rdracor)): Ivan Pozdniakov
-* for Haskell ([HDraCor](https://github.com/dracor-org/hdracor)): [Christian Lück](https://www.fernuni-hagen.de/literatur/medienaesthetik/team/christianlueck.shtml) (Hagen)
+* for Haskell ([HDraCor](https://github.com/dracor-org/hdracor)): [Christian Lück](https://www.fernuni-hagen.de/literatur/medienaesthetik/team/christianlueck.shtml) (Münster)
 
 ## Corpora
 
