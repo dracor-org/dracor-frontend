@@ -4,12 +4,12 @@
 
 ### Publisher
 
-University of Potsdam
-Am Neuen Palais 10
+University of Potsdam  
+Am Neuen Palais 10  
 14469 Potsdam
 
-Phone: +49 331 977 0
-Fax: +49 331 97 21 63
+Phone: +49 331 977 0  
+Fax: +49 331 97 21 63  
 E-mail: buero.praesident@uni-potsdam.de
 
 ### Legal form and representation
@@ -18,11 +18,11 @@ University of Potsdam is a public corporation. It is legally represented by Prof
 
 ### Regulating authority
 
-Ministry of Science, Research and Culture of the Federal State of Brandenburg
-Dortustr. 36
+Ministry of Science, Research and Culture of the Federal State of Brandenburg  
+Dortustr. 36  
 14467 Potsdam
 
-Phone: +49 331 866 49 99
+Phone: +49 331 866 49 99  
 E-mail: presse@mwfk.brandenburg.de
 
 ### VAT identification number
@@ -33,14 +33,13 @@ DE138408327
 
 This website, dracor.org, is the responsibility of:
 
-Prof. Dr. Peer Trilcke
-Institute for German Studies
-Am Neuen Palais 10
+Prof. Dr. Peer Trilcke  
+Institute for German Studies  
+Am Neuen Palais 10  
 14469 Potsdam
 
-Phone: +49 331 977 4219
-Fax: +49 331 977 4247
-
+Phone: +49 331 977 4219  
+Fax: +49 331 977 4247  
 E-mail: trilcke@uni-potsdam.de
 
 ### Sources of the media used
@@ -67,14 +66,14 @@ We process personal data that we collect when you visit our website under the ap
 
 The responsible party in the context of GDPR and other national data protection laws of members states, as well as other data protection regulations, is:
 
-University of Potsdam
+University of Potsdam  
 represented by President Prof. Oliver Günther, Ph.D.
 
-Address:
-Am Neuen Palais 10
+Address:  
+Am Neuen Palais 10  
 14469 Potsdam
 
-Phone: +49 331 977 1220
+Phone: +49 331 977 1220  
 Fax: +49 331 977 1089
 
 E-mail: buero.praesident@uni-potsdam.de
@@ -109,25 +108,25 @@ You have the right to obtain from the controller confirmation as to whether or n
 
 In order to exercise your rights, we kindly request that you contact:
 
-Prof. Dr. Peer Trilcke
-Institute for German Studies
-Am Neuen Palais 10
+Prof. Dr. Peer Trilcke  
+Institute for German Studies  
+Am Neuen Palais 10  
 14469 Potsdam
 
-Phone: +49 331 977 4219
-Fax: +49 331 977 4247
+Phone: +49 331 977 4219  
+Fax: +49 331 977 4247  
 E-mail: trilcke@uni-potsdam.de
 
 Access to your personal data can be requested from the Chief Information Officer (University of Potsdam, Karl-Liebknecht-Str. 24-25, 14476 Potsdam). The corresponding form can be found on his website: https://www.uni-potsdam.de/de/praesidialbereich/praesident-vizepraesidenten/cio.html.
 
 You can contact the University’s official Data Protection Officer if you have questions regarding data protection:
 
-Dr. Marek Kneis
-Am Neuen Palais 10
+Dr. Marek Kneis  
+Am Neuen Palais 10  
 14469 Potsdam
 
-Phone: +49 331 977 124409
-Fax: +49 331 977 701821
+Phone: +49 331 977 124409  
+Fax: +49 331 977 701821  
 E-mail: datenschutz@uni-potsdam.de
 
 If you believe that the processing of your personal data is not being done in a lawful way, then you have the right to submit a complaint to the responsible supervisory agency for data protection.
