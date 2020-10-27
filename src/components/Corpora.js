@@ -2,6 +2,9 @@ import React, {useEffect, useState} from 'react';
 import Slider from 'react-slick';
 import api from '../api';
 import CorpusCard from './CorpusCard';
+import '../slick.css';
+import '../slick-theme.css';
+import '../slick-custom-theme.css';
 
 function byNumOfPlays (a, b) {
   if (a.metrics.plays > b.metrics.plays) {
