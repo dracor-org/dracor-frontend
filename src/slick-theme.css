@@ -21,15 +21,15 @@
 {
     font-size: 0;
     line-height: 0;
-    z-index: 1000;
 
     position: absolute;
-    top: 98%;
+    top: 50%;
 
     display: block;
 
-    width: 80px;
+    width: 20px;
     height: 20px;
+    padding: 0;
     -webkit-transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
@@ -50,27 +50,28 @@
     outline: none;
     background: transparent;
 }
-.slick-prev:hover:after,
-.slick-prev:focus:after,
-.slick-next:hover:after,
-.slick-next:focus:after
+.slick-prev:hover:before,
+.slick-prev:focus:before,
+.slick-next:hover:before,
+.slick-next:focus:before
 {
     opacity: 1;
 }
-.slick-prev.slick-disabled:after,
-.slick-next.slick-disabled:after
+.slick-prev.slick-disabled:before,
+.slick-next.slick-disabled:before
 {
     opacity: .25;
 }
 
-.slick-prev:after,
-.slick-next:after
+.slick-prev:before,
+.slick-next:before
 {
+    font-family: 'slick';
     font-size: 20px;
     line-height: 1;
-    padding: .5em 0;
+
     opacity: .75;
-    color: #1F2448;
+    color: white;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -78,38 +79,38 @@
 
 .slick-prev
 {
-    left: 30%;
+    left: -25px;
 }
 [dir='rtl'] .slick-prev
 {
-    right: 30%;
+    right: -25px;
     left: auto;
 }
-.slick-prev:after
+.slick-prev:before
 {
-    content: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 50 10' style='enable-background:new 0 0 50 10;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:none;stroke:%231F2448;stroke-miterlimit:10;%7D%0A%3C/style%3E%3Cg%3E%3Cg%3E%3Cline class='st0' x1='1.4' y1='5' x2='50' y2='5'/%3E%3Cg%3E%3Cpolygon points='4.7,9.1 5.4,8.4 1.8,5 5.4,1.6 4.7,0.9 0.3,5 '/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+    content: '←';
 }
-[dir='rtl'] .slick-prev:after
+[dir='rtl'] .slick-prev:before
 {
-    content: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 50 10' style='enable-background:new 0 0 50 10;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:none;stroke:%231F2448;stroke-miterlimit:10;%7D%0A%3C/style%3E%3Cg%3E%3Cg%3E%3Cline class='st0' x1='48.8' y1='5' x2='0.2' y2='5'/%3E%3Cg%3E%3Cpolygon points='45.4,0.9 44.8,1.6 48.4,5 44.8,8.4 45.4,9.1 49.8,5 '/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+    content: '→';
 }
 
 .slick-next
 {
-    right: 30%;
+    right: -25px;
 }
 [dir='rtl'] .slick-next
 {
     right: auto;
-    left: 30%;
+    left: -25px;
 }
-.slick-next:after
+.slick-next:before
 {
-    content: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 50 10' style='enable-background:new 0 0 50 10;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:none;stroke:%231F2448;stroke-miterlimit:10;%7D%0A%3C/style%3E%3Cg%3E%3Cg%3E%3Cline class='st0' x1='48.8' y1='5' x2='0.2' y2='5'/%3E%3Cg%3E%3Cpolygon points='45.4,0.9 44.8,1.6 48.4,5 44.8,8.4 45.4,9.1 49.8,5 '/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+    content: '→';
 }
-[dir='rtl'] .slick-next:after
+[dir='rtl'] .slick-next:before
 {
-    content: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 50 10' style='enable-background:new 0 0 50 10;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:none;stroke:%231F2448;stroke-miterlimit:10;%7D%0A%3C/style%3E%3Cg%3E%3Cg%3E%3Cline class='st0' x1='1.4' y1='5' x2='50' y2='5'/%3E%3Cg%3E%3Cpolygon points='4.7,9.1 5.4,8.4 1.8,5 5.4,1.6 4.7,0.9 0.3,5 '/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+    content: '←';
 }
 
 /* Dots */
@@ -121,7 +122,7 @@
 .slick-dots
 {
     position: absolute;
-    bottom: 0em;
+    bottom: -25px;
 
     display: block;
 
@@ -191,7 +192,7 @@
     text-align: center;
 
     opacity: .25;
-    color: #1F2448;
+    color: black;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -199,5 +200,5 @@
 .slick-dots li.slick-active button:before
 {
     opacity: .75;
-    color: #1F2448;
+    color: black;
 }
