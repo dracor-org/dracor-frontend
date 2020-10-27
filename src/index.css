@@ -1053,13 +1053,11 @@ table.table.corpus th:focus {
     height: auto !important;
   }
   .navbar {
-    padding: 0;
-    background: var(--main) !important;
+    background: var(--main);
   }
   .navbar-brand {
     width: 2.2em;
     height: 2.2em;
-    margin: 1rem;
   }
   .navbar-light .navbar-toggler-icon {
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="rgb(255, 255, 255)"><rect y="0" width="100%" height="12%" rx="0%" ry="0%" /><rect y="40%" width="100%" height="12%" rx="0%" ry="0%" /><rect y="80%" width="100%" height="12%" rx="0%" ry="0%" /></svg>') center / 100% 100% no-repeat;
@@ -1080,7 +1078,6 @@ table.table.corpus th:focus {
   }
   .navbar-light .navbar-toggler {
     border: none;
-    padding-right: 1em;
   }
   .navbar-light .navbar-toggler:focus {
     outline: none;
@@ -1092,7 +1089,7 @@ table.table.corpus th:focus {
     display: none;
   }
   .navbar-collapse {
-    padding: 1em;
+    padding-top: 1em;
   }
   .h-header + div {
     margin-top: 1em;
@@ -1199,20 +1196,5 @@ table.table.corpus th:focus {
   .cast-list-wrapper {
     margin-top: 2em;
     height: auto;
-  }
-  .slick-track {
-    display: block;
-  }
-  .slick-slider::before {
-    height: 10.8rem;
-  }
-  .slick-slide {
-    padding: 0 1em 1em 1em;
-  }
-  .slick-initialized .slick-slide {
-    display: table;
-  }
-  .slick-initialized .slick-cloned {
-    display: none;
   }
 }
