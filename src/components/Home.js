@@ -1,8 +1,6 @@
 import React, {useContext} from 'react';
 import {DracorContext} from '../context';
 import Corpora from './Corpora';
-import '../slick-theme.css';
-import '../slick.css';
 
 const Home = () => {
   const {apiInfo} = useContext(DracorContext);
