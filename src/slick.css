@@ -2,8 +2,7 @@
 .slick-slider
 {
     position: relative;
-    width: calc(100% + 6.6em);
-    left: -3.3em;
+
     display: block;
     box-sizing: border-box;
 
@@ -58,7 +57,6 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 2em;
 }
 .slick-track:before,
 .slick-track:after
@@ -83,7 +81,6 @@
 
     height: 100%;
     min-height: 1px;
-    padding: .5em;
 }
 [dir='rtl'] .slick-slide
 {
@@ -119,12 +116,4 @@
 }
 .slick-arrow.slick-hidden {
     display: none;
-}
-
-@media only screen and (max-width: 1440px) {
-    .slick-slider {
-        width: calc(100% + 2em);
-        left: 0;
-        margin: 0 -1em 0 -1em;
-    }
 }
