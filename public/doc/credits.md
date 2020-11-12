@@ -1,4 +1,6 @@
-# Credits
+<hgroup>
+    <h1>Credits</h1>
+</hgroup>
 
 DraCor is an open source project. Everybody is welcome to contribute. You are free to use it, fork it and run your own instance. We always benefited from pull requests and community annotations and we gained some maintainers from within the community to help maintain and enhance our corpora.
 
