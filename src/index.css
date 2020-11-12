@@ -242,7 +242,7 @@ a:hover {
   text-decoration: none;
 }
 
-.container-fluid .corpus-card h1 {
+.container-fluid .corpus-card h2 {
   background-color: var(--background-light);
   color: var(--main);
   padding: .75rem;
@@ -254,7 +254,7 @@ a:hover {
   width: auto;
 }
 
-.container-fluid .corpus-card h1 span{
+.container-fluid .corpus-card h2 span{
   color: var(--background-light);
   background-color: var(--main);
   padding: .05rem .45rem;
@@ -319,6 +319,7 @@ a:hover {
 }
 
 .container-fluid h1 {
+  display: inline;
   color: var(--background-light);
   font-size: 3.5em;
   font-weight: 400;
