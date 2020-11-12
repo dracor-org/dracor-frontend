@@ -1,4 +1,6 @@
-# Imprint and GDPR (dracor.org)
+<hgroup>
+    <h1>Imprint and GDPR (dracor.org)</h1>
+</hgroup>
 
 ## Imprint
 

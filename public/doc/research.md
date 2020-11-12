@@ -1,4 +1,6 @@
-# Research
+<hgroup>
+    <h1>Research</h1>
+</hgroup>
 
 An (incomplete) collection of research articles on drama using data provided through DraCor (including papers authored by the [DLINA collective](https://dlina.github.io/), the project preceding DraCor):
 
