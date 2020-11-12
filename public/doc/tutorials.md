@@ -1,4 +1,6 @@
-# Tutorials
+<hgroup>
+    <h1>Tutorials</h1>
+</hgroup>
 
 There is a growing number of training material around DraCor, some of which is listed here:
 
