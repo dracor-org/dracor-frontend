@@ -17,7 +17,7 @@ const CorpusCard = ({name, title, metrics}) => {
       xs={12}
     >
       <Link to={`/${name}`}>
-        <h1><span>{name}</span>DraCor</h1>
+        <h2><span>{name}</span>DraCor</h2>
       </Link>
       <h3>
         <Link to={`/${name}`}>{title}</Link>
