@@ -172,10 +172,13 @@ const PlayInfo = ({corpusId, playId}) => {
   const authors = play.authors.map(a => a.name).join(' · ');
 
   return (
-    <div className="h-100 d-md-flex flex-md-column">
+    <div className="h-100 d-md-flex flex-md-column dracor-page">
       <Helmet titleTemplate="%s - DraCor">
         <title>{`${authors}: ${play.title}`}</title>
       </Helmet>
+      <hgroup>
+        <h1>{play.title}</h1>
+      </hgroup>
       <div className="play-header" id="play-header">
         <ul className="play-title">
           <li>
