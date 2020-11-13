@@ -68,8 +68,10 @@ const Corpus = ({match, location}) => {
 
   if (match.url === location.pathname) {
     return (
-      <div>
-        <div className="h-header"><h1>{corpus.title}</h1></div>
+      <div className="dracor-page">
+        <hgroup>
+        <h1>{corpus.title}</h1>
+        </hgroup>
         <CorpusIndex data={corpus}/>
       </div>
     );

@@ -38,11 +38,13 @@ class Yasgui extends Component {
 
   render () {
     return (
-      <div>
+      <div className="dracor-page">
         <Helmet titleTemplate="%s - DraCor">
           <title>SPARQL</title>
         </Helmet>
-        <div className="h-header"><h1>SPARQL</h1></div>
+        <hgroup>
+          <h1>SPARQL</h1>
+        </hgroup>
         <div id="yasgui"/>
       </div>
     );
