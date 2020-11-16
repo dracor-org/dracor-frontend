@@ -80,12 +80,12 @@ export default class TopNav extends Component {
   render () {
     const {isOpen} = this.state;
     return (
-      <Headroom disableInlineStyles calcHeightOnResize upTolerance={100}>
-        <Navbar light color="light" expand="md" className="mb-4">
+      <Headroom disableInlineStyles calcHeightOnResize upTolerance={50}>
+        <Navbar expand="md">
           <NavbarBrand title="Drama Corpora Project (DraCor)" href="/"/>
           <NavbarToggler onClick={this.toggle}/>
           <Collapse navbar isOpen={isOpen}>
-            <Nav navbar className="mr-auto">
+            <Nav navbar>
               <NavItem>
                 <RouterNavLink to="/" className="nav-link">
                   Home
@@ -120,7 +120,7 @@ export default class TopNav extends Component {
                 </RouterNavLink>
               </NavItem>
             </Nav>
-            <Nav navbar className="ml-auto git-icon">
+            <Nav navbar className="git-icon">
               <NavItem>
                 <NavLink
                   href="https://github.com/dracor-org"
