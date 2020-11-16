@@ -71,6 +71,14 @@ hgroup {
   color: var(--background-light);
 }
 
+h2 {
+  padding-top: calc(2 * var(--x));
+}
+
+h3, h4 {
+  padding-top: var(--x);
+}
+
 /* ############################# */
 /* #NAVIGATION                 # */
 /* ############################# */
@@ -687,7 +695,7 @@ table.table.corpus th:focus {
 }
 
 .content-wrapper .metrics div {
-    font-size: .65rem;
+    font-size: .85rem;
     background: var(--background);
     padding: .5rem;
     border-radius: .25rem;
