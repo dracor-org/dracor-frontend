@@ -176,18 +176,12 @@ const PlayInfo = ({corpusId, playId}) => {
       <Helmet titleTemplate="%s - DraCor">
         <title>{`${authors}: ${play.title}`}</title>
       </Helmet>
-      <hgroup>
+      <hgroup className="play-header">
         <h1>{play.title}</h1>
-      </hgroup>
-      <div className="play-header" id="play-header">
-        <ul className="play-title">
-          <li>
-            <h1>{play.title}</h1>
-          </li>
-          {play.subtitle && (
-            <li className="subtitle"><em>{play.subtitle}</em></li>
-          )}
-          <li className="years mt-2">
+        {play.subtitle && (
+        <h2 className="subtitle"><em>{play.subtitle}</em></h2>
+        )}
+        <p className="years">
             <Years
               written={play.yearWritten}
               premiere={play.yearPremiered}
@@ -199,8 +193,7 @@ const PlayInfo = ({corpusId, playId}) => {
                 <IdLink>{`wikidata:${play.wikidataId}`}</IdLink>
               </span>
             )}
-          </li>
-        </ul>
+        </p>
         <ul className="play-meta">
           {play.authors.map(a => (
             <li key={a.key} className="data-link-label" id="play-author">
@@ -328,8 +321,10 @@ const PlayInfo = ({corpusId, playId}) => {
             </span>
           </li>
         </ul>
-        <div className="fullwidth">
-          <Nav tabs className="dashboard-tabs">
+
+      </hgroup>
+
+      <Nav tabs className="dashboard-tabs">
             <NavItem>
               <NavLink
                 href="#network"
@@ -364,11 +359,9 @@ const PlayInfo = ({corpusId, playId}) => {
                 Full text
               </NavLink>
             </NavItem>
-          </Nav>
-        </div>
-      </div>
+      </Nav>
 
-      <div className="d-md-flex" style={{flexGrow: 1}}>
+      <div className="dashboard-wrapper">
 
         {/* tabbed area */}
         <div

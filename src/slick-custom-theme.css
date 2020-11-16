@@ -1,11 +1,6 @@
 @charset 'UTF-8';
 /* DraCor Slider Custom Theme */
 /* Slider */
-.slick-slider 
-{
-    width: calc(100% + 6.6em);	
-    left: -3.3em;
-}
 .slick-slider::before 
 {	
     content: '';	
@@ -111,16 +106,7 @@
 {
     color: #1F2448;
 }
-@media only screen and (max-width: 1440px) {
-    .slick-slider {
-        width: calc(100% + 2em);
-        left: 0;
-        margin: 0 -1em;
-    }
-    .slick-slider::before {
-        height: 11.2rem;
-    }
-}
+
 @media only screen and (max-width: 1280px) {
     .slick-prev {
         left: 15%;
@@ -128,16 +114,11 @@
     .slick-next {
         right: 15%;
     }
-    .slick-slider::before {
-        height: 10.8rem;
-    }
+
 }
 @media only screen and (max-width: 767px) {
     .slick-track {
         display: block;
-    }
-    .slick-slider::before {
-        height: 10.8rem;
     }
     .slick-slide {
         padding: 0 1em 1em 1em;
