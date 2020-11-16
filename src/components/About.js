@@ -3,9 +3,7 @@ import React from 'react';
 const About = () => {
 	return (
   		<div className="dracor-page">
-  			<hgroup>
           <h1>Drama Corpora Project</h1>
-        </hgroup>
     		<div style={{textAlign: 'left', maxWidth: '800px', lineHeight: '1.7em', color: '#1F2448'}}>
           {`Our two in-house TEI corpora (RusDraCor and GerDraCor) hosted on
             dracor.org are in public-beta state. Feel free to use them, but
