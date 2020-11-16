@@ -78,7 +78,7 @@ function formatSource (d, corpusId) {
         target="_blank"
         rel="noreferrer noopener"
       >
-        <img src="/img/download.svg" alt=""/> TEI version
+        TEI version
       </a>
     </span>
   );
