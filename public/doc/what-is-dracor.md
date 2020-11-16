@@ -1,6 +1,4 @@
-<hgroup>
-    <h1>What is DraCor?</h1>
-</hgroup>
+# What is DraCor?
 
 *"DraCor = estrategia de guerrilla mediante estándares" ([José Calvo Tello](https://twitter.com/eumanismo/status/1218066125969412096))*
 
