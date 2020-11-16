@@ -35,7 +35,7 @@ export default function DocPage ({match}) {
 
   return (
     <div className="dracor-page">
-      <ReactMarkdown escapeHtml={false} source={markdown}/>
+      <ReactMarkdown source={markdown}/>
     </div>
   );
 }

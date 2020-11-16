@@ -1,6 +1,4 @@
-<hgroup>
-    <h1>Merch</h1>
-</hgroup>
+# Merch 
 
 ## Card games
 
