@@ -160,9 +160,11 @@ h3, h4 {
   font-size: 1rem;
 }
 
+
+/* #HEADROOM */
+
 .headroom-wrapper {
-  position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .headroom {
@@ -182,7 +184,7 @@ h3, h4 {
 }
 
 .headroom--unpinned {
-  position: fixed;
+  position: relative;
   transform: translateY(-100%);
 }
 
@@ -227,7 +229,7 @@ h3, h4 {
   text-decoration-color: var(--secondary-accent);
   text-decoration-thickness: .1em;
   background-color: var(--main);
-  font-size: calc(2.3 * var(--x));
+  font-size: 3rem;
   font-weight: 400;
   line-height: 1;
   margin: 0;
@@ -246,6 +248,113 @@ h3, h4 {
 .loading em {
   text-transform: uppercase;
   margin-left: 1ch;
+}
+
+/* ############################# */
+/* #STICKY                     # */
+/* ############################# */
+
+.sticky-outer-wrapper {
+  margin: 0;
+  padding-top: calc(var(--x) * 6);
+  margin-top: calc(var(--x) * (-6));
+}
+
+.sticky-inner-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  background: var(--main);
+}
+
+.sticky-inner-wrapper > span {
+  padding: var(--x);
+  width: 50%;
+  display: flex;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; 
+}
+
+.sticky-headings {
+  padding-left: 1rem;
+  width: calc(100% - 12rem);
+}
+
+.sticky-inner-wrapper h1:first-of-type {
+  font-size: 0;
+  padding: 0;
+  transition: font-size .2s;
+}
+
+.active h1:first-of-type {
+  font-size: 1.73em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;  
+}
+
+.sticky-inner-wrapper h3 {
+  font-weight: normal;
+  line-height: 1;
+  color: var(--background-light);
+  padding: 0;
+  margin: 0;
+  transition: font-size .2s;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;  
+}
+
+.sticky-inner-wrapper h3 span {
+  font-size: .6em;
+  vertical-align: middle;
+}
+
+.active {
+  padding: 0;
+  margin: 0;
+}
+
+.active h3 {
+  padding-top: .5em;
+  font-size: 1em;
+}
+
+.active h3 span {
+  display: none;
+}
+
+.active .corpus-label h4 {
+  font-size: 2.1rem;
+  padding: .35rem;
+}
+
+.corpus-label h4 {
+  background-color: var(--background-light);
+  color: var(--main);
+  padding: .2rem;
+  margin-bottom: 0;
+  border-radius: .3em;
+  font-weight: 500;
+  font-size: 1.2rem;
+  border: 0;
+  width: fit-content;
+  transition: font-size .2s;
+  transition: background-color .2s ease-in-out;
+}
+
+.corpus-label h4:hover {
+  background-color: var(--secondary-accent);
+}
+
+.sticky-inner-wrapper h4 span {
+  color: var(--background-light);
+  background-color: var(--main);
+  padding: 0 .25rem;
+  border-radius: .2em;
+  margin-right: .1em;
+  font-weight: 400;
+  text-transform: capitalize;
 }
 
 /* ############################# */
@@ -502,8 +611,9 @@ table.table.corpus th:focus {
 
 .play-header {
   margin: 0;
-  padding: var(--x) 0;
+  padding-top: var(--x);
   columns: 2;
+  gap: 0;
   background: var(--main);
 }
 
@@ -523,10 +633,6 @@ table.table.corpus th:focus {
 
 .play-header .years span {
   margin-right: 1rem;
-}
-
-#play-author {
-  font-size: 1rem;
 }
 
 .play-meta {
@@ -604,12 +710,11 @@ table.table.corpus th:focus {
 }
 
 .dashboard-tabs {
-  display: inline-flex;
   flex-flow: nowrap;
   white-space: nowrap;
-  margin: 0;
+  margin-left: auto;
   border-bottom: none;
-  width: 100%;
+  width: 50%;
   overflow-x: auto;
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
@@ -623,14 +728,16 @@ table.table.corpus th:focus {
 }
 
 .nav-tabs .nav-link {
-  padding: 0 0 .5rem;
-  margin: 0;
+  font-size: 1.2em;
+  padding: .5em 0;
+  margin: auto;
   border: none;
   color: var(--background-light);
 }
 
 .nav-tabs .nav-item {
   position: relative;
+  display: flex;
   margin-bottom: 0;
   margin-right: 1.3em;
 }
@@ -686,12 +793,11 @@ table.table.corpus th:focus {
   display: flex;
   position: relative;
   margin-right: 1em;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .content-wrapper, .cast-list-wrapper {
-  height: calc(100vh - (var(--x) * 4 + .5em));
+  height: calc(100vh - (var(--x) * 6 + 1em));
 }
 
 .content-wrapper .metrics div {
@@ -706,6 +812,7 @@ table.table.corpus th:focus {
 
 .tei-frame {
   width: inherit;
+  overflow-y: scroll;
 }
 
 .speech-dist-container {
@@ -718,7 +825,7 @@ table.table.corpus th:focus {
 }
 
 .cast-list-wrapper {
-  overflow-y: scroll;
+  overflow-y: auto;
   width: calc(100% / 4);
 }
 
@@ -744,16 +851,16 @@ table.table.corpus th:focus {
   color: var(--primary-accent) !important;
 }
 
-.cast-list-wrapper::-webkit-scrollbar, .content-wrapper::-webkit-scrollbar {
+.cast-list-wrapper::-webkit-scrollbar, .tei-frame::-webkit-scrollbar {
   width: .5rem;
 }
 
-.cast-list-wrapper::-webkit-scrollbar-track, .content-wrapper::-webkit-scrollbar-track {
-  background: var(--background-light);
+.cast-list-wrapper::-webkit-scrollbar-track, .tei-frame::-webkit-scrollbar-track {
+  background: var(--background);
   border-radius: .25rem;
 }
 
-.cast-list-wrapper::-webkit-scrollbar-thumb, .content-wrapper::-webkit-scrollbar-thumb, .content-wrapper::-webkit-scrollbar-thumb:hover {
+.cast-list-wrapper::-webkit-scrollbar-thumb, .tei-frame::-webkit-scrollbar-thumb, .tei-frame::-webkit-scrollbar-thumb:hover {
   background: var(--main);
   border: none;
   border-radius: .25rem;
@@ -971,7 +1078,7 @@ table.table.corpus th:focus {
     font-size: .85rem;
   }
   .content-wrapper, .cast-list-wrapper {
-    height: calc(100vh - (var(--x) * 6 + .4em));
+    height: calc(100vh - (var(--x) * 9 + .2rem));
   }
   .navbar-brand, .git-icon {
     width: calc(3 * var(--x));
@@ -1056,6 +1163,7 @@ table.table.corpus th:focus {
   }
   .dashboard-tabs {
     padding: 0 var(--x);
+    width: 100%;
   }
   .dashboard-tabs li:last-child::after {
     content: '';
@@ -1065,6 +1173,10 @@ table.table.corpus th:focus {
     position: absolute;
     top: 0;
     right: -1.3em;
+  }
+  .sticky-inner-wrapper > span {
+    width: 100%;
+    padding-bottom: 0;
   }
   .swagger-ui .info {
     columns: 1;
@@ -1097,6 +1209,9 @@ table.table.corpus th:focus {
   .cast-list-wrapper {
     margin-top: 2em;
     height: auto;
+  }
+  .tei-frame {
+    overflow-y: hidden;
   }
   .tei-frame #TEI {
     padding: 0 !important;

@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Helmet} from 'react-helmet';
+import Sticky from 'react-stickynode';
+import {Link} from 'react-router-dom';
 import {
   Nav,
   NavItem,
@@ -179,7 +181,9 @@ const PlayInfo = ({corpusId, playId}) => {
       <hgroup className="play-header">
         <h1>{play.title}</h1>
         {play.subtitle && (
-          <h2 className="subtitle"><em>{play.subtitle}</em></h2>
+          <h2 className="subtitle">
+            <em>{play.subtitle}</em>
+          </h2>
         )}
         <p className="years">
           <Years
@@ -195,33 +199,31 @@ const PlayInfo = ({corpusId, playId}) => {
           )}
         </p>
         <ul className="play-meta">
-          {play.authors.map(a => (
-            <li key={a.key} className="data-link-label" id="play-author">
-              {a.name}{' '}
-              {a.key && <IdLink>{a.key}</IdLink>}
-            </li>
-          ))}
-          <br/>
           {play.source && (
             <li>
               Source:{' '}
-              {play.source.url
-                ? <a target="_blank" rel="noopener noreferrer" href={play.source.url}>{play.source.name}</a>
-                : play.source.name
-              }
+              {play.source.url ? (
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={play.source.url}
+                >
+                  {play.source.name}
+                </a>
+              ) : (
+                play.source.name
+              )}
             </li>
           )}
 
           {play.originalSource && (
-            <li>
-              Original Source:{' '}
-              {play.originalSource}
-            </li>
+            <li>Original Source: {play.originalSource}</li>
           )}
-          <li>DraCor: <em>{play.id}</em></li>
+          <li>
+            DraCor: <em>{play.id}</em>
+          </li>
           <li className="play-downloads">
-            Downloads:
-            {' '}
+            Downloads:{' '}
             <span
               className="play-downloads-item"
               onClick={() => toggle('nd-formats')}
@@ -241,10 +243,9 @@ const PlayInfo = ({corpusId, playId}) => {
                   >
                     GraphML
                   </a>
-                </span>)
-              }
-            </span>
-            {' '}
+                </span>
+              )}
+            </span>{' '}
             <span
               className="play-downloads-item"
               onClick={() => toggle('rd-formats')}
@@ -264,10 +265,9 @@ const PlayInfo = ({corpusId, playId}) => {
                   >
                     GEXF
                   </a>
-                </span>)
-              }
-            </span>
-            {' '}
+                </span>
+              )}
+            </span>{' '}
             <span
               className="play-downloads-item"
               onClick={() => toggle('st-formats')}
@@ -281,10 +281,9 @@ const PlayInfo = ({corpusId, playId}) => {
                   >
                     TXT
                   </a>
-                </span>)
-              }
-            </span>
-            {' '}
+                </span>
+              )}
+            </span>{' '}
             <span
               className="play-downloads-item"
               onClick={() => toggle('stc-formats')}
@@ -298,10 +297,9 @@ const PlayInfo = ({corpusId, playId}) => {
                   >
                     JSON
                   </a>
-                </span>)
-              }
-            </span>
-            {' '}
+                </span>
+              )}
+            </span>{' '}
             <span
               className="play-downloads-item"
               onClick={() => toggle('sd-formats')}
@@ -310,7 +308,8 @@ const PlayInfo = ({corpusId, playId}) => {
               {box === 'sd-formats' && (
                 <span className="formats">
                   <a
-                    target="_blank" rel="noopener noreferrer"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     href={`${playUrl}/stage-directions`}
                     download={`${play.id}-${play.name}-stage.txt`}
                   >
@@ -321,59 +320,71 @@ const PlayInfo = ({corpusId, playId}) => {
             </span>
           </li>
         </ul>
-
       </hgroup>
 
-      <Nav tabs className="dashboard-tabs">
-        <NavItem>
-          <NavLink
-            href="#network"
-            className={classnames({active: tab === 'network'})}
-          >
-            Network
-          </NavLink>
-        </NavItem>
-        {play.relations && (
+      <Sticky enabled innerZ={1}>
+        <span>
+          <Link className="corpus-label" to={`/${play.corpus}`}>
+            <h4>
+              <span>{play.corpus}</span>DraCor
+            </h4>
+          </Link>
+          <div className="sticky-headings">
+            <h1>{play.title}</h1>
+            {play.authors.map(a => (
+              <h3 key={a.key} className="data-link-label" id="play-author">
+                {a.name} {a.key && <IdLink>{a.key}</IdLink>}
+              </h3>
+            ))}
+          </div>
+        </span>
+        <Nav tabs className="dashboard-tabs">
           <NavItem>
             <NavLink
-              href="#relations"
-              className={classnames({active: tab === 'relations'})}
+              href="#network"
+              className={classnames({active: tab === 'network'})}
             >
-              Relations
+              Network
             </NavLink>
           </NavItem>
-        )}
-        <NavItem>
-          <NavLink
-            href="#speech"
-            className={classnames({active: tab === 'speech'})}
-          >
-            Speech distribution
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink
-            href="#text"
-            className={classnames({active: tab === 'text'})}
-          >
-            Full text
-          </NavLink>
-        </NavItem>
-      </Nav>
+          {play.relations && (
+            <NavItem>
+              <NavLink
+                href="#relations"
+                className={classnames({active: tab === 'relations'})}
+              >
+                Relations
+              </NavLink>
+            </NavItem>
+          )}
+          <NavItem>
+            <NavLink
+              href="#speech"
+              className={classnames({active: tab === 'speech'})}
+            >
+              Speech distribution
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              href="#text"
+              className={classnames({active: tab === 'text'})}
+            >
+              Full text
+            </NavLink>
+          </NavItem>
+        </Nav>
+      </Sticky>
 
       <div className="dashboard-wrapper">
-
         {/* tabbed area */}
-        <div
-          id="dashboard"
-          style={{flex: 1}}
-        >
+        <div id="dashboard" style={{flex: 1}}>
           <div className="d-flex">
             <div className="content-wrapper">{tabContent}</div>
             <div className="cast-list-wrapper">
               <h4>Cast list</h4>
               <p>(in order of appearance)</p>
-              <CastList cast={play.cast || []}/>
+              <CastList cast={play.cast || []} />
             </div>
           </div>
         </div>
