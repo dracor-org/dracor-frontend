@@ -172,32 +172,28 @@ const PlayInfo = ({corpusId, playId}) => {
   const authors = play.authors.map(a => a.name).join(' · ');
 
   return (
-    <div className="h-100 d-md-flex flex-md-column">
+    <div className="h-100 d-md-flex flex-md-column dracor-page">
       <Helmet titleTemplate="%s - DraCor">
         <title>{`${authors}: ${play.title}`}</title>
       </Helmet>
-      <div className="play-header" id="play-header">
-        <ul className="play-title">
-          <li>
-            <h2>{play.title}</h2>
-          </li>
-          {play.subtitle && (
-            <li className="subtitle"><em>{play.subtitle}</em></li>
+      <hgroup className="play-header">
+        <h1>{play.title}</h1>
+        {play.subtitle && (
+          <h2 className="subtitle"><em>{play.subtitle}</em></h2>
+        )}
+        <p className="years">
+          <Years
+            written={play.yearWritten}
+            premiere={play.yearPremiered}
+            print={play.yearPrinted}
+          />
+          {play.wikidataId && (
+            <span className="data-link-label">
+              {' '}
+              <IdLink>{`wikidata:${play.wikidataId}`}</IdLink>
+            </span>
           )}
-          <li className="years mt-2">
-            <Years
-              written={play.yearWritten}
-              premiere={play.yearPremiered}
-              print={play.yearPrinted}
-            />
-            {play.wikidataId && (
-              <span className="data-link-label">
-                {' '}
-                <IdLink>{`wikidata:${play.wikidataId}`}</IdLink>
-              </span>
-            )}
-          </li>
-        </ul>
+        </p>
         <ul className="play-meta">
           {play.authors.map(a => (
             <li key={a.key} className="data-link-label" id="play-author">
@@ -325,47 +321,47 @@ const PlayInfo = ({corpusId, playId}) => {
             </span>
           </li>
         </ul>
-        <div className="fullwidth">
-          <Nav tabs className="dashboard-tabs">
-            <NavItem>
-              <NavLink
-                href="#network"
-                className={classnames({active: tab === 'network'})}
-              >
-                Network
-              </NavLink>
-            </NavItem>
-            {play.relations && (
-              <NavItem>
-                <NavLink
-                  href="#relations"
-                  className={classnames({active: tab === 'relations'})}
-                >
-                  Relations
-                </NavLink>
-              </NavItem>
-            )}
-            <NavItem>
-              <NavLink
-                href="#speech"
-                className={classnames({active: tab === 'speech'})}
-              >
-                Speech distribution
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                href="#text"
-                className={classnames({active: tab === 'text'})}
-              >
-                Full text
-              </NavLink>
-            </NavItem>
-          </Nav>
-        </div>
-      </div>
 
-      <div className="d-md-flex" style={{flexGrow: 1}}>
+      </hgroup>
+
+      <Nav tabs className="dashboard-tabs">
+        <NavItem>
+          <NavLink
+            href="#network"
+            className={classnames({active: tab === 'network'})}
+          >
+            Network
+          </NavLink>
+        </NavItem>
+        {play.relations && (
+          <NavItem>
+            <NavLink
+              href="#relations"
+              className={classnames({active: tab === 'relations'})}
+            >
+              Relations
+            </NavLink>
+          </NavItem>
+        )}
+        <NavItem>
+          <NavLink
+            href="#speech"
+            className={classnames({active: tab === 'speech'})}
+          >
+            Speech distribution
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink
+            href="#text"
+            className={classnames({active: tab === 'text'})}
+          >
+            Full text
+          </NavLink>
+        </NavItem>
+      </Nav>
+
+      <div className="dashboard-wrapper">
 
         {/* tabbed area */}
         <div

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import PlayMetrics from './PlayMetrics';
 // we need to require from react-sigma/lib/ to make build work
 import {
   Sigma,
@@ -10,6 +9,7 @@ import {
   RelativeSize,
   RandomizeNodePositions
 } from 'react-sigma/lib/';
+import PlayMetrics from './PlayMetrics';
 
 class NetworkGraph extends Component {
   render () {
@@ -62,8 +62,6 @@ class NetworkGraph extends Component {
 
     return sigma;
   }
-
-
 }
 
 NetworkGraph.propTypes = {
