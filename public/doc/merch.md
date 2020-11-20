@@ -1,6 +1,6 @@
 # Merch
 
-## Card game
+## Card games
 
 ![alt text](http://www.etkbooks.com/wp-content/uploads/9783905846553_front.jpg)
 ![alt text](http://www.etkbooks.com/wp-content/uploads/9783905846553_back.jpg)
@@ -9,9 +9,28 @@
 
 **Dramenquartett**
 
-* ISBN 978-3-905846-55-3
+* 32 cards containing network data of German-language plays from 1730–1930, ISBN 978-3-905846-55-3
 * Released in December 2019, [order here](http://www.etkbooks.com/dramenquartett/)
 * [General information and rules of play (in German)](https://dramenquartett.github.io/)
+
+![alt text](place-holder-mockup.jpg)
+![alt text](place-holder-mockup.jpg)
+
+*Frank Fischer, Mark Schwindt:*
+
+**Пиковая драма (Pikovaya Drama)**
+
+* 32 cards containing network data of Russian plays from the 18th to 20th century
+* Release planned for 2021
+
+![alt text](../img/merch/toneelkwartetspel.jpg)
+
+*Felix Hermans, Arne Lauryssens, Jan Teertstra, Anke Van de Mosselaer, Sam Verellen, Jan Teertstra*
+
+**Toneelkwartetspel**
+
+* 32 cards containing network data of Dutch-language plays from the 14th to 19th century
+* Created in the course "Digitale tekstanalyse en literaire theorie" at University of Antwerp 2019/2020 under the supervision of Mike Kestemont
 
 ## Posters
 

@@ -29,7 +29,7 @@ E-mail: presse@mwfk.brandenburg.de
 
 DE138408327
 
-### Responsibility for content according to German law (§ 5 TMG [German Telemedia Act] and § 55 section 2 RStV [German Interstate Broadcasting Agreement])
+### Responsibility for content according to German law (§ 5 TMG = German Telemedia Act and § 55 section 2 RStV = German Interstate Broadcasting Agreement)
 
 This website, dracor.org, is the responsibility of:
 

@@ -7,7 +7,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 * Co-editors: [Peer Trilcke](https://www.uni-potsdam.de/de/lit-19-jhd/peertrilcke/) (Potsdam), [Boris Orekhov](http://nevmenandr.net/bo.php) (Moscow)
 * Technical lead: [Carsten Milling](https://hashtable.de/) (Berlin)
 * Technical co-leads: [Ingo Börner](https://www.oeaw.ac.at/acdh/team/current-team/ingo-boerner/) (Vienna), [Mathias Göbel](https://www.sub.uni-goettingen.de/en/contact/staff-a-z/staff-details/person/mathias-goebel/) (Göttingen)
-* Web design: [Mark Schwindt](https://www.markschwindt.com/) (Bochum)
+* Art director: [Mark Schwindt](https://www.markschwindt.com/) (Bochum)
 
 ## Applications
 * [DraCor Shiny app](https://shiny.dracor.org/): Ivan Pozdniakov (Moscow)
@@ -46,7 +46,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 ### GreekDraCor
 *(derived from [Perseus Digital Library](http://www.perseus.tufts.edu/hopper/opensource/download))*
 * Maintainers: Boris Orekhov, Frank Fischer
-* Metric annotations: Dmitry Krylov
+* Metric annotations: Dmitry Krylov (Moscow)
 
 ### ShakeDraCor
 *(derived from the [Shakespeare Folger Library](https://www.folgerdigitaltexts.org/))*
