@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Route, NavLink as RouterNavLink} from 'react-router-dom';
+import {NavLink as RouterNavLink} from 'react-router-dom';
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
@@ -14,6 +14,7 @@ import {
 import Headroom from 'react-headroom';
 import {ezlinavisUrl} from '../config';
 import CorporaDropdown from './CorporaDropdown';
+import TopNavDropdown from './TopNavDropdown';
 
 const TopNav = () => {
   const [navOpen, setNavOpen] = useState(false);
@@ -27,37 +28,25 @@ const TopNav = () => {
         <NavbarToggler onClick={toggleNav}/>
         <Collapse navbar isOpen={navOpen}>
           <Nav navbar>
+            <TopNavDropdown label="About" items={[
+              {label: 'What is DraCor?', to: '/doc/what-is-dracor'},
+              {label: 'Credits', to: '/doc/credits'},
+              {label: 'Imprint', to: '/doc/imprint-and-gdpr'}
+            ]}/>
+            <CorporaDropdown/>
+            <TopNavDropdown label="Tools" items={[
+              {label: 'API', to: '/documentation/api'},
+              {label: 'SPARQL', to: '/sparql'},
+              {label: 'ezlinavis', href: ezlinavisUrl},
+              {label: 'Shiny DraCor', href: 'https://shiny.dracor.org/'}
+            ]}/>
+            <TopNavDropdown label="How To" items={[
+              {label: 'Tutorials', to: '/doc/tutorials'},
+              {label: 'Research', to: '/doc/research'}
+            ]}/>
             <NavItem>
-              <RouterNavLink to="/" className="nav-link">
-                Home
-              </RouterNavLink>
-            </NavItem>
-            <Route path="/" component={CorporaDropdown}/>
-            <NavItem>
-              <RouterNavLink to="/sparql" className="nav-link">
-                SPARQL
-              </RouterNavLink>
-            </NavItem>
-            <NavItem>
-              <RouterNavLink to="/documentation/api" className="nav-link">
-                API
-              </RouterNavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                href={ezlinavisUrl}
-                title="Simple Network Visualization for Literary Texts"
-              >
-                Easy Linavis
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <RouterNavLink
-                to="/about"
-                className="nav-link"
-                title="About the Drama Corpora Project"
-              >
-                About
+              <RouterNavLink to="/doc/merch" className="nav-link">
+                Merch
               </RouterNavLink>
             </NavItem>
           </Nav>
