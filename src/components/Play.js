@@ -220,7 +220,7 @@ const PlayInfo = ({corpusId, playId}) => {
             <li>Original Source: {play.originalSource}</li>
           )}
           <li>
-            DraCor: <em>{play.id}</em>
+            DraCor: <a href={`/id/${play.id}`}>{play.id}</a>
           </li>
           <li className="play-downloads">
             Downloads:{' '}
