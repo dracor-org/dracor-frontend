@@ -58,7 +58,7 @@ const App = () => {
     <Router>
       <DracorContext.Provider value={{corpora, apiInfo}}>
         <div className="d-flex flex-column" style={{height: '100%'}}>
-          <TopNav/>
+          <Route path="/" component={TopNav}/>
           <div className="content d-flex" style={{flex: 1}}>
             <Container fluid>
               <Switch>
