@@ -179,20 +179,20 @@ const PlayInfo = ({corpusId, playId}) => {
       <hgroup className="play-header">
         <h1>{play.title}</h1>
         {play.subtitle && (
-        <h2 className="subtitle"><em>{play.subtitle}</em></h2>
+          <h2 className="subtitle"><em>{play.subtitle}</em></h2>
         )}
         <p className="years">
-            <Years
-              written={play.yearWritten}
-              premiere={play.yearPremiered}
-              print={play.yearPrinted}
-            />
-            {play.wikidataId && (
-              <span className="data-link-label">
-                {' '}
-                <IdLink>{`wikidata:${play.wikidataId}`}</IdLink>
-              </span>
-            )}
+          <Years
+            written={play.yearWritten}
+            premiere={play.yearPremiered}
+            print={play.yearPrinted}
+          />
+          {play.wikidataId && (
+            <span className="data-link-label">
+              {' '}
+              <IdLink>{`wikidata:${play.wikidataId}`}</IdLink>
+            </span>
+          )}
         </p>
         <ul className="play-meta">
           {play.authors.map(a => (
@@ -325,40 +325,40 @@ const PlayInfo = ({corpusId, playId}) => {
       </hgroup>
 
       <Nav tabs className="dashboard-tabs">
-            <NavItem>
-              <NavLink
-                href="#network"
-                className={classnames({active: tab === 'network'})}
-              >
-                Network
-              </NavLink>
-            </NavItem>
-            {play.relations && (
-              <NavItem>
-                <NavLink
-                  href="#relations"
-                  className={classnames({active: tab === 'relations'})}
-                >
-                  Relations
-                </NavLink>
-              </NavItem>
-            )}
-            <NavItem>
-              <NavLink
-                href="#speech"
-                className={classnames({active: tab === 'speech'})}
-              >
-                Speech distribution
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                href="#text"
-                className={classnames({active: tab === 'text'})}
-              >
-                Full text
-              </NavLink>
-            </NavItem>
+        <NavItem>
+          <NavLink
+            href="#network"
+            className={classnames({active: tab === 'network'})}
+          >
+            Network
+          </NavLink>
+        </NavItem>
+        {play.relations && (
+          <NavItem>
+            <NavLink
+              href="#relations"
+              className={classnames({active: tab === 'relations'})}
+            >
+              Relations
+            </NavLink>
+          </NavItem>
+        )}
+        <NavItem>
+          <NavLink
+            href="#speech"
+            className={classnames({active: tab === 'speech'})}
+          >
+            Speech distribution
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink
+            href="#text"
+            className={classnames({active: tab === 'text'})}
+          >
+            Full text
+          </NavLink>
+        </NavItem>
       </Nav>
 
       <div className="dashboard-wrapper">
