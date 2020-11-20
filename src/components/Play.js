@@ -322,7 +322,7 @@ const PlayInfo = ({corpusId, playId}) => {
         </ul>
       </hgroup>
 
-      <Sticky enabled={true} innerZ={1}>
+      <Sticky enabled innerZ={1}>
         <span>
           <Link className="corpus-label" to={`/${play.corpus}`}>
             <h4>
