@@ -27,7 +27,7 @@ const TopNav = () => {
         <NavbarBrand title="Drama Corpora Project (DraCor)" href="/"/>
         <NavbarToggler onClick={toggleNav}/>
         <Collapse navbar isOpen={navOpen}>
-          <Nav navbar>
+          <Nav navbar tag="div">
             <TopNavDropdown label="About" items={[
               {label: 'What is DraCor?', to: '/doc/what-is-dracor'},
               {label: 'Credits', to: '/doc/credits'},
@@ -44,7 +44,7 @@ const TopNav = () => {
               {label: 'Tutorials', to: '/doc/tutorials'},
               {label: 'Research', to: '/doc/research'}
             ]}/>
-            <NavItem>
+            <NavItem tag="div">
               <RouterNavLink to="/doc/merch" className="nav-link">
                 Merch
               </RouterNavLink>
