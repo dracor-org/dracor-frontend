@@ -50,7 +50,7 @@ const TopNav = () => {
               </RouterNavLink>
             </NavItem>
           </Nav>
-          <Nav navbar className="git-icon">
+          <Nav navbar className="dracor-github">
             <NavItem>
               <NavLink
                 href="https://github.com/dracor-org"

@@ -124,7 +124,7 @@ h3, h4 {
   margin-right: 0;
 }
 
-.navbar-brand, .git-icon {
+.navbar-brand, .dracor-github {
   width: calc(2 * var(--x));
   height: calc(2 * var(--x));
 }
@@ -138,7 +138,7 @@ h3, h4 {
   font-size: 1em;
 }
 
-.git-icon {
+.dracor-github {
   margin: 0;
   padding: 0;
   border-bottom: none;
@@ -148,7 +148,7 @@ h3, h4 {
   display: none;
 }
 
-.git-icon .nav-item .nav-link:hover {
+.dracor-github .nav-item .nav-link:hover {
   border-bottom: none;
 }
 
@@ -1078,7 +1078,7 @@ table.table.corpus th:focus {
   .content-wrapper, .cast-list-wrapper {
     height: calc(100vh - (var(--x) * 9 + .2rem));
   }
-  .navbar-brand, .git-icon {
+  .navbar-brand, .dracor-github {
     width: calc(3 * var(--x));
     height: calc(3 * var(--x));
   }
@@ -1118,11 +1118,11 @@ table.table.corpus th:focus {
   .navbar-collapse {
     padding-top: 1em;
   }
-  .git-icon {
+  .dracor-github {
     width: auto;
     height: auto;
   }
-  .git-icon .nav-item .nav-link:hover {
+  .dracor-github .nav-item .nav-link:hover {
     border-bottom: solid var(--secondary-accent) .17em;
   }
   .corpus-card {
