@@ -88,7 +88,8 @@ h3, h4 {
   z-index: 2;
 }
 
-.navbar-nav {
+/* centered top navigation */
+.dracor-mainnav {
   margin: auto;
 }
 
@@ -96,7 +97,9 @@ h3, h4 {
   display: inline;
 }
 
-.navbar-nav .nav-link, .navbar-nav .dropdown a {
+/* main entries in top navigation */
+.dracor-navbar .navbar-nav .nav-item,
+.dracor-navbar .navbar-nav .dropdown .dropdown-toggle {
   font-size: 1.2em;
   font-weight: 400;
   text-transform: uppercase;
