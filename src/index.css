@@ -93,20 +93,12 @@ h3, h4 {
   margin: auto;
 }
 
-.navbar-nav .nav-link, .navbar-nav .dropdown {
-  display: inline;
-}
-
 /* main entries in top navigation */
 .dracor-navbar .navbar-nav .nav-item,
 .dracor-navbar .navbar-nav .dropdown .dropdown-toggle {
   font-size: 1.2em;
   font-weight: 400;
   text-transform: uppercase;
-}
-
-.navbar-collapse {
-  align-items: start;
 }
 
 .navbar .navbar-nav .nav-link {
