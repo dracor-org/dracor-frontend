@@ -23,11 +23,11 @@ const TopNav = () => {
 
   return (
     <Headroom disableInlineStyles upTolerance={50}>
-      <Navbar expand="md">
+      <Navbar expand="md" className="dracor-navbar">
         <NavbarBrand title="Drama Corpora Project (DraCor)" href="/"/>
         <NavbarToggler onClick={toggleNav}/>
         <Collapse navbar isOpen={navOpen}>
-          <Nav navbar tag="div">
+          <Nav navbar tag="div" className="dracor-mainnav">
             <TopNavDropdown label="About" items={[
               {label: 'What is DraCor?', to: '/doc/what-is-dracor'},
               {label: 'Credits', to: '/doc/credits'},
