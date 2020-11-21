@@ -88,45 +88,43 @@ h3, h4 {
   z-index: 2;
 }
 
-.navbar-nav {
+/* centered top navigation */
+.dracor-mainnav {
   margin: auto;
 }
 
-.navbar-nav .nav-link, .navbar-nav .dropdown {
-  display: inline;
-}
-
-.navbar-nav .nav-link, .navbar-nav .dropdown a {
+/* main entries in top navigation */
+.dracor-navbar .navbar-nav .nav-item,
+.dracor-navbar .navbar-nav .dropdown .dropdown-toggle {
   font-size: 1.2em;
   font-weight: 400;
   text-transform: uppercase;
 }
 
-.navbar-collapse {
-  align-items: start;
-}
-
 .navbar .navbar-nav .nav-link {
   color: var(--background-light);
-  border-bottom: solid var(--secondary-accent) 0em;
+  border-bottom: solid transparent .17em;
   margin-right: 1.5em;
   padding: 0;
   transition: .3s ease-in-out;
 }
 
-.navbar .navbar-nav .nav-link.active, .navbar .navbar-nav .nav-link:hover, .navbar .navbar-nav .nav-link:focus {
+.navbar .navbar-nav .nav-link.active,
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link:focus
+{
   color: var(--background-light);
 }
 
 .navbar .navbar-nav .nav-link:hover {
-  border-bottom: solid var(--secondary-accent) .17em;
+  border-bottom-color: var(--secondary-accent);
 }
 
 .navbar .nav-item:last-child .nav-link {
   margin-right: 0;
 }
 
-.navbar-brand, .git-icon {
+.navbar-brand, .dracor-github {
   width: calc(2 * var(--x));
   height: calc(2 * var(--x));
 }
@@ -140,7 +138,7 @@ h3, h4 {
   font-size: 1em;
 }
 
-.git-icon {
+.dracor-github {
   margin: 0;
   padding: 0;
   border-bottom: none;
@@ -150,7 +148,7 @@ h3, h4 {
   display: none;
 }
 
-.git-icon .nav-item .nav-link:hover {
+.dracor-github .nav-item .nav-link:hover {
   border-bottom: none;
 }
 
@@ -272,7 +270,7 @@ h3, h4 {
   display: flex;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap; 
+  white-space: nowrap;
 }
 
 .sticky-headings {
@@ -290,7 +288,7 @@ h3, h4 {
   font-size: 1.73em;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap;  
+  white-space: nowrap;
 }
 
 .sticky-inner-wrapper h3 {
@@ -302,7 +300,7 @@ h3, h4 {
   transition: font-size .2s;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap;  
+  white-space: nowrap;
 }
 
 .sticky-inner-wrapper h3 span {
@@ -1080,7 +1078,7 @@ table.table.corpus th:focus {
   .content-wrapper, .cast-list-wrapper {
     height: calc(100vh - (var(--x) * 9 + .2rem));
   }
-  .navbar-brand, .git-icon {
+  .navbar-brand, .dracor-github {
     width: calc(3 * var(--x));
     height: calc(3 * var(--x));
   }
@@ -1120,11 +1118,11 @@ table.table.corpus th:focus {
   .navbar-collapse {
     padding-top: 1em;
   }
-  .git-icon {
+  .dracor-github {
     width: auto;
     height: auto;
   }
-  .git-icon .nav-item .nav-link:hover {
+  .dracor-github .nav-item .nav-link:hover {
     border-bottom: solid var(--secondary-accent) .17em;
   }
   .corpus-card {
