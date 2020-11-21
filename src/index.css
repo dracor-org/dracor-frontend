@@ -109,7 +109,10 @@ h3, h4 {
   transition: .3s ease-in-out;
 }
 
-.navbar .navbar-nav .nav-link.active, .navbar .navbar-nav .nav-link:hover, .navbar .navbar-nav .nav-link:focus {
+.navbar .navbar-nav .nav-link.active,
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link:focus
+{
   color: var(--background-light);
 }
 
@@ -267,7 +270,7 @@ h3, h4 {
   display: flex;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap; 
+  white-space: nowrap;
 }
 
 .sticky-headings {
@@ -285,7 +288,7 @@ h3, h4 {
   font-size: 1.73em;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap;  
+  white-space: nowrap;
 }
 
 .sticky-inner-wrapper h3 {
@@ -297,7 +300,7 @@ h3, h4 {
   transition: font-size .2s;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap;  
+  white-space: nowrap;
 }
 
 .sticky-inner-wrapper h3 span {
