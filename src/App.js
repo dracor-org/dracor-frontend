@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
 import {Container} from 'reactstrap';
 import api from './api';
 import {DracorContext} from './context';
@@ -58,6 +58,9 @@ const App = () => {
     <Router>
       <DracorContext.Provider value={{corpora, apiInfo}}>
         <div className="d-flex flex-column" style={{height: '100%'}}>
+          <Route exact path="/documentation/api">
+            <Redirect to="/doc/api"/>
+          </Route>
           <Route path="/" component={TopNav}/>
           <div className="content d-flex" style={{flex: 1}}>
             <Container fluid>
@@ -65,7 +68,7 @@ const App = () => {
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/about" component={About}/>
                 <Route exact path="/sparql" component={AsyncYasgui}/>
-                <Route exact path="/documentation/api" component={AsyncAPIDoc}/>
+                <Route exact path="/doc/api" component={AsyncAPIDoc}/>
                 <Route path="/doc/:slug" component={DocPage}/>
                 <Route path="/:corpusId" component={Corpus}/>
               </Switch>

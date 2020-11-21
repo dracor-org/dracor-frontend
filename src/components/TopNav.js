@@ -35,7 +35,7 @@ const TopNav = () => {
             ]}/>
             <CorporaDropdown/>
             <TopNavDropdown label="Tools" items={[
-              {label: 'API', to: '/documentation/api'},
+              {label: 'API', to: '/doc/api'},
               {label: 'SPARQL', to: '/sparql'},
               {label: 'ezlinavis', href: ezlinavisUrl},
               {label: 'Shiny DraCor', href: 'https://shiny.dracor.org/'}
