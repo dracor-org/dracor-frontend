@@ -26,27 +26,6 @@ body {
   padding: 0;
   font-family: sans-serif;
   background-color: var(--background);
-  transition: .3s ease-in-out;
-}
-
-::-webkit-scrollbar {
-  width: 0.5rem;
-  height: 0.5rem;
-  transition: .3s ease-in-out;
-}
-
-::-webkit-scrollbar:hover {
-    height: 1rem;
-    width: 1rem;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--background);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--main);
-  transition: .3s ease-in-out;
 }
 
 ul {
