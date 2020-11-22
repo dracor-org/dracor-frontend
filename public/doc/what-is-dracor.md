@@ -2,7 +2,13 @@
 
 *"DraCor = estrategia de guerrilla mediante estándares" ([José Calvo Tello](https://twitter.com/eumanismo/status/1218066125969412096))*
 
-**DraCor is not a website.** DraCor is a showcase for the concept of [Programmable Corpora](https://doi.org/10.5281/zenodo.4284002). It revolves around an API that provides data extracted from [TEI](https://en.wikipedia.org/wiki/Text_Encoding_Initiative)-encoded corpora. This website – dracor.org – uses this API to showcase some of the extractable information. Some data can be downloaded through the web interface. The more powerful, direct access point is the [documented API](https://dracor.org/documentation/api/).
+**DraCor is not a website.** DraCor is a showcase for the concept of
+[Programmable Corpora](https://doi.org/10.5281/zenodo.4284002). It revolves
+around an API that provides data extracted from
+[TEI](https://en.wikipedia.org/wiki/Text_Encoding_Initiative)-encoded corpora.
+This website – dracor.org – uses this API to showcase some of the extractable
+information. Some data can be downloaded through the web interface. The more
+powerful, direct access point is the [documented API](api).
 
 **DraCor is short for "drama corpora",** a growing collection of plays in (mostly) European languages. We are maintaining some in-house corpora which we built from the ground up (GerDraCor and RusDraCor). In addition, we adapted (and enhanced) some corpora that were released under free licenses. We also host corpora maintained by others. Feel free to contact us if you are interested.
 
