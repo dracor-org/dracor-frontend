@@ -2,18 +2,13 @@ import React, {useEffect, useState} from 'react';
 import {Helmet} from 'react-helmet';
 import Sticky from 'react-stickynode';
 import {Link} from 'react-router-dom';
-import {
-  Nav,
-  NavItem,
-  NavLink
-} from 'reactstrap';
-import classnames from 'classnames';
 import api from '../api';
 import IdLink from './IdLink';
 import Years from './Years';
 import CastList from './CastList';
 import DownloadLinks from './DownloadLinks';
 import NetworkGraph from './NetworkGraph';
+import PlayNav from './PlayNav';
 import RelationsGraph from './RelationsGraph';
 import SpeechDistribution from './SpeechDistribution';
 import TEIPanel from './TEIPanel';
@@ -25,7 +20,15 @@ const apiUrl = api.getBaseURL();
 const edgeColor = '#61affe65';
 const nodeColor = '#61affe';
 
-const tabNames = ['network', 'speech', 'text', 'relations', 'downloads'];
+const navItems = [
+  {name: 'network', label: 'Network'},
+  {name: 'relations', label: 'Relations'},
+  {name: 'speech', label: 'Speech distribution'},
+  {name: 'text', label: 'Full text'},
+  {name: 'downloads', label: 'Downloads'}
+];
+
+const tabNames = navItems.map(item => item.name);
 
 function getCooccurrences (segments) {
   const map = {};
@@ -234,50 +237,13 @@ const PlayInfo = ({corpusId, playId}) => {
             </span>
           </div>
         </span>
-        <Nav tabs className="dashboard-tabs">
-          <NavItem>
-            <NavLink
-              href="#network"
-              className={classnames({active: tab === 'network'})}
-            >
-              Network
-            </NavLink>
-          </NavItem>
-          {play.relations && (
-            <NavItem>
-              <NavLink
-                href="#relations"
-                className={classnames({active: tab === 'relations'})}
-              >
-                Relations
-              </NavLink>
-            </NavItem>
-          )}
-          <NavItem>
-            <NavLink
-              href="#speech"
-              className={classnames({active: tab === 'speech'})}
-            >
-              Speech distribution
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink
-              href="#text"
-              className={classnames({active: tab === 'text'})}
-            >
-              Full text
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink
-              href="#downloads"
-              className={classnames({active: tab === 'downloads'})}
-            >
-              Downloads
-            </NavLink>
-          </NavItem>
-        </Nav>
+        <PlayNav
+          items={
+            // we remove relations from nav items if none are available for the
+            // play
+            navItems.filter(item => item.name !== 'relations' || play.relations)
+          }
+        />
       </Sticky>
 
       <div className="dashboard-wrapper">

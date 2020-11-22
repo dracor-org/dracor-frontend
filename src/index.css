@@ -2,7 +2,7 @@
 
 :root {
   --main: #1F2448;
-  --main-transparent: #1F244800; 
+  --main-transparent: #1F244800;
   --main-shade: #1F24480a;
   --main-shadow: #1F244820;
   --shadow: #1F244835;
@@ -293,7 +293,7 @@ h3, h4 {
 
 .sticky-inner-wrapper > span::-webkit-scrollbar {
   display: none;
-} 
+}
 
 .sticky-inner-wrapper > span::after {
   content: '';
@@ -305,12 +305,12 @@ h3, h4 {
 }
 
 .sticky-headings {
-  display: inline-flex; 
+  display: inline-flex;
   flex-flow: column;
 }
 
 .sticky-headings span {
-  display: inline-flex; 
+  display: inline-flex;
 }
 
 .sticky-headings h3 {
@@ -770,7 +770,7 @@ table.table.corpus th:focus {
   box-shadow: 0 7px 5px 0 rgba(0, 0, 0, 0.2), 0 10px 1em 0 rgba(0,0,0,.08), 0 4px 0px 0 #33405220;
 }
 
-.dashboard-tabs {
+.dracor-play-nav {
   flex-flow: nowrap;
   white-space: nowrap;
   margin-left: auto;
@@ -784,7 +784,7 @@ table.table.corpus th:focus {
   min-height: 2rem;
 }
 
-.dashboard-tabs::after {
+.dracor-play-nav::after {
   content: '';
   width: var(--x);
   height: 2.5em;
@@ -793,7 +793,7 @@ table.table.corpus th:focus {
   right: var(--x);
 }
 
-.dashboard-tabs::-webkit-scrollbar {
+.dracor-play-nav::-webkit-scrollbar {
   display: none;
 }
 
@@ -1252,11 +1252,11 @@ table.table.corpus th:focus {
   #dashboard > div {
     flex-direction: column;
   }
-  .dashboard-tabs {
+  .dracor-play-nav {
     padding: 0 var(--x);
     width: 100%;
   }
-  .dashboard-tabs li:last-child::after {
+  .dracor-play-nav li:last-child::after {
     content: '';
     width: 1.3em;
     height: 1.3em;
