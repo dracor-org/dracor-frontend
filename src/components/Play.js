@@ -11,6 +11,7 @@ import CastList from './CastList';
 import DownloadLinks from './DownloadLinks';
 import NetworkGraph from './NetworkGraph';
 import RelationsGraph from './RelationsGraph';
+import Sources from './Sources';
 import SpeechDistribution from './SpeechDistribution';
 import TEIPanel from './TEIPanel';
 
@@ -26,8 +27,8 @@ const navItems = [
   {name: 'relations', label: 'Relations'},
   {name: 'speech', label: 'Speech distribution'},
   {name: 'text', label: 'Full text'},
-  {name: 'downloads', label: 'Downloads'}
-  // {name: 'sources', label: 'Sources'}
+  {name: 'downloads', label: 'Downloads'},
+  {name: 'sources', label: 'Sources'}
 ];
 
 const tabNames = new Set(navItems.map(item => item.name));
@@ -101,6 +102,8 @@ const PlayInfo = ({corpusId, playId}) => {
     tabContent = <DownloadLinks play={play}/>;
   } else if (tab === 'text') {
     tabContent = <TEIPanel url={teiUrl}/>;
+  } else if (tab === 'sources') {
+    tabContent = <Sources play={play}/>;
   } else if (tab === 'relations') {
     tabContent = <RelationsGraph {...{play, nodeColor, edgeColor}}/>;
   } else {
@@ -135,26 +138,6 @@ const PlayInfo = ({corpusId, playId}) => {
           )}
         </p>
         <ul className="play-meta">
-          {play.source && (
-            <li>
-              Source:{' '}
-              {play.source.url ? (
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={play.source.url}
-                >
-                  {play.source.name}
-                </a>
-              ) : (
-                play.source.name
-              )}
-            </li>
-          )}
-
-          {play.originalSource && (
-            <li>Original Source: {play.originalSource}</li>
-          )}
           <li>
             DraCor: <a href={`/id/${play.id}`}>{play.id}</a>
           </li>
