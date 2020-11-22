@@ -7,15 +7,24 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="citation">
-        <h6>To cite DraCor, please use:</h6>
-        <p>
-          Frank Fischer et al.:
+        <h6>
+          If you want to cite DraCor, please use the following reference
+          (<a href={`${process.env.PUBLIC_URL}/cite_dracor.bib`}>BibTeX</a>,
           {' '}
-          <a target="_blank" rel="noopener noreferrer" href="https://dev.clariah.nl/files/dh2019/boa/0268.html">
-            Programmable Corpora: Introducing DraCor, an Infrastructure for the
-            Research on European Drama.
+          <a href={`${process.env.PUBLIC_URL}/cite_dracor.ris`}>RIS</a>):
+        </h6>
+        <p>
+          Fischer, Frank, et al. (2019). Programmable Corpora: Introducing
+          DraCor, an Infrastructure for the Research on European Drama. In{' '}
+          <em>Proceedings of DH2019: &quot;Complexities&quot;</em>, Utrecht
+          University, doi:{' '}
+          <a
+            href="https://doi.org/10.5281/zenodo.4284002"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            10.5281/zenodo.4284002
           </a>
-          <br/>In <i>Proceedings of DH2019</i>, Utrecht University.
         </p>
       </div>
       <div className="current-year">
