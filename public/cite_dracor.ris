@@ -1,0 +1,20 @@
+TY  - CONF
+TI  - Programmable Corpora: Introducing DraCor, an Infrastructure for the Research on European Drama
+AU  - Fischer, Frank
+AU  - Börner, Ingo
+AU  - Göbel, Mathias
+AU  - Hechtl, Angelika
+AU  - Kittel, Christopher
+AU  - Milling, Carsten
+AU  - Trilcke, Peer
+T2  - Digital Humanities 2019
+AB  - DraCor (short for "drama corpora") is a growing collection of TEI-encoded plays in (mostly) European languages. The project showcases the concept of "Programmable Corpora", conceived as research ecosystems revolving around an API that provides access to bespoke slices of extracted data. DraCor also exposes a SPARQL endpoint to connect its semantic entities (authors, plays, characters, etc.) to the Linked Open Data cloud.
+C3  - Proceedings of DH2019: "Complexities", Utrecht, July 9–12, 2019
+DA  - 2019///
+PY  - 2019
+DO  - 10.5281/zenodo.4284002
+LA  - en
+PB  - Utrecht University
+ST  - Programmable Corpora
+ER  - 
+
