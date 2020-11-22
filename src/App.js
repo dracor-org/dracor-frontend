@@ -5,7 +5,6 @@ import api from './api';
 import {DracorContext} from './context';
 import asyncComponent from './components/AsyncComponent';
 import Home from './components/Home';
-import About from './components/About';
 import DocPage from './components/DocPage';
 import TopNav from './components/TopNav';
 import Corpus from './components/Corpus';
@@ -61,12 +60,14 @@ const App = () => {
           <Route exact path="/documentation/api">
             <Redirect to="/doc/api"/>
           </Route>
+          <Route exact path="/about">
+            <Redirect to="/doc/what-is-dracor"/>
+          </Route>
           <Route path="/" component={TopNav}/>
           <div className="content d-flex" style={{flex: 1}}>
             <Container fluid>
               <Switch>
                 <Route exact path="/" component={Home}/>
-                <Route exact path="/about" component={About}/>
                 <Route exact path="/sparql" component={AsyncYasgui}/>
                 <Route exact path="/doc/api" component={AsyncAPIDoc}/>
                 <Route path="/doc/:slug" component={DocPage}/>
