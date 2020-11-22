@@ -17,14 +17,14 @@ const Footer = () => {
           Fischer, Frank, et al. (2019). Programmable Corpora: Introducing
           DraCor, an Infrastructure for the Research on European Drama. In{' '}
           <em>Proceedings of DH2019: &quot;Complexities&quot;</em>, Utrecht
-          University, doi:{' '}
+          University,{' '}
           <a
             href="https://doi.org/10.5281/zenodo.4284002"
             rel="noopener noreferrer"
             target="_blank"
           >
-            10.5281/zenodo.4284002
-          </a>
+            doi:10.5281/zenodo.4284002
+          </a>.
         </p>
       </div>
       <div className="current-year">
