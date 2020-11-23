@@ -77,6 +77,11 @@ h3, h4 {
   text-transform: uppercase;
 }
 
+.dracor-navbar .dropdown-item.active {
+  color: var(--main);
+  background-color: var(--secondary-accent);
+}
+
 .navbar .navbar-nav .nav-link {
   color: var(--background-light);
   border-bottom: solid transparent .17em;
@@ -302,21 +307,21 @@ h3, h4 {
   vertical-align: middle;
 }
 
-.active {
+.sticky-outer-wrapper.active {
   padding: 0;
   margin: 0;
 }
 
-.active h3 {
+.sticky-outer-wrapper.active h3 {
   padding-top: .5em;
   font-size: 1em;
 }
 
-.active h3 span {
+.sticky-outer-wrapper.active h3 span {
   display: none;
 }
 
-.active .corpus-label h4 {
+.sticky-outer-wrapper.active .corpus-label h4 {
   font-size: 2.1rem;
   padding: .35rem;
 }
