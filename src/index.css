@@ -9,9 +9,6 @@
   --background-light: #FFFFFF;
   --primary-accent: #61affe;
   --secondary-accent: #aaeeff;
-  --secondary-accent-dark: #61affe;
-  --primary-accent-shade: #49cc901a;
-  --secondary-accent-shade: #61affe1a;
   --x: 2rem;
 }
 
@@ -26,27 +23,6 @@ body {
   padding: 0;
   font-family: sans-serif;
   background-color: var(--background);
-  transition: .3s ease-in-out;
-}
-
-::-webkit-scrollbar {
-  width: 0.5rem;
-  height: 0.5rem;
-  transition: .3s ease-in-out;
-}
-
-::-webkit-scrollbar:hover {
-    height: 1rem;
-    width: 1rem;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--background);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--main);
-  transition: .3s ease-in-out;
 }
 
 ul {
@@ -246,6 +222,24 @@ h3, h4 {
 .loading em {
   text-transform: uppercase;
   margin-left: 1ch;
+}
+
+.dracor-page img[alt~="logo"] {
+  height: 10em;
+  padding: var(--x);
+}
+
+.dracor-page img[alt~="card"] {
+  max-height: 30em;
+  margin: 0 var(--x) var(--x) 0;
+  border-radius: 1em;
+  box-shadow: 0 5px 5px 0 var(--shadow), 0 4px 0px 0 var(--main-shadow);
+}
+
+.dracor-page img[alt~="poster"] {
+  max-height: 40em;
+  max-width: 100%;
+  box-shadow: 0 5px 5px 0 var(--shadow), 0 4px 0px 0 var(--main-shadow);
 }
 
 /* ############################# */
@@ -1065,11 +1059,6 @@ table.table.corpus th:focus {
   color: var(--secondary-accent);
 }
 
-.logos img {
-  height: 8em;
-  padding: 1em;
-}
-
 @media only screen and (max-width: 1440px) {
   :root {
     --x: 1rem;
@@ -1133,9 +1122,6 @@ table.table.corpus th:focus {
   }
   .corpus-card table tbody tr {
     height: 3.5rem;
-  }
-  .logos img {
-    padding: 1em;
   }
   .corpus-description {
     flex-direction: column;
