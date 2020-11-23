@@ -4,8 +4,7 @@ import {NavLink} from 'react-router-dom';
 import {
   Dropdown,
   DropdownToggle,
-  DropdownMenu,
-  DropdownItem
+  DropdownMenu
 } from 'reactstrap';
 
 const TopNavDropdown = ({label, items}) => {
@@ -18,13 +17,27 @@ const TopNavDropdown = ({label, items}) => {
       <DropdownToggle nav caret>{label}</DropdownToggle>
       <DropdownMenu>
         {items.map(item => (
-          <DropdownItem key={item.label}>
+          <>
             {item.href ? (
-              <a href={item.href}>{item.label}</a>
+              <a
+                key={item.label}
+                href={item.href}
+                className="dropdown-item"
+                onClick={() => setIsOpen(false)}
+              >
+                {item.label}
+              </a>
             ) : (
-              <NavLink to={item.to}>{item.label}</NavLink>
+              <NavLink
+                key={item.label}
+                to={item.to}
+                className="dropdown-item"
+                onClick={() => setIsOpen(false)}
+              >
+                {item.label}
+              </NavLink>
             )}
-          </DropdownItem>
+          </>
         ))}
       </DropdownMenu>
     </Dropdown>
