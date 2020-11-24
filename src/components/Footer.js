@@ -8,10 +8,20 @@ const Footer = () => {
     <div className="footer">
       <div className="citation">
         <h6>
-          If you want to cite DraCor, please use the following reference
-          (<a href={`${process.env.PUBLIC_URL}/cite_dracor.bib`}>BibTeX</a>,
+          If you want to cite DraCor, please use the following reference ({/**/}
+          <a
+            href={`${process.env.PUBLIC_URL}/cite_dracor.bib`}
+            type="application/x-bibtex"
+          >
+            BibTeX
+          </a>,
           {' '}
-          <a href={`${process.env.PUBLIC_URL}/cite_dracor.ris`}>RIS</a>):
+          <a
+            href={`${process.env.PUBLIC_URL}/cite_dracor.ris`}
+            type="application/x-research-info-systems"
+          >
+            RIS
+          </a>):
         </h6>
         <p>
           Fischer, Frank, et al. (2019). Programmable Corpora: Introducing
