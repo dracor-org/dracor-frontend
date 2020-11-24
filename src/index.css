@@ -184,6 +184,14 @@ h3, h4 {
   position: relative;
 }
 
+/*
+  mitigate visual gap caused by headroom failing to recalculate height after
+  viewport resizing, see
+  https://github.com/dracor-org/dracor-frontend/pull/100#discussion_r528681936
+
+  This might be fixed with a solution for
+  https://github.com/dracor-org/dracor-frontend/issues/109
+ */
 .content::before {
   content: '';
   background: var(--main);
