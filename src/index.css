@@ -237,6 +237,10 @@ h3, h4 {
   margin-left: 1ch;
 }
 
+.dracor-page img {
+  max-width: 100%;
+}
+
 .dracor-page img[alt~="logo"] {
   height: 10em;
   padding: var(--x);
@@ -251,8 +255,11 @@ h3, h4 {
 
 .dracor-page img[alt~="poster"] {
   max-height: 40em;
-  max-width: 100%;
   box-shadow: 0 5px 5px 0 var(--shadow), 0 4px 0px 0 var(--main-shadow);
+}
+
+.dracor-page img[alt~="shirt"] {
+  max-height: 40em;
 }
 
 /* ############################# */
