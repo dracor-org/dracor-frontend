@@ -15,6 +15,18 @@
 
 ---
 
+#### Toneelkwartetspel
+
+![card Toneelkwartetspel](../img/merch/toneelkwartetspel_back.png)
+![card Toneelkwartetspel](../img/merch/toneelkwartetspel_front.png)
+
+*Felix Hermans, Arne Lauryssens, Jan Teertstra, Anke Van de Mosselaer, Sam Verellen, Jan Teertstra:*
+
+* 32 cards containing network data of Dutch-language plays from the 14th to 19th century
+* Created in the course "Digitale tekstanalyse en literaire theorie" at University of Antwerp 2019/2020 under the supervision of Mike Kestemont
+
+---
+
 #### Пиковая драма (Pikovaya Drama)
 
 ![card Пиковая драма](../img/merch/pikovaja_drama_back.png)
@@ -27,14 +39,19 @@
 
 ---
 
-#### Toneelkwartetspel
+## T-Shirts
 
-![card Toneelkwartetspel](../img/merch/toneelkwartetspel.jpg)
+Curated collection of network graphs available as T-Shirts. All print templates are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and can be freely downloaded and printed at home or by the manufacturer of your choosing.
 
-*Felix Hermans, Arne Lauryssens, Jan Teertstra, Anke Van de Mosselaer, Sam Verellen, Jan Teertstra*
+#### Emilia Galotti – Original Drama Corpora Project T-Shirt
 
-* 32 cards containing network data of Dutch-language plays from the 14th to 19th century
-* Created in the course "Digitale tekstanalyse en literaire theorie" at University of Antwerp 2019/2020 under the supervision of Mike Kestemont
+[![shirt Emilia Galotti] (../img/merch/emilia-galotti-t-shirt.jpeg)](https://www.amazon.de/dp/B08P5RPKMB "Emilia Galotti T-Shirt")
+
+*Mark Schwindt:*
+
+* 100% Cotton, Lightweight, Classic fit, Double-needle sleeve and bottom hem
+* [BUY](https://www.amazon.de/dp/B08P5RPKMB) (DE) 
+* [DIY](../img/merch/emilia-galotti-print.png)
 
 ---
 
