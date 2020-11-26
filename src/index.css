@@ -7,7 +7,7 @@
   --shadow: #1F244835;
   --background: #ebf0f7;
   --background-light: #FFFFFF;
-  --primary-accent: #61affe;
+  --primary-accent: #0088ff;
   --secondary-accent: #aaeeff;
   --x: 2rem;
 }
@@ -1024,30 +1024,56 @@ table.table.corpus th:focus {
 /* ############################# */
 
 .footer {
-  font-size: .8rem;
+  font-size: .9rem;
   line-height: 1.65;
   display: flex;
+  flex-flow: row wrap;
   width: auto;
-  margin: var(--x);
+  columns: 2;
+  gap: var(--x);
+  padding: var(--x);
+  background: linear-gradient(0deg, var(--background) 0%, var(--main-shade) 100%);;
+  margin-top: 1em;
 }
 
 .footer p {
   margin-bottom: 0;
 }
 
-.citation {
-  width: calc(50% - 8em);
+.footer h5 {
+  width: 100%;
+  white-space: nowrap;
 }
 
-.current-year {
-  width: 16em;
-  text-align: center;
-  margin-top: 1.65rem;
+.footer > * {
+  flex: 1 1;
+  height: 100%;
+}
+
+.citation {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.citation img {
+  height: 5em;
+  padding-top: .3rem;
+  padding-right: 1rem;
+  transition: opacity .3s ease-in-out;
+}
+
+.citation img:hover {
+  opacity: .85;
+}
+
+.citation p {
+  flex: 1 0 0;
+  place-self: flex-end;
 }
 
 .license {
   text-align: right;
-  width: calc(50% - 8em);
+  white-space: nowrap;
 }
 
 .license a img {
@@ -1197,7 +1223,7 @@ table.table.corpus th:focus {
     margin-bottom: 1em;
   }
   .license a img {
-    margin: 0 .3rem .3rem 0;
+    margin: 0 0 .3rem .3rem;
   }
   .current-year {
     display: none;
