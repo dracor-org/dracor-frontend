@@ -4,7 +4,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 
 ## Platform (dracor.org)
 * Editor-in-chief: [Frank Fischer](https://lehkost.github.io/) (Moscow)
-* Co-editors: [Peer Trilcke](https://www.uni-potsdam.de/de/lit-19-jhd/peertrilcke/) (Potsdam), [Boris Orekhov](http://nevmenandr.net/bo.php) (Moscow)
+* Co-editors: [Peer Trilcke](https://www.uni-potsdam.de/de/lit-19-jhd/peertrilcke/) (Potsdam), [Julia Jennifer Beine](https://rub.academia.edu/JuliaJenniferBeine) (Bochum), [Boris Orekhov](http://nevmenandr.net/bo.php) (Moscow)
 * Technical lead: [Carsten Milling](https://hashtable.de/) (Berlin)
 * Technical co-leads: [Ingo Börner](https://www.oeaw.ac.at/acdh/team/current-team/ingo-boerner/) (Vienna), [Mathias Göbel](https://www.sub.uni-goettingen.de/en/contact/staff-a-z/staff-details/person/mathias-goebel/) (Göttingen)
 * Art director: [Mark Schwindt](https://www.markschwindt.com/) (Bochum)
@@ -56,7 +56,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 
 ### RomDraCor
 *(derived from [Perseus Digital Library](http://www.perseus.tufts.edu/hopper/opensource/download))*
-* Maintainers: [Julia Jennifer Beine](https://rub.academia.edu/JuliaJenniferBeine) (Bochum), Frank Fischer, Boris Orekhov
+* Maintainers: Julia Jennifer Beine, Frank Fischer, Boris Orekhov
 
 ### SpanDraCor
 *(derived from [BETTE](https://github.com/GHEDI/BETTE))*

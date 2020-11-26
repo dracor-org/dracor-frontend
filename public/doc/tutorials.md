@@ -1,6 +1,6 @@
 # Tutorials
 
-There is a growing number of training materials around DraCor, some of which are listed here:
+There is a growing number of training material around DraCor, some of which is listed here:
 
 * [dracor-tutorials repo on GitHub](https://github.com/dracor-org/dracor-tutorials): Jupyter Notebooks to get you acquainted with API functions (executable online via binder)
 * [Getting started with rdracor](https://github.com/Pozdniakov/rdracor) (using our API wrapper in RStudio, experimental)
@@ -10,4 +10,4 @@ There is a growing number of training materials around DraCor, some of which are
   * [Introduction to ezlinavis](https://fortext.net/tools/tools/ezlinavis) (Marie Flüh, 2019)
 * [Using webweb and netwulf with DraCor’s API to Generate Interactive Literary Networks](https://weltliteratur.net/netwulf-webweb/) (weltliteratur.net, 2019)
 
-If you want to see your own material here, please drop us a line.
+If you want to see your own material here, please get in contact with us.
