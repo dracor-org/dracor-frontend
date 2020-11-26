@@ -496,6 +496,11 @@ h3, h4 {
   width: 4em;
 }
 
+.corpus-description a[rel~="licence"][href="https://creativecommons.org/licenses/by-sa/3.0/us/"]:after {
+  content: url(/img/cc-by-sa.svg);
+  width: 4em;
+}
+
 .corpus-description a[rel~="licence"][href="https://creativecommons.org/share-your-work/public-domain/cc0/"]:after {
   content: url(/img/cc0.svg);
   width: 2.6em;
