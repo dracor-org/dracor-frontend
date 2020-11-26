@@ -656,7 +656,7 @@ table.table.corpus th:focus {
   border-radius: 1rem;
   color: var(--background-light);
   box-sizing: border-box;
-  border: solid 2px var(--primary);
+  border: solid 2px var(--primary-accent);
   background-color: var(--background-light);
   line-height: 1.7;
 }
@@ -667,7 +667,7 @@ table.table.corpus th:focus {
 
 .play-downloads-item i {
   font-style: normal;
-  background-color: var(--primary);
+  background-color: var(--primary-accent);
   z-index: 0;
   position: relative;
   border-radius: 1rem;
@@ -689,7 +689,7 @@ table.table.corpus th:focus {
 }
 
 .formats a {
-  color: var(--primary);
+  color: var(--primary-accent);
   padding-right: .5em;
 }
 
@@ -969,7 +969,7 @@ table.table.corpus th:focus {
   color: var(--background-light);
   padding: .1em .6em;
   border-radius: 1em;
-  background-color: var(--primary);
+  background-color: var(--primary-accent);
   margin-left: .2em;
   margin-top: 1em;
   display: inline-block;
@@ -1067,7 +1067,7 @@ table.table.corpus th:focus {
 }
 
 .version-pill > a {
-  background-color: var(--primary);
+  background-color: var(--primary-accent);
   color: var(--background);
   border-radius: 0 1em 1em 0;
   padding: .1em .5em .1em .3em;
