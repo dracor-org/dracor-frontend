@@ -1033,7 +1033,7 @@ table.table.corpus th:focus {
   gap: var(--x);
   padding: var(--x);
   background: linear-gradient(0deg, var(--background) 0%, var(--main-shade) 100%);;
-  margin-top: 1em;
+  margin: 1em 0 0;
 }
 
 .footer p {

@@ -4,6 +4,7 @@ import {DracorContext} from '../context';
 import api from '../api';
 import CorpusIndex from './CorpusIndex';
 import Play from './Play';
+import Footer from './Footer';
 
 function splitAuthorName (name) {
   // just pass through names that already have been split (i.e. having a comma)
@@ -71,6 +72,7 @@ const Corpus = ({match, location}) => {
       <div className="dracor-page">
         <h1>{corpus.title}</h1>
         <CorpusIndex data={corpus}/>
+        <Footer/>
       </div>
     );
   }

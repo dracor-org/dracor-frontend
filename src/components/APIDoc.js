@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Helmet} from 'react-helmet';
 import SwaggerUI from 'swagger-ui-react';
+import Footer from './Footer';
 
 import 'swagger-ui-react/swagger-ui.css';
 import './APIDoc.css';
@@ -13,6 +14,7 @@ class APIDoc extends Component {
           <title>API Documentation</title>
         </Helmet>
         <SwaggerUI url="/api.yaml"/>
+        <Footer/>
       </div>
     );
   }

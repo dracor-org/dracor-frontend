@@ -52,7 +52,7 @@ const Footer = () => {
             rel="noopener noreferrer license"
             target="_blank"
           >
-            <img src="img/cc0.svg" alt="CC0"/>
+            <img src="../img/cc0.svg" alt="CC0"/>
           </a>
         </p>
         {apiInfo.version && (
