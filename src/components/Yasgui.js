@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Helmet} from 'react-helmet';
 import yasgui from 'yasgui/dist/yasgui';
 import {sparqlUrl, shortenerUrl as urlShortener} from '../config';
+import Footer from './Footer';
 
 import 'yasgui/dist/yasgui.min.css';
 
@@ -44,6 +45,7 @@ class Yasgui extends Component {
         </Helmet>
         <h1>SPARQL</h1>
         <div id="yasgui"/>
+        <Footer/>
       </div>
     );
   }
