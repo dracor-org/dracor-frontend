@@ -331,11 +331,13 @@ const PlayInfo = ({corpusId, playId}) => {
           </Link>
           <div className="sticky-headings">
             <h1>{play.title}</h1>
-            {play.authors.map(a => (
-              <h3 key={a.key} className="data-link-label" id="play-author">
-                {a.name} {a.key && <IdLink>{a.key}</IdLink>}
-              </h3>
-            ))}
+            <span>
+              {play.authors.map(a => (
+                <h3 key={a.key} className="data-link-label" id="play-author">
+                  {a.name} {a.key && <IdLink>{a.key}</IdLink>}
+                </h3>
+              ))}
+            </span>
           </div>
         </span>
         <Nav tabs className="dashboard-tabs">
@@ -384,7 +386,7 @@ const PlayInfo = ({corpusId, playId}) => {
             <div className="cast-list-wrapper">
               <h4>Cast list</h4>
               <p>(in order of appearance)</p>
-              <CastList cast={play.cast || []} />
+              <CastList cast={play.cast || []}/>
             </div>
           </div>
         </div>
