@@ -2,6 +2,7 @@
 
 :root {
   --main: #1F2448;
+  --main-transparent: #1F244800; 
   --main-shade: #1F24480a;
   --main-shadow: #1F244820;
   --shadow: #1F244835;
@@ -276,45 +277,86 @@ h3, h4 {
   display: flex;
   flex-wrap: wrap;
   background: var(--main);
+  padding-right: var(--x);
 }
 
 .sticky-inner-wrapper > span {
-  padding: var(--x);
-  width: 50%;
+  padding: var(--x) var(--x) 0;
+  width: 100%;
   display: flex;
-  text-overflow: ellipsis;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
   white-space: nowrap;
 }
 
+.sticky-inner-wrapper > span::-webkit-scrollbar {
+  display: none;
+} 
+
+.sticky-inner-wrapper > span::after {
+  content: '';
+  width: var(--x);
+  height: 2em;
+  background-image: linear-gradient(to left, var(--main),var(--main-transparent));
+  position: absolute;
+  right: var(--x);
+}
+
 .sticky-headings {
+  display: inline-flex; 
+  flex-flow: column;
+}
+
+.sticky-headings span {
+  display: inline-flex; 
+}
+
+.sticky-headings h3 {
+  padding: 0 0 0 .5rem;
+}
+
+.sticky-headings h3::before {
+  content: '·';
+  margin-right: .5rem;
+}
+
+.sticky-headings h3:first-of-type {
   padding-left: 1rem;
-  width: calc(100% - 12rem);
+}
+
+.sticky-headings h3:last-of-type {
+  padding-right: var(--x);
+}
+
+.sticky-headings h3:first-of-type::before {
+  content: '';
+  margin: 0;
 }
 
 .sticky-inner-wrapper h1:first-of-type {
   font-size: 0;
   padding: 0;
   transition: font-size .2s;
+  text-decoration: none;
 }
 
-.active h1:first-of-type {
+.sticky-outer-wrapper.active h1:first-of-type {
   font-size: 1.73em;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+  padding-left: 1rem;
+  padding-right: var(--x);
+  text-decoration: underline;
+  text-decoration-color: var(--secondary-accent);
+  text-decoration-thickness: .1em;
 }
 
 .sticky-inner-wrapper h3 {
   font-weight: normal;
   line-height: 1;
   color: var(--background-light);
-  padding: 0;
   margin: 0;
   transition: font-size .2s;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
 }
 
 .sticky-inner-wrapper h3 span {
@@ -328,7 +370,7 @@ h3, h4 {
 }
 
 .sticky-outer-wrapper.active h3 {
-  padding-top: .5em;
+  padding-top: .42em;
   font-size: 1em;
 }
 
@@ -616,6 +658,7 @@ table.table.corpus th:focus {
   padding: .1em .4em;
   border-radius: 1em;
   background: var(--background-light);
+  vertical-align: middle;
 }
 
 .data-link-label a:hover, .data-link-label a:focus {
@@ -732,13 +775,22 @@ table.table.corpus th:focus {
   white-space: nowrap;
   margin-left: auto;
   border-bottom: none;
-  width: 50%;
+  width: 100%;
   overflow-x: auto;
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
   background: var(--main);
   padding: 0 var(--x);
   min-height: 2rem;
+}
+
+.dashboard-tabs::after {
+  content: '';
+  width: var(--x);
+  height: 2.5em;
+  background-image: linear-gradient(to left, var(--main),var(--main-transparent));
+  position: absolute;
+  right: var(--x);
 }
 
 .dashboard-tabs::-webkit-scrollbar {
@@ -815,7 +867,7 @@ table.table.corpus th:focus {
 }
 
 .content-wrapper, .cast-list-wrapper {
-  height: calc(100vh - (var(--x) * 6 + 1em));
+  height: calc(100vh - (var(--x) * 6.5 + 1em));
 }
 
 .content-wrapper .metrics div {
@@ -1117,7 +1169,7 @@ table.table.corpus th:focus {
     font-size: .85rem;
   }
   .content-wrapper, .cast-list-wrapper {
-    height: calc(100vh - (var(--x) * 9 + .2rem));
+    height: calc(100vh - (var(--x) * 11 + .2rem));
   }
   .navbar-brand, .dracor-github {
     width: calc(3 * var(--x));
@@ -1191,6 +1243,9 @@ table.table.corpus th:focus {
   .content-wrapper, .cast-list-wrapper {
     width: 100%;
   }
+ .sticky-outer-wrapper.active .sticky-inner-wrapper > span::after {
+   height: 4em;
+ }
   #dashboard {
     height: auto;
   }
