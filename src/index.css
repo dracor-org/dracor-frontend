@@ -532,10 +532,11 @@ table a:hover {
   text-decoration: none;
 }
 
-table.table.corpus {
+.corpus-wrapper {
   margin: var(--x) calc(0em - var(--x));
   color: var(--main);
   width: calc(100% + var(--x) * 2);
+  overflow-x: auto;
 }
 
 table.table.corpus tr td:first-child {
