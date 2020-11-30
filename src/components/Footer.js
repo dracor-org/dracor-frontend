@@ -14,13 +14,13 @@ const Footer = () => {
           href={`${process.env.PUBLIC_URL}/cite_dracor.bib`}
           type="application/x-bibtex"
         >
-          <img src="../img/bib-icon.svg"/>
+          <img src="../img/bib-icon.svg" alt="BibTex"/>
         </a>
         <a
           href={`${process.env.PUBLIC_URL}/cite_dracor.ris`}
           type="application/x-research-info-systems"
         >
-          <img src="../img/ris-icon.svg"/>
+          <img src="../img/ris-icon.svg" alt="RIS"/>
         </a>
         <p>
           Fischer, Frank, et al. (2019). Programmable Corpora: Introducing
