@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import ReactMarkdown from 'react-markdown';
 import axios from 'axios';
+import Footer from './Footer';
 
 export default function DocPage ({match}) {
   const [markdown, setMarkdown] = useState('');
@@ -36,6 +37,7 @@ export default function DocPage ({match}) {
   return (
     <div className="dracor-page">
       <ReactMarkdown source={markdown}/>
+      <Footer/>
     </div>
   );
 }
