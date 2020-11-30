@@ -23,6 +23,7 @@ class NetworkGraph extends Component {
       labelThreshold: 5,
       labelSize: 'fixed',
       drawLabels: true,
+      mouseWheelEnabled: false,
       drawEdges: true
     };
 
