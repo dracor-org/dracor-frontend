@@ -167,13 +167,15 @@ const CorpusIndex = ({data}) => {
                 )}
                 <SearchBar {...props.searchProps}/>
               </div>
-              <BootstrapTable
-                {...props.baseProps}
-                bootstrap4
-                defaultSorted={defaultSorted}
-                defaultSortDirection="asc"
-                classes="corpus"
-              />
+              <div className="corpus-wrapper">
+                <BootstrapTable
+                  {...props.baseProps}
+                  bootstrap4
+                  defaultSorted={defaultSorted}
+                  defaultSortDirection="asc"
+                  classes="corpus"
+                />
+              </div>
             </div>
           )
         }
