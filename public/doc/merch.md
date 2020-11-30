@@ -45,12 +45,12 @@ Curated collection of network graphs available as T-Shirts. All print templates 
 
 #### Emilia Galotti – Original Drama Corpora Project T-Shirt
 
-[![shirt Emilia Galotti] (../img/merch/emilia-galotti-t-shirt.jpeg)](https://www.amazon.de/dp/B08P5RPKMB "Emilia Galotti T-Shirt")
+[![shirt Emilia Galotti] (../img/merch/emilia-galotti-t-shirt.jpg)](https://www.amazon.de/dp/B08P8RWQ48 "Emilia Galotti T-Shirt")
 
 *Mark Schwindt:*
 
 * 100% Cotton, Lightweight, Classic fit, Double-needle sleeve and bottom hem
-* [BUY](https://www.amazon.de/dp/B08P5RPKMB) (DE) 
+* [BUY](https://www.amazon.de/dp/B08P8RWQ48) (DE) 
 * [DIY](../img/merch/emilia-galotti-print.png)
 
 ---
