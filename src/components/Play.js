@@ -1,9 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {Helmet} from 'react-helmet';
 import Sticky from 'react-stickynode';
-import {Link} from 'react-router-dom';
+import {useRouteMatch} from 'react-router-dom';
+import {Col} from 'reactstrap';
 import api from '../api';
 import {makeGraph} from '../network';
+import CorpusLabel from './CorpusLabel';
+import Header from './Header';
 import IdLink from './IdLink';
 import Years from './Years';
 import CastList from './CastList';
@@ -33,14 +36,12 @@ const navItems = [
 
 const tabNames = navItems.map(item => item.name);
 
-// TODO: refactor to reduce complexity
-// see https://eslint.org/docs/rules/complexity
-/* eslint "complexity": ["error", 30] */
-
 const PlayInfo = ({corpusId, playId}) => {
   const [play, setPlay] = useState(null);
   const [graph, setGraph] = useState(null);
   const [error, setError] = useState(null);
+  const match = useRouteMatch();
+  console.log('PlayInfo', match);
 
   useEffect(() => {
     async function fetchPlay () {
@@ -114,58 +115,59 @@ const PlayInfo = ({corpusId, playId}) => {
     tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor, play}}/>;
   }
 
-  const authors = play.authors.map(a => a.name).join(' · ');
+  const {authors, title, subtitle} = play;
+  const authorNames = authors.map(a => a.name).join(' · ');
 
   return (
     <div className="h-100 d-md-flex flex-md-column dracor-page">
       <Helmet titleTemplate="%s - DraCor">
-        <title>{`${authors}: ${play.title}`}</title>
+        <title>{`${authorNames}: ${title}`}</title>
       </Helmet>
-      <hgroup className="play-header">
-        <h1>{play.title}</h1>
-        {play.subtitle && (
-          <h2 className="subtitle">
-            <em>{play.subtitle}</em>
-          </h2>
-        )}
-        <p className="years">
-          <Years
-            written={play.yearWritten}
-            premiere={play.yearPremiered}
-            print={play.yearPrinted}
-          />
-          {play.wikidataId && (
-            <span className="data-link-label">
-              {' '}
-              <IdLink>{`wikidata:${play.wikidataId}`}</IdLink>
-            </span>
-          )}
-        </p>
-        <ul className="play-meta">
-          <li>
-            DraCor: <a href={`/id/${play.id}`}>{play.id}</a>
-          </li>
-        </ul>
-      </hgroup>
 
       <Sticky enabled innerZ={1}>
-        <span>
-          <Link className="corpus-label" to={`/${play.corpus}`}>
-            <h4>
-              <span>{play.corpus}</span>DraCor
-            </h4>
-          </Link>
-          <div className="sticky-headings">
-            <h1>{play.title}</h1>
-            <span>
-              {play.authors.map(a => (
-                <h3 key={a.key} className="data-link-label" id="play-author">
-                  {a.name} {a.key && <IdLink>{a.key}</IdLink>}
-                </h3>
-              ))}
-            </span>
-          </div>
-        </span>
+
+        <Header>
+          <Col md="8">
+            <h1>{title}</h1>
+
+            {subtitle && <h2 className="subtitle"><em>{subtitle}</em></h2>}
+
+            {play.authors.length > 0 && (
+              <h3 className="dracor-author">
+                {play.authors.map(a => (
+                  <span key={a.key}>
+                    {a.name}
+                    {' '}
+                    {a.key && (
+                      <span className="data-link-label">
+                        <IdLink>{a.key}</IdLink>
+                      </span>
+                    )}
+                  </span>
+                ))}
+              </h3>
+            )}
+          </Col>
+          <Col className="dracor-header-right">
+            <CorpusLabel name={play.corpus} id={play.id}/>
+
+            {play.wikidataId && (
+              <span className="data-link-label wikidata-link">
+                {' '}
+                <IdLink showLabel>{`wikidata:${play.wikidataId}`}</IdLink>
+              </span>
+            )}
+
+            <p className="years">
+              <Years
+                written={play.yearWritten}
+                premiere={play.yearPremiered}
+                print={play.yearPrinted}
+              />
+            </p>
+          </Col>
+        </Header>
+
         <PlayNav
           items={
             // we remove relations from nav items if none are available for the

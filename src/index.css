@@ -44,18 +44,6 @@ a:hover {
   box-shadow: none;
 }
 
-hgroup {
-  color: var(--background-light);
-}
-
-h2 {
-  padding-top: calc(2 * var(--x));
-}
-
-h3, h4 {
-  padding-top: var(--x);
-}
-
 /* ############################# */
 /* #NAVIGATION                 # */
 /* ############################# */
@@ -203,25 +191,46 @@ h3, h4 {
   position: absolute;
 }
 
-.container-fluid {
-  padding: 0;
-}
-
-.dracor-page > * {
-  margin: var(--x);
-}
-
-.dracor-page h1:first-of-type {
+.dracor-page header, .dracor-page > h1 {
   color: var(--background-light);
+  background-color: var(--main);
+  padding-top: var(--x);
+  padding-bottom: var(--x);
+}
+
+.dracor-page header h1:last-child {
+  margin-bottom: 0;
+}
+
+.dracor-page header, .dracor-page > h1 {
+  /* FIXME */
+  margin-bottom: 0rem;
+}
+
+.dracor-page header .dracor-header-right .wikidata-link {
+  margin-top: 0;
+}
+
+
+.dracor-page > h1 {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.dracor-page h1 {
   text-decoration: underline;
   text-decoration-color: var(--secondary-accent);
   text-decoration-thickness: .1em;
-  background-color: var(--main);
   font-size: 3rem;
   font-weight: 400;
   line-height: 1;
-  margin: 0;
-  padding: var(--x);
+}
+
+.dracor-page hgroup {
+  color: var(--background-light);
+  background-color: var(--main);
 }
 
 .loading {
@@ -263,131 +272,12 @@ h3, h4 {
   max-height: 40em;
 }
 
-/* ############################# */
-/* #STICKY                     # */
-/* ############################# */
-
-.sticky-outer-wrapper {
-  margin: 0;
-  padding-top: calc(var(--x) * 6);
-  margin-top: calc(var(--x) * (-6));
-}
-
-.sticky-inner-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  background: var(--main);
-  padding-right: var(--x);
-}
-
-.sticky-inner-wrapper > span {
-  padding: var(--x) var(--x) 0;
-  width: 100%;
-  display: flex;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -ms-overflow-style: none;
-  overflow: -moz-scrollbars-none;
-  white-space: nowrap;
-}
-
-.sticky-inner-wrapper > span::-webkit-scrollbar {
-  display: none;
-}
-
-.sticky-inner-wrapper > span::after {
-  content: '';
-  width: var(--x);
-  height: 2em;
-  background-image: linear-gradient(to left, var(--main),var(--main-transparent));
-  position: absolute;
-  right: var(--x);
-}
-
-.sticky-headings {
-  display: inline-flex;
-  flex-flow: column;
-}
-
-.sticky-headings span {
-  display: inline-flex;
-}
-
-.sticky-headings h3 {
-  padding: 0 0 0 .5rem;
-}
-
-.sticky-headings h3::before {
-  content: '·';
-  margin-right: .5rem;
-}
-
-.sticky-headings h3:first-of-type {
-  padding-left: 1rem;
-}
-
-.sticky-headings h3:last-of-type {
-  padding-right: var(--x);
-}
-
-.sticky-headings h3:first-of-type::before {
-  content: '';
-  margin: 0;
-}
-
-.sticky-inner-wrapper h1:first-of-type {
-  font-size: 0;
-  padding: 0;
-  transition: font-size .2s;
-  text-decoration: none;
-}
-
-.sticky-outer-wrapper.active h1:first-of-type {
-  font-size: 1.73em;
-  padding-left: 1rem;
-  padding-right: var(--x);
-  text-decoration: underline;
-  text-decoration-color: var(--secondary-accent);
-  text-decoration-thickness: .1em;
-}
-
-.sticky-inner-wrapper h3 {
-  font-weight: normal;
-  line-height: 1;
-  color: var(--background-light);
-  margin: 0;
-  transition: font-size .2s;
-}
-
-.sticky-inner-wrapper h3 span {
-  font-size: .6em;
-  vertical-align: middle;
-}
-
-.sticky-outer-wrapper.active {
-  padding: 0;
-  margin: 0;
-}
-
-.sticky-outer-wrapper.active h3 {
-  padding-top: .42em;
-  font-size: 1em;
-}
-
-.sticky-outer-wrapper.active h3 span {
-  display: none;
-}
-
-.sticky-outer-wrapper.active .corpus-label h4 {
-  font-size: 2.1rem;
-  padding: .35rem;
-}
-
-.corpus-label h4 {
+/* corpus label on play detail pages */
+.dracor-corpus-label {
+  display: inline-block;
   background-color: var(--background-light);
   color: var(--main);
   padding: .2rem;
-  margin-bottom: 0;
   border-radius: .3em;
   font-weight: 500;
   font-size: 1.2rem;
@@ -397,18 +287,83 @@ h3, h4 {
   transition: background-color .2s ease-in-out;
 }
 
-.corpus-label h4:hover {
+.dracor-corpus-label:hover {
   background-color: var(--secondary-accent);
 }
 
-.sticky-inner-wrapper h4 span {
+.dracor-corpus-label a {
+  color: var(--main);
+}
+
+.dracor-corpus-label a em {
   color: var(--background-light);
   background-color: var(--main);
   padding: 0 .25rem;
   border-radius: .2em;
   margin-right: .1em;
   font-weight: 400;
+  font-style: normal;
   text-transform: capitalize;
+}
+
+.dracor-corpus-label span {
+  font-weight: normal;
+}
+
+/* DraCor ID link */
+.dracor-corpus-label span a {
+  font-size: 85%;
+}
+
+/* ############################# */
+/* #STICKY                     # */
+/* ############################# */
+
+.sticky-outer-wrapper.active .subtitle,
+.sticky-outer-wrapper.active .dracor-corpus-label > span,
+.sticky-outer-wrapper.active .data-link-label,
+.sticky-outer-wrapper.active .dracor-header-right .wikidata-link,
+.sticky-outer-wrapper.active .dracor-header-right .years
+{
+  display: none;
+}
+
+.sticky-outer-wrapper.active h1 {
+  font-size: 1.73em;
+  padding-right: var(--x);
+  text-decoration: underline;
+  text-decoration-color: var(--secondary-accent);
+  text-decoration-thickness: .1em;
+}
+
+.sticky-outer-wrapper .dracor-author {
+  font-weight: normal;
+  line-height: 1;
+  color: var(--background-light);
+  margin: 0;
+  transition: font-size .2s;
+}
+
+.sticky-outer-wrapper.active .dracor-author {
+  padding-top: .1em;
+  font-size: 1em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sticky-outer-wrapper.active .dracor-author > span {
+  display: inline-block;
+}
+
+.sticky-outer-wrapper.active .dracor-author > span::before {
+  content: '·';
+  margin: 0 .5rem;
+}
+
+.sticky-outer-wrapper.active .dracor-author > span:first-child::before {
+  content: '';
+  margin: 0;
 }
 
 /* ############################# */
@@ -670,35 +625,44 @@ table.table.corpus th:focus {
 /* #PLAY                       # */
 /* ############################# */
 
-.play-header {
-  margin: 0;
-  padding-top: var(--x);
-  columns: 2;
-  gap: 0;
-  background: var(--main);
+
+.dracor-page header .dracor-author {
+  font-weight: normal;
+  line-height: 1;
 }
 
-.play-header > *, .play-header h1:first-of-type {
-  padding: 0 var(--x) var(--x);
-  margin: 0;
+/* single author wrapper */
+.dracor-page header .dracor-author > span {
+  display: block;
+  padding-bottom: .1em;
 }
 
-.play-header .subtitle {
+.dracor-page header .dracor-author .data-link-label {
+  font-size: .6em;
+  vertical-align: middle;
+}
+
+.dracor-page header .subtitle {
   font-size: 1.3em;
   font-weight: 400;
+  font-style: italic;
 }
 
-.play-header li {
-  list-style: none;
+.dracor-page header .dracor-header-right {
+  text-align: right;
 }
 
-.play-header .years span {
-  margin-right: 1rem;
+.dracor-page header .dracor-header-right .wikidata-link {
+  display: block;
+  margin-top: var(--x);
 }
 
-.play-meta {
-  font-size: .85em;
-  flex: 1;
+.dracor-page header .dracor-header-right .years {
+  margin-top: var(--x);
+}
+
+.dracor-page header .dracor-header-right .years span {
+  margin-left: 1rem;
 }
 
 .play-downloads-item {
@@ -771,11 +735,13 @@ table.table.corpus th:focus {
 }
 
 .dracor-play-nav {
+  /* FIXME: this overrides the boostrap grid, we should find a more compatible
+    solution. */
+  margin-left: -15px;
+  margin-right: -15px;
   flex-flow: nowrap;
   white-space: nowrap;
-  margin-left: auto;
   border-bottom: none;
-  width: 100%;
   overflow-x: auto;
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
@@ -978,6 +944,12 @@ table.table.corpus th:focus {
   color: var(--main) !important;
 }
 
+
+.swagger-ui > div {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
 .swagger-ui .loading-container {
   width: 100%;
   margin: 0 !important;
@@ -990,12 +962,19 @@ table.table.corpus th:focus {
   margin: var(--x) 0 0 !important;
 }
 
-.swagger-ui, .swagger-ui .opblock-tag, .swagger-ui .opblock .opblock-summary-description, .swagger-ui .opblock .opblock-summary-method, .swagger-ui .opblock-description-wrapper p, .swagger-ui .opblock-external-docs-wrapper p, .swagger-ui .opblock-title_normal p, .swagger-ui p {
+.swagger-ui,
+.swagger-ui .info a,
+.swagger-ui .opblock-tag,
+.swagger-ui .opblock .opblock-summary-description,
+.swagger-ui .opblock .opblock-summary-method,
+.swagger-ui .opblock-description-wrapper p,
+.swagger-ui .opblock-external-docs-wrapper p,
+.swagger-ui .opblock-title_normal p,
+.swagger-ui p {
   font-family: 'Rubik', sans-serif !important;
 }
 
 .swagger-ui .info hgroup.main {
-  margin: 0 !important;
   display: inline-grid;
 }
 
@@ -1009,14 +988,21 @@ table.table.corpus th:focus {
 }
 
 .swagger-ui .wrapper {
-  padding: var(--x) !important;
-  margin: 0 !important;
-  width: 100%;
-  max-width: none !important;
+  padding: 0 !important;
 }
 
 .swagger-ui .information-container {
-  padding: 0 !important;
+  background: var(--main);
+}
+
+.swagger-ui .information-container .info {
+  margin: 0;
+}
+
+.swagger-ui .scheme-container {
+  background: var(--background-color) !important;
+  box-shadow: none !important;
+  padding: 15px !important;
 }
 
 .swagger-ui hgroup {
@@ -1040,28 +1026,12 @@ table.table.corpus th:focus {
 }
 
 .swagger-ui .info {
-    background: var(--main);
-    margin: 0 !important;
-    padding: var(--x);
-    columns: 2;
-}
-
-.swagger-ui .info a {
-  font-family: 'Rubik', sans-serif !important;
-}
-
-.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {
-    padding: 0 !important;
-}
-
-.swagger-ui .scheme-container {
-  background: var(--background-color) !important;
-  box-shadow: none !important;
-  padding: 0 !important;
+  columns: 2;
 }
 
 .swagger-ui .info .title small {
   background-color: var(--background-light) !important;
+  top: 0;
 }
 
 .swagger-ui .info .title small pre {
@@ -1237,25 +1207,52 @@ table.table.corpus th:focus {
     width: 94vw;
     margin-top: .5em;
   }
-  .play-header {
-    columns: 1;
-  }
+
   .content-wrapper, .cast-list-wrapper {
     width: 100%;
   }
- .sticky-outer-wrapper.active .sticky-inner-wrapper > span::after {
-   height: 4em;
- }
+
+  .dracor-page header .dracor-header-right {
+    text-align: left;
+    padding-top: calc(var(--x) * 1.5) ;
+  }
+
+  .dracor-page header .dracor-header-right .wikidata-link::before {
+    content: '';
+    display: block;
+  }
+
+  .dracor-page header .dracor-header-right .wikidata-link {
+    margin-top: .3rem;
+    display: inline;
+  }
+
+  .dracor-page header .dracor-header-right .years {
+    margin-top: .3rem;
+    margin-left: 1em;
+    display: inline-block;
+  }
+
+  .dracor-page header .dracor-header-right .years span {
+    margin-right: 1em;
+    margin-left: 0;
+  }
+
+  .sticky-outer-wrapper.active .sticky-inner-wrapper > span::after {
+    height: 4em;
+  }
+
   #dashboard {
     height: auto;
   }
   #dashboard > div {
     flex-direction: column;
   }
+
   .dracor-play-nav {
     padding: 0 var(--x);
-    width: 100%;
   }
+
   .dracor-play-nav li:last-child::after {
     content: '';
     width: 1.3em;
@@ -1265,16 +1262,14 @@ table.table.corpus th:focus {
     top: 0;
     right: -1.3em;
   }
-  .sticky-inner-wrapper > span {
-    width: 100%;
-    padding-bottom: 0;
-  }
+
   .swagger-ui .info {
     columns: 1;
   }
   .swagger-ui .loading-container {
     width: 100%;
   }
+
   .footer {
     flex-direction: column;
   }

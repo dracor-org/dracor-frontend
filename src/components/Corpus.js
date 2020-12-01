@@ -2,6 +2,7 @@ import React, {useState, useEffect, useContext} from 'react';
 import {Route} from 'react-router-dom';
 import {DracorContext} from '../context';
 import api from '../api';
+import Header from './Header';
 import CorpusIndex from './CorpusIndex';
 import Play from './Play';
 import Footer from './Footer';
@@ -28,7 +29,7 @@ const PlayPage = ({match}) => (
   </div>
 );
 
-const Corpus = ({match, location}) => {
+const Corpus = ({match}) => {
   const {corpusId} = match.params;
   const [corpus, setCorpus] = useState(null);
   const {corpora} = useContext(DracorContext);
@@ -67,10 +68,12 @@ const Corpus = ({match, location}) => {
     return <p className="loading">Loading...</p>;
   }
 
-  if (match.url === location.pathname) {
+  console.log('Corpus', match);
+
+  if (match.isExact) {
     return (
       <div className="dracor-page">
-        <h1>{corpus.title}</h1>
+        <Header>{corpus.title}</Header>
         <CorpusIndex data={corpus}/>
         <Footer/>
       </div>
