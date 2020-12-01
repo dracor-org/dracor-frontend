@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {NavLink as RouterNavLink} from 'react-router-dom';
-import {faGithub} from '@fortawesome/free-brands-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import Headroom from 'react-headroom';
 import {
   Collapse,
   Navbar,
@@ -11,7 +10,8 @@ import {
   NavItem,
   NavLink
 } from 'reactstrap';
-import Headroom from 'react-headroom';
+import {faGithub} from '@fortawesome/free-brands-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {ezlinavisUrl} from '../config';
 import CorporaDropdown from './CorporaDropdown';
 import TopNavDropdown from './TopNavDropdown';
