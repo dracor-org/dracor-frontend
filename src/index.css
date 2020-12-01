@@ -1090,7 +1090,7 @@ table.table.corpus th:focus {
   columns: 2;
   gap: var(--x);
   padding: var(--x);
-  background: linear-gradient(0deg, var(--background) 0%, var(--main-shade) 100%);;
+  background: linear-gradient(to top, #ebf0f6, #e3e8f1);
   margin: 1em 0 0;
 }
 
