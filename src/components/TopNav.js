@@ -22,7 +22,7 @@ const TopNav = () => {
   const toggleNav = () => setNavOpen(!navOpen);
 
   return (
-    <Headroom disableInlineStyles upTolerance={50}>
+    <Headroom disable disableInlineStyles upTolerance={50}>
       <Navbar expand="md" className="dracor-navbar">
         <NavbarBrand title="Drama Corpora Project (DraCor)" href="/"/>
         <NavbarToggler onClick={toggleNav}/>
