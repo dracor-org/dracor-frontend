@@ -1,56 +1,56 @@
-# Merch 
+# Merch
 
 ## Card games
 
 #### Dramenquartett
 
-![card Dramenquartett](../img/merch/dramenquartett_back.jpg)
-![card Dramenquartett](../img/merch/dramenquartett_front.png)
+![card Dramenquartett, back](../img/merch/dramenquartett_back.jpg)
+![card Dramenquartett, front](../img/merch/dramenquartett_front.png)
 
-*Frank Fischer, Anika Schultz:*
+*by Frank Fischer, Anika Schultz*
 
-* 32 cards containing network data of German-language plays from 1730–1930, ISBN 978-3-905846-55-3
-* Released in December 2019, [order here](http://www.etkbooks.com/dramenquartett/)
+* 32 cards containing network data of German-language plays from 1730–1930
+* Released in December 2019, [order at etkbooks (Bern, Switzerland)](http://www.etkbooks.com/dramenquartett/), ISBN 978-3-905846-55-3
 * [General information and rules of play (in German)](https://dramenquartett.github.io/)
 
 ---
 
 #### Toneelkwartetspel
 
-![card Toneelkwartetspel](../img/merch/toneelkwartetspel_back.png)
-![card Toneelkwartetspel](../img/merch/toneelkwartetspel_front.png)
+![card Toneelkwartetspel, back](../img/merch/toneelkwartetspel_back.png)
+![card Toneelkwartetspel, front](../img/merch/toneelkwartetspel_front.png)
 
-*Felix Hermans, Arne Lauryssens, Jan Teertstra, Anke Van de Mosselaer, Sam Verellen, Jan Teertstra:*
+*by Felix Hermans, Arne Lauryssens, Jan Teertstra, Anke Van de Mosselaer, Sam Verellen, Jan Teertstra*
 
 * 32 cards containing network data of Dutch-language plays from the 14th to 19th century
 * Created in the course "Digitale tekstanalyse en literaire theorie" at University of Antwerp 2019/2020 under the supervision of Mike Kestemont
 
 ---
 
-#### Пиковая драма (Pikovaya Drama)
+#### Пиковая драма (Pikovaya drama)
 
-![card Пиковая драма](../img/merch/pikovaja_drama_back.png)
-![card Пиковая драма](../img/merch/pikovaja_drama_front.png)
+![card Пиковая драма, back](../img/merch/pikovaja_drama_back.png)
+![card Пиковая драма, front](../img/merch/pikovaja_drama_front.png)
 
-*Frank Fischer, Mark Schwindt:*
+*by Frank Fischer, Mark Schwindt*
 
 * 32 cards containing network data of Russian plays from the 18th to 20th century
 * Release planned for 2021
 
 ---
 
-## T-Shirts
+## T-shirts
 
-Curated collection of network graphs available as T-Shirts. All print templates are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and can be freely downloaded and printed at home or by the manufacturer of your choosing.
+Curated collection of network graphs in DraCor design available as t-shirt. All print templates are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and can be freely downloaded and printed at home or at the manufacturer of your choosing.
 
-#### Emilia Galotti – Original Drama Corpora Project T-Shirt
+#### Emilia Galotti – original DraCor project t-shirt
 
 [![shirt Emilia Galotti] (../img/merch/emilia-galotti-t-shirt.jpg)](https://www.amazon.de/dp/B08P8RWQ48 "Emilia Galotti T-Shirt")
 
-*Mark Schwindt:*
+*by Mark Schwindt*
 
-* 100% Cotton, Lightweight, Classic fit, Double-needle sleeve and bottom hem
-* [BUY](https://www.amazon.de/dp/B08P8RWQ48) (DE) 
+* 100% cotton, lightweight, classic fit, double-needle sleeve and bottom hem
+* [BUY](https://www.amazon.de/dp/B08P8RWQ48) (DE)
 * [DIY](../img/merch/emilia-galotti-print.png)
 
 ---
@@ -63,7 +63,7 @@ Our award-winning conference posters are freely available for download in hi-res
 
 ![poster Distant-Reading Showcase](../img/merch/distant-reading-showcase-poster-dhd2016-leipzig-900px.jpg)
 
-*Frank Fischer, Christopher Kittel, Peer Trilcke, Mathias Göbel, Andreas Vogel, Hanna-Lena Meiners, Dario Kampkaspar:*
+*by Frank Fischer, Christopher Kittel, Peer Trilcke, Mathias Göbel, Andreas Vogel, Hanna-Lena Meiners, Dario Kampkaspar*
 
 * [Best Poster Award](http://dig-hum.de/gewinner-des-posterawards-2016) 🏆
 * [figshare](https://doi.org/10.6084/m9.figshare.3101203) (poster)
@@ -75,7 +75,7 @@ Our award-winning conference posters are freely available for download in hi-res
 
 ![poster Dramenquartett](../img/merch/Dramenquartett_Poster_DHd2018.png)
 
-*Frank Fischer, Christopher Kittel, Carsten Milling, Anika Schultz, Peer Trilcke, Jana Wolf:*
+*by Frank Fischer, Christopher Kittel, Carsten Milling, Anika Schultz, Peer Trilcke, Jana Wolf*
 
 * [Best Poster Award](https://texperimentales.hypotheses.org/2462#Preisverleihung) 🏆
 * [figshare](https://doi.org/10.6084/m9.figshare.5926363) (poster)
@@ -87,7 +87,7 @@ Our award-winning conference posters are freely available for download in hi-res
 
 ![poster Brecht Beats Shakespeare!](../img/merch/Brecht_Beats_Shakespeare_DH2018.png)
 
-*Frank Fischer, Anika Schultz, Christopher Kittel, Elisa Beshero-Bondar, Steffen Martus, Peer Trilcke, Jana Wolf, Ingo Börner, Angelika Hechtl, Daniil Skorinkin, Tatiana Orlova, Carsten Milling, Christine Ivanovic:*
+*by Frank Fischer, Anika Schultz, Christopher Kittel, Elisa Beshero-Bondar, Steffen Martus, Peer Trilcke, Jana Wolf, Ingo Börner, Angelika Hechtl, Daniil Skorinkin, Tatiana Orlova, Carsten Milling, Christine Ivanovic*
 
 * [figshare](https://doi.org/10.6084/m9.figshare.6667424) (poster)
 * [Twitter](https://twitter.com/umblaetterer/status/1012048790730223621)
@@ -98,7 +98,7 @@ Our award-winning conference posters are freely available for download in hi-res
 
 ![poster text](../img/merch/Fischer_et_al_-_Besuch_im_Marstheater_DHd2020.png)
 
-*Frank Fischer, Anna Busch, Angelika Hechtl, Peer Trilcke, Andreas Vogel:*
+*by Frank Fischer, Anna Busch, Angelika Hechtl, Peer Trilcke, Andreas Vogel*
 
 * [Best Poster Award](https://dig-hum.de/dhd-awards) 🏆
 * [figshare](https://doi.org/10.6084/m9.figshare.11917902) (poster)
