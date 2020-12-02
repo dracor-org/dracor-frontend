@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 // Numbers received from the API can be in scientific notation (e.g.
 // 8.248968E6), which is why we need to use parseFloat.
-const fn = val => Number(parseFloat(val)).toLocaleString('en');
+const fn = val => Number(Number.parseFloat(val)).toLocaleString('en');
 
 const CorpusCard = ({name, title, metrics}) => {
   return (

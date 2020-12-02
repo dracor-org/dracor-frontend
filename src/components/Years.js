@@ -7,7 +7,7 @@ export function formatEra (year, ceBefore = 0) {
     return '';
   }
 
-  const y = parseInt(year, 10);
+  const y = Number.parseInt(year, 10);
 
   if (y < 0) {
     return `${y * -1} BCE`;
@@ -23,7 +23,7 @@ export function formatEra (year, ceBefore = 0) {
 export function formatYear (yearString) {
   // range, both BCE
   if (yearString.match('^-[0-9]{4}/-[0-9]{4}$')) {
-    const years = yearString.split('/').map(y => parseInt(y, 10) * -1);
+    const years = yearString.split('/').map(y => Number.parseInt(y, 10) * -1);
     return `${years[0]}-${years[1]} BCE`;
   }
 
@@ -35,13 +35,13 @@ export function formatYear (yearString) {
 
   // not before
   if (yearString.match('^>-?[0-9]{4}')) {
-    const year = yearString.substring(1);
+    const year = yearString.slice(1);
     return `after ${formatEra(year, 1000)}`;
   }
 
   // not after
   if (yearString.match('^<-?[0-9]{4}')) {
-    const year = yearString.substring(1);
+    const year = yearString.slice(1);
     return `before ${formatEra(year, 1000)}`;
   }
 

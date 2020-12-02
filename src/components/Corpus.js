@@ -40,7 +40,7 @@ const Corpus = ({match, location}) => {
       try {
         const response = await api.get(`/corpora/${corpusId}`);
         response.data.dramas.forEach(d => {
-          d.networkSize = parseInt(d.networkSize, 10) || 0;
+          d.networkSize = Number.parseInt(d.networkSize, 10) || 0;
           if (d.authors) {
             d.authorNames = splitAuthors(d.authors).join(' · ');
           } else {

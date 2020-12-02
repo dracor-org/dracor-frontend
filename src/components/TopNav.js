@@ -28,22 +28,28 @@ const TopNav = () => {
         <NavbarToggler onClick={toggleNav}/>
         <Collapse navbar isOpen={navOpen}>
           <Nav navbar tag="div" className="dracor-mainnav">
-            <TopNavDropdown label="About" items={[
-              {label: 'What is DraCor?', to: '/doc/what-is-dracor'},
-              {label: 'Credits', to: '/doc/credits'},
-              {label: 'Imprint', to: '/doc/imprint-and-gdpr'}
-            ]}/>
+            <TopNavDropdown
+              label="About" items={[
+                {label: 'What is DraCor?', to: '/doc/what-is-dracor'},
+                {label: 'Credits', to: '/doc/credits'},
+                {label: 'Imprint', to: '/doc/imprint-and-gdpr'}
+              ]}
+            />
             <CorporaDropdown/>
-            <TopNavDropdown label="Tools" items={[
-              {label: 'API', to: '/doc/api'},
-              {label: 'SPARQL', to: '/sparql'},
-              {label: 'ezlinavis', href: ezlinavisUrl},
-              {label: 'Shiny DraCor', href: 'https://shiny.dracor.org/'}
-            ]}/>
-            <TopNavDropdown label="How To" items={[
-              {label: 'Tutorials', to: '/doc/tutorials'},
-              {label: 'Research', to: '/doc/research'}
-            ]}/>
+            <TopNavDropdown
+              label="Tools" items={[
+                {label: 'API', to: '/doc/api'},
+                {label: 'SPARQL', to: '/sparql'},
+                {label: 'ezlinavis', href: ezlinavisUrl},
+                {label: 'Shiny DraCor', href: 'https://shiny.dracor.org/'}
+              ]}
+            />
+            <TopNavDropdown
+              label="How To" items={[
+                {label: 'Tutorials', to: '/doc/tutorials'},
+                {label: 'Research', to: '/doc/research'}
+              ]}
+            />
             <NavItem tag="div">
               <RouterNavLink to="/doc/merch" className="nav-link">
                 Merch

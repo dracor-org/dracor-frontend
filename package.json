@@ -73,6 +73,7 @@
           }
         }
       ],
+      "react/boolean-prop-naming": 1,
       "react/destructuring-assignment": [
         1,
         "always"
@@ -88,7 +89,11 @@
           "ignore": []
         }
       ],
-      "unicorn/filename-case": 0
+      "react/static-property-placement": 0,
+      "unicorn/filename-case": 0,
+      "unicorn/no-reduce": 1,
+      "unicorn/prefer-includes": 1,
+      "unicorn/prevent-abbreviations": 0
     }
   },
   "browserslist": [

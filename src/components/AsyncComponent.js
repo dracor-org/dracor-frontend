@@ -4,10 +4,8 @@ export default function asyncComponent (importComponent) {
   class AsyncComponent extends Component {
     constructor (props) {
       super(props);
-
-      this.state = {
-        component: null
-      };
+      // eslint-disable-next-line react/state-in-constructor
+      this.state = {component: null};
     }
 
     async componentDidMount () {

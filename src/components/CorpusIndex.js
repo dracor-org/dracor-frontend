@@ -113,7 +113,7 @@ const CorpusIndex = ({data}) => {
   }, {
     dataField: 'networkSize',
     text: 'Network Size',
-    formatter: cell => parseInt(cell, 10) || 0,
+    formatter: cell => Number.parseInt(cell, 10) || 0,
     sort: true
   }, {
     dataField: 'source',

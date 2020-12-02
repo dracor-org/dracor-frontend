@@ -13,7 +13,7 @@ class Sapogov extends Component {
           backgroundColor: '#aaeeff1a',
           borderColor: '#aaeeff',
           borderDash: [],
-          borderDashOffset: 0.0,
+          borderDashOffset: 0,
           pointBorderColor: '#aaeeff',
           pointBackgroundColor: '#fff',
           pointBorderWidth: 1,
