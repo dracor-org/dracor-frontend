@@ -269,8 +269,8 @@ h3, h4 {
 
 .sticky-outer-wrapper {
   margin: 0;
-  padding-top: calc(var(--x) * 6);
-  margin-top: calc(var(--x) * (-6));
+  padding-top: calc(var(--x) * 8);
+  margin-top: calc(var(--x) * (-8));
 }
 
 .sticky-inner-wrapper {
