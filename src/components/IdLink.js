@@ -13,7 +13,7 @@ const types = {
 };
 
 const IdLink = ({children, showLabel}) => {
-  const matches = children.match(/^(wikidata|pnd):([a-z0-9]+)$/i);
+  const matches = children.match(/^(wikidata|pnd):([a-z\d]+)$/i);
   if (!matches) {
     return <span>{children}</span>;
   }

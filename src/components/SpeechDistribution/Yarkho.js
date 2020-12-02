@@ -14,7 +14,7 @@ class Yarkho extends Component {
           backgroundColor: '#aaeeff1a',
           borderColor: '#aaeeff',
           borderDash: [],
-          borderDashOffset: 0.0,
+          borderDashOffset: 0,
           pointBorderColor: '#aaeeff',
           pointBackgroundColor: '#fff',
           pointBorderWidth: 1,
@@ -52,7 +52,7 @@ class Yarkho extends Component {
           type: 'linear',
           display: true,
           ticks: {
-            callback: value => parseInt(value, 10),
+            callback: value => Number.parseInt(value, 10),
             min: 1,
             stepSize: 1
           },
@@ -81,7 +81,7 @@ class Yarkho extends Component {
     segments.forEach(seg => {
       const numSpeakers = seg.speakers ? seg.speakers.length : 0;
       const numNonGroups = numSpeakers ? seg.speakers.filter(
-        id => groups.indexOf(id) === -1
+        id => !groups.includes(id)
       ).length : 0;
 
       if (numSpeakers > 0) {
@@ -119,13 +119,13 @@ class Yarkho extends Component {
 
     data.datasets[0].data = Object.keys(yarkho).map(
       k => {
-        return {x: parseInt(k, 10), y: yarkho[k]};
+        return {x: Number.parseInt(k, 10), y: yarkho[k]};
       }
     );
     if (groups.length > 0) {
       data.datasets[1].data = Object.keys(nonGroups).map(
         k => {
-          return {x: parseInt(k, 10), y: nonGroups[k]};
+          return {x: Number.parseInt(k, 10), y: nonGroups[k]};
         }
       );
     }

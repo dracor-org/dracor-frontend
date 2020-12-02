@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import axios from 'axios';
 import Footer from './Footer';
 
-export default function DocPage ({match}) {
+const DocPage = ({match}) => {
   const [markdown, setMarkdown] = useState('');
   const {slug} = match.params;
 
@@ -40,4 +40,6 @@ export default function DocPage ({match}) {
       <Footer/>
     </div>
   );
-}
+};
+
+export default DocPage;

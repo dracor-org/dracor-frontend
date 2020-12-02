@@ -113,7 +113,7 @@ h3, h4 {
 
 .navbar-brand {
   content: ' ';
-  background-image: url("/img/DraCor-white.svg");
+  background-image: url(./images/DraCor-white.svg);
   background-repeat: no-repeat;
   margin: 0;
   padding: 0;
@@ -540,17 +540,17 @@ h3, h4 {
 }
 
 .corpus-description a[rel~="licence"][href="https://creativecommons.org/licenses/by-nc/3.0/deed.en_US"]:after {
-  content: url(/img/cc-by-nc.svg);
+  content: url(./images/cc-by-nc.svg);
   width: 4em;
 }
 
 .corpus-description a[rel~="licence"][href="https://creativecommons.org/licenses/by-sa/3.0/us/"]:after {
-  content: url(/img/cc-by-sa.svg);
+  content: url(./images/cc-by-sa.svg);
   width: 4em;
 }
 
 .corpus-description a[rel~="licence"][href="https://creativecommons.org/share-your-work/public-domain/cc0/"]:after {
-  content: url(/img/cc0.svg);
+  content: url(./images/cc0.svg);
   width: 2.6em;
 }
 

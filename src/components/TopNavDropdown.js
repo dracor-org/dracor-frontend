@@ -16,9 +16,9 @@ const TopNavDropdown = ({label, items}) => {
     <Dropdown isOpen={isOpen} toggle={toggle}>
       <DropdownToggle nav caret>{label}</DropdownToggle>
       <DropdownMenu>
-        {items.map(item => (
-          <>
-            {item.href ? (
+        {items.map(item => {
+          if (item.href) {
+            return (
               <a
                 key={item.label}
                 href={item.href}
@@ -27,18 +27,20 @@ const TopNavDropdown = ({label, items}) => {
               >
                 {item.label}
               </a>
-            ) : (
-              <NavLink
-                key={item.label}
-                to={item.to}
-                className="dropdown-item"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.label}
-              </NavLink>
-            )}
-          </>
-        ))}
+            );
+          }
+
+          return (
+            <NavLink
+              key={item.label}
+              to={item.to}
+              className="dropdown-item"
+              onClick={() => setIsOpen(false)}
+            >
+              {item.label}
+            </NavLink>
+          );
+        })}
       </DropdownMenu>
     </Dropdown>
   );

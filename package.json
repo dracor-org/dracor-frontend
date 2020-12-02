@@ -3,34 +3,34 @@
   "version": "0.36.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.19",
-    "@fortawesome/free-brands-svg-icons": "^5.11.2",
-    "@fortawesome/free-solid-svg-icons": "^5.9.0",
-    "@fortawesome/react-fontawesome": "^0.1.4",
-    "CETEIcean": "^1.1.1",
-    "apisauce": "^1.0.2",
-    "axios": "^0.20.0",
-    "bootstrap": ">=4.3.1",
-    "chart.js": "^2.8.0",
+    "@fortawesome/fontawesome-svg-core": "1.2.32",
+    "@fortawesome/free-brands-svg-icons": "5.15.1",
+    "@fortawesome/free-solid-svg-icons": "5.15.1",
+    "@fortawesome/react-fontawesome": "0.1.13",
+    "CETEIcean": "^1.3.0",
+    "apisauce": "^2.0.0",
+    "axios": "^0.21.0",
+    "bootstrap": "^4.5.3",
+    "chart.js": "^2.9.4",
     "classnames": "^2.2.6",
-    "http-proxy-middleware": "^0.19.1",
+    "http-proxy-middleware": "1.0.6",
     "prop-types": "^15.7.2",
-    "react": "16.8.6",
-    "react-bootstrap-table-next": "^3.1.3",
+    "react": "17.0.1",
+    "react-bootstrap-table-next": "^4.0.3",
     "react-bootstrap-table2-toolkit": "^2.0.0",
-    "react-chartjs-2": "^2.7.6",
-    "react-dom": "16.8.6",
-    "react-headroom": "^3.0.0",
-    "react-helmet": "^5.2.1",
-    "react-markdown": "^4.3.1",
+    "react-chartjs-2": "^2.11.1",
+    "react-dom": "17.0.1",
+    "react-headroom": "^3.0.1",
+    "react-helmet": "^6.1.0",
+    "react-markdown": "^5.0.3",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1",
-    "react-sigma": "^1.2.30",
-    "react-slick": "^0.26.1",
+    "react-scripts": "4.0.1",
+    "react-sigma": "^1.2.35",
+    "react-slick": "^0.27.13",
     "react-stickynode": "^3.0.4",
-    "reactstrap": "8.0.0",
+    "reactstrap": "^8.7.1",
     "recharts": "^1.8.5",
-    "swagger-ui-react": "^3.22.2",
+    "swagger-ui-react": "^3.37.2",
     "yasgui": "^2.7.29"
   },
   "scripts": {
@@ -41,18 +41,12 @@
     "deployment": "yarn run build && rsync -av build/ root@dracor.org:/var/www/html/"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.16.0",
-    "eslint-config-xo-react": "^0.19.0",
-    "eslint-plugin-react": "^7.13.0",
-    "xo": "^0.24.0"
+    "eslint": "^7.14.0",
+    "eslint-config-xo-react": "0.23.0",
+    "eslint-plugin-react": "7.21.5",
+    "xo": "0.35.0"
   },
   "xo": {
-    "parser": "babel-eslint",
-    "parserOptions": {
-      "sourceType": "module",
-      "allowImportExportEverywhere": true
-    },
     "extends": "xo-react",
     "space": true,
     "semicolon": true,
@@ -79,6 +73,7 @@
           }
         }
       ],
+      "react/boolean-prop-naming": 1,
       "react/destructuring-assignment": [
         1,
         "always"
@@ -94,7 +89,11 @@
           "ignore": []
         }
       ],
-      "unicorn/filename-case": 0
+      "react/static-property-placement": 0,
+      "unicorn/filename-case": 0,
+      "unicorn/no-reduce": 1,
+      "unicorn/prefer-includes": 1,
+      "unicorn/prevent-abbreviations": 0
     }
   },
   "browserslist": [
