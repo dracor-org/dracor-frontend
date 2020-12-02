@@ -2,7 +2,7 @@
 
 :root {
   --main: #1F2448;
-  --main-transparent: #1F244800; 
+  --main-transparent: #1F244800;
   --main-shade: #1F24480a;
   --main-shadow: #1F244820;
   --shadow: #1F244835;
@@ -299,7 +299,7 @@ h3, h4 {
 
 .sticky-inner-wrapper > span::-webkit-scrollbar {
   display: none;
-} 
+}
 
 .sticky-inner-wrapper > span::after {
   content: '';
@@ -311,12 +311,12 @@ h3, h4 {
 }
 
 .sticky-headings {
-  display: inline-flex; 
+  display: inline-flex;
   flex-flow: column;
 }
 
 .sticky-headings span {
-  display: inline-flex; 
+  display: inline-flex;
 }
 
 .sticky-headings h3 {
