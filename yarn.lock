@@ -12130,10 +12130,10 @@ react-fast-compare@^2.0.2:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
   integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
 
-react-headroom@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/react-headroom/-/react-headroom-3.0.0.tgz#6d74102ccc04b060269ddee6e5b788f476e0eca6"
-  integrity sha512-iVRDowuHHvIBuOx/IoEg2uPqQl8myGgtth55IMZ6SdJkJ/NIz9VUMIC9bsfGU5GLc6AzksFRKQmuaDftjqjzMw==
+react-headroom@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/react-headroom/-/react-headroom-3.0.1.tgz#fa5e1746135e9dd17e6c941a09dd72f5464b9040"
+  integrity sha512-MEyuEqzKpEoh22bPkCbW8bdJTIDIEn3n3rOGktJSsidPWb/wDQfBK+EQEzcTpMMopmXjnIk0umFtv4m8T3WEiA==
   dependencies:
     prop-types "^15.5.8"
     raf "^3.3.0"
