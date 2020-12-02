@@ -41,18 +41,12 @@
     "deployment": "yarn run build && rsync -av build/ root@dracor.org:/var/www/html/"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.16.0",
-    "eslint-config-xo-react": "^0.19.0",
-    "eslint-plugin-react": "^7.13.0",
-    "xo": "^0.24.0"
+    "eslint": "^7.14.0",
+    "eslint-config-xo-react": "0.23.0",
+    "eslint-plugin-react": "7.21.5",
+    "xo": "0.35.0"
   },
   "xo": {
-    "parser": "babel-eslint",
-    "parserOptions": {
-      "sourceType": "module",
-      "allowImportExportEverywhere": true
-    },
     "extends": "xo-react",
     "space": true,
     "semicolon": true,
