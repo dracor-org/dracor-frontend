@@ -13,7 +13,7 @@
     "bootstrap": ">=4.3.1",
     "chart.js": "^2.8.0",
     "classnames": "^2.2.6",
-    "http-proxy-middleware": "^0.19.1",
+    "http-proxy-middleware": "1.0.6",
     "prop-types": "^15.7.2",
     "react": "17.0.1",
     "react-bootstrap-table-next": "^3.1.3",
