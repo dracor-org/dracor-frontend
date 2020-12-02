@@ -1,5 +1,8 @@
 import React, {useContext} from 'react';
 import {DracorContext} from '../context';
+import svgBibTex from '../images/bibtex.svg';
+import svgRIS from '../images/ris.svg';
+import svgCC0 from '../images/cc0.svg';
 
 const Footer = () => {
   const {apiInfo} = useContext(DracorContext);
@@ -14,13 +17,13 @@ const Footer = () => {
           href={`${process.env.PUBLIC_URL}/cite_dracor.bib`}
           type="application/x-bibtex"
         >
-          <img src="../img/bib-icon.svg" alt="BibTex"/>
+          <img src={svgBibTex} alt="BibTeX"/>
         </a>
         <a
           href={`${process.env.PUBLIC_URL}/cite_dracor.ris`}
           type="application/x-research-info-systems"
         >
-          <img src="../img/ris-icon.svg" alt="RIS"/>
+          <img src={svgRIS} alt="RIS"/>
         </a>
         <p>
           Fischer, Frank, et al. (2019). Programmable Corpora: Introducing
@@ -52,7 +55,7 @@ const Footer = () => {
             rel="noopener noreferrer license"
             target="_blank"
           >
-            <img src="../img/cc0.svg" alt="CC0"/>
+            <img src={svgCC0} alt="CC0"/>
           </a>
         </p>
         {apiInfo.version && (
