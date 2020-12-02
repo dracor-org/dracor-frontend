@@ -2,7 +2,7 @@
 
 :root {
   --main: #1F2448;
-  --main-transparent: #1F244800; 
+  --main-transparent: #1F244800;
   --main-shade: #1F24480a;
   --main-shadow: #1F244820;
   --shadow: #1F244835;
@@ -268,9 +268,15 @@ h3, h4 {
 /* ############################# */
 
 .sticky-outer-wrapper {
+  /* FIXME: This is an invisible trigger to activate the sticky header. Since
+     Headroom (when active) decreases the viewport height of a page by
+     disappearing (positon: fixed;) after scrolling down, the trigger has to be
+     moved accordingly. This should probably be revised when refactoring the
+     header (https://github.com/dracor-org/dracor-frontend/pull/130).
+   */
   margin: 0;
-  padding-top: calc(var(--x) * 6);
-  margin-top: calc(var(--x) * (-6));
+  padding-top: calc(var(--x) * 8);
+  margin-top: calc(var(--x) * (-8));
 }
 
 .sticky-inner-wrapper {
@@ -293,7 +299,7 @@ h3, h4 {
 
 .sticky-inner-wrapper > span::-webkit-scrollbar {
   display: none;
-} 
+}
 
 .sticky-inner-wrapper > span::after {
   content: '';
@@ -305,12 +311,12 @@ h3, h4 {
 }
 
 .sticky-headings {
-  display: inline-flex; 
+  display: inline-flex;
   flex-flow: column;
 }
 
 .sticky-headings span {
-  display: inline-flex; 
+  display: inline-flex;
 }
 
 .sticky-headings h3 {
