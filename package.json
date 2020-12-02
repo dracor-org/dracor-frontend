@@ -28,7 +28,7 @@
     "react-sigma": "^1.2.35",
     "react-slick": "^0.27.13",
     "react-stickynode": "^3.0.4",
-    "reactstrap": "8.0.0",
+    "reactstrap": "^8.7.1",
     "recharts": "^1.8.5",
     "swagger-ui-react": "^3.22.2",
     "yasgui": "^2.7.29"
