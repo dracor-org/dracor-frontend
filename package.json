@@ -30,7 +30,7 @@
     "react-stickynode": "^3.0.4",
     "reactstrap": "^8.7.1",
     "recharts": "^1.8.5",
-    "swagger-ui-react": "^3.22.2",
+    "swagger-ui-react": "^3.37.2",
     "yasgui": "^2.7.29"
   },
   "scripts": {
