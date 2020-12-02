@@ -26,7 +26,7 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "4.0.1",
     "react-sigma": "^1.2.35",
-    "react-slick": "^0.26.1",
+    "react-slick": "^0.27.13",
     "react-stickynode": "^3.0.4",
     "reactstrap": "8.0.0",
     "recharts": "^1.8.5",
