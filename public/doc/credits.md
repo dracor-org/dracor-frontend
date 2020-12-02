@@ -23,7 +23,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 ### GerDraCor
 * Editors: Frank Fischer, Peer Trilcke
 * Contributors: Mathias Göbel, [Dario Kampkaspar](https://www.oeaw.ac.at/acdh/team/current-team/dario-kampkaspar-1) (Vienna)
-* Character annotations: [Nathalie Wiedmer](https://www.ims.uni-stuttgart.de/institut/team/Wiedmer/) (Stuttgart)
+* Character annotations: [Nathalie Wiedmer](https://www.ims.uni-stuttgart.de/institut/team/Wiedmer/), [Janis Pagel](https://janispagel.de/), [Nils Reiter](https://nilsreiter.de/) (all Stuttgart)
 
 ### RusDraCor
 * Editors: Frank Fischer, [Daniil Skorinkin](https://www.hse.ru/en/staff/skorinkin) (Moscow)
