@@ -9,7 +9,7 @@ import IdLink from './IdLink';
 import Years, {formatEra} from './Years';
 
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-import './CorpusIndex.css';
+import './CorpusIndex.scss';
 
 const {SearchBar} = Search;
 

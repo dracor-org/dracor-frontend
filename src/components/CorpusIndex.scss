@@ -5,9 +5,9 @@ table.table.corpus {
 .year-details {
   font-size: 60%;
   white-space: nowrap;
-}
 
-.year-details > span {
-  display: inline-block;
-  margin-right: 4px;
+  span {
+    display: inline-block;
+    margin-right: 4px;
+  }
 }

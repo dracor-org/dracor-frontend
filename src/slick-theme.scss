@@ -1,23 +1,25 @@
 @charset 'UTF-8';
-/* DraCor Slider Custom Theme */
+
+// DraCor customizations to slick-theme.css
+
 /* Slider */
-.slick-slider::before 
-{	
-    content: '';	
-    height: 11.6rem;	
-    background: var(--main);	
-    display: block;	
-    position: absolute;	
-    top: -5em;	
-    width: 100%;	
+.slick-slider::before
+{
+    content: '';
+    height: 11.6rem;
+    background: var(--main);
+    display: block;
+    position: absolute;
+    top: -5em;
+    width: 100%;
 }
 .slick-track
 {
     padding-bottom: 2em;
 }
-.slick-slide	
-{		
-    padding: 0 .5em .5em .5em;	
+.slick-slide
+{
+    padding: 0 .5em .5em .5em;
 }
 /* Arrows */
 .slick-prev,
@@ -27,13 +29,13 @@
     top: 98%;
     width: 80px;
 }
-.slick-prev:hover:before,	
-.slick-prev:focus:before,	
-.slick-next:hover:before,	
+.slick-prev:hover:before,
+.slick-prev:focus:before,
+.slick-next:hover:before,
 .slick-next:focus:before,
-.slick-prev.slick-disabled:before,	
+.slick-prev.slick-disabled:before,
 .slick-next.slick-disabled:before,
-.slick-prev:before,	
+.slick-prev:before,
 .slick-next:before
 {
     display: none;

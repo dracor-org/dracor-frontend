@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import CETEI from 'CETEIcean';
 
 import '../CETEIcean.css';
-import '../CETEIcean-custom.css';
+import '../CETEIcean.scss';
 
 const TEIPanel = ({url}) => {
   const CETEIcean = new CETEI();

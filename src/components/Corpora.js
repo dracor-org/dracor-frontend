@@ -4,7 +4,7 @@ import api from '../api';
 import CorpusCard from './CorpusCard';
 import '../slick.css';
 import '../slick-theme.css';
-import '../slick-custom-theme.css';
+import '../slick-theme.scss';
 
 function byNumOfPlays (a, b) {
   if (a.metrics.plays > b.metrics.plays) {

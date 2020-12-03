@@ -17,7 +17,7 @@ import RelationsGraph from './RelationsGraph';
 import SpeechDistribution from './SpeechDistribution';
 import TEIPanel from './TEIPanel';
 
-import './Play.css';
+import './Play.scss';
 
 const apiUrl = api.getBaseURL();
 

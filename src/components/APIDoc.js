@@ -4,7 +4,7 @@ import SwaggerUI from 'swagger-ui-react';
 import Footer from './Footer';
 
 import 'swagger-ui-react/swagger-ui.css';
-import './APIDoc.css';
+import './APIDoc.scss';
 
 class APIDoc extends Component {
   render () {
