@@ -64,6 +64,7 @@
       "max-params": 0,
       "spaced-comment": 0,
       "import/no-unassigned-import": 0,
+      "import/extensions": 0,
       "operator-linebreak": [
         1,
         "after",
