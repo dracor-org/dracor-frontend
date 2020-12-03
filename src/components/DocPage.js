@@ -1,8 +1,22 @@
-import React, {useEffect, useState} from 'react';
+import React, {createElement, useEffect, useState} from 'react';
 import ReactMarkdown from 'react-markdown';
 import {Helmet} from 'react-helmet';
+import {Col} from 'reactstrap';
 import axios from 'axios';
+import Header from './Header';
 import Footer from './Footer';
+
+const heading = ({level, children}) => {
+  if (level === 1) {
+    return (
+      <Header>
+        <Col tag="h1">{children}</Col>
+      </Header>
+    );
+  }
+
+  return createElement(`h${level}`, {}, children);
+};
 
 const DocPage = ({match}) => {
   const [markdown, setMarkdown] = useState('');
@@ -48,7 +62,7 @@ const DocPage = ({match}) => {
       <Helmet titleTemplate="%s - DraCor">
         <title>{title}</title>
       </Helmet>
-      <ReactMarkdown source={markdown}/>
+      <ReactMarkdown source={markdown} renderers={{heading}}/>
       <Footer/>
     </div>
   );
