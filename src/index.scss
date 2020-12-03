@@ -776,32 +776,6 @@ table.table.corpus th:focus {
   box-shadow: 0 7px 5px 0 rgba(0, 0, 0, 0.2), 0 10px 1em 0 rgba(0,0,0,.08), 0 4px 0px 0 #33405220;
 }
 
-.dashboard-tabs {
-  flex-flow: nowrap;
-  white-space: nowrap;
-  margin-left: auto;
-  border-bottom: none;
-  width: 100%;
-  overflow-x: auto;
-  -ms-overflow-style: none;
-  overflow: -moz-scrollbars-none;
-  background: var(--main);
-  padding: 0 var(--x);
-  min-height: 2rem;
-}
-
-.dashboard-tabs::after {
-  content: '';
-  width: var(--x);
-  height: 2.5em;
-  background-image: linear-gradient(to left, var(--main),var(--main-transparent));
-  position: absolute;
-  right: var(--x);
-}
-
-.dashboard-tabs::-webkit-scrollbar {
-  display: none;
-}
 
 .nav-tabs .nav-link {
   font-size: 1.2em;
@@ -1258,19 +1232,7 @@ table.table.corpus th:focus {
   #dashboard > div {
     flex-direction: column;
   }
-  .dashboard-tabs {
-    padding: 0 var(--x);
-    width: 100%;
-  }
-  .dashboard-tabs li:last-child::after {
-    content: '';
-    width: 1.3em;
-    height: 1.3em;
-    display: block;
-    position: absolute;
-    top: 0;
-    right: -1.3em;
-  }
+
   .sticky-inner-wrapper > span {
     width: 100%;
     padding-bottom: 0;
