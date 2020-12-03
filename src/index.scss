@@ -44,18 +44,6 @@ a:hover {
   box-shadow: none;
 }
 
-hgroup {
-  color: var(--background-light);
-}
-
-h2 {
-  padding-top: calc(2 * var(--x));
-}
-
-h3, h4 {
-  padding-top: var(--x);
-}
-
 /* ############################# */
 /* #NAVIGATION                 # */
 /* ############################# */
@@ -210,18 +198,9 @@ h3, h4 {
 .dracor-page > * {
   margin: var(--x);
 }
-
-.dracor-page h1:first-of-type {
+.dracor-page hgroup {
   color: var(--background-light);
-  text-decoration: underline;
-  text-decoration-color: var(--secondary-accent);
-  text-decoration-thickness: .1em;
   background-color: var(--main);
-  font-size: 3rem;
-  font-weight: 400;
-  line-height: 1;
-  margin: 0;
-  padding: var(--x);
 }
 
 .loading {
