@@ -1,0 +1,43 @@
+.item {
+  border-radius: 1rem;
+  color: var(--background-light);
+  box-sizing: border-box;
+  border: solid 2px var(--primary-accent);
+  background-color: var(--background-light);
+  line-height: 1.7;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  i {
+    font-style: normal;
+    background-color: var(--primary-accent);
+    z-index: 0;
+    position: relative;
+    border-radius: 1rem;
+    padding: .08em .3em .1em .3em;
+    transition: .3s ease-in-out;
+
+    &:hover {
+      color: var(--secondary-accent);
+    }
+  }
+}
+
+.formats {
+  margin-left: .4em;
+  font-size: .8em;
+  border-radius: 1rem;
+  position: relative;
+  z-index: 0;
+  bottom: .05rem;
+
+  a {
+    color: var(--primary-accent);
+    padding-right: .5em;
+    &:hover{
+      opacity: .8;
+    }
+  }
+}

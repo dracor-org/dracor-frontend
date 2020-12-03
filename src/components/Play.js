@@ -7,6 +7,7 @@ import PlayDetailsNav from './PlayDetailsNav';
 import IdLink from './IdLink';
 import Years from './Years';
 import CastList from './CastList';
+import DownloadLinks from './DownloadLinks';
 import NetworkGraph from './NetworkGraph';
 import RelationsGraph from './RelationsGraph';
 import SpeechDistribution from './SpeechDistribution';
@@ -23,7 +24,9 @@ const navItems = [
   {name: 'network', label: 'Network'},
   {name: 'relations', label: 'Relations'},
   {name: 'speech', label: 'Speech distribution'},
-  {name: 'text', label: 'Full text'}
+  {name: 'text', label: 'Full text'},
+  {name: 'downloads', label: 'Downloads'}
+  // {name: 'sources', label: 'Sources'}
 ];
 
 const tabNames = new Set(navItems.map(item => item.name));
@@ -92,7 +95,6 @@ const PlayInfo = ({corpusId, playId}) => {
   const [play, setPlay] = useState(null);
   const [graph, setGraph] = useState(null);
   const [error, setError] = useState(null);
-  const [box, setBox] = useState('cast');
 
   useEffect(() => {
     async function fetchPlay () {
@@ -118,11 +120,6 @@ const PlayInfo = ({corpusId, playId}) => {
 
     fetchPlay();
   }, [corpusId, playId]);
-
-  function toggle (b) {
-    setBox(b === box ? null : b);
-    console.log(box);
-  }
 
   if (error && error.message === 'not found') {
     return <p>No such play!</p>;
@@ -154,17 +151,13 @@ const PlayInfo = ({corpusId, playId}) => {
     tab = 'network';
   }
 
-  const playUrl = `${apiUrl}/corpora/${play.corpus}/play/${play.name}`;
-  const csvUrl = `${playUrl}/networkdata/csv`;
-  const gexfUrl = `${playUrl}/networkdata/gexf`;
-  const graphmlUrl = `${playUrl}/networkdata/graphml`;
-  const csvRelationsUrl = `${playUrl}/relations/csv`;
-  const gexfRelationsUrl = `${playUrl}/relations/gexf`;
-  const teiUrl = `${playUrl}/tei`;
+  const teiUrl = `${apiUrl}/corpora/${play.corpus}/play/${play.name}/tei`;
 
   let tabContent = null;
   if (tab === 'speech') {
     tabContent = <SpeechDistribution segments={play.segments} {...{groups}}/>;
+  } else if (tab === 'downloads') {
+    tabContent = <DownloadLinks play={play}/>;
   } else if (tab === 'text') {
     tabContent = <TEIPanel url={teiUrl}/>;
   } else if (tab === 'relations') {
@@ -223,103 +216,6 @@ const PlayInfo = ({corpusId, playId}) => {
           )}
           <li>
             DraCor: <a href={`/id/${play.id}`}>{play.id}</a>
-          </li>
-          <li className="play-downloads">
-            Downloads:{' '}
-            <span
-              className="play-downloads-item"
-              onClick={() => toggle('nd-formats')}
-            >
-              <i>network&nbsp;data</i>
-              {box === 'nd-formats' && (
-                <span className="formats">
-                  <a href={csvUrl} download={`${play.id}-${play.name}.csv`}>
-                    CSV
-                  </a>
-                  <a href={gexfUrl} download={`${play.id}-${play.name}.gexf`}>
-                    GEXF
-                  </a>
-                  <a
-                    href={graphmlUrl}
-                    download={`${play.id}-${play.name}.graphml`}
-                  >
-                    GraphML
-                  </a>
-                </span>
-              )}
-            </span>{' '}
-            <span
-              className="play-downloads-item"
-              onClick={() => toggle('rd-formats')}
-            >
-              <i>relation&nbsp;data</i>
-              {box === 'rd-formats' && (
-                <span className="formats">
-                  <a
-                    href={csvRelationsUrl}
-                    download={`${play.id}-${play.name}-relations.csv`}
-                  >
-                    CSV
-                  </a>
-                  <a
-                    href={gexfRelationsUrl}
-                    download={`${play.id}-${play.name}-relations.gexf`}
-                  >
-                    GEXF
-                  </a>
-                </span>
-              )}
-            </span>{' '}
-            <span
-              className="play-downloads-item"
-              onClick={() => toggle('st-formats')}
-            >
-              <i>spoken&nbsp;text</i>
-              {box === 'st-formats' && (
-                <span className="formats">
-                  <a
-                    href={`${playUrl}/spoken-text`}
-                    download={`${play.id}-${play.name}-spoken.txt`}
-                  >
-                    TXT
-                  </a>
-                </span>
-              )}
-            </span>{' '}
-            <span
-              className="play-downloads-item"
-              onClick={() => toggle('stc-formats')}
-            >
-              <i>spoken&nbsp;text&nbsp;by&nbsp;character</i>
-              {box === 'stc-formats' && (
-                <span className="formats">
-                  <a
-                    href={`${playUrl}/spoken-text-by-character.json`}
-                    download={`${play.id}-${play.name}-spoken.json`}
-                  >
-                    JSON
-                  </a>
-                </span>
-              )}
-            </span>{' '}
-            <span
-              className="play-downloads-item"
-              onClick={() => toggle('sd-formats')}
-            >
-              <i>stage&nbsp;directions</i>
-              {box === 'sd-formats' && (
-                <span className="formats">
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={`${playUrl}/stage-directions`}
-                    download={`${play.id}-${play.name}-stage.txt`}
-                  >
-                    TXT
-                  </a>
-                </span>
-              )}
-            </span>
           </li>
         </ul>
       </hgroup>
