@@ -707,51 +707,6 @@ table.table.corpus th:focus {
   flex: 1;
 }
 
-.play-downloads-item {
-  border-radius: 1rem;
-  color: var(--background-light);
-  box-sizing: border-box;
-  border: solid 2px var(--primary-accent);
-  background-color: var(--background-light);
-  line-height: 1.7;
-}
-
-.play-downloads-item:hover {
-  cursor: pointer;
-}
-
-.play-downloads-item i {
-  font-style: normal;
-  background-color: var(--primary-accent);
-  z-index: 0;
-  position: relative;
-  border-radius: 1rem;
-  padding: .08em .3em .1em .3em;
-  transition: .3s ease-in-out;
-}
-
-.play-downloads-item i:hover {
-  color: var(--secondary-accent);
-}
-
-.formats {
-  margin-left: .4em;
-  font-size: .8em;
-  border-radius: 1rem;
-  position: relative;
-  z-index: 0;
-  bottom: .05rem;
-}
-
-.formats a {
-  color: var(--primary-accent);
-  padding-right: .5em;
-}
-
-.formats a:hover{
-  opacity: .8;
-}
-
 .dashboard-wrapper {
   display: block;
   padding-bottom: var(--x);
@@ -776,32 +731,6 @@ table.table.corpus th:focus {
   box-shadow: 0 7px 5px 0 rgba(0, 0, 0, 0.2), 0 10px 1em 0 rgba(0,0,0,.08), 0 4px 0px 0 #33405220;
 }
 
-.dashboard-tabs {
-  flex-flow: nowrap;
-  white-space: nowrap;
-  margin-left: auto;
-  border-bottom: none;
-  width: 100%;
-  overflow-x: auto;
-  -ms-overflow-style: none;
-  overflow: -moz-scrollbars-none;
-  background: var(--main);
-  padding: 0 var(--x);
-  min-height: 2rem;
-}
-
-.dashboard-tabs::after {
-  content: '';
-  width: var(--x);
-  height: 2.5em;
-  background-image: linear-gradient(to left, var(--main),var(--main-transparent));
-  position: absolute;
-  right: var(--x);
-}
-
-.dashboard-tabs::-webkit-scrollbar {
-  display: none;
-}
 
 .nav-tabs .nav-link {
   font-size: 1.2em;
@@ -1258,19 +1187,7 @@ table.table.corpus th:focus {
   #dashboard > div {
     flex-direction: column;
   }
-  .dashboard-tabs {
-    padding: 0 var(--x);
-    width: 100%;
-  }
-  .dashboard-tabs li:last-child::after {
-    content: '';
-    width: 1.3em;
-    height: 1.3em;
-    display: block;
-    position: absolute;
-    top: 0;
-    right: -1.3em;
-  }
+
   .sticky-inner-wrapper > span {
     width: 100%;
     padding-bottom: 0;

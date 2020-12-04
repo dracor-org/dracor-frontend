@@ -81,6 +81,7 @@
         "always"
       ],
       "react/forbid-component-props": 0,
+      "react/jsx-curly-newline": 0,
       "react/jsx-one-expression-per-line": 0,
       "react/jsx-no-bind": 0,
       "react/jsx-space-before-closing": 0,

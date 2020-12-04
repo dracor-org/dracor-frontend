@@ -1,0 +1,42 @@
+.main {
+  flex-flow: nowrap;
+  white-space: nowrap;
+  margin-left: auto;
+  border-bottom: none;
+  width: 100%;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+  background: var(--main);
+  padding: 0 var(--x);
+  min-height: 2rem;
+
+  &::after {
+    content: '';
+    width: var(--x);
+    height: 2.5em;
+    background-image: linear-gradient(to left, var(--main),var(--main-transparent));
+    position: absolute;
+    right: var(--x);
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media only screen and (max-width: 767px) {
+    & {
+      padding: 0 var(--x);
+    }
+    
+    & li:last-child::after {
+      content: '';
+      width: 1.3em;
+      height: 1.3em;
+      display: block;
+      position: absolute;
+      top: 0;
+      right: -1.3em;
+    }
+  }
+}

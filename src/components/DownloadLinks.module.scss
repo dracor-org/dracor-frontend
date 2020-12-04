@@ -1,0 +1,51 @@
+.downloads {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17em, 1fr));
+  grid-gap: calc(var(--x) * 2);
+  grid-auto-rows: auto;
+  width: 100%;
+  height: auto;
+  align-content: baseline;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--background);
+    border-radius: 0.25rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--main);
+    border-radius: 0.25rem;
+  }
+
+  h4 {
+    padding: 0;
+    line-height: 1;
+  }
+
+  .formats {
+    display: flex;
+
+    img {
+      height: 5em;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+      transition: opacity 0.3s ease-in-out;
+
+      &:hover,
+      &:focus {
+        opacity: 0.85;
+      }
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .downloads {
+    grid-template-columns: repeat(3, minmax(15em, 1fr));
+  }
+}
