@@ -1,120 +1,158 @@
-import React, {useState} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames/bind';
 import api from '../api';
 import style from './DownloadLinks.module.scss';
+import svgCSV from '../images/csv.svg';
+import svgGEXF from '../images/gexf.svg';
+import svgGraphML from '../images/graphml.svg';
+import svgTXT from '../images/txt.svg';
+import svgRTF from '../images/rtf.svg';
+import svgJSON from '../images/json.svg';
+import svgTEI from '../images/tei.svg';
 
 const cx = classnames.bind(style);
 
 const apiUrl = api.getBaseURL();
 
 const DownloadLinks = ({play}) => {
-  const [box, setBox] = useState(null);
-
   const playUrl = `${apiUrl}/corpora/${play.corpus}/play/${play.name}`;
   const csvUrl = `${playUrl}/networkdata/csv`;
   const gexfUrl = `${playUrl}/networkdata/gexf`;
   const graphmlUrl = `${playUrl}/networkdata/graphml`;
   const csvRelationsUrl = `${playUrl}/relations/csv`;
   const gexfRelationsUrl = `${playUrl}/relations/gexf`;
-
-  function toggle (b) {
-    setBox(b === box ? null : b);
-    console.log(box);
-  }
+  const csvPrecalculatedUrl = ''; //--Add link
+  const jsonPrecalculatedUrl = ''; //--Add link
+  const txtStageNamesUrl = ''; //--Add link
+  const rtfLinkedDataUrl = ''; //--Add link
+  const teiUrl = `${playUrl}/tei`;
 
   return (
-    <div>
-      <span className={cx('item')} onClick={() => toggle('nd-formats')}>
-        <i>network&nbsp;data</i>
-        {box === 'nd-formats' && (
-          <span className={cx('formats')}>
-            <a href={csvUrl} download={`${play.id}-${play.name}.csv`}>
-              CSV
-            </a>
-            <a href={gexfUrl} download={`${play.id}-${play.name}.gexf`}>
-              GEXF
-            </a>
-            <a
-              href={graphmlUrl}
-              download={`${play.id}-${play.name}.graphml`}
-            >
-              GraphML
-            </a>
-          </span>
-        )}
-      </span>{' '}
-      <span
-        className={cx('item')}
-        onClick={() => toggle('rd-formats')}
-      >
-        <i>relation&nbsp;data</i>
-        {box === 'rd-formats' && (
-          <span className={cx('formats')}>
-            <a
-              href={csvRelationsUrl}
-              download={`${play.id}-${play.name}-relations.csv`}
-            >
-              CSV
-            </a>
-            <a
-              href={gexfRelationsUrl}
-              download={`${play.id}-${play.name}-relations.gexf`}
-            >
-              GEXF
-            </a>
-          </span>
-        )}
-      </span>{' '}
-      <span
-        className={cx('item')}
-        onClick={() => toggle('st-formats')}
-      >
-        <i>spoken&nbsp;text</i>
-        {box === 'st-formats' && (
-          <span className={cx('formats')}>
-            <a
-              href={`${playUrl}/spoken-text`}
-              download={`${play.id}-${play.name}-spoken.txt`}
-            >
-              TXT
-            </a>
-          </span>
-        )}
-      </span>{' '}
-      <span
-        className={cx('item')}
-        onClick={() => toggle('stc-formats')}
-      >
-        <i>spoken&nbsp;text&nbsp;by&nbsp;character</i>
-        {box === 'stc-formats' && (
-          <span className={cx('formats')}>
-            <a
-              href={`${playUrl}/spoken-text-by-character.json`}
-              download={`${play.id}-${play.name}-spoken.json`}
-            >
-              JSON
-            </a>
-          </span>
-        )}
-      </span>{' '}
-      <span
-        className={cx('item')}
-        onClick={() => toggle('sd-formats')}
-      >
-        <i>stage&nbsp;directions</i>
-        {box === 'sd-formats' && (
-          <span className={cx('formats')}>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href={`${playUrl}/stage-directions`}
-              download={`${play.id}-${play.name}-stage.txt`}
-            >
-              TXT
-            </a>
-          </span>
-        )}
+    <div className={cx('downloads')}>
+      <span>
+        <h4>Network data</h4>
+        <p>Co-occurrence network:</p>
+        <span className={cx('formats')}>
+          <a
+            href={csvUrl}
+            download={`${play.id}-${play.name}.csv`}
+          >
+            <img src={svgCSV}/>
+          </a>
+          <a
+            href={gexfUrl}
+            download={`${play.id}-${play.name}.gexf`}
+          >
+            <img src={svgGEXF}/>
+          </a>
+          <a
+            href={graphmlUrl}
+            download={`${play.id}-${play.name}.graphml`}
+          >
+            <img src={svgGraphML}/>
+          </a>
+        </span>
+        <p>Relation data:</p>
+        <span className={cx('formats')}>
+          <a
+            href={csvRelationsUrl}
+            download={`${play.id}-${play.name}.csv`}
+          >
+            <img src={svgCSV}/>
+          </a>
+          <a
+            href={gexfRelationsUrl}
+            download={`${play.id}-${play.name}.gexf`}
+          >
+            <img src={svgGEXF}/>
+          </a>
+        </span>
+      </span>
+      <span>
+        <h4>Spoken text</h4>
+        <p>By character:</p>
+        <span className={cx('formats')}>
+          <a
+            href={`${playUrl}/spoken-text-by-character.json`}
+            download={`${play.id}-${play.name}-spoken.json`}
+          >
+            <img src={svgJSON}/>
+          </a>
+        </span>
+        <p>Plain (no markup):</p>
+        <span className={cx('formats')}>
+          <a
+            href={`${playUrl}/spoken-text`}
+            download={`${play.id}-${play.name}-spoken.txt`}
+          >
+            <img src={svgTXT}/>
+          </a>
+        </span>
+      </span>
+      <span>
+        <h4>Stage directions</h4>
+        <p>Without speaker names:</p>
+        <span className={cx('formats')}>
+          <a
+            href={`${playUrl}/stage-directions`}
+            download={`${play.id}-${play.name}-stage.txt`}
+          >
+            <img src={svgTXT}/>
+          </a>
+        </span>
+        <p>Including speaker names:</p>
+        <span className={cx('formats')}>
+          <a
+            href={txtStageNamesUrl}
+            download={`${play.id}-${play.name}-stage-names.txt`}
+          >
+            <img src={svgTXT}/>
+          </a>
+        </span>
+      </span>
+      <span>
+        <h4>List of characters</h4>
+        <p>Including precalculated data:</p>
+        <span className={cx('formats')}>
+          <a
+            href={csvPrecalculatedUrl}
+            download={`${play.id}-${play.name}.csv`}
+          >
+            <img src={svgCSV}/>
+          </a>
+          <a
+            href={jsonPrecalculatedUrl}
+            download={`${play.id}-${play.name}-characters.json`}
+          >
+            <img src={svgJSON}/>
+          </a>
+        </span>
+      </span>
+      <span>
+        <h4>Full text</h4>
+        <p>TEI encoded:</p>
+        <span className={cx('formats')}>
+          <a
+            href={teiUrl}
+            download={`${play.id}-${play.name}.tei`}
+          >
+            <img src={svgTEI}/>
+          </a>
+        </span>
+      </span>
+      <span>
+        <h4>Linked data</h4>
+        <p>Lorem ipsum:</p>
+        {/* Add short discription */}
+        <span className={cx('formats')}>
+          <a
+            href={rtfLinkedDataUrl}
+            download={`${play.id}-${play.name}-linked-data.rtf`}
+          >
+            <img src={svgRTF}/>
+          </a>
+        </span>
       </span>
     </div>
   );
