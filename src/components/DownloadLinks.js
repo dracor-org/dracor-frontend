@@ -77,7 +77,7 @@ const DownloadLinks = ({play}) => {
           </>
         ) : (
           <>
-            <p>Relation data not yet available.</p>
+            <p>Relation data not available.</p>
             <span className={cx('formats')}>
               <img disabled src={svgCSV}/>
               <img disabled src={svgGEXF}/>
