@@ -243,160 +243,6 @@ a:hover {
 }
 
 /* ############################# */
-/* #STICKY                     # */
-/* ############################# */
-
-.sticky-outer-wrapper {
-  /* FIXME: This is an invisible trigger to activate the sticky header. Since
-     Headroom (when active) decreases the viewport height of a page by
-     disappearing (positon: fixed;) after scrolling down, the trigger has to be
-     moved accordingly. This should probably be revised when refactoring the
-     header (https://github.com/dracor-org/dracor-frontend/pull/130).
-   */
-  margin: 0;
-  padding-top: calc(var(--x) * 8);
-  margin-top: calc(var(--x) * (-8));
-}
-
-.sticky-inner-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  background: var(--main);
-  padding-right: var(--x);
-}
-
-.sticky-inner-wrapper > span {
-  padding: var(--x) var(--x) 0;
-  width: 100%;
-  display: flex;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -ms-overflow-style: none;
-  overflow: -moz-scrollbars-none;
-  white-space: nowrap;
-}
-
-.sticky-inner-wrapper > span::-webkit-scrollbar {
-  display: none;
-}
-
-.sticky-inner-wrapper > span::after {
-  content: '';
-  width: var(--x);
-  height: 2em;
-  background-image: linear-gradient(to left, var(--main),var(--main-transparent));
-  position: absolute;
-  right: var(--x);
-}
-
-.sticky-headings {
-  display: inline-flex;
-  flex-flow: column;
-}
-
-.sticky-headings span {
-  display: inline-flex;
-}
-
-.sticky-headings h3 {
-  padding: 0 0 0 .5rem;
-}
-
-.sticky-headings h3::before {
-  content: '·';
-  margin-right: .5rem;
-}
-
-.sticky-headings h3:first-of-type {
-  padding-left: 1rem;
-}
-
-.sticky-headings h3:last-of-type {
-  padding-right: var(--x);
-}
-
-.sticky-headings h3:first-of-type::before {
-  content: '';
-  margin: 0;
-}
-
-.sticky-inner-wrapper h1:first-of-type {
-  font-size: 0;
-  padding: 0;
-  transition: font-size .2s;
-  text-decoration: none;
-}
-
-.sticky-outer-wrapper.active h1:first-of-type {
-  font-size: 1.73em;
-  padding-left: 1rem;
-  padding-right: var(--x);
-  text-decoration: underline;
-  text-decoration-color: var(--secondary-accent);
-  text-decoration-thickness: .1em;
-}
-
-.sticky-inner-wrapper h3 {
-  font-weight: normal;
-  line-height: 1;
-  color: var(--background-light);
-  margin: 0;
-  transition: font-size .2s;
-}
-
-.sticky-inner-wrapper h3 span {
-  font-size: .6em;
-  vertical-align: middle;
-}
-
-.sticky-outer-wrapper.active {
-  padding: 0;
-  margin: 0;
-}
-
-.sticky-outer-wrapper.active h3 {
-  padding-top: .42em;
-  font-size: 1em;
-}
-
-.sticky-outer-wrapper.active h3 span {
-  display: none;
-}
-
-.sticky-outer-wrapper.active .corpus-label h4 {
-  font-size: 2.1rem;
-  padding: .35rem;
-}
-
-.corpus-label h4 {
-  background-color: var(--background-light);
-  color: var(--main);
-  padding: .2rem;
-  margin-bottom: 0;
-  border-radius: .3em;
-  font-weight: 500;
-  font-size: 1.2rem;
-  border: 0;
-  width: fit-content;
-  transition: font-size .2s;
-  transition: background-color .2s ease-in-out;
-}
-
-.corpus-label h4:hover {
-  background-color: var(--secondary-accent);
-}
-
-.sticky-inner-wrapper h4 span {
-  color: var(--background-light);
-  background-color: var(--main);
-  padding: 0 .25rem;
-  border-radius: .2em;
-  margin-right: .1em;
-  font-weight: 400;
-  text-transform: capitalize;
-}
-
-/* ############################# */
 /* #SLIDER                     # */
 /* ############################# */
 
@@ -654,37 +500,6 @@ table.table.corpus th:focus {
 /* ############################# */
 /* #PLAY                       # */
 /* ############################# */
-
-.play-header {
-  margin: 0;
-  padding-top: var(--x);
-  columns: 2;
-  gap: 0;
-  background: var(--main);
-}
-
-.play-header > *, .play-header h1:first-of-type {
-  padding: 0 var(--x) var(--x);
-  margin: 0;
-}
-
-.play-header .subtitle {
-  font-size: 1.3em;
-  font-weight: 400;
-}
-
-.play-header li {
-  list-style: none;
-}
-
-.play-header .years span {
-  margin-right: 1rem;
-}
-
-.play-meta {
-  font-size: .85em;
-  flex: 1;
-}
 
 .dashboard-wrapper {
   display: block;
@@ -1151,15 +966,11 @@ table.table.corpus th:focus {
     width: 94vw;
     margin-top: .5em;
   }
-  .play-header {
-    columns: 1;
-  }
+
   .content-wrapper, .cast-list-wrapper {
     width: 100%;
   }
- .sticky-outer-wrapper.active .sticky-inner-wrapper > span::after {
-   height: 4em;
- }
+
   #dashboard {
     height: auto;
   }
@@ -1167,16 +978,13 @@ table.table.corpus th:focus {
     flex-direction: column;
   }
 
-  .sticky-inner-wrapper > span {
-    width: 100%;
-    padding-bottom: 0;
-  }
   .swagger-ui .info {
     columns: 1;
   }
   .swagger-ui .loading-container {
     width: 100%;
   }
+
   .footer {
     flex-direction: column;
   }

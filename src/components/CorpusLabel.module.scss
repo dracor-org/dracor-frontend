@@ -37,6 +37,11 @@
     a {
       font-size: 85%;
     }
+
+    // hide in active sticky header
+    :global(.sticky-outer-wrapper.active) & {
+      display: none;
+    }
   }
 
 }

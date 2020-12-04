@@ -1,0 +1,121 @@
+.main {
+  h1 {
+    // shrink in active sticky header
+    :global(.sticky-outer-wrapper.active) & {
+      font-size: 1.73em;
+      padding-right: var(--x);
+      text-decoration: underline;
+      text-decoration-color: var(--secondary-accent);
+      text-decoration-thickness: .1em;
+    }
+  }
+}
+
+.subtitle {
+  margin: .6rem 0 0;
+  font-size: 1.3em;
+  font-weight: 400;
+  font-style: italic;
+
+  // hide in active sticky header
+  :global(.sticky-outer-wrapper.active) & {
+    display: none;
+  }
+}
+
+.authors {
+  margin: .6rem 0 0;
+  font-weight: normal;
+  line-height: 1;
+  color: var(--background-light);
+  transition: font-size .2s;
+
+  // single author wrapper
+  & > span {
+    display: block;
+    padding-bottom: .1em;
+
+    // wikidata link
+    span[class~=data-link-label] {
+      font-size: .6em;
+      vertical-align: middle;
+      // hide in active sticky header
+      :global(.sticky-outer-wrapper.active) & {
+        display: none;
+      }
+    }
+  }
+
+  // active sticky header
+  :global(.sticky-outer-wrapper.active) & {
+    padding-top: .1em;
+    font-size: 1em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    & > span {
+      display: inline-block;
+    }
+    
+    & > span::before {
+      content: '·';
+      margin: 0 .5rem;
+    }
+    
+    & > span:first-child::before {
+      content: '';
+      margin: 0;
+    }
+  }
+}
+
+.right {
+  text-align: right;
+
+  span[class~=data-link-label] {
+    display: block;
+    margin-top: var(--x);
+
+    // hide in active sticky header
+    :global(.sticky-outer-wrapper.active) & {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    text-align: left;
+    padding-top: calc(var(--x) * 1.5);
+    margin-top: .3rem;
+    display: inline;
+    span[class~=data-link-label] {
+      display: inline;
+      &::before {
+        content: '';
+        display: block;
+      }
+    }
+  }
+}
+
+.years {
+  margin-top: var(--x);
+  span {
+    margin-left: 1rem;
+  }
+
+  @media only screen and (max-width: 767px) {
+    margin-top: .3rem;
+    margin-left: 1em;
+    display: inline-block;
+    span {
+      margin-right: 1em;
+      margin-left: 0;
+    }
+  }
+
+  // hide in active sticky header
+  :global(.sticky-outer-wrapper.active) & {
+    display: none;
+  }
+}

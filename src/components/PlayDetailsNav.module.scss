@@ -1,4 +1,6 @@
 .main {
+  // override margin of preceding PageDetailsHeader
+  margin-top: calc(var(--x) * -1);
   flex-flow: nowrap;
   white-space: nowrap;
   margin-left: auto;

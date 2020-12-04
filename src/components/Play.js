@@ -1,12 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {Helmet} from 'react-helmet';
 import Sticky from 'react-stickynode';
-import {Link} from 'react-router-dom';
 import api from '../api';
 import {makeGraph} from '../network';
+import PlayDetailsHeader from './PlayDetailsHeader';
 import PlayDetailsNav from './PlayDetailsNav';
-import IdLink from './IdLink';
-import Years from './Years';
 import CastList from './CastList';
 import DownloadLinks from './DownloadLinks';
 import NetworkGraph from './NetworkGraph';
@@ -110,59 +108,17 @@ const PlayInfo = ({corpusId, playId}) => {
     tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor, play}}/>;
   }
 
-  const authors = play.authors.map(a => a.name).join(' · ');
+  const {authors, title} = play;
+  const authorNames = authors.map(a => a.name).join(' · ');
 
   return (
     <div className="h-100 d-md-flex flex-md-column dracor-page">
       <Helmet titleTemplate="%s - DraCor">
-        <title>{`${authors}: ${play.title}`}</title>
+        <title>{`${authorNames}: ${title}`}</title>
       </Helmet>
-      <hgroup className="play-header">
-        <h1>{play.title}</h1>
-        {play.subtitle && (
-          <h2 className="subtitle">
-            <em>{play.subtitle}</em>
-          </h2>
-        )}
-        <p className="years">
-          <Years
-            written={play.yearWritten}
-            premiere={play.yearPremiered}
-            print={play.yearPrinted}
-          />
-          {play.wikidataId && (
-            <span className="data-link-label">
-              {' '}
-              <IdLink>{`wikidata:${play.wikidataId}`}</IdLink>
-            </span>
-          )}
-        </p>
-        <ul className="play-meta">
-          <li>
-            DraCor: <a href={`/id/${play.id}`}>{play.id}</a>
-          </li>
-        </ul>
-      </hgroup>
 
       <Sticky enabled innerZ={1}>
-        <span>
-          <Link className="corpus-label" to={`/${play.corpus}`}>
-            <h4>
-              <span>{play.corpus}</span>DraCor
-            </h4>
-          </Link>
-          <div className="sticky-headings">
-            <h1>{play.title}</h1>
-            <span>
-              {play.authors.map(a => (
-                <h3 key={a.key} className="data-link-label" id="play-author">
-                  {a.name} {a.key && <IdLink>{a.key}</IdLink>}
-                </h3>
-              ))}
-            </span>
-          </div>
-        </span>
-
+        <PlayDetailsHeader play={play}/>
         <PlayDetailsNav
           items={
             // we remove relations from nav items if none are available for the
