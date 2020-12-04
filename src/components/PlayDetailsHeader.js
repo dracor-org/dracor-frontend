@@ -24,7 +24,7 @@ const PlayDetailsHeader = ({play}) => {
 
   return (
     <Header className={cx('main')}>
-      <Col md="8">
+      <Col className={cx('left')}>
         <h1>{title}</h1>
 
         {subtitle && <h2 className={cx('subtitle')}>{subtitle}</h2>}

@@ -3,11 +3,66 @@
     // shrink in active sticky header
     :global(.sticky-outer-wrapper.active) & {
       font-size: 1.73em;
-      padding-right: var(--x);
       text-decoration: underline;
       text-decoration-color: var(--secondary-accent);
       text-decoration-thickness: .1em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
+  }
+
+  @media only screen and (max-width: 767px) {
+    flex-direction: column;
+    :global(.sticky-outer-wrapper.active) & {
+      flex-direction: row;
+    }
+  }
+}
+
+.left {
+  // leave room for corpus label in active sticky header
+  :global(.sticky-outer-wrapper.active) & {
+    width: 70%;
+  }
+}
+
+.right {
+  text-align: right;
+
+  span[class~=data-link-label] {
+    display: block;
+    margin-top: var(--x);
+
+    // hide in active sticky header
+    :global(.sticky-outer-wrapper.active) & {
+      display: none;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    text-align: left;
+    padding-top: calc(var(--x) * 1.5);
+    margin-top: .3rem;
+    display: inline;
+    span[class~=data-link-label] {
+      display: inline;
+      // spacing with corpus label
+      &::before {
+        content: '';
+        display: block;
+        margin: .5rem;
+      }
+    }
+  }
+
+  // in active sticky header
+  :global(.sticky-outer-wrapper.active) & {
+    padding-top: 0;
+    padding-left: 0;
+    margin-top: 0;
+    width: 30%;
+    text-align: right;
   }
 }
 
@@ -66,34 +121,6 @@
     & > span:first-child::before {
       content: '';
       margin: 0;
-    }
-  }
-}
-
-.right {
-  text-align: right;
-
-  span[class~=data-link-label] {
-    display: block;
-    margin-top: var(--x);
-
-    // hide in active sticky header
-    :global(.sticky-outer-wrapper.active) & {
-      display: none;
-    }
-  }
-
-  @media only screen and (max-width: 767px) {
-    text-align: left;
-    padding-top: calc(var(--x) * 1.5);
-    margin-top: .3rem;
-    display: inline;
-    span[class~=data-link-label] {
-      display: inline;
-      &::before {
-        content: '';
-        display: block;
-      }
     }
   }
 }
