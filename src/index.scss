@@ -11,6 +11,7 @@
   --primary-accent: #0088ff;
   --secondary-accent: #aaeeff;
   --x: 2rem;
+  --bootstrap-padding: 15px;
 }
 
 html, #root {
@@ -191,13 +192,6 @@ a:hover {
   position: absolute;
 }
 
-.container-fluid {
-  padding: 0;
-}
-
-.dracor-page > * {
-  margin: var(--x);
-}
 .dracor-page hgroup {
   color: var(--background-light);
   background-color: var(--main);
