@@ -45,12 +45,14 @@
 
   .info {
     columns: 2;
+    padding-bottom: 1rem;
     @media only screen and (max-width: 767px) {
       columns: 1;
     }
 
     hgroup.main {
       display: inline-grid;
+      margin-bottom: .5rem;
       .link {
         color: var(--background-light);
         padding: .1em .6em;
