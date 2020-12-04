@@ -7,7 +7,7 @@ import svgCSV from '../images/csv.svg';
 import svgGEXF from '../images/gexf.svg';
 import svgGraphML from '../images/graphml.svg';
 import svgTXT from '../images/txt.svg';
-import svgRTF from '../images/rtf.svg';
+import svgRDF from '../images/rdf.svg';
 import svgJSON from '../images/json.svg';
 import svgTEI from '../images/tei.svg';
 
@@ -25,7 +25,7 @@ const DownloadLinks = ({play}) => {
   const csvPrecalculatedUrl = ''; //--Add link
   const jsonPrecalculatedUrl = ''; //--Add link
   const txtStageNamesUrl = ''; //--Add link
-  const rtfLinkedDataUrl = ''; //--Add link
+  const rdfLinkedDataUrl = ''; //--Add link
   const teiUrl = `${playUrl}/tei`;
 
   return (
@@ -53,7 +53,8 @@ const DownloadLinks = ({play}) => {
             <img src={svgGraphML}/>
           </a>
         </span>
-        <p>Relation data:</p>
+        <p>Relation data{' '}<strong>(as described{' '}<a href="https://github.com/dracor-org/gerdracor#character-relations">here</a>)</strong>:
+        </p>
         <span className={cx('formats')}>
           <a
             href={csvRelationsUrl}
@@ -131,7 +132,7 @@ const DownloadLinks = ({play}) => {
       </span>
       <span>
         <h4>Full text</h4>
-        <p>TEI encoded:</p>
+        <p>TEI-encoded:</p>
         <span className={cx('formats')}>
           <a
             href={teiUrl}
@@ -143,14 +144,13 @@ const DownloadLinks = ({play}) => {
       </span>
       <span>
         <h4>Linked data</h4>
-        <p>Lorem ipsum:</p>
-        {/* Add short discription */}
+        <p>In RDF format:</p>
         <span className={cx('formats')}>
           <a
-            href={rtfLinkedDataUrl}
-            download={`${play.id}-${play.name}-linked-data.rtf`}
+            href={rdfLinkedDataUrl}
+            download={`${play.id}-${play.name}-linked-data.rdf`}
           >
-            <img src={svgRTF}/>
+            <img src={svgRDF}/>
           </a>
         </span>
       </span>
