@@ -1,4 +1,107 @@
-/* workaround class name collision between bootstrap and swagger-ui */
-.swagger-ui .col {
-  width: initial;
+.swagger-ui {
+  // workaround class name collision between bootstrap and swagger-ui
+  .col {
+    width: initial;
+  }
+
+  & > div {
+    margin-left: calc(var(--bootstrap-padding) * -1);
+    margin-right: calc(var(--bootstrap-padding) * -1);
+  }
+
+  &,
+  .info a,
+  .opblock-tag,
+  .opblock .opblock-summary-description,
+  .opblock .opblock-summary-method,
+  .opblock-description-wrapper p,
+  .opblock-external-docs-wrapper p,
+  .opblock-title_normal p,
+  p {
+    font-family: 'Rubik', sans-serif !important;
+  }
+
+  hgroup {
+    columns: 2;
+  }
+
+  .loading-container {
+    width: 100%;
+    margin: 0 !important;
+    display: inline-block !important;
+    padding: 0 !important;
+    background: var(--main);
+  }
+
+  .errors-wrapper {
+    margin: var(--x) 0 0 !important;
+    color: var(--main);
+    background: var(--background-light) !important;
+  }
+
+  .servers {
+    margin-top: .5rem;
+  }
+
+  .info {
+    columns: 2;
+    @media only screen and (max-width: 767px) {
+      columns: 1;
+    }
+
+    hgroup.main {
+      display: inline-grid;
+      .link {
+        color: var(--background-light);
+        padding: .1em .6em;
+        border-radius: 1em;
+        background-color: var(--primary-accent);
+        margin-left: .2em;
+        margin-top: 1em;
+        display: inline-block;
+        transition: .3s ease-in-out;
+        width: fit-content;
+        &:hover {
+          color: var(--secondary-accent);
+        }
+      }
+    }
+
+    .title {
+      font-size: calc(2.3 * var(--x)) !important;
+      color: var(--background-light) !important;
+      font-family: 'Rubik', sans-serif !important;
+      font-weight: 400;
+      text-decoration: underline;
+      text-decoration-color: var(--secondary-accent);
+    }
+
+    .title small {
+      background-color: var(--background-light) !important;
+      top: 0;
+      &:last-child {
+        background-color: var(--secondary-accent) !important;
+      }
+      pre {
+        color: var(--main) !important;
+      }
+    }
+  }
+
+  .wrapper {
+    padding: 0 !important;
+  }
+
+  .information-container {
+    background: var(--main);
+    .info {
+      margin: 0;
+    }
+  }
+
+  .scheme-container {
+    background: var(--background-color) !important;
+    box-shadow: none !important;
+    padding: var(--bootstrap-padding) !important;
+  }
 }
