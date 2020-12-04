@@ -40,6 +40,10 @@
       &:focus {
         opacity: 0.85;
       }
+
+      &[disabled] {
+        opacity: .5;
+      }
     }
   }
 }

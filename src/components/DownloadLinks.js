@@ -52,26 +52,38 @@ const DownloadLinks = ({play}) => {
             <img src={svgGraphML}/>
           </a>
         </span>
-        <p>
-          Relation data (as described{' '}
-          <a href="https://github.com/dracor-org/gerdracor#character-relations">
-            here
-          </a>):
-        </p>
-        <span className={cx('formats')}>
-          <a
-            href={csvRelationsUrl}
-            download={`${play.id}-${play.name}.csv`}
-          >
-            <img src={svgCSV}/>
-          </a>
-          <a
-            href={gexfRelationsUrl}
-            download={`${play.id}-${play.name}.gexf`}
-          >
-            <img src={svgGEXF}/>
-          </a>
-        </span>
+        {play.relations ? (
+          <>
+            <p>
+              Relation data (as described{' '}
+              <a href="https://github.com/dracor-org/gerdracor#character-relations">
+                here
+              </a>):
+            </p>
+            <span className={cx('formats')}>
+              <a
+                href={csvRelationsUrl}
+                download={`${play.id}-${play.name}.csv`}
+              >
+                <img src={svgCSV}/>
+              </a>
+              <a
+                href={gexfRelationsUrl}
+                download={`${play.id}-${play.name}.gexf`}
+              >
+                <img src={svgGEXF}/>
+              </a>
+            </span>
+          </>
+        ) : (
+          <>
+            <p>Relation data not yet available.</p>
+            <span className={cx('formats')}>
+              <img disabled src={svgCSV}/>
+              <img disabled src={svgGEXF}/>
+            </span>
+          </>
+        )}
       </span>
       <span>
         <h4>Spoken text</h4>
