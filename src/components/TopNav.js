@@ -12,9 +12,13 @@ import {
 } from 'reactstrap';
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import classnames from 'classnames/bind';
 import {ezlinavisUrl} from '../config';
 import CorporaDropdown from './CorporaDropdown';
 import TopNavDropdown from './TopNavDropdown';
+import style from './TopNav.module.scss';
+
+const cx = classnames.bind(style);
 
 const TopNav = () => {
   const [navOpen, setNavOpen] = useState(false);
@@ -23,11 +27,11 @@ const TopNav = () => {
 
   return (
     <Headroom disable disableInlineStyles upTolerance={50}>
-      <Navbar expand="md" className="dracor-navbar">
+      <Navbar expand="md" className={cx('base')}>
         <NavbarBrand title="Drama Corpora Project (DraCor)" href="/"/>
         <NavbarToggler onClick={toggleNav}/>
         <Collapse navbar isOpen={navOpen}>
-          <Nav navbar tag="div" className="dracor-mainnav">
+          <Nav navbar tag="div" className={cx('main')}>
             <TopNavDropdown
               label="About" items={[
                 {label: 'What is DraCor?', to: '/doc/what-is-dracor'},
@@ -56,7 +60,7 @@ const TopNav = () => {
               </RouterNavLink>
             </NavItem>
           </Nav>
-          <Nav navbar className="dracor-github">
+          <Nav navbar className={cx('github')}>
             <NavItem>
               <NavLink
                 href="https://github.com/dracor-org"
