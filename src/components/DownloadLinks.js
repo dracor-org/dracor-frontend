@@ -22,10 +22,9 @@ const DownloadLinks = ({play}) => {
   const graphmlUrl = `${playUrl}/networkdata/graphml`;
   const csvRelationsUrl = `${playUrl}/relations/csv`;
   const gexfRelationsUrl = `${playUrl}/relations/gexf`;
-  const csvPrecalculatedUrl = ''; //--Add link
-  const jsonPrecalculatedUrl = ''; //--Add link
-  const txtStageNamesUrl = ''; //--Add link
-  const rdfLinkedDataUrl = ''; //--Add link
+  const jsonCastUrl = `${playUrl}/cast`;
+  const csvCastUrl = `${playUrl}/cast/csv`;
+  const rdfUrl = `${playUrl}/rdf`;
   const teiUrl = `${playUrl}/tei`;
 
   return (
@@ -105,8 +104,8 @@ const DownloadLinks = ({play}) => {
         <p>Including speaker names:</p>
         <span className={cx('formats')}>
           <a
-            href={txtStageNamesUrl}
-            download={`${play.id}-${play.name}-stage-names.txt`}
+            href={`${playUrl}/stage-directions-with-speakers`}
+            download={`${play.id}-${play.name}-stage-with-speakers.txt`}
           >
             <img src={svgTXT}/>
           </a>
@@ -117,14 +116,14 @@ const DownloadLinks = ({play}) => {
         <p>Including precalculated data:</p>
         <span className={cx('formats')}>
           <a
-            href={csvPrecalculatedUrl}
-            download={`${play.id}-${play.name}.csv`}
+            href={csvCastUrl}
+            download={`${play.id}-${play.name}-cast.csv`}
           >
             <img src={svgCSV}/>
           </a>
           <a
-            href={jsonPrecalculatedUrl}
-            download={`${play.id}-${play.name}-characters.json`}
+            href={jsonCastUrl}
+            download={`${play.id}-${play.name}-cast.json`}
           >
             <img src={svgJSON}/>
           </a>
@@ -136,7 +135,7 @@ const DownloadLinks = ({play}) => {
         <span className={cx('formats')}>
           <a
             href={teiUrl}
-            download={`${play.id}-${play.name}.tei`}
+            download={`${play.id}-${play.name}.tei.xml`}
           >
             <img src={svgTEI}/>
           </a>
@@ -147,8 +146,8 @@ const DownloadLinks = ({play}) => {
         <p>In RDF format:</p>
         <span className={cx('formats')}>
           <a
-            href={rdfLinkedDataUrl}
-            download={`${play.id}-${play.name}-linked-data.rdf`}
+            href={rdfUrl}
+            download={`${play.id}-${play.name}.rdf`}
           >
             <img src={svgRDF}/>
           </a>
