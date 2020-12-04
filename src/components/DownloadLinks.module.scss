@@ -1,43 +1,51 @@
-.item {
-  border-radius: 1rem;
-  color: var(--background-light);
-  box-sizing: border-box;
-  border: solid 2px var(--primary-accent);
-  background-color: var(--background-light);
-  line-height: 1.7;
+.downloads {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  grid-gap: calc(var(--x) * 2);
+  grid-auto-rows: auto;
+  width: 100%;
+  height: auto;
+  align-content: baseline;
+  overflow-y: auto;
 
-  &:hover {
-    cursor: pointer;
+  &::-webkit-scrollbar {
+    width: 0.5rem;
   }
 
-  i {
-    font-style: normal;
-    background-color: var(--primary-accent);
-    z-index: 0;
-    position: relative;
-    border-radius: 1rem;
-    padding: .08em .3em .1em .3em;
-    transition: .3s ease-in-out;
+  &::-webkit-scrollbar-track {
+    background: var(--background);
+    border-radius: 0.25rem;
+  }
 
-    &:hover {
-      color: var(--secondary-accent);
+  &::-webkit-scrollbar-thumb {
+    background: var(--main);
+    border-radius: 0.25rem;
+  }
+
+  h4 {
+    padding: 0;
+    line-height: 1;
+  }
+
+  .formats {
+    display: flex;
+
+    img {
+      height: 5em;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+      transition: opacity 0.3s ease-in-out;
+
+      &:hover,
+      &:focus {
+        opacity: 0.85;
+      }
     }
   }
 }
 
-.formats {
-  margin-left: .4em;
-  font-size: .8em;
-  border-radius: 1rem;
-  position: relative;
-  z-index: 0;
-  bottom: .05rem;
-
-  a {
-    color: var(--primary-accent);
-    padding-right: .5em;
-    &:hover{
-      opacity: .8;
-    }
+@media (min-width: 1280px) {
+  .downloads {
+    grid-template-columns: repeat(3, minmax(15em, 1fr));
   }
 }
