@@ -1,6 +1,6 @@
 .downloads {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(17em, 1fr));
   grid-gap: calc(var(--x) * 2);
   grid-auto-rows: auto;
   width: 100%;
