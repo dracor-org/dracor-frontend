@@ -52,7 +52,11 @@ const DownloadLinks = ({play}) => {
             <img src={svgGraphML}/>
           </a>
         </span>
-        <p>Relation data{' '}<strong>(as described{' '}<a href="https://github.com/dracor-org/gerdracor#character-relations">here</a>)</strong>:
+        <p>
+          Relation data (as described{' '}
+          <a href="https://github.com/dracor-org/gerdracor#character-relations">
+            here
+          </a>):
         </p>
         <span className={cx('formats')}>
           <a
