@@ -1,9 +1,13 @@
 .main {
+  // FIXME: this overrides the boostrap grid, we should find a more compatible
+  // solution.
+  margin-left: calc(var(--bootstrap-padding) * -1);
+  margin-right: calc(var(--bootstrap-padding) * -1);
+  // override margin of preceding PageDetailsHeader
+  margin-top: calc(var(--x) * -1);
   flex-flow: nowrap;
   white-space: nowrap;
-  margin-left: auto;
   border-bottom: none;
-  width: 100%;
   overflow-x: auto;
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
