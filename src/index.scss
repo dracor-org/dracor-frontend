@@ -49,27 +49,10 @@ a:hover {
 /* #NAVIGATION                 # */
 /* ############################# */
 
+// FIXME: move navbar overrides to TopNav.module.scss
 .navbar {
   padding: var(--x);
   z-index: 2;
-}
-
-/* centered top navigation */
-.dracor-mainnav {
-  margin: auto;
-}
-
-/* main entries in top navigation */
-.dracor-navbar .navbar-nav .nav-item,
-.dracor-navbar .navbar-nav .dropdown .dropdown-toggle {
-  font-size: 1.2em;
-  font-weight: 400;
-  text-transform: uppercase;
-}
-
-.dracor-navbar .dropdown-item.active {
-  color: var(--main);
-  background-color: var(--secondary-accent);
 }
 
 .navbar .navbar-nav .nav-link {
@@ -95,40 +78,9 @@ a:hover {
   margin-right: 0;
 }
 
-.navbar-brand, .dracor-github {
-  width: calc(2 * var(--x));
-  height: calc(2 * var(--x));
-}
-
-.navbar-brand {
-  content: ' ';
-  background-image: url(./images/DraCor-white.svg);
-  background-repeat: no-repeat;
-  margin: 0;
-  padding: 0;
-  font-size: 1em;
-}
-
-.dracor-github {
-  margin: 0;
-  padding: 0;
-  border-bottom: none;
-}
-
 .nav-link span {
   display: none;
 }
-
-.dracor-github .nav-item .nav-link:hover {
-  border-bottom: none;
-}
-
-.nav-link .fa-github {
-  width: 100%;
-  height: 100%;
-  font-size: 1rem;
-}
-
 
 /* #HEADROOM */
 
@@ -954,16 +906,13 @@ table.table.corpus th:focus {
   .content-wrapper, .cast-list-wrapper {
     height: calc(100vh - (var(--x) * 11 + .2rem));
   }
-  .navbar-brand, .dracor-github {
-    width: calc(3 * var(--x));
-    height: calc(3 * var(--x));
-  }
 }
 
 @media only screen and (max-width: 767px) {
   .headroom-wrapper {
     height: auto !important;
   }
+  // FIXME: move navbar overrides to TopNav.module.scss
   .navbar .navbar-toggler-icon {
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="rgb(255, 255, 255)"><rect y="0" width="100%" height="12%" rx="0%" ry="0%" /><rect y="40%" width="100%" height="12%" rx="0%" ry="0%" /><rect y="80%" width="100%" height="12%" rx="0%" ry="0%" /></svg>') center / 100% 100% no-repeat;
   }
@@ -993,13 +942,6 @@ table.table.corpus th:focus {
   }
   .navbar-collapse {
     padding-top: 1em;
-  }
-  .dracor-github {
-    width: auto;
-    height: auto;
-  }
-  .dracor-github .nav-item .nav-link:hover {
-    border-bottom: solid var(--secondary-accent) .17em;
   }
   .corpus-card {
     width: calc(100vw - 2.5em);
