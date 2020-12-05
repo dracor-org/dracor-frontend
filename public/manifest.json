@@ -4,8 +4,10 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
+  "name": "DraCor",
   "short_name": "DraCor",
   "app_name": "Drama Corpora Project Web App",
+  "prefer_related_applications": false,
   "icons": [
       {
           "src": "/icon-192x192.png",
