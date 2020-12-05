@@ -1,4 +1,5 @@
 .base {
+  background-color: var(--main);
   // main entries in top navigation
   :global(.navbar-nav .nav-item),
   :global(.navbar-nav .dropdown .dropdown-toggle)
@@ -66,4 +67,9 @@
       border-bottom: solid var(--secondary-accent) .17em;
     }
   }
+}
+
+// make sure dropdown open above sticky header
+:global(.headroom-wrapper) {
+  z-index: 2;
 }
