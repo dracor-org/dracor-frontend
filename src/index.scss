@@ -574,68 +574,6 @@ table.table.corpus th:focus {
   border-radius: .25rem;
 }
 
-/* ############################# */
-/* #FOOTER                     # */
-/* ############################# */
-
-.footer {
-  font-size: .9rem;
-  line-height: 1.65;
-  display: flex;
-  flex-flow: row wrap;
-  width: auto;
-  columns: 2;
-  gap: var(--x);
-  padding: var(--x);
-  background: linear-gradient(to top, #ebf0f6, #e3e8f1);
-  margin: 1em 0 0;
-}
-
-.footer p {
-  margin-bottom: 0;
-}
-
-.footer h5 {
-  width: 100%;
-  white-space: nowrap;
-}
-
-.footer > * {
-  flex: 1 1;
-  height: 100%;
-}
-
-.citation {
-  display: flex;
-  flex-flow: row wrap;
-}
-
-.citation img {
-  height: 5em;
-  padding-top: .3rem;
-  padding-right: 1rem;
-  transition: opacity .3s ease-in-out;
-}
-
-.citation img:hover {
-  opacity: .85;
-}
-
-.citation p {
-  flex: 1 0 0;
-  place-self: flex-end;
-}
-
-.license {
-  text-align: right;
-  white-space: nowrap;
-}
-
-.license a img {
-  margin: 0 0 .3rem .3rem;
-  height: 1.3rem;
-}
-
 .version-pill {
   white-space: nowrap;
 }
@@ -733,17 +671,6 @@ table.table.corpus th:focus {
     flex-direction: column;
   }
 
-  .footer {
-    flex-direction: column;
-  }
-  .citation, .license {
-    width: 100%;
-    text-align: left;
-    margin-bottom: 1em;
-  }
-  .license a img {
-    margin: 0 0 .3rem .3rem;
-  }
   .current-year {
     display: none;
   }
