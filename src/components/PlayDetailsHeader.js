@@ -50,8 +50,7 @@ const PlayDetailsHeader = ({play}) => {
 
         {wikidataId && (
           <span className="data-link-label">
-            {' '}
-            <IdLink showLabel>{`wikidata:${wikidataId}`}</IdLink>
+            <IdLink>{`wikidata:${wikidataId}`}</IdLink>
           </span>
         )}
 
