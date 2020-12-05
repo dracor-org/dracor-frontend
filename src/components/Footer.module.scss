@@ -1,0 +1,76 @@
+.main {
+  font-size: .9rem;
+  line-height: 1.65;
+  display: flex;
+  flex-flow: row wrap;
+  width: auto;
+  columns: 2;
+  gap: var(--x);
+  padding: var(--x);
+  background: linear-gradient(to top, #ebf0f6, #e3e8f1);
+  margin: 3em 0 0;
+
+  @media only screen and (max-width: 767px) {
+    flex-direction: column;
+  }
+
+  & > * {
+    flex: 1 1;
+    height: 100%;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  h5 {
+    width: 100%;
+    white-space: nowrap;
+  }
+}
+
+
+.citation {
+  display: flex;
+  flex-flow: row wrap;
+  
+  p {
+    flex: 1 0 0;
+    place-self: flex-end;
+  }
+
+  img {
+    height: 5em;
+    padding-top: .3rem;
+    padding-right: 1rem;
+    transition: opacity .3s ease-in-out;
+    &:hover {
+      opacity: .85;
+    }
+  }
+}
+
+.license {
+  text-align: right;
+  white-space: nowrap;
+
+  a img {
+    margin: 0 0 .3rem .3rem;
+    height: 1.3rem;
+    @media only screen and (max-width: 767px) {
+      margin: 0 0 .3rem .3rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .citation, .license {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 1em;
+    // FIXME: remove <br> from license text
+    br {
+      display: none;
+    }
+  }
+}

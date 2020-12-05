@@ -1,8 +1,12 @@
 import React, {useContext} from 'react';
+import classnames from 'classnames/bind';
 import {DracorContext} from '../context';
 import svgBibTex from '../images/bibtex.svg';
 import svgRIS from '../images/ris.svg';
 import svgCC0 from '../images/cc0.svg';
+import style from './Footer.module.scss';
+
+const cx = classnames.bind(style);
 
 const Footer = () => {
   const {apiInfo} = useContext(DracorContext);
@@ -13,8 +17,8 @@ const Footer = () => {
   }
 
   return (
-    <div className="footer">
-      <div className="citation">
+    <div className={cx('main')}>
+      <div className={cx('citation')}>
         <h5>
           If you want to cite DraCor, <wbr/>please use the following reference:
         </h5>
@@ -44,7 +48,7 @@ const Footer = () => {
           </a>.
         </p>
       </div>
-      <div className="license">
+      <div className={cx('license')}>
         <h5>Drama Corpora Project 2020</h5>
         <p>Unless otherwise stated, all corpora and the web design<br/> are released under Creative Commons
           {' '}
