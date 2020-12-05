@@ -45,7 +45,7 @@ Curated collection of network graphs in DraCor design available as t-shirt. All 
 
 #### Emilia Galotti – original DraCor project t-shirt
 
-[![shirt Emilia Galotti] (../img/merch/emilia-galotti-t-shirt.jpg)](https://www.amazon.de/dp/B08P8RWQ48 "Emilia Galotti T-Shirt")
+[![shirt Emilia Galotti](../img/merch/emilia-galotti-t-shirt.jpg)](https://www.amazon.de/dp/B08P8RWQ48 "Emilia Galotti T-Shirt")
 
 *by Mark Schwindt*
 
