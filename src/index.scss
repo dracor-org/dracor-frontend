@@ -770,49 +770,6 @@ table.table.corpus th:focus {
 }
 
 /* ############################# */
-/* #SWAGGER & YASGUI STYLES    # */
-/* ############################# */
-
-.yasgui {
-  z-index: 0;
-}
-
-.yasgui .nav-tabs {
-  background-color: var(--background);
-}
-
-.yasgui .yasr {
-  padding-bottom: 5px;
-}
-
-.yasgui .tab-content {
-  box-shadow: 0 7px 5px 0 rgba(0, 0, 0, 0.2), 0 10px 1em 0 rgba(0,0,0,.08);
-}
-
-.yasgui .yasr .yasr_btn.selected, .yasgui .yasr .yasr_btn:focus {
-  background-color: var(--main) !important;
-  border-color: var(--main) !important;
-}
-
-.yasgui svg {
-  vertical-align: inherit;
-  fill: var(--main);
-}
-
-.yasgui .nav-tabs li a[role=addTab] {
-  padding: 0 .5em !important;
-}
-
-.yasgui .nav-tabs>li>a {
-  border-radius: 8px 8px 0 0 !important;
-}
-
-.yasgui a {
-  color: var(--main) !important;
-}
-
-
-/* ############################# */
 /* #FOOTER                     # */
 /* ############################# */
 
