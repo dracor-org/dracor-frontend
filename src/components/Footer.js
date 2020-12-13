@@ -7,6 +7,11 @@ import svgCC0 from '../images/cc0.svg';
 const Footer = () => {
   const {apiInfo} = useContext(DracorContext);
 
+  let apiVersionUrl = 'https://github.com/dracor-org/dracor-api/releases/';
+  if (/^\d+\.\d+\.\d+(-(alpha|beta)(\.\d+)?)?$/.test(apiInfo.version)) {
+    apiVersionUrl += `/tag/v${apiInfo.version}`;
+  }
+
   return (
     <div className="footer">
       <div className="citation">
@@ -65,7 +70,7 @@ const Footer = () => {
             <span className="version-pill">
               <span>DraCor API</span>
               <a
-                href={`https://github.com/dracor-org/dracor-api/releases/tag/v${apiInfo.version}`}
+                href={apiVersionUrl}
                 target="_blank"
                 rel="noopener noreferrer"
               >
