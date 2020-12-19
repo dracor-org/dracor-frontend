@@ -2,9 +2,12 @@
 
 An (incomplete) collection of research articles on drama using data provided through DraCor (including papers authored by the [DLINA collective](https://dlina.github.io/), the project preceding DraCor):
 
+## 2021
+
+* Frank Fischer, Daniil Skorinkin: Social Network Analysis in Russian Literary Studies. In: Daria Gritsenko, Mariëlle Wijermars, Mikhail Kopotev (eds.): [The Palgrave Handbook of Digital Russia Studies.](https://www.palgrave.com/gp/book/9783030428549) Palgrave Macmillan 2021, pp. 517–536. ([doi:10.1007/978-3-030-42855-6_29](https://link.springer.com/chapter/10.1007/978-3-030-42855-6_29))
+
 ## 2020
 
-* Frank Fischer, Daniil Skorinkin: Social Network Analysis in Russian Literary Studies. In: Daria Gritsenko, Mariëlle Wijermars, Mikhail Kopotev (eds.): [The Palgrave Handbook of Digital Russia Studies.](https://www.palgrave.com/gp/book/9783030428549) (forthcoming)
 * Peer Trilcke, Christopher Kittel, Nils Reiter, Daria Maximova, Frank Fischer: [Opening the Stage: A Quantitative Look at Stage Directions in German Drama.](https://dh2020.adho.org/wp-content/uploads/2020/07/337_OpeningtheStageAQuantitativeLookatStageDirectionsinGermanDrama.html) In: DH2020: »carrefours/intersections«. 22–24 July 2020. Book of Abstracts. University of Ottawa.
 * Hanno Ehrlicher, Jörg Lehmann, Nils Reiter, Marcus Willand: [A Quantitative View of Genre Poetics. Calderón de la Barca’s oeuvre and the contemporaneous poetics of drama.](https://www.digitalhumanitiescooperation.de/pamphlet-9-gattungspoetik-in-quantitativer-sicht/) In: LitLab Pamphlets, No. 9 (April 2020).
 * Jan Horstmann, Marie Flüh, Mareike Schumacher, Frank Fischer, Peer Trilcke, Jan Christoph Meister: Netzwerkanalyse spielerisch vermitteln mit DraCor und forTEXT: Zur nicht-digitalen Dissemination einer digitalen Methode in Form des Kartenspiels »Dramenquartett«. In: DHd2020: »Spielräume«. 2–6 March 2020. Book of Abstracts. Paderborn University, pp. 167–171. ([doi:10.5281/zenodo.3666690](https://doi.org/10.5281/zenodo.3666690))
