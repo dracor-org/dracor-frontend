@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const types = {
+  isni: {
+    label: 'ISNI',
+    url: 'https://isni.org/isni/'
+  },
   pnd: {
     label: 'PND',
     url: 'https://d-nb.info/gnd/'
@@ -13,7 +17,7 @@ const types = {
 };
 
 const IdLink = ({children, showLabel}) => {
-  const matches = children.match(/^(wikidata|pnd):([a-z\d]+)$/i);
+  const matches = children.match(/^(wikidata|pnd|isni):([a-z\d]+)$/i);
   if (!matches) {
     return <span>{children}</span>;
   }
