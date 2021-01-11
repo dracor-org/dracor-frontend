@@ -94,7 +94,14 @@ const CorpusIndex = ({data}) => {
     text: 'Authors',
     sort: true,
     filterValue: (cell, row) =>
-      `${cell} ${row.authors.map(a => a.key).join(' ')}`,
+      `${cell} ${row.authors.map(a => {
+        let value = a.key;
+        if (a.alsoKnownAs) {
+          value += a.alsoKnownAs.join(' ');
+        }
+
+        return value;
+      }).join(' ')} `,
     formatter: formatAuthor
   }, {
     dataField: 'title',
