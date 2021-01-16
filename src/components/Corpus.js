@@ -6,22 +6,6 @@ import CorpusIndex from './CorpusIndex';
 import Play from './Play';
 import Footer from './Footer';
 
-function splitAuthorName (name) {
-  // just pass through names that already have been split (i.e. having a comma)
-  // or are just a single names (e.g. Klabund)
-  if (/, /.test(name) || /^[^ ]+$/.test(name)) {
-    return name;
-  }
-
-  const parts = name.split(' ');
-  const last = parts.pop();
-  return `${last}, ${parts.join(' ')}`;
-}
-
-function splitAuthors (authors) {
-  return authors.map(author => splitAuthorName(author.name));
-}
-
 const PlayPage = ({match}) => (
   <div style={{height: '100%'}}>
     <Play {...match.params}/>
@@ -42,7 +26,7 @@ const Corpus = ({match, location}) => {
         response.data.dramas.forEach(d => {
           d.networkSize = Number.parseInt(d.networkSize, 10) || 0;
           if (d.authors) {
-            d.authorNames = splitAuthors(d.authors).join(' · ');
+            d.authorNames = d.authors.map(a => a.name).join(' · ');
           } else {
             d.authors = [];
             d.authorNames = 'Anonymous';

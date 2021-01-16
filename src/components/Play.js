@@ -231,8 +231,8 @@ const PlayInfo = ({corpusId, playId}) => {
             <h1>{play.title}</h1>
             <span>
               {play.authors.map(a => (
-                <h3 key={a.key} className="data-link-label" id="play-author">
-                  {a.name} {a.key && <IdLink>{a.key}</IdLink>}
+                <h3 key={a.key} className="data-link-label">
+                  {a.fullname}{' '} {a.key && <IdLink>{a.key}</IdLink>}
                 </h3>
               ))}
             </span>
