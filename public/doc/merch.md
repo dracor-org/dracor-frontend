@@ -20,9 +20,9 @@
 ![card Toneelkwartetspel, back](../img/merch/toneelkwartetspel_back.png)
 ![card Toneelkwartetspel, front](../img/merch/toneelkwartetspel_front.png)
 
-*by Felix Hermans, Arne Lauryssens, Jan Teertstra, Anke Van de Mosselaer, Sam Verellen, Jan Teertstra*
+*by Felix Hermans, Arne Lauryssens, Jan Teertstra, Anke Van de Mosselaer, Sam Verellen*
 
-* 32 cards containing network data of Dutch-language plays from the 14th to 19th century
+* 32 cards containing network data of Dutch-language plays from the 14th to 19th century (limited edition)
 * Created in the course "Digitale tekstanalyse en literaire theorie" at University of Antwerp 2019/2020 under the supervision of Mike Kestemont
 
 ---
