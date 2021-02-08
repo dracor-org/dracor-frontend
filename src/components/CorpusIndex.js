@@ -145,7 +145,7 @@ const CorpusIndex = ({data}) => {
   }];
 
   const defaultSorted = [{
-    dataField: 'authorNames',
+    dataField: 'yearNormalized',
     order: 'asc'
   }];
 
