@@ -114,6 +114,17 @@ const CorpusIndex = ({data}) => {
     dataField: 'yearNormalized',
     text: 'Year (normalized)',
     sort: true,
+    sortFunc: (a, b, order) => {
+      if (a === '') {
+        return order === 'asc' ? -1 : 1;
+      }
+
+      if (b === '') {
+        return order === 'asc' ? 1 : -1;
+      }
+
+      return order === 'asc' ? a - b : b - a;
+    },
     filterValue: (cell, row) => `${row.yearNormalized} ${row.writtenYear} ` +
       `${row.premiereYear} ${row.printYear}`,
     formatter: (cell, row) => formatYear(row)
