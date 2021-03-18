@@ -31,9 +31,14 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 * Developers: Daria Maximova, Eugenia Ustinova, [Alyaxey Yaskevich](https://yaskevich.com/) (all Moscow)
 * Annotators: Tatiana Orlova, Svetlana Lashchuk, Veronika Faynberg, Evgeniya Shlosman, German Palchikov, Natalia Tyshkevich (all Moscow)
 
+### FreDraCor
+*(derived from Paul Fièvre's [Théâtre Classique](http://theatre-classique.fr/))*
+* Maintainers: Frank Fischer, Mathias Göbel, Carsten Milling
+
 ### ItaDraCor
 *(derived from [Biblioteca Italiana](http://www.bibliotecaitaliana.it/))*
 * Maintainers: Frank Fischer, Carsten Milling
+* Character annotations: [Michael Sonkin](https://twitter.com/Migabaj) (Moscow)
 * Thanks to: [Fabio Ciotti](http://directory.uniroma2.it/index.php/chart/dettagliDocente/8353) (Rome)
 
 ### SweDraCor
