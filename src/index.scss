@@ -853,7 +853,12 @@ table.table.corpus th:focus {
 }
 
 .cast-list-wrapper li svg {
-  color: var(--primary-accent) !important;
+  &.fa-users {
+    color: var(--primary-accent);
+  }
+  &.fa-mars, &.fa-venus {
+    opacity: .4;
+  }
 }
 
 .cast-list-wrapper::-webkit-scrollbar, .tei-frame::-webkit-scrollbar {
