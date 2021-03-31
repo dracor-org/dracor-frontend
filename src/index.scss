@@ -682,6 +682,7 @@ table.table.corpus th:focus {
   columns: 2;
   gap: 0;
   background: var(--main);
+  z-index: 1;
 }
 
 .play-header > *, .play-header h1:first-of-type {
