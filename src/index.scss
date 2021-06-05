@@ -447,38 +447,6 @@ table.table.corpus th:focus {
 /* #PLAY                       # */
 /* ############################# */
 
-.play-header {
-  margin: 0;
-  padding-top: var(--x);
-  columns: 2;
-  gap: 0;
-  background: var(--main);
-  z-index: 1;
-}
-
-.play-header > *, .play-header h1:first-of-type {
-  padding: 0 var(--x) var(--x);
-  margin: 0;
-}
-
-.play-header .subtitle {
-  font-size: 1.3em;
-  font-weight: 400;
-}
-
-.play-header li {
-  list-style: none;
-}
-
-.play-header .years span {
-  margin-right: 1rem;
-}
-
-.play-meta {
-  font-size: .85em;
-  flex: 1;
-}
-
 .dashboard-wrapper {
   display: block;
   padding-top: var(--bootstrap-padding);
@@ -551,19 +519,6 @@ table.table.corpus th:focus {
   color: var(--secondary-accent);
   border: none;
   outline: none;
-}
-
-#play-meta-data .meta-data-toggler {
-  background-color: #FFF;
-  color: var(--main) !important;
-  border-radius: 2em;
-  width: 3em;
-  height: 3em;
-  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 5px 2em 0 rgba(0,0,0,.08);
-}
-
-#play-meta-data .meta-data-toggler .svg-inline--fa {
-  vertical-align: -0.125em;
 }
 
 .content-wrapper {
