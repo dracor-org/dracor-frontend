@@ -481,7 +481,8 @@ table.table.corpus th:focus {
 
 .dashboard-wrapper {
   display: block;
-  padding-bottom: var(--x);
+  padding-top: var(--bootstrap-padding);
+  padding-bottom: var(--bootstrap-padding);
   margin-bottom: 0;
 }
 
