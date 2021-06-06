@@ -4,6 +4,7 @@ import api from '../api';
 import {makeGraph} from '../network';
 import PlayDetailsHeader from './PlayDetailsHeader';
 import PlayDetailsNav from './PlayDetailsNav';
+import PlayDetailsTab from './PlayDetailsTab';
 import CastList from './CastList';
 import DownloadLinks from './DownloadLinks';
 import NetworkGraph from './NetworkGraph';
@@ -91,7 +92,17 @@ const PlayInfo = ({corpusId, playId}) => {
 
   const teiUrl = `${apiUrl}/corpora/${play.corpus}/play/${play.name}/tei`;
 
+  const castList = (
+    <>
+      <h4>Cast list</h4>
+      <p>(in order of appearance)</p>
+      <CastList cast={play.cast || []}/>
+    </>
+  );
+
   let tabContent = null;
+  let sidebar = null;
+
   if (tab === 'speech') {
     tabContent = <SpeechDistribution segments={play.segments} {...{groups}}/>;
   } else if (tab === 'downloads') {
@@ -100,11 +111,18 @@ const PlayInfo = ({corpusId, playId}) => {
     tabContent = <TEIPanel url={teiUrl}/>;
   } else if (tab === 'relations') {
     tabContent = <RelationsGraph {...{play, nodeColor, edgeColor}}/>;
+    sidebar = castList;
   } else {
     tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor, play}}/>;
+    sidebar = castList;
   }
 
   const authors = play.authors.map(a => a.name).join(' · ');
+
+  // we remove relations from nav items if none are available for the play
+  const items = navItems.filter(
+    item => item.name !== 'relations' || play.relations
+  );
 
   return (
     <div className="h-100 d-md-flex flex-md-column dracor-page">
@@ -112,28 +130,10 @@ const PlayInfo = ({corpusId, playId}) => {
         <title>{`${authors}: ${play.title}`}</title>
       </Helmet>
       <PlayDetailsHeader play={play}/>
-      <PlayDetailsNav
-        items={
-          // we remove relations from nav items if none are available for the
-          // play
-          navItems.filter(item => item.name !== 'relations' || play.relations)
-        }
-        current={tab}
-      />
-
-      <div className="dashboard-wrapper">
-        {/* tabbed area */}
-        <div id="dashboard" style={{flex: 1}}>
-          <div className="d-flex">
-            <div className="content-wrapper">{tabContent}</div>
-            <div className="cast-list-wrapper">
-              <h4>Cast list</h4>
-              <p>(in order of appearance)</p>
-              <CastList cast={play.cast || []}/>
-            </div>
-          </div>
-        </div>
-      </div>
+      <PlayDetailsNav items={items} current={tab}/>
+      <PlayDetailsTab sidebar={sidebar}>
+        {tabContent}
+      </PlayDetailsTab>
     </div>
   );
 };
