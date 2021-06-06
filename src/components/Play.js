@@ -92,13 +92,7 @@ const PlayInfo = ({corpusId, playId}) => {
 
   const teiUrl = `${apiUrl}/corpora/${play.corpus}/play/${play.name}/tei`;
 
-  const castList = (
-    <>
-      <h4>Cast list</h4>
-      <p>(in order of appearance)</p>
-      <CastList cast={play.cast || []}/>
-    </>
-  );
+  const castList = <CastList hasTitle cast={play.cast || []}/>;
 
   let tabContent = null;
   let sidebar = null;

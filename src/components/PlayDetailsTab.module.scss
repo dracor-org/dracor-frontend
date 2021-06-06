@@ -58,6 +58,9 @@
 }
 
 .sidebar {
+  overflow-y: auto;
+  width: calc(100% / 4);
+
   @media only screen and (max-width: 767px) {
     margin-top: 2em;
     height: auto;
