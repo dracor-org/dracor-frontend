@@ -96,6 +96,7 @@ const PlayInfo = ({corpusId, playId}) => {
   const castList = <CastList hasTitle cast={play.cast || []}/>;
 
   let tabContent = null;
+  let description = null;
   let sidebar = null;
 
   if (tab === 'speech') {
@@ -112,17 +113,46 @@ const PlayInfo = ({corpusId, playId}) => {
         onChange={type => setChartType(type)}
       />
     );
+    description = (
+      <p>
+        This tab shows different ways of visualising speech distribution.
+      </p>
+    );
   } else if (tab === 'downloads') {
     tabContent = <DownloadLinks play={play}/>;
+    description = (
+      <p>
+        This tab provides download options for different semantic layers of a
+        single play in different formats for a closer analysis with appropriate
+        tools.
+      </p>
+    );
   } else if (tab === 'text') {
     tabContent = <TEIPanel url={teiUrl}/>;
-    sidebar = <SourceInfo source={play.source} original={play.originalSource}/>;
+    description = (
+      <SourceInfo source={play.source} original={play.originalSource}/>
+    );
   } else if (tab === 'relations') {
     tabContent = <RelationsGraph {...{play, nodeColor, edgeColor}}/>;
     sidebar = castList;
+    description = (
+      <p>
+        This tab visualises kinship and other relationship data, following the
+        encoding scheme proposed in{' '}
+        <a href="https://doi.org/10.5281/zenodo.4621778">
+          Wiedmer, Pagel, Reiter 2020
+        </a>.
+      </p>
+    );
   } else {
     tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor, play}}/>;
     sidebar = castList;
+    description = (
+      <p>
+        This tab shows a co-occurrence network. If characters appear in the
+        same scene or act, they are linked.
+      </p>
+    );
   }
 
   const authors = play.authors.map(a => a.name).join(' · ');
@@ -139,7 +169,7 @@ const PlayInfo = ({corpusId, playId}) => {
       </Helmet>
       <PlayDetailsHeader play={play}/>
       <PlayDetailsNav items={items} current={tab}/>
-      <PlayDetailsTab sidebar={sidebar}>
+      <PlayDetailsTab sidebar={sidebar} description={description}>
         {tabContent}
       </PlayDetailsTab>
     </div>

@@ -5,7 +5,7 @@ import style from './PlayDetailsTab.module.scss';
 
 const cx = classnames.bind(style);
 
-const PlayDetailsTab = ({sidebar, children}) => {
+const PlayDetailsTab = ({children, description, sidebar}) => {
   return (
     <div className={cx('main')}>
       <div>
@@ -13,8 +13,13 @@ const PlayDetailsTab = ({sidebar, children}) => {
           <div className={cx('content')}>
             {children}
           </div>
-          {sidebar && (
+          {(sidebar || description) && (
             <div className={cx('sidebar', 'dracor-scrollbar')}>
+              {description && (
+                <div className={cx('description')}>
+                  {description}
+                </div>
+              )}
               {sidebar}
             </div>
           )}
@@ -26,6 +31,7 @@ const PlayDetailsTab = ({sidebar, children}) => {
 
 PlayDetailsTab.propTypes = {
   sidebar: PropTypes.element,
+  description: PropTypes.element,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node

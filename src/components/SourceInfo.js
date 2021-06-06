@@ -9,25 +9,20 @@ const SourceInfo = ({source, original}) => {
   return (
     <div className={cx('main')}>
       {source && (
-        <>
-          <h4>Source</h4>
-          <p>
-            {source.url ? (
-              <a target="_blank" rel="noopener noreferrer" href={source.url}>
-                {source.name}
-              </a>
-            ) : (
-              source.name
-            )}
-          </p>
-        </>
+        <p>
+          Full text originally obtained from{' '}
+          {source.url ? (
+            <a target="_blank" rel="noopener noreferrer" href={source.url}>
+              {source.name}
+            </a>
+          ) : (
+            source.name
+          )}. TEI adaptations, corrections, enhancements by DraCor.
+        </p>
       )}
 
       {original && (
-        <>
-          <h4>Original Source</h4>
-          <p>{original}</p>
-        </>
+        <p>Direct print source: <em>{original}</em></p>
       )}
     </div>
   );
