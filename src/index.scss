@@ -521,16 +521,6 @@ table.table.corpus th:focus {
   outline: none;
 }
 
-.content-wrapper .metrics div {
-    font-size: .85rem;
-    background: var(--background);
-    padding: .5rem;
-    border-radius: .25rem;
-    opacity: .8;
-    bottom: 0;
-    position: absolute;
-}
-
 .tei-frame {
   width: inherit;
   overflow-y: scroll;
@@ -691,9 +681,6 @@ table.table.corpus th:focus {
 
   .current-year {
     display: none;
-  }
-  .content-wrapper .metrics div {
-    width: 100%;
   }
 
   .tei-frame {

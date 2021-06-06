@@ -1,6 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames/bind';
+import style from './PlayMetrics.module.scss';
 import api from '../api';
+
+const cx = classnames.bind(style);
 
 function round (n) {
   return Math.round(n * 100) / 100;
@@ -61,7 +65,7 @@ const PlayMetrics = ({play}) => {
   const allInPercentage = Math.round(play.allInIndex * 100);
 
   return (
-    <div>
+    <div className={cx('main')}>
       Segments: {play.segments.length}
       <br/>
       All-in at segment {play.allInSegment + ' '}
