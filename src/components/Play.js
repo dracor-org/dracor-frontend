@@ -6,6 +6,7 @@ import PlayDetailsHeader from './PlayDetailsHeader';
 import PlayDetailsNav from './PlayDetailsNav';
 import PlayDetailsTab from './PlayDetailsTab';
 import CastList from './CastList';
+import SourceInfo from './SourceInfo';
 import DownloadLinks from './DownloadLinks';
 import NetworkGraph from './NetworkGraph';
 import RelationsGraph from './RelationsGraph';
@@ -25,7 +26,6 @@ const navItems = [
   {name: 'speech', label: 'Speech distribution'},
   {name: 'text', label: 'Full text'},
   {name: 'downloads', label: 'Downloads'}
-  // {name: 'sources', label: 'Sources'}
 ];
 
 const tabNames = new Set(navItems.map(item => item.name));
@@ -116,6 +116,7 @@ const PlayInfo = ({corpusId, playId}) => {
     tabContent = <DownloadLinks play={play}/>;
   } else if (tab === 'text') {
     tabContent = <TEIPanel url={teiUrl}/>;
+    sidebar = <SourceInfo source={play.source} original={play.originalSource}/>;
   } else if (tab === 'relations') {
     tabContent = <RelationsGraph {...{play, nodeColor, edgeColor}}/>;
     sidebar = castList;
