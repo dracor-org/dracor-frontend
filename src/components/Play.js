@@ -9,7 +9,7 @@ import CastList from './CastList';
 import DownloadLinks from './DownloadLinks';
 import NetworkGraph from './NetworkGraph';
 import RelationsGraph from './RelationsGraph';
-import SpeechDistribution from './SpeechDistribution';
+import SpeechDistribution, {SpeechDistributionNav} from './SpeechDistribution';
 import TEIPanel from './TEIPanel';
 
 import './Play.scss';
@@ -34,6 +34,7 @@ const PlayInfo = ({corpusId, playId}) => {
   const [play, setPlay] = useState(null);
   const [graph, setGraph] = useState(null);
   const [error, setError] = useState(null);
+  const [chartType, setChartType] = useState('trilckefischer');
 
   useEffect(() => {
     async function fetchPlay () {
@@ -98,7 +99,19 @@ const PlayInfo = ({corpusId, playId}) => {
   let sidebar = null;
 
   if (tab === 'speech') {
-    tabContent = <SpeechDistribution segments={play.segments} {...{groups}}/>;
+    tabContent = (
+      <SpeechDistribution
+        type={chartType}
+        segments={play.segments}
+        {...{groups}}
+      />
+    );
+    sidebar = (
+      <SpeechDistributionNav
+        type={chartType}
+        onChange={type => setChartType(type)}
+      />
+    );
   } else if (tab === 'downloads') {
     tabContent = <DownloadLinks play={play}/>;
   } else if (tab === 'text') {
