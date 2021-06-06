@@ -4,31 +4,10 @@
  * scrollable on medium (and up) displays
  */
 
-
-@media (min-width: 768px) {
-  #cast-list.card .card-body > div.cast-list-wrapper {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow-y: scroll;
-  }
-
-  /* fix info column width in two column layout */
-  .play-info-column {
-    width: 380px;
-  }
-}
-
 @media (max-width: 768px) {
   .speech-dist-container {
     flex-direction: column;
   }
-}
-
-.card-header:last-child {
-  border-bottom: none;
 }
 
 .tei-frame {
