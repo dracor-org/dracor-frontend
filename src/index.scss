@@ -535,19 +535,22 @@ table.table.corpus th:focus {
   padding-top: 2em;
 }
 
-.cast-list-wrapper::-webkit-scrollbar, .tei-frame::-webkit-scrollbar {
-  width: .5rem;
-}
+.dracor-scrollbar {
+  &::-webkit-scrollbar {
+    width: .5rem;
+  }
 
-.cast-list-wrapper::-webkit-scrollbar-track, .tei-frame::-webkit-scrollbar-track {
-  background: var(--background);
-  border-radius: .25rem;
-}
+  &::-webkit-scrollbar-track {
+    background: var(--background);
+    border-radius: .25rem;
+  }
 
-.cast-list-wrapper::-webkit-scrollbar-thumb, .tei-frame::-webkit-scrollbar-thumb, .tei-frame::-webkit-scrollbar-thumb:hover {
-  background: var(--main);
-  border: none;
-  border-radius: .25rem;
+  &::-webkit-scrollbar-thumb,
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--main);
+    border: none;
+    border-radius: .25rem;
+  }
 }
 
 .version-pill {

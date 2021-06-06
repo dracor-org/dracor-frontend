@@ -14,7 +14,7 @@ const PlayDetailsTab = ({sidebar, children}) => {
             {children}
           </div>
           {sidebar && (
-            <div className={cx('sidebar')}>
+            <div className={cx('sidebar', 'dracor-scrollbar')}>
               {sidebar}
             </div>
           )}
