@@ -4,6 +4,8 @@ An (incomplete) collection of research articles on drama using data provided thr
 
 ## 2021
 
+* Inna Wendell: [A Statistical Analysis of Genre Dynamics: Evolution of the Russian Five-Act Comedy in Verse in the Eighteenth and Nineteenth Centuries.](https://escholarship.org/uc/item/9rr5k9p7) Dissertation, University of California, Los Angeles, 2021.
+* Margarita Berseneva, Aleksandr Dyuldenko, Frank Fischer, Anna Oskina: Parents and Children in Russian Drama. Research Scenarios Based on the Annotation of Kinship and Social Relations. In: EADH2021: »Interdisciplinary Perspectives on Data«. 21–25 September 2021. Siberian Federal University, Krasnoyarsk. (forthcoming)
 * Frank Fischer, Daniil Skorinkin: Social Network Analysis in Russian Literary Studies. In: Daria Gritsenko, Mariëlle Wijermars, Mikhail Kopotev (eds.): [The Palgrave Handbook of Digital Russia Studies.](https://www.palgrave.com/gp/book/9783030428549) Palgrave Macmillan 2021, pp. 517–536. ([doi:10.1007/978-3-030-42855-6_29](https://link.springer.com/chapter/10.1007/978-3-030-42855-6_29))
 
 ## 2020
