@@ -66,3 +66,12 @@
     height: auto;
   }
 }
+
+.description {
+  background: var(--background);
+  padding: var(--bootstrap-padding);
+  margin-bottom: var(--bootstrap-padding);
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
