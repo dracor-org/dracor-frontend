@@ -1,0 +1,24 @@
+.main {
+  font-size: .85rem;
+
+  // title
+  h4 {
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin: 0;
+  }
+
+  // subtitle
+  p {
+    margin: 0 0 1em;
+  }
+
+  // group icon
+  :global(.fa-users) {
+    color: var(--primary-accent);
+  }
+  // gender icons
+  :global(.fa-mars), :global(.fa-venus) {
+    opacity: .4;
+  }
+}

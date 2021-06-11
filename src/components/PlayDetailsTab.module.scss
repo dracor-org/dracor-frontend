@@ -1,0 +1,68 @@
+.main {
+  display: block;
+  padding-top: var(--bootstrap-padding);
+  padding-bottom: var(--bootstrap-padding);
+  margin-bottom: 0;
+
+  & > div {
+    border: 0;
+    position: relative;
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    min-width: 0;
+
+    @media only screen and (max-width: 767px) {
+      height: auto;
+    }
+
+    & > div {
+      display: flex;
+      position: relative;
+      height: fit-content;
+      padding: 1em;
+      border: 0;
+      border-radius: .5em;
+      background-color: var(--background-light);
+      box-shadow: 0 7px 5px 0 rgba(0, 0, 0, 0.2), 0 10px 1em 0 rgba(0,0,0,.08), 0 4px 0px 0 #33405220;
+
+      @media only screen and (max-width: 767px) {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+.content, .sidebar {
+  height: calc(100vh - (var(--x) * 6.5 + 1em));
+  @media only screen and (max-width: 1440px) {
+    height: calc(100vh - (var(--x) * 11 + .2rem));
+  }
+  @media only screen and (max-width: 767px) {
+    width: 100%;
+  }
+}
+
+.content {
+  width: calc(100% * 3 / 4);
+  display: flex;
+  position: relative;
+  margin-right: 1em;
+  overflow: hidden;
+
+  @media only screen and (max-width: 767px) {
+    min-height: calc(100vh - 4.2em);
+    overflow-y: hidden;
+    height: auto;
+  }
+}
+
+.sidebar {
+  overflow-y: auto;
+  width: calc(100% / 4);
+
+  @media only screen and (max-width: 767px) {
+    margin-top: 2em;
+    height: auto;
+  }
+}

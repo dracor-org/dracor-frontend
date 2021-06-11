@@ -12,7 +12,7 @@ const TEIPanel = ({url}) => {
   });
 
   return (
-    <div className="tei-frame">
+    <div className="tei-frame dracor-scrollbar">
       <div className="ceteicean">
         <div id="TEI"/>
       </div>

@@ -17,8 +17,6 @@ const PlayDetailsHeader = ({play}) => {
     corpus,
     title,
     subtitle,
-    source,
-    originalSource,
     wikidataId,
     yearPremiered,
     yearPrinted,
@@ -48,26 +46,6 @@ const PlayDetailsHeader = ({play}) => {
           </p>
 
           <ul className={cx('meta')}>
-            {source && (
-              <li>
-                Source:{' '}
-                {source.url ? (
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={source.url}
-                  >
-                    {source.name}
-                  </a>
-                ) : (
-                  source.name
-                )}
-              </li>
-            )}
-
-            {originalSource && (
-              <li>Original Source: {originalSource}</li>
-            )}
             <li>
               DraCor: <a href={`/id/${id}`}>{id}</a>
             </li>
