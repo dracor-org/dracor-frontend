@@ -1,0 +1,50 @@
+.main {
+  a {
+    color: var(--main);
+
+    display: inline-block;
+    background-color: var(--background-light);
+    color: var(--main);
+    padding: .05rem .25rem;
+    border-radius: .3em;
+    font-weight: 500;
+    font-size: 1.2rem;
+    border: 0;
+    width: fit-content;
+    transition: font-size .2s;
+    transition: background-color .2s ease-in-out;
+
+    &:hover {
+      background-color: var(--secondary-accent);
+    }
+
+
+    em {
+      color: var(--background-light);
+      background-color: var(--main);
+      padding: 0 .25rem;
+      border-radius: .2em;
+      margin-right: .1em;
+      font-weight: 400;
+      font-style: normal;
+      text-transform: capitalize;
+    }
+  }
+
+  // FIXME: This takes care of changing the size when switching on the sticky
+  // header. It would be nice to find a solution that does not rely on external
+  // class names.
+  :global(.sticky-outer-wrapper.active) & a {
+    font-size: 2.1em;
+    padding: 0 .35rem;
+  }
+
+  span {
+    font-weight: normal;
+
+    // DraCor ID link
+    a {
+      font-size: 85%;
+    }
+  }
+}

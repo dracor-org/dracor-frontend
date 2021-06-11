@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {Helmet} from 'react-helmet';
 import Sticky from 'react-stickynode';
-import {Link} from 'react-router-dom';
 import api from '../api';
 import {makeGraph} from '../network';
+import CorpusLabel from './CorpusLabel';
 import PlayDetailsNav from './PlayDetailsNav';
 import IdLink from './IdLink';
 import Years from './Years';
@@ -163,11 +163,7 @@ const PlayInfo = ({corpusId, playId}) => {
 
       <Sticky enabled innerZ={1}>
         <span>
-          <Link className="corpus-label" to={`/${play.corpus}`}>
-            <h4>
-              <span>{play.corpus}</span>DraCor
-            </h4>
-          </Link>
+          <CorpusLabel name={play.corpus}/>
           <div className="sticky-headings">
             <h1>{play.title}</h1>
             <span>
