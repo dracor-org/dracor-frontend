@@ -11,6 +11,7 @@
   --primary-accent: #0088ff;
   --secondary-accent: #aaeeff;
   --x: 2rem;
+  --bootstrap-padding: 15px;
 }
 
 html, #root {
@@ -44,43 +45,14 @@ a:hover {
   box-shadow: none;
 }
 
-hgroup {
-  color: var(--background-light);
-}
-
-h2 {
-  padding-top: calc(2 * var(--x));
-}
-
-h3, h4 {
-  padding-top: var(--x);
-}
-
 /* ############################# */
 /* #NAVIGATION                 # */
 /* ############################# */
 
+// FIXME: move navbar overrides to TopNav.module.scss
 .navbar {
   padding: var(--x);
   z-index: 2;
-}
-
-/* centered top navigation */
-.dracor-mainnav {
-  margin: auto;
-}
-
-/* main entries in top navigation */
-.dracor-navbar .navbar-nav .nav-item,
-.dracor-navbar .navbar-nav .dropdown .dropdown-toggle {
-  font-size: 1.2em;
-  font-weight: 400;
-  text-transform: uppercase;
-}
-
-.dracor-navbar .dropdown-item.active {
-  color: var(--main);
-  background-color: var(--secondary-accent);
 }
 
 .navbar .navbar-nav .nav-link {
@@ -106,40 +78,9 @@ h3, h4 {
   margin-right: 0;
 }
 
-.navbar-brand, .dracor-github {
-  width: calc(2 * var(--x));
-  height: calc(2 * var(--x));
-}
-
-.navbar-brand {
-  content: ' ';
-  background-image: url(./images/DraCor-white.svg);
-  background-repeat: no-repeat;
-  margin: 0;
-  padding: 0;
-  font-size: 1em;
-}
-
-.dracor-github {
-  margin: 0;
-  padding: 0;
-  border-bottom: none;
-}
-
 .nav-link span {
   display: none;
 }
-
-.dracor-github .nav-item .nav-link:hover {
-  border-bottom: none;
-}
-
-.nav-link .fa-github {
-  width: 100%;
-  height: 100%;
-  font-size: 1rem;
-}
-
 
 /* #HEADROOM */
 
@@ -203,25 +144,9 @@ h3, h4 {
   position: absolute;
 }
 
-.container-fluid {
-  padding: 0;
-}
-
-.dracor-page > * {
-  margin: var(--x);
-}
-
-.dracor-page h1:first-of-type {
+.dracor-page hgroup {
   color: var(--background-light);
-  text-decoration: underline;
-  text-decoration-color: var(--secondary-accent);
-  text-decoration-thickness: .1em;
   background-color: var(--main);
-  font-size: 3rem;
-  font-weight: 400;
-  line-height: 1;
-  margin: 0;
-  padding: var(--x);
 }
 
 .loading {
@@ -261,127 +186,6 @@ h3, h4 {
 
 .dracor-page img[alt~="shirt"] {
   max-height: 40em;
-}
-
-/* ############################# */
-/* #STICKY                     # */
-/* ############################# */
-
-.sticky-outer-wrapper {
-  /* FIXME: This is an invisible trigger to activate the sticky header. Since
-     Headroom (when active) decreases the viewport height of a page by
-     disappearing (positon: fixed;) after scrolling down, the trigger has to be
-     moved accordingly. This should probably be revised when refactoring the
-     header (https://github.com/dracor-org/dracor-frontend/pull/130).
-   */
-  margin: 0;
-  padding-top: calc(var(--x) * 8);
-  margin-top: calc(var(--x) * (-8));
-}
-
-.sticky-inner-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  background: var(--main);
-  padding-right: var(--x);
-}
-
-.sticky-inner-wrapper > span {
-  padding: var(--x) var(--x) 0;
-  width: 100%;
-  display: flex;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -ms-overflow-style: none;
-  overflow: -moz-scrollbars-none;
-  white-space: nowrap;
-}
-
-.sticky-inner-wrapper > span::-webkit-scrollbar {
-  display: none;
-}
-
-.sticky-inner-wrapper > span::after {
-  content: '';
-  width: var(--x);
-  height: 2em;
-  background-image: linear-gradient(to left, var(--main),var(--main-transparent));
-  position: absolute;
-  right: var(--x);
-}
-
-.sticky-headings {
-  display: inline-flex;
-  flex-flow: column;
-}
-
-.sticky-headings span {
-  display: inline-flex;
-}
-
-.sticky-headings h3 {
-  padding: 0 0 0 .5rem;
-}
-
-.sticky-headings h3::before {
-  content: '·';
-  margin-right: .5rem;
-}
-
-.sticky-headings h3:first-of-type {
-  padding-left: 1rem;
-}
-
-.sticky-headings h3:last-of-type {
-  padding-right: var(--x);
-}
-
-.sticky-headings h3:first-of-type::before {
-  content: '';
-  margin: 0;
-}
-
-.sticky-inner-wrapper h1:first-of-type {
-  font-size: 0;
-  padding: 0;
-  transition: font-size .2s;
-  text-decoration: none;
-}
-
-.sticky-outer-wrapper.active h1:first-of-type {
-  font-size: 1.73em;
-  padding-left: 1rem;
-  padding-right: var(--x);
-  text-decoration: underline;
-  text-decoration-color: var(--secondary-accent);
-  text-decoration-thickness: .1em;
-}
-
-.sticky-inner-wrapper h3 {
-  font-weight: normal;
-  line-height: 1;
-  color: var(--background-light);
-  margin: 0;
-  transition: font-size .2s;
-}
-
-.sticky-inner-wrapper h3 span {
-  font-size: .6em;
-  vertical-align: middle;
-}
-
-.sticky-outer-wrapper.active {
-  padding: 0;
-  margin: 0;
-}
-
-.sticky-outer-wrapper.active h3 {
-  padding-top: .42em;
-  font-size: 1em;
-}
-
-.sticky-outer-wrapper.active h3 span {
-  display: none;
 }
 
 /* ############################# */
@@ -643,41 +447,10 @@ table.table.corpus th:focus {
 /* #PLAY                       # */
 /* ############################# */
 
-.play-header {
-  margin: 0;
-  padding-top: var(--x);
-  columns: 2;
-  gap: 0;
-  background: var(--main);
-  z-index: 1;
-}
-
-.play-header > *, .play-header h1:first-of-type {
-  padding: 0 var(--x) var(--x);
-  margin: 0;
-}
-
-.play-header .subtitle {
-  font-size: 1.3em;
-  font-weight: 400;
-}
-
-.play-header li {
-  list-style: none;
-}
-
-.play-header .years span {
-  margin-right: 1rem;
-}
-
-.play-meta {
-  font-size: .85em;
-  flex: 1;
-}
-
 .dashboard-wrapper {
   display: block;
-  padding-bottom: var(--x);
+  padding-top: var(--bootstrap-padding);
+  padding-bottom: var(--bootstrap-padding);
   margin-bottom: 0;
 }
 
@@ -746,19 +519,6 @@ table.table.corpus th:focus {
   color: var(--secondary-accent);
   border: none;
   outline: none;
-}
-
-#play-meta-data .meta-data-toggler {
-  background-color: #FFF;
-  color: var(--main) !important;
-  border-radius: 2em;
-  width: 3em;
-  height: 3em;
-  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 5px 2em 0 rgba(0,0,0,.08);
-}
-
-#play-meta-data .meta-data-toggler .svg-inline--fa {
-  vertical-align: -0.125em;
 }
 
 .content-wrapper {
@@ -844,209 +604,6 @@ table.table.corpus th:focus {
   border-radius: .25rem;
 }
 
-/* ############################# */
-/* #SWAGGER & YASGUI STYLES    # */
-/* ############################# */
-
-.yasgui {
-  z-index: 0;
-}
-
-.yasgui .nav-tabs {
-  background-color: var(--background);
-}
-
-.yasgui .yasr {
-  padding-bottom: 5px;
-}
-
-.yasgui .tab-content {
-  box-shadow: 0 7px 5px 0 rgba(0, 0, 0, 0.2), 0 10px 1em 0 rgba(0,0,0,.08);
-}
-
-.yasgui .yasr .yasr_btn.selected, .yasgui .yasr .yasr_btn:focus {
-  background-color: var(--main) !important;
-  border-color: var(--main) !important;
-}
-
-.yasgui svg {
-  vertical-align: inherit;
-  fill: var(--main);
-}
-
-.yasgui .nav-tabs li a[role=addTab] {
-  padding: 0 .5em !important;
-}
-
-.yasgui .nav-tabs>li>a {
-  border-radius: 8px 8px 0 0 !important;
-}
-
-.yasgui a {
-  color: var(--main) !important;
-}
-
-.swagger-ui .loading-container {
-  width: 100%;
-  margin: 0 !important;
-  display: inline-block !important;
-  padding: 0 !important;
-  background: var(--main);
-}
-
-.swagger-ui .errors-wrapper {
-  margin: var(--x) 0 0 !important;
-}
-
-.swagger-ui, .swagger-ui .opblock-tag, .swagger-ui .opblock .opblock-summary-description, .swagger-ui .opblock .opblock-summary-method, .swagger-ui .opblock-description-wrapper p, .swagger-ui .opblock-external-docs-wrapper p, .swagger-ui .opblock-title_normal p, .swagger-ui p {
-  font-family: 'Rubik', sans-serif !important;
-}
-
-.swagger-ui .info hgroup.main {
-  margin: 0 !important;
-  display: inline-grid;
-}
-
-.swagger-ui .info .title {
-  font-size: calc(2.3 * var(--x)) !important;
-  color: var(--background-light) !important;
-  font-family: 'Rubik', sans-serif !important;
-  font-weight: 400;
-  text-decoration: underline;
-  text-decoration-color: var(--secondary-accent);
-}
-
-.swagger-ui .wrapper {
-  padding: var(--x) !important;
-  margin: 0 !important;
-  width: 100%;
-  max-width: none !important;
-}
-
-.swagger-ui .information-container {
-  padding: 0 !important;
-}
-
-.swagger-ui hgroup {
-  columns: 2;
-}
-
-.swagger-ui .info hgroup.main .link {
-  color: var(--background-light);
-  padding: .1em .6em;
-  border-radius: 1em;
-  background-color: var(--primary-accent);
-  margin-left: .2em;
-  margin-top: 1em;
-  display: inline-block;
-  transition: .3s ease-in-out;
-  width: fit-content;
-}
-
-.swagger-ui .info hgroup.main .link:hover {
-  color: var(--secondary-accent);
-}
-
-.swagger-ui .info {
-    background: var(--main);
-    margin: 0 !important;
-    padding: var(--x);
-    columns: 2;
-}
-
-.swagger-ui .info a {
-  font-family: 'Rubik', sans-serif !important;
-}
-
-.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {
-    padding: 0 !important;
-}
-
-.swagger-ui .scheme-container {
-  background: var(--background-color) !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-}
-
-.swagger-ui .info .title small {
-  background-color: var(--background-light) !important;
-}
-
-.swagger-ui .info .title small pre {
-  color: var(--main) !important;
-}
-
-.swagger-ui .info .title small:last-child {
-  background-color: var(--secondary-accent) !important;
-}
-
-.swagger-ui .errors-wrapper {
-  color: var(--main);
-  background: var(--background-light) !important;
-}
-
-/* ############################# */
-/* #FOOTER                     # */
-/* ############################# */
-
-.footer {
-  font-size: .9rem;
-  line-height: 1.65;
-  display: flex;
-  flex-flow: row wrap;
-  width: auto;
-  columns: 2;
-  gap: var(--x);
-  padding: var(--x);
-  background: linear-gradient(to top, #ebf0f6, #e3e8f1);
-  margin: 1em 0 0;
-}
-
-.footer p {
-  margin-bottom: 0;
-}
-
-.footer h5 {
-  width: 100%;
-  white-space: nowrap;
-}
-
-.footer > * {
-  flex: 1 1;
-  height: 100%;
-}
-
-.citation {
-  display: flex;
-  flex-flow: row wrap;
-}
-
-.citation img {
-  height: 5em;
-  padding-top: .3rem;
-  padding-right: 1rem;
-  transition: opacity .3s ease-in-out;
-}
-
-.citation img:hover {
-  opacity: .85;
-}
-
-.citation p {
-  flex: 1 0 0;
-  place-self: flex-end;
-}
-
-.license {
-  text-align: right;
-  white-space: nowrap;
-}
-
-.license a img {
-  margin: 0 0 .3rem .3rem;
-  height: 1.3rem;
-}
-
 .version-pill {
   white-space: nowrap;
 }
@@ -1079,16 +636,13 @@ table.table.corpus th:focus {
   .content-wrapper, .cast-list-wrapper {
     height: calc(100vh - (var(--x) * 11 + .2rem));
   }
-  .navbar-brand, .dracor-github {
-    width: calc(3 * var(--x));
-    height: calc(3 * var(--x));
-  }
 }
 
 @media only screen and (max-width: 767px) {
   .headroom-wrapper {
     height: auto !important;
   }
+  // FIXME: move navbar overrides to TopNav.module.scss
   .navbar .navbar-toggler-icon {
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="rgb(255, 255, 255)"><rect y="0" width="100%" height="12%" rx="0%" ry="0%" /><rect y="40%" width="100%" height="12%" rx="0%" ry="0%" /><rect y="80%" width="100%" height="12%" rx="0%" ry="0%" /></svg>') center / 100% 100% no-repeat;
   }
@@ -1118,13 +672,6 @@ table.table.corpus th:focus {
   }
   .navbar-collapse {
     padding-top: 1em;
-  }
-  .dracor-github {
-    width: auto;
-    height: auto;
-  }
-  .dracor-github .nav-item .nav-link:hover {
-    border-bottom: solid var(--secondary-accent) .17em;
   }
   .corpus-card {
     width: calc(100vw - 2.5em);
@@ -1165,23 +712,7 @@ table.table.corpus th:focus {
     width: 100%;
     padding-bottom: 0;
   }
-  .swagger-ui .info {
-    columns: 1;
-  }
-  .swagger-ui .loading-container {
-    width: 100%;
-  }
-  .footer {
-    flex-direction: column;
-  }
-  .citation, .license {
-    width: 100%;
-    text-align: left;
-    margin-bottom: 1em;
-  }
-  .license a img {
-    margin: 0 0 .3rem .3rem;
-  }
+
   .current-year {
     display: none;
   }

@@ -1,12 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {Helmet} from 'react-helmet';
-import Sticky from 'react-stickynode';
 import api from '../api';
 import {makeGraph} from '../network';
-import CorpusLabel from './CorpusLabel';
+import PlayDetailsHeader from './PlayDetailsHeader';
 import PlayDetailsNav from './PlayDetailsNav';
-import IdLink from './IdLink';
-import Years from './Years';
 import CastList from './CastList';
 import DownloadLinks from './DownloadLinks';
 import NetworkGraph from './NetworkGraph';
@@ -114,77 +111,15 @@ const PlayInfo = ({corpusId, playId}) => {
       <Helmet titleTemplate="%s - DraCor">
         <title>{`${authors}: ${play.title}`}</title>
       </Helmet>
-      <hgroup className="play-header">
-        <h1>{play.title}</h1>
-        {play.subtitle && (
-          <h2 className="subtitle">
-            <em>{play.subtitle}</em>
-          </h2>
-        )}
-        <p className="years">
-          <Years
-            written={play.yearWritten}
-            premiere={play.yearPremiered}
-            print={play.yearPrinted}
-          />
-          {play.wikidataId && (
-            <span className="data-link-label">
-              {' '}
-              <IdLink>{`wikidata:${play.wikidataId}`}</IdLink>
-            </span>
-          )}
-        </p>
-        <ul className="play-meta">
-          {play.source && (
-            <li>
-              Source:{' '}
-              {play.source.url ? (
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={play.source.url}
-                >
-                  {play.source.name}
-                </a>
-              ) : (
-                play.source.name
-              )}
-            </li>
-          )}
-
-          {play.originalSource && (
-            <li>Original Source: {play.originalSource}</li>
-          )}
-          <li>
-            DraCor: <a href={`/id/${play.id}`}>{play.id}</a>
-          </li>
-        </ul>
-      </hgroup>
-
-      <Sticky enabled innerZ={1}>
-        <span>
-          <CorpusLabel name={play.corpus}/>
-          <div className="sticky-headings">
-            <h1>{play.title}</h1>
-            <span>
-              {play.authors.map(a => (
-                <h3 key={a.key} className="data-link-label">
-                  {a.fullname}{' '} {a.key && <IdLink>{a.key}</IdLink>}
-                </h3>
-              ))}
-            </span>
-          </div>
-        </span>
-
-        <PlayDetailsNav
-          items={
-            // we remove relations from nav items if none are available for the
-            // play
-            navItems.filter(item => item.name !== 'relations' || play.relations)
-          }
-          current={tab}
-        />
-      </Sticky>
+      <PlayDetailsHeader play={play}/>
+      <PlayDetailsNav
+        items={
+          // we remove relations from nav items if none are available for the
+          // play
+          navItems.filter(item => item.name !== 'relations' || play.relations)
+        }
+        current={tab}
+      />
 
       <div className="dashboard-wrapper">
         {/* tabbed area */}

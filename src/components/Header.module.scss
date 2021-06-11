@@ -1,0 +1,17 @@
+.main {
+  color: var(--background-light);
+  background-color: var(--main);
+  padding-top: var(--x);
+  padding-bottom: var(--x);
+  margin-bottom: var(--x);
+
+  h1 {
+    text-decoration: underline;
+    text-decoration-color: var(--secondary-accent);
+    text-decoration-thickness: .1em;
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 0;
+  }
+}

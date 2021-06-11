@@ -4,6 +4,7 @@ import {DracorContext} from '../context';
 import api from '../api';
 import CorpusIndex from './CorpusIndex';
 import Play from './Play';
+import Header from './Header';
 import Footer from './Footer';
 
 const PlayPage = ({match}) => (
@@ -54,7 +55,7 @@ const Corpus = ({match, location}) => {
   if (match.url === location.pathname) {
     return (
       <div className="dracor-page">
-        <h1>{corpus.title}</h1>
+        <Header>{corpus.title}</Header>
         <CorpusIndex data={corpus}/>
         <Footer/>
       </div>
