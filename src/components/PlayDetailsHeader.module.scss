@@ -4,6 +4,9 @@
 
   .title {
     columns: 2;
+    @media (max-width: 767px) {
+      columns: 1;
+    }
     grid-gap: 0;
     gap: 0;
     background: var(--main);
@@ -27,9 +30,15 @@
 
   .meta {
     font-size: .85em;
-    flex: 1 1;
+    padding-left: 0;
+    margin-bottom: 0.5rem;
     li {
       list-style: none;
+    }
+
+    @media (max-width: 767px) {
+      text-align: left;
+      margin-bottom: 0;
     }
   }
 }
