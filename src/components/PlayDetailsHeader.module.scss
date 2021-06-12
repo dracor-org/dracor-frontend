@@ -136,6 +136,14 @@
       position: absolute;
       right: var(--x);
     }
+
+    @media (max-width: 767px) {
+      width: 100%;
+      padding-bottom: 0;
+      :global(.sticky-outer-wrapper):global(.active) &::after {
+        height: 4em;
+      }
+    }
   }
 
   h1:first-of-type {

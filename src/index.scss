@@ -638,14 +638,6 @@ table.table.corpus th:focus {
     width: 94vw;
     margin-top: .5em;
   }
- .sticky-outer-wrapper.active .sticky-inner-wrapper > span::after {
-   height: 4em;
- }
-
-  .sticky-inner-wrapper > span {
-    width: 100%;
-    padding-bottom: 0;
-  }
 
   .tei-frame {
     overflow-y: hidden;
