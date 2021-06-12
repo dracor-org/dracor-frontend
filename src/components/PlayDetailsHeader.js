@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Col} from 'reactstrap';
 import classnames from 'classnames/bind';
 import Sticky from 'react-stickynode';
@@ -10,7 +11,7 @@ import style from './PlayDetailsHeader.module.scss';
 
 const cx = classnames.bind(style);
 
-const PlayDetailsHeader = ({play}) => {
+const PlayDetailsHeader = ({play, children}) => {
   const {
     id,
     authors,
@@ -66,10 +67,26 @@ const PlayDetailsHeader = ({play}) => {
               </span>
             </div>
           </span>
+          {children}
         </Sticky>
       </Col>
     </Header>
   );
+};
+
+PlayDetailsHeader.propTypes = {
+  play: PropTypes.shape({
+    id: PropTypes.string,
+    authors: PropTypes.array,
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    corpus: PropTypes.string,
+    wikidataId: PropTypes.string,
+    yearPremiered: PropTypes.string,
+    yearPrinted: PropTypes.string,
+    yearWritten: PropTypes.string
+  }),
+  children: PropTypes.element
 };
 
 export default PlayDetailsHeader;

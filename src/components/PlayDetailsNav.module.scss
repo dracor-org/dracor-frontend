@@ -3,8 +3,8 @@
   // solution.
   margin-left: calc(var(--bootstrap-padding) * -1);
   margin-right: calc(var(--bootstrap-padding) * -1);
-  // override margin of preceding PageDetailsHeader
-  margin-top: calc(var(--x) * -1);
+
+  margin-top: .5rem;
   flex-flow: nowrap;
   white-space: nowrap;
   border-bottom: none;
