@@ -1,4 +1,5 @@
 import React, {useContext} from 'react';
+import {Col, Row} from 'reactstrap';
 import classnames from 'classnames/bind';
 import {DracorContext} from '../context';
 import svgBibTex from '../images/bibtex.svg';
@@ -17,8 +18,8 @@ const Footer = () => {
   }
 
   return (
-    <div className={cx('main')}>
-      <div className={cx('citation')}>
+    <Row className={cx('main')}>
+      <Col className={cx('citation')}>
         <h5>
           If you want to cite DraCor, <wbr/>please use the following reference:
         </h5>
@@ -47,8 +48,8 @@ const Footer = () => {
             doi:10.5281/zenodo.4284002
           </a>.
         </p>
-      </div>
-      <div className={cx('license')}>
+      </Col>
+      <Col className={cx('license')}>
         <h5>Drama Corpora Project 2020</h5>
         <p>Unless otherwise stated, all corpora and the web design<br/> are released under Creative Commons
           {' '}
@@ -95,8 +96,8 @@ const Footer = () => {
             </span>
           </p>
         )}
-      </div>
-    </div>
+      </Col>
+    </Row>
   );
 };
 

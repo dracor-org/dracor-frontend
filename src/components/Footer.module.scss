@@ -1,18 +1,10 @@
 .main {
   font-size: .9rem;
   line-height: 1.65;
-  display: flex;
-  flex-flow: row wrap;
-  width: auto;
-  columns: 2;
-  gap: var(--x);
-  padding: var(--x);
+  padding-top: var(--bootstrap-padding);
+  padding-bottom: var(--bootstrap-padding);
   background: linear-gradient(to top, #ebf0f6, #e3e8f1);
-  margin: 3em 0 0;
-
-  @media only screen and (max-width: 767px) {
-    flex-direction: column;
-  }
+  margin-top: 3em;
 
   & > * {
     flex: 1 1;
@@ -28,7 +20,6 @@
     white-space: nowrap;
   }
 }
-
 
 .citation {
   display: flex;
@@ -65,8 +56,8 @@
 
 @media only screen and (max-width: 767px) {
   .citation, .license {
-    width: 100%;
     text-align: left;
+    white-space: normal;
     margin-bottom: 1em;
     // FIXME: remove <br> from license text
     br {
