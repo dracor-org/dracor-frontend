@@ -1,7 +1,7 @@
 import React, {createElement, useEffect, useState} from 'react';
 import ReactMarkdown from 'react-markdown';
 import {Helmet} from 'react-helmet';
-import {Col} from 'reactstrap';
+import {Container, Col} from 'reactstrap';
 import axios from 'axios';
 import Header from './Header';
 import Footer from './Footer';
@@ -58,13 +58,15 @@ const DocPage = ({match}) => {
   }, [slug]);
 
   return (
-    <div className="dracor-page">
-      <Helmet titleTemplate="%s - DraCor">
-        <title>{title}</title>
-      </Helmet>
-      <ReactMarkdown source={markdown} renderers={{heading}}/>
-      <Footer/>
-    </div>
+    <Container fluid>
+      <div className="dracor-page">
+        <Helmet titleTemplate="%s - DraCor">
+          <title>{title}</title>
+        </Helmet>
+        <ReactMarkdown source={markdown} renderers={{heading}}/>
+        <Footer/>
+      </div>
+    </Container>
   );
 };
 

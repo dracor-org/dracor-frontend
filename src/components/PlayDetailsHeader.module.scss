@@ -1,8 +1,20 @@
-.main {
-  // wraps the title, years and meta information
-  padding-bottom: 0;
+@import "../mixins.scss";
 
+.main {
+  color: var(--background-light);
+  background-color: var(--main);
+  padding-top: var(--x);
+  padding-bottom: 0;
+  margin-bottom: var(--bootstrap-padding);
+  h1 {
+    @include pagetitle;
+  }
+
+  // wraps the title, years and meta information
   .title {
+    padding-left: var(--bootstrap-padding);
+    padding-right: var(--bootstrap-padding);
+
     columns: 2;
     @media (max-width: 767px) {
       columns: 1;
@@ -112,7 +124,9 @@
   display: flex;
   flex-wrap: wrap;
   background: var(--main);
-  padding-right: var(--x);
+  padding-left: var(--bootstrap-padding);
+  padding-right: var(--bootstrap-padding);
+  // padding-right: var(--x);
 
   & > span {
     padding: var(--x) 0 0;

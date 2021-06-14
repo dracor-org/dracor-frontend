@@ -5,12 +5,12 @@ import Footer from './Footer';
 
 const Home = () => {
   return (
-    <div className="row d-block">
-      <Corpora/>
-      <Container fluid>
-        <Footer/>
-      </Container>
-    </div>
+    <Container fluid>
+      <div className="row d-block">
+        <Corpora/>
+      </div>
+      <Footer/>
+    </Container>
   );
 };
 

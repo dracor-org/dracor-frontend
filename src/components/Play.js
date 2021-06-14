@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
+import {Container} from 'reactstrap';
 import {Helmet} from 'react-helmet';
 import api from '../api';
 import {makeGraph} from '../network';
@@ -171,9 +172,11 @@ const PlayInfo = ({corpusId, playId}) => {
       <PlayDetailsHeader play={play}>
         <PlayDetailsNav items={items} current={tab}/>
       </PlayDetailsHeader>
-      <PlayDetailsTab sidebar={sidebar} description={description}>
-        {tabContent}
-      </PlayDetailsTab>
+      <Container fluid>
+        <PlayDetailsTab sidebar={sidebar} description={description}>
+          {tabContent}
+        </PlayDetailsTab>
+      </Container>
     </div>
   );
 };

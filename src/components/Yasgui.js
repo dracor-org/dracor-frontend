@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Container} from 'reactstrap';
 import {Helmet} from 'react-helmet';
 import yasgui from 'yasgui/dist/yasgui';
 import {sparqlUrl, shortenerUrl as urlShortener} from '../config';
@@ -41,14 +42,16 @@ class Yasgui extends Component {
 
   render () {
     return (
-      <div className="dracor-page">
-        <Helmet titleTemplate="%s - DraCor">
-          <title>SPARQL</title>
-        </Helmet>
-        <Header>SPARQL</Header>
-        <div id="yasgui"/>
-        <Footer/>
-      </div>
+      <Container fluid>
+        <div className="dracor-page">
+          <Helmet titleTemplate="%s - DraCor">
+            <title>SPARQL</title>
+          </Helmet>
+          <Header>SPARQL</Header>
+          <div id="yasgui"/>
+          <Footer/>
+        </div>
+      </Container>
     );
   }
 }

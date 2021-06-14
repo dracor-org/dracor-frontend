@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Container} from 'reactstrap';
 import {Helmet} from 'react-helmet';
 import SwaggerUI from 'swagger-ui-react';
 import Footer from './Footer';
@@ -9,13 +10,13 @@ import './APIDoc.scss';
 class APIDoc extends Component {
   render () {
     return (
-      <div>
+      <Container fluid>
         <Helmet titleTemplate="%s - DraCor">
           <title>API Documentation</title>
         </Helmet>
         <SwaggerUI url="/api.yaml"/>
         <Footer/>
-      </div>
+      </Container>
     );
   }
 }
