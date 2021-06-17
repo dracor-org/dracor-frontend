@@ -5,7 +5,7 @@ import style from './PlayDetailsTab.module.scss';
 
 const cx = classnames.bind(style);
 
-const PlayDetailsTab = ({children, description, sidebar}) => {
+const PlayDetailsTab = ({children, description, sidebar, metrics}) => {
   return (
     <div className={cx('main')}>
       <div>
@@ -20,6 +20,7 @@ const PlayDetailsTab = ({children, description, sidebar}) => {
                   {description}
                 </div>
               )}
+              {metrics}
               {sidebar}
             </div>
           )}
@@ -32,6 +33,7 @@ const PlayDetailsTab = ({children, description, sidebar}) => {
 PlayDetailsTab.propTypes = {
   sidebar: PropTypes.element,
   description: PropTypes.element,
+  metrics: PropTypes.element,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node

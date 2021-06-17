@@ -66,6 +66,7 @@ const PlayMetrics = ({play}) => {
 
   return (
     <div className={cx('main')}>
+      <h4>Basic network properties</h4>
       Segments: {play.segments.length}
       <br/>
       All-in at segment {play.allInSegment + ' '}
