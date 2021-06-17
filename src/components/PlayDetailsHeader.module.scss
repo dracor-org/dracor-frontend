@@ -1,7 +1,24 @@
+@import "../mixins.scss";
+
 .main {
+  color: var(--background-light);
+  background-color: var(--main);
+  padding-top: var(--x);
+  padding-bottom: 0;
+
+  h1 {
+    @include pagetitle;
+  }
+
   // wraps the title, years and meta information
   .title {
+    padding-left: var(--bootstrap-padding);
+    padding-right: var(--bootstrap-padding);
+
     columns: 2;
+    @media (max-width: 767px) {
+      columns: 1;
+    }
     grid-gap: 0;
     gap: 0;
     background: var(--main);
@@ -25,9 +42,15 @@
 
   .meta {
     font-size: .85em;
-    flex: 1 1;
+    padding-left: 0;
+    margin-bottom: 0.5rem;
     li {
       list-style: none;
+    }
+
+    @media (max-width: 767px) {
+      text-align: left;
+      margin-bottom: 0;
     }
   }
 }
@@ -63,15 +86,7 @@
 }
 
 :global(.sticky-outer-wrapper) {
-  /* FIXME: This is an invisible trigger to activate the sticky header. Since
-     Headroom (when active) decreases the viewport height of a page by
-     disappearing (positon: fixed;) after scrolling down, the trigger has to be
-     moved accordingly. This should probably be revised when refactoring the
-     header (https://github.com/dracor-org/dracor-frontend/pull/130).
-   */
   margin: 0;
-  padding-top: calc(var(--x) * 8);
-  margin-top: calc(var(--x) * (-8));
 
   &:global(.active) {
     padding: 0;
@@ -101,11 +116,14 @@
   display: flex;
   flex-wrap: wrap;
   background: var(--main);
-  padding-right: var(--x);
+  padding-left: var(--bootstrap-padding);
+  padding-right: var(--bootstrap-padding);
+  // padding-right: var(--x);
 
   & > span {
-    padding: var(--x) 0 0;
+    padding: var(--bootstrap-padding) 0 0;
     width: 100%;
+    min-height: 4em;
     display: flex;
     overflow-x: auto;
     overflow-y: hidden;
@@ -124,6 +142,14 @@
       background-image: linear-gradient(to left, var(--main),var(--main-transparent));
       position: absolute;
       right: var(--x);
+    }
+
+    @media (max-width: 767px) {
+      width: 100%;
+      padding-bottom: 0;
+      :global(.sticky-outer-wrapper):global(.active) &::after {
+        height: 4em;
+      }
     }
   }
 

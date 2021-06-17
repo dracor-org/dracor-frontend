@@ -1,13 +1,16 @@
 import React from 'react';
+import {Container} from 'reactstrap';
 import Corpora from './Corpora';
 import Footer from './Footer';
 
 const Home = () => {
   return (
-    <div className="row d-block">
-      <Corpora/>
+    <Container fluid>
+      <div className="row d-block">
+        <Corpora/>
+      </div>
       <Footer/>
-    </div>
+    </Container>
   );
 };
 

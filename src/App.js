@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
-import {Container} from 'reactstrap';
 import api from './api';
 import {DracorContext} from './context';
 import asyncComponent from './components/AsyncComponent';
@@ -64,16 +63,14 @@ const App = () => {
             <Redirect to="/doc/what-is-dracor"/>
           </Route>
           <Route path="/" component={TopNav}/>
-          <div className="content d-flex" style={{flex: 1}}>
-            <Container fluid>
-              <Switch>
-                <Route exact path="/" component={Home}/>
-                <Route exact path="/sparql" component={AsyncYasgui}/>
-                <Route exact path="/doc/api" component={AsyncAPIDoc}/>
-                <Route path="/doc/:slug" component={DocPage}/>
-                <Route path="/:corpusId" component={Corpus}/>
-              </Switch>
-            </Container>
+          <div>
+            <Switch>
+              <Route exact path="/" component={Home}/>
+              <Route exact path="/sparql" component={AsyncYasgui}/>
+              <Route exact path="/doc/api" component={AsyncAPIDoc}/>
+              <Route path="/doc/:slug" component={DocPage}/>
+              <Route path="/:corpusId" component={Corpus}/>
+            </Switch>
           </div>
         </div>
       </DracorContext.Provider>

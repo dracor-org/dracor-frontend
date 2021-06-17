@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react';
+import PropTypes from 'prop-types';
+import {Container} from 'reactstrap';
 import {Helmet} from 'react-helmet';
 import api from '../api';
 import {makeGraph} from '../network';
@@ -167,13 +169,21 @@ const PlayInfo = ({corpusId, playId}) => {
       <Helmet titleTemplate="%s - DraCor">
         <title>{`${authors}: ${play.title}`}</title>
       </Helmet>
-      <PlayDetailsHeader play={play}/>
-      <PlayDetailsNav items={items} current={tab}/>
-      <PlayDetailsTab sidebar={sidebar} description={description}>
-        {tabContent}
-      </PlayDetailsTab>
+      <PlayDetailsHeader play={play}>
+        <PlayDetailsNav items={items} current={tab}/>
+      </PlayDetailsHeader>
+      <Container fluid>
+        <PlayDetailsTab sidebar={sidebar} description={description}>
+          {tabContent}
+        </PlayDetailsTab>
+      </Container>
     </div>
   );
+};
+
+PlayInfo.propTypes = {
+  corpusId: PropTypes.string,
+  playId: PropTypes.string
 };
 
 export default PlayInfo;

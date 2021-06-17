@@ -3,8 +3,7 @@
   // solution.
   margin-left: calc(var(--bootstrap-padding) * -1);
   margin-right: calc(var(--bootstrap-padding) * -1);
-  // override margin of preceding PageDetailsHeader
-  margin-top: calc(var(--x) * -1);
+
   flex-flow: nowrap;
   white-space: nowrap;
   border-bottom: none;
@@ -12,16 +11,16 @@
   -ms-overflow-style: none;
   overflow: -moz-scrollbars-none;
   background: var(--main);
-  padding: 0 var(--x);
-  min-height: 2rem;
+  padding: 0 var(--bootstrap-padding);
+  min-height: 2em;
 
   &::after {
     content: '';
-    width: var(--x);
+    width: var(--bootstrap-padding);
     height: 2.5em;
     background-image: linear-gradient(to left, var(--main),var(--main-transparent));
     position: absolute;
-    right: var(--x);
+    right: 0;
   }
 
   &::-webkit-scrollbar {
@@ -30,7 +29,7 @@
 
   @media only screen and (max-width: 767px) {
     & {
-      padding: 0 var(--x);
+      padding: 0 var(--bootstrap-padding);
     }
     
     & li:last-child::after {

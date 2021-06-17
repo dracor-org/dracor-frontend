@@ -33,10 +33,24 @@
   }
 }
 
+
+
+
 .content, .sidebar {
-  height: calc(100vh - (var(--x) * 6.5 + 1em));
+  // Since sigma canvas requires a calculated height to fill available space on
+  // the page we have to subtract all heights that are not canvas:
+  //   1em padding-top on .main > div > div
+  //   1em padding-bottom on .main > div > div
+  //   1 var(--bootstrap-padding) padding-top on .main
+  //   1 var(--bootstrap-padding) padding-bottom on .main
+  //   1 var(--bootstrap-padding) padding-top on .sticky-inner-wrapper > span
+  //   4em min-height on .sticky-inner-wrapper > span
+  //   2em min-height on .PlayDetailsNav_main
+  //
+  // And leave at least one pixel to trigger the sticky header – that's the "-1px".
+  height: calc(100vh - (8em - 1px) - (var(--bootstrap-padding) * 3));
   @media only screen and (max-width: 1440px) {
-    height: calc(100vh - (var(--x) * 11 + .2rem));
+    height: calc(100vh - (8em - 3px) - (var(--bootstrap-padding) * 3));
   }
   @media only screen and (max-width: 767px) {
     width: 100%;
@@ -53,7 +67,9 @@
   @media only screen and (max-width: 767px) {
     min-height: calc(100vh - 4.2em);
     overflow-y: hidden;
+    width: auto;
     height: auto;
+    margin-right: 0;
   }
 }
 
@@ -63,6 +79,7 @@
 
   @media only screen and (max-width: 767px) {
     margin-top: 2em;
+    width: auto;
     height: auto;
   }
 }

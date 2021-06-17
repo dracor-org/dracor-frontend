@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {Route} from 'react-router-dom';
+import {Container} from 'reactstrap';
 import {DracorContext} from '../context';
 import api from '../api';
 import CorpusIndex from './CorpusIndex';
@@ -54,11 +55,13 @@ const Corpus = ({match, location}) => {
 
   if (match.url === location.pathname) {
     return (
-      <div className="dracor-page">
-        <Header>{corpus.title}</Header>
-        <CorpusIndex data={corpus}/>
-        <Footer/>
-      </div>
+      <Container fluid>
+        <div className="dracor-page">
+          <Header>{corpus.title}</Header>
+          <CorpusIndex data={corpus}/>
+          <Footer/>
+        </div>
+      </Container>
     );
   }
 

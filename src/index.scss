@@ -638,21 +638,6 @@ table.table.corpus th:focus {
     width: 94vw;
     margin-top: .5em;
   }
-  .play-header {
-    columns: 1;
-  }
- .sticky-outer-wrapper.active .sticky-inner-wrapper > span::after {
-   height: 4em;
- }
-
-  .sticky-inner-wrapper > span {
-    width: 100%;
-    padding-bottom: 0;
-  }
-
-  .current-year {
-    display: none;
-  }
 
   .tei-frame {
     overflow-y: hidden;
