@@ -36,7 +36,7 @@
 .content, .sidebar {
   height: calc(100vh - (8em - 1px) - (var(--bootstrap-padding) * 3));
   @media only screen and (max-width: 1440px) {
-    height: calc(100vh - (8em - 3px) - (var(--bootstrap-padding) * 3);
+    height: calc(100vh - (8em - 3px) - (var(--bootstrap-padding) * 3));
   }
   @media only screen and (max-width: 767px) {
     width: 100%;
