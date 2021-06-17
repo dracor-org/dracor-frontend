@@ -5,7 +5,7 @@
   background-color: var(--main);
   padding-top: var(--x);
   padding-bottom: 0;
-  margin-bottom: var(--bootstrap-padding);
+
   h1 {
     @include pagetitle;
   }
@@ -86,15 +86,7 @@
 }
 
 :global(.sticky-outer-wrapper) {
-  /* FIXME: This is an invisible trigger to activate the sticky header. Since
-     Headroom (when active) decreases the viewport height of a page by
-     disappearing (positon: fixed;) after scrolling down, the trigger has to be
-     moved accordingly. This should probably be revised when refactoring the
-     header (https://github.com/dracor-org/dracor-frontend/pull/130).
-   */
   margin: 0;
-  padding-top: calc(var(--x) * 8);
-  margin-top: calc(var(--x) * (-8));
 
   &:global(.active) {
     padding: 0;
@@ -129,8 +121,9 @@
   // padding-right: var(--x);
 
   & > span {
-    padding: var(--x) 0 0;
+    padding: var(--bootstrap-padding) 0 0;
     width: 100%;
+    min-height: 4em;
     display: flex;
     overflow-x: auto;
     overflow-y: hidden;
