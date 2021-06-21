@@ -35,6 +35,7 @@ const TopNav = () => {
             <TopNavDropdown
               label="About" items={[
                 {label: 'What is DraCor?', to: '/doc/what-is-dracor'},
+                {label: 'FAQ', to: '/doc/faq'},
                 {label: 'Credits', to: '/doc/credits'},
                 {label: 'Imprint', to: '/doc/imprint-and-gdpr'}
               ]}
