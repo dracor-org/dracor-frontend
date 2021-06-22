@@ -101,12 +101,6 @@ class Sapogov extends Component {
     return (
       <>
         <Line data={data} options={options}/>
-        <p>
-          {'Cf. '}
-          <a href="https://www.zotero.org/groups/940512/dlina/items/itemKey/BU7ZB3LY">
-            Sapogov 1974
-          </a>
-        </p>
       </>
     );
   }

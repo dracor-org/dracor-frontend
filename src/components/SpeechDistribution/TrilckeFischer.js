@@ -52,7 +52,7 @@ const TrilckeFischer = ({segments}) => {
 
   return (
     <>
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer width="100%" height={453}>
         <LineChart
           data={data}
         >
@@ -104,13 +104,6 @@ const TrilckeFischer = ({segments}) => {
           />
         </LineChart>
       </ResponsiveContainer>
-
-      <p>
-        {'Cf. '}
-        <a href="https://dh2017.adho.org/abstracts/071/071.pdf">
-          Trilcke/Fischer et al. 2017
-        </a>
-      </p>
     </>
   );
 };
