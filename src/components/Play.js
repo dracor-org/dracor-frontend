@@ -102,7 +102,7 @@ const PlayInfo = ({corpusId, playId}) => {
 
   let tabContent = null;
   let description = null;
-  let sidebar = null;
+  let cast = null;
   let metrics = null;
 
   if (tab === 'speech') {
@@ -113,16 +113,11 @@ const PlayInfo = ({corpusId, playId}) => {
         {...{groups}}
       />
     );
-    sidebar = (
+    description = (
       <SpeechDistributionNav
         type={chartType}
         onChange={type => setChartType(type)}
       />
-    );
-    description = (
-      <p>
-        This tab shows different ways of visualising speech distribution.
-      </p>
     );
   } else if (tab === 'downloads') {
     tabContent = <DownloadLinks play={play}/>;
@@ -140,7 +135,7 @@ const PlayInfo = ({corpusId, playId}) => {
     );
   } else if (tab === 'relations') {
     tabContent = <RelationsGraph {...{play, nodeColor, edgeColor}}/>;
-    sidebar = castList;
+    cast = castList;
     description = (
       <p>
         This tab visualises kinship and other relationship data, following the
@@ -152,7 +147,7 @@ const PlayInfo = ({corpusId, playId}) => {
     );
   } else {
     tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor, play}}/>;
-    sidebar = castList;
+    cast = castList;
     metrics = playMetrics;
     description = (
       <p>
@@ -178,7 +173,7 @@ const PlayInfo = ({corpusId, playId}) => {
         <PlayDetailsNav items={items} current={tab}/>
       </PlayDetailsHeader>
       <Container fluid>
-        <PlayDetailsTab sidebar={sidebar} description={description} metrics={metrics}>
+        <PlayDetailsTab cast={cast} description={description} metrics={metrics}>
           {tabContent}
         </PlayDetailsTab>
       </Container>
