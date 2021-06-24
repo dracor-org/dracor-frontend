@@ -10,6 +10,8 @@ import Years, {formatEra} from './Years';
 
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import './CorpusIndex.scss';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faInfoCircle} from '@fortawesome/free-solid-svg-icons';
 
 const {SearchBar} = Search;
 
@@ -63,6 +65,22 @@ function formatYear (d) {
         />
       </span>
     </span>
+  );
+}
+
+function formatYearHeader (column, colIndex, {sortElement}) {
+  return (
+    <>
+      {column.text}
+      {sortElement}
+      <Link
+        to="doc/faq/#normalized-year"
+        title="FAQ: What is the normalized year?"
+        style={{marginLeft: '0.5em'}}
+      >
+        <FontAwesomeIcon icon={faInfoCircle}/>
+      </Link>
+    </>
   );
 }
 
@@ -127,7 +145,8 @@ const CorpusIndex = ({data}) => {
     },
     filterValue: (cell, row) => `${row.yearNormalized} ${row.writtenYear} ` +
       `${row.premiereYear} ${row.printYear}`,
-    formatter: (cell, row) => formatYear(row)
+    formatter: (cell, row) => formatYear(row),
+    headerFormatter: formatYearHeader
   }, {
     dataField: 'networkSize',
     text: 'Network Size',
