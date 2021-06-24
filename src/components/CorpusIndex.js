@@ -55,7 +55,7 @@ function formatTitle (d, corpusId) {
 function formatYear (d) {
   return (
     <span className="year">
-      {formatEra(d.yearNormalized, 1000)}{' '}<Link className="info-icon" title="normalized year explaned" to={'doc/faq/#normalized-year'}><FontAwesomeIcon icon={faInfoCircle} size="xs"/></Link>
+      {formatEra(d.yearNormalized, 1000)}
       <br/>
       <span className="year-details">
         <Years
@@ -65,6 +65,22 @@ function formatYear (d) {
         />
       </span>
     </span>
+  );
+}
+
+function formatYearHeader (column, colIndex, {sortElement}) {
+  return (
+    <>
+      {column.text}
+      {sortElement}
+      <Link
+        to="doc/faq/#normalized-year"
+        title="FAQ: What is the normalized year?"
+        style={{marginLeft: '0.5em'}}
+      >
+        <FontAwesomeIcon icon={faInfoCircle}/>
+      </Link>
+    </>
   );
 }
 
@@ -129,7 +145,8 @@ const CorpusIndex = ({data}) => {
     },
     filterValue: (cell, row) => `${row.yearNormalized} ${row.writtenYear} ` +
       `${row.premiereYear} ${row.printYear}`,
-    formatter: (cell, row) => formatYear(row)
+    formatter: (cell, row) => formatYear(row),
+    headerFormatter: formatYearHeader
   }, {
     dataField: 'networkSize',
     text: 'Network Size',
