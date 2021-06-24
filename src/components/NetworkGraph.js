@@ -9,7 +9,6 @@ import {
   RelativeSize,
   RandomizeNodePositions
 } from 'react-sigma/lib/';
-import PlayMetrics from './PlayMetrics';
 
 class NetworkGraph extends Component {
   render () {
@@ -56,7 +55,6 @@ class NetworkGraph extends Component {
             {layout}
             <RelativeSize initialSize={15}/>
           </RandomizeNodePositions>
-          <div className="metrics"><PlayMetrics play={play}/></div>
         </Sigma>
       );
     }

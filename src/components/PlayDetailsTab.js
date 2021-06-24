@@ -5,33 +5,33 @@ import style from './PlayDetailsTab.module.scss';
 
 const cx = classnames.bind(style);
 
-const PlayDetailsTab = ({children, description, sidebar}) => {
+const PlayDetailsTab = ({children, description, cast, metrics}) => {
   return (
     <div className={cx('main')}>
-      <div>
-        <div>
           <div className={cx('content')}>
             {children}
           </div>
-          {(sidebar || description) && (
-            <div className={cx('sidebar', 'dracor-scrollbar')}>
-              {description && (
-                <div className={cx('description')}>
-                  {description}
-                </div>
-              )}
-              {sidebar}
+          <div className={cx('description')}>
+            {description}
+          </div>
+          {(metrics) && (
+            <div className={cx('metrics')}>
+              {metrics}
+            </div>
+          )}
+          {(cast) && (
+            <div className={cx('cast', 'dracor-scrollbar')}>
+              {cast}
             </div>
           )}
         </div>
-      </div>
-    </div>
   );
 };
 
 PlayDetailsTab.propTypes = {
-  sidebar: PropTypes.element,
+  cast: PropTypes.element,
   description: PropTypes.element,
+  metrics: PropTypes.element,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
@@ -39,7 +39,7 @@ PlayDetailsTab.propTypes = {
 };
 
 PlayDetailsTab.defaultProps = {
-  sidebar: null
+  cast: null
 };
 
 export default PlayDetailsTab;
