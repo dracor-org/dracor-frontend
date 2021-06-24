@@ -10,6 +10,8 @@ import Years, {formatEra} from './Years';
 
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import './CorpusIndex.scss';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faInfoCircle} from '@fortawesome/free-solid-svg-icons';
 
 const {SearchBar} = Search;
 
@@ -53,7 +55,7 @@ function formatTitle (d, corpusId) {
 function formatYear (d) {
   return (
     <span className="year">
-      {formatEra(d.yearNormalized, 1000)}
+      {formatEra(d.yearNormalized, 1000)}{' '}<Link className="info-icon" title="normalized year explaned" to={'doc/faq/#normalized-year'}><FontAwesomeIcon icon={faInfoCircle} size="xs"/></Link>
       <br/>
       <span className="year-details">
         <Years
