@@ -1,7 +1,6 @@
 .main {
   a {
     color: var(--main);
-
     display: inline-block;
     background-color: var(--background-light);
     color: var(--main);
@@ -11,8 +10,7 @@
     font-size: 1.2rem;
     border: 0;
     width: fit-content;
-    transition: font-size .2s;
-    transition: background-color .2s ease-in-out;
+    transition: all .2s ease-in-out;
 
     &:hover {
       background-color: var(--secondary-accent);
