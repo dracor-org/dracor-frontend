@@ -3,61 +3,156 @@
 .main {
   color: var(--background-light);
   background-color: var(--main);
-  padding-top: var(--x);
+  padding-top: var(--bootstrap-padding);
   padding-bottom: 0;
 
   h1 {
     @include pagetitle;
   }
 
-  // wraps the title, years and meta information
-  .title {
+  // wraps the title, years, authors and meta information
+  .play {
+    display: flex;
+    position: relative;
+    gap: 2em;
     padding-left: var(--bootstrap-padding);
     padding-right: var(--bootstrap-padding);
-
-    columns: 2;
-    @media (max-width: 767px) {
-      columns: 1;
-    }
-    grid-gap: 0;
-    gap: 0;
     background: var(--main);
     z-index: 1;
-  }
 
-  .subtitle {
-    margin: 0;
-    padding-top: 1rem;
-    font-size: 1.3em;
-    font-weight: 400;
-    font-style: italic;
-  }
-
-  .years {
-    padding-top: 1rem;
-    span {
-      margin-right: 1rem;
+    &::after {
+      content: '';
+      position: absolute;
+      right: var(--bootstrap-padding);
+      height: 100%;
+      width: 2em;
+      background: linear-gradient(to left, var(--main),var(--main-transparent));
     }
-  }
 
-  .meta {
-    font-size: .85em;
-    padding-left: 0;
-    margin-bottom: 0.5rem;
-    li {
-      list-style: none;
+    .title {
+      min-width: 33%;
+    }
+
+    .subtitle {
+      margin: 0;
+      padding-top: 1rem;
+      font-size: 1.3em;
+      font-weight: 400;
+      font-style: italic;
+    }
+  
+    .years {
+      padding-top: 1rem;
+      span {
+        margin-right: 1rem;
+      }
+    }
+  
+    .meta {
+      font-size: .85em;
+      padding-left: 0;
+      margin-bottom: 0.5rem;
+      li {
+        list-style: none;
+      }
+  
+      @media (max-width: 767px) {
+        text-align: left;
+        margin-bottom: 0;
+      }
+    }
+  
+    .authors {
+      display: flex;
+      overflow-x: auto;
+      -ms-overflow-style: none;
+      overflow: -moz-scrollbars-none;
+      min-width: 50%;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .author {
+        display: flex;
+        gap: 1em;
+        margin-right: 2em;
+
+        span {
+          line-height: 1;
+          white-space: nowrap;
+
+          h4 {
+            font-weight: 400;
+          }
+
+          p {
+            margin-bottom: .4em;
+          }
+        }
+
+        .author-image {
+          position: relative;
+          height: 6em;
+          min-width: 6em;
+          width: 6em;
+          border: solid;
+          border-radius: .5em;
+  
+          img {
+            object-fit: cover;
+            object-position: top;
+            border-radius: .5em;
+            width: 100%;
+            height: 100%;
+          }
+  
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: grayscale(1);
+          }
+  
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--main);
+            mix-blend-mode: color;
+          }
+        }
+      }
+
+      @media (max-width: 767px) {
+        flex-direction: column;
+        gap: var(--bootstrap-padding);
+        margin-bottom: 1em;
+      }
     }
 
     @media (max-width: 767px) {
-      text-align: left;
-      margin-bottom: 0;
+      flex-direction: column;
+      gap: var(--bootstrap-padding);
     }
   }
+
 }
 
 .sticky-headings {
   display: inline-flex;
   flex-flow: column;
+  margin-left: 1em;
+
+  p a {
+    text-transform: uppercase;
+  }
 
   span {
     display: inline-flex;
@@ -71,7 +166,7 @@
     }
 
     &:first-of-type {
-      padding-left: 1rem;
+      padding-left: 0;
     }
 
     &:last-of-type {
@@ -92,6 +187,10 @@
     padding: 0;
     margin: 0;
 
+    p {
+      display: none;
+    }
+
     h3 {
       padding-top: .42em;
       font-size: 1em;
@@ -102,7 +201,9 @@
 
     h1:first-of-type {
       font-size: 1.73em;
-      padding-left: 1rem;
+      font-weight: 400;
+      line-height: 1;
+      margin-bottom: 0;
       padding-right: var(--x);
       text-decoration: underline;
       text-decoration-color: var(--secondary-accent);
@@ -156,16 +257,14 @@
   h1:first-of-type {
     font-size: 0;
     padding: 0;
-    transition: font-size .2s;
     text-decoration: none;
   }
 
   h3 {
     font-weight: normal;
+    font-size: 0;
     line-height: 1;
-    color: var(--background-light);
     margin: 0;
-    transition: font-size .2s;
 
     span {
       font-size: .6em;

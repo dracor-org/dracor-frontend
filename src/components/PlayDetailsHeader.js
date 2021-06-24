@@ -24,41 +24,56 @@ const PlayDetailsHeader = ({play, children}) => {
 
   return (
     <div className={cx('main')}>
-      <div className={cx('title')}>
-        <h1>{title}</h1>
+      <div className={cx('play')}>
+        <div className={cx('title')}>
+          <h1>{title}</h1>
 
-        {subtitle && <h2 className={cx('subtitle')}>{subtitle}</h2>}
+          {subtitle && <h2 className={cx('subtitle')}>{subtitle}</h2>}
 
-        <p className={cx('years')}>
-          <Years
-            written={yearWritten}
-            premiere={yearPremiered}
-            print={yearPrinted}
-          />
-          {wikidataId && (
-            <span className="data-link-label">
-              {' '}
-              <IdLink>{`wikidata:${wikidataId}`}</IdLink>
-            </span>
-          )}
-        </p>
+          <p className={cx('years')}>
+            <Years
+              written={yearWritten}
+              premiere={yearPremiered}
+              print={yearPrinted}
+            />
+          </p>
 
-        <ul className={cx('meta')}>
-          <li>
-            DraCor: <a href={`/id/${id}`}>{id}</a>
-          </li>
-        </ul>
+          <ul className={cx('meta')}>
+
+          </ul>
+        </div>
+        <div className={cx('authors')}>
+        {authors.map(a => (
+                <div key={a.key} className={cx('author')}>
+                  <div className={cx('author-image')}><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Johann_Christoph_Gottsched.jpg/440px-Johann_Christoph_Gottsched.jpg"/></div>
+                  <span>
+                    <h4>{a.fullname}</h4>
+                    <p>* 2 February 1700, Königsberg</p>
+                    <p>† 12 December 1766, Leipzig</p>
+                    <p>Wikidata Author ID: {a.key && <IdLink>{a.key}</IdLink>}{' '}</p>
+                  </span>
+                </div>
+              ))}
+        </div>
       </div>
 
       <Sticky enabled innerZ={1}>
         <span>
           <CorpusLabel name={corpus}/>
           <div className={cx('sticky-headings')}>
+            <p>DraCor ID: <a href={`/id/${id}`}>{id}</a>{' '}
+            {wikidataId && (
+              <span>
+                {' '}Wikidata Title ID: 
+                {' '}<IdLink>{`wikidata:${wikidataId}`}</IdLink>
+              </span>
+            )}
+            </p>
             <h1>{title}</h1>
             <span>
               {authors.map(a => (
                 <h3 key={a.key} className="data-link-label">
-                  {a.fullname}{' '} {a.key && <IdLink>{a.key}</IdLink>}
+                  {a.fullname}
                 </h3>
               ))}
             </span>
