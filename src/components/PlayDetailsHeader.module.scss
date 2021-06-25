@@ -19,6 +19,20 @@
     padding-right: var(--bootstrap-padding);
     background: var(--main);
 
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      height: 100%;
+      width: 3em;
+      background: linear-gradient(
+        to left,
+        var(--main),
+        var(--main),
+        var(--main-transparent)
+      );
+    }
+
     .title {
       min-width: 42ch;
       max-width: 50%;
@@ -58,6 +72,13 @@
       flex-wrap: wrap;
       gap: 2em;
       min-width: 50%;
+      overflow-x: auto;
+      -ms-overflow-style: none;
+      overflow: -moz-scrollbars-none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
 
       .author {
         display: flex;
