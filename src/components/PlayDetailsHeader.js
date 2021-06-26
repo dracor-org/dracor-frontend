@@ -61,13 +61,14 @@ const PlayDetailsHeader = ({play, children}) => {
         <span>
           <CorpusLabel name={corpus}/>
           <div className={cx('sticky-headings')}>
-            <p>DraCor ID: <a href={`/id/${id}`}>{id}</a>{' '}
-            {wikidataId && (
-              <span>
-                {' '}Wikidata Title ID: 
-                {' '}<IdLink>{`wikidata:${wikidataId}`}</IdLink>
-              </span>
-            )}
+            <p>
+              DraCor ID: <a href={`/id/${id}`}>{id}</a>{' '}
+              {wikidataId && (
+                <span>
+                  {' '}Wikidata Title ID:
+                  {' '}<IdLink>{`wikidata:${wikidataId}`}</IdLink>
+                </span>
+              )}
             </p>
             <h1>{title}</h1>
             <span>
