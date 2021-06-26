@@ -52,7 +52,7 @@ const AuthorInfo = ({author}) => {
       wikidataId = author.key.slice(9);
     }
 
-    if (wikidataId) {
+    if (wikidataId && wikidataId !== 'Q4233718' /* anonymous */) {
       fetchAuthorInfo();
     }
   }, [author]);
