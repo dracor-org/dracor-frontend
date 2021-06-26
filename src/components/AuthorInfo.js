@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames/bind';
 import IdLink from './IdLink';
+import {formatYear} from './Years';
 import api from '../api';
 import style from './AuthorInfo.module.scss';
 
@@ -20,11 +21,15 @@ const AuthorInfo = ({author}) => {
           console.log(response.data);
           const info = {...response.data};
           if (info.birthDate) {
-            info.birthYear = info.birthDate.slice(0, 4);
+            info.birthYear = formatYear(
+              info.birthDate.replace(/^(-?\d{4}).*$/, '$1')
+            );
           }
 
           if (info.deathDate) {
-            info.deathYear = info.deathDate.slice(0, 4);
+            info.deathYear = formatYear(
+              info.deathDate.replace(/^(-?\d{4}).*$/, '$1')
+            );
           }
 
           if (info.imageUrl) {
