@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames/bind';
 import Sticky from 'react-stickynode';
+import AuthorInfo from './AuthorInfo';
 import CorpusLabel from './CorpusLabel';
 import IdLink from './IdLink';
 import Years from './Years';
@@ -37,23 +38,9 @@ const PlayDetailsHeader = ({play, children}) => {
               print={yearPrinted}
             />
           </p>
-
-          <ul className={cx('meta')}>
-
-          </ul>
         </div>
         <div className={cx('authors')}>
-        {authors.map(a => (
-                <div key={a.key} className={cx('author')}>
-                  <div className={cx('author-image')}><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Johann_Christoph_Gottsched.jpg/440px-Johann_Christoph_Gottsched.jpg"/></div>
-                  <span>
-                    <h4>{a.fullname}</h4>
-                    <p>* 2 February 1700, Königsberg</p>
-                    <p>† 12 December 1766, Leipzig</p>
-                    <p>Wikidata Author ID: {a.key && <IdLink>{a.key}</IdLink>}{' '}</p>
-                  </span>
-                </div>
-              ))}
+          {authors.map(a => <AuthorInfo key={id} author={a}/>)}
         </div>
       </div>
 
