@@ -79,7 +79,7 @@ const AuthorInfo = ({author}) => {
           <img src={imageUrl} title={name} alt=""/>
         )}
         {commonsPage && (
-          <a href={commonsPage} title="(C) Wikimedia Commons">
+          <a href={commonsPage} title="© Wikimedia Commons">
             <img src="/img/commons-logo.svg" width="17" alt="Wikimedia Commons"/>
           </a>
         )}
@@ -87,10 +87,10 @@ const AuthorInfo = ({author}) => {
       <span>
         <h4>{author.fullname}</h4>
         {(birthYear || birthPlace) && (
-          <p>b. {birthYear} {birthPlace}</p>
+          <p>b. {birthYear}, {birthPlace}</p>
         )}
         {(deathYear || deathPlace) && (
-          <p>d. {deathYear} {deathPlace}</p>
+          <p>d. {deathYear}, {deathPlace}</p>
         )}
         {author.key && (
           <p>Wikidata Author ID: <IdLink>{author.key}</IdLink></p>
