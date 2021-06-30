@@ -32,7 +32,11 @@ const PlayDetailsHeader = ({play, children}) => {
           {subtitle && <h2 className={cx('subtitle')}>{subtitle}</h2>}
 
           <span className={cx('meta')}>
-            {wikidataId && <span className={cx('data-label')}><IdLink>{`wikidata:${wikidataId}`}</IdLink></span>}
+            {wikidataId && (
+              <span className={cx('data-label')}>
+                <IdLink>{`wikidata:${wikidataId}`}</IdLink>
+              </span>
+            )}
 
             <span className={cx('years')}>
               <Years
