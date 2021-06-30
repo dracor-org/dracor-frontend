@@ -36,9 +36,10 @@
     font-weight: 500;
     transition: width .3s linear;
 
-    a {
+    a, span {
       color: var(--primary-accent);
       font-weight: normal;
+      cursor: pointer;
 
       &:after {
         content: '';
@@ -67,7 +68,7 @@
     font-weight: normal;
 
     // DraCor ID link
-    a {
+    a, span {
       font-size: 85%;
     }
   }

@@ -50,7 +50,7 @@ const PlayDetailsHeader = ({play, children}) => {
 
       <Sticky enabled innerZ={1}>
         <span>
-          <CorpusLabel name={corpus}/>
+          <CorpusLabel name={corpus} id={id}/>
           <div className={cx('sticky-headings')}>
             <h1>{title}</h1>
             <span>

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 import classnames from 'classnames/bind';
 import style from './CorpusLabel.module.scss';
 
@@ -12,9 +13,13 @@ const CorpusLabel = ({name, title, id}) => {
       <Link to={`/${name}`} title={title || 'Corpus'}>
         <em>{name}</em>DraCor
       </Link>
-      <span className={cx('dracor-id')}>ID: <a href="#" title="copy to clipboard">ger928238</a></span>
       {id && (
-        <span> | <Link to={`/id/${id}`}>{id}</Link></span>
+        <span className={cx('dracor-id')}>
+          ID:{' '}
+          <CopyToClipboard text={id} title="copy to clipboard">
+            <span>{id}</span>
+          </CopyToClipboard>
+        </span>
       )}
     </span>
   );
