@@ -52,9 +52,6 @@ const PlayDetailsHeader = ({play, children}) => {
         <span>
           <CorpusLabel name={corpus}/>
           <div className={cx('sticky-headings')}>
-            <p>
-              ID: <a href={`/id/${id}`}>{id}</a>
-            </p>
             <h1>{title}</h1>
             <span>
               {authors.map(a => (

@@ -12,6 +12,7 @@ const CorpusLabel = ({name, title, id}) => {
       <Link to={`/${name}`} title={title || 'Corpus'}>
         <em>{name}</em>DraCor
       </Link>
+      <span className={cx('dracor-id')}>ID: <a href="#" title="copy to clipboard">ger928238</a></span>
       {id && (
         <span> | <Link to={`/id/${id}`}>{id}</Link></span>
       )}
