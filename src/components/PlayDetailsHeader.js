@@ -31,13 +31,17 @@ const PlayDetailsHeader = ({play, children}) => {
 
           {subtitle && <h2 className={cx('subtitle')}>{subtitle}</h2>}
 
-          <p className={cx('years')}>
-            <Years
-              written={yearWritten}
-              premiere={yearPremiered}
-              print={yearPrinted}
-            />
-          </p>
+          <span className={cx('meta')}>
+            {wikidataId && <span className={cx('data-label')}><IdLink>{`wikidata:${wikidataId}`}</IdLink></span>}
+
+                        <span className={cx('years')}>
+              <Years
+                written={yearWritten}
+                premiere={yearPremiered}
+                print={yearPrinted}
+              />
+            </span>
+          </span>
         </div>
         <div className={cx('authors')}>
           {authors.map(a => <AuthorInfo key={id} author={a}/>)}
@@ -49,13 +53,7 @@ const PlayDetailsHeader = ({play, children}) => {
           <CorpusLabel name={corpus}/>
           <div className={cx('sticky-headings')}>
             <p>
-              DraCor ID: <a href={`/id/${id}`}>{id}</a>{' '}
-              {wikidataId && (
-                <span>
-                  {' '}Wikidata Title ID:
-                  {' '}<IdLink>{`wikidata:${wikidataId}`}</IdLink>
-                </span>
-              )}
+              ID: <a href={`/id/${id}`}>{id}</a>
             </p>
             <h1>{title}</h1>
             <span>
