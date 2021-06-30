@@ -85,15 +85,16 @@ const AuthorInfo = ({author}) => {
         )}
       </div>
       <span>
-        <h4>{author.fullname}</h4>
+        <h4>{author.fullname}
+          {author.key && (
+            <IdLink>{author.key}</IdLink>
+          )}
+        </h4>
         {(birthYear || birthPlace) && (
           <p>b. {birthYear}, {birthPlace}</p>
         )}
         {(deathYear || deathPlace) && (
           <p>d. {deathYear}, {deathPlace}</p>
-        )}
-        {author.key && (
-          <p>Wikidata Author ID: <IdLink>{author.key}</IdLink></p>
         )}
       </span>
     </div>
