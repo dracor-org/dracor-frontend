@@ -87,7 +87,7 @@ const AuthorInfo = ({author}) => {
       <span>
         <h4>{author.fullname}</h4>
         {author.key && (
-          <IdLink>{author.key}</IdLink>
+          <p><IdLink button>{author.key}</IdLink></p>
         )}
         {(birthYear || birthPlace) && (
           <p>b. {birthYear}, {birthPlace}</p>

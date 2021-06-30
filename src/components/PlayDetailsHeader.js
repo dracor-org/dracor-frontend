@@ -33,11 +33,10 @@ const PlayDetailsHeader = ({play, children}) => {
 
           <span className={cx('meta')}>
             {wikidataId && (
-              <span className={cx('data-label')}>
-                <IdLink>{`wikidata:${wikidataId}`}</IdLink>
-              </span>
+              <IdLink button className={cx('data-link')}>
+                {`wikidata:${wikidataId}`}
+              </IdLink>
             )}
-
             <span className={cx('years')}>
               <Years
                 written={yearWritten}
