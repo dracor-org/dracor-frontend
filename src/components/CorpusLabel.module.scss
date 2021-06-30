@@ -10,10 +10,10 @@
   color: var(--main);
   padding: .05rem .25rem;
   border-radius: .3em;
+  transition: font-size .3s ease-in-out;
 
   a {
     color: var(--main);
-    transition: all .2s ease-in-out;
 
     em {
       color: var(--background-light);
