@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames/bind';
 import Sticky from 'react-stickynode';
+import AuthorInfo from './AuthorInfo';
 import CorpusLabel from './CorpusLabel';
 import IdLink from './IdLink';
 import Years from './Years';
@@ -24,41 +25,41 @@ const PlayDetailsHeader = ({play, children}) => {
 
   return (
     <div className={cx('main')}>
-      <div className={cx('title')}>
-        <h1>{title}</h1>
+      <div className={cx('play')}>
+        <div className={cx('title')}>
+          <h1>{title}</h1>
 
-        {subtitle && <h2 className={cx('subtitle')}>{subtitle}</h2>}
+          {subtitle && <h2 className={cx('subtitle')}>{subtitle}</h2>}
 
-        <p className={cx('years')}>
-          <Years
-            written={yearWritten}
-            premiere={yearPremiered}
-            print={yearPrinted}
-          />
-          {wikidataId && (
-            <span className="data-link-label">
-              {' '}
-              <IdLink>{`wikidata:${wikidataId}`}</IdLink>
+          <span className={cx('meta')}>
+            {wikidataId && (
+              <IdLink button className={cx('data-link')}>
+                {`wikidata:${wikidataId}`}
+              </IdLink>
+            )}
+            <span className={cx('years')}>
+              <Years
+                written={yearWritten}
+                premiere={yearPremiered}
+                print={yearPrinted}
+              />
             </span>
-          )}
-        </p>
-
-        <ul className={cx('meta')}>
-          <li>
-            DraCor: <a href={`/id/${id}`}>{id}</a>
-          </li>
-        </ul>
+          </span>
+        </div>
+        <div className={cx('authors')}>
+          {authors.map(a => <AuthorInfo key={id} author={a}/>)}
+        </div>
       </div>
 
       <Sticky enabled innerZ={1}>
         <span>
-          <CorpusLabel name={corpus}/>
+          <CorpusLabel name={corpus} id={id}/>
           <div className={cx('sticky-headings')}>
             <h1>{title}</h1>
             <span>
               {authors.map(a => (
                 <h3 key={a.key} className="data-link-label">
-                  {a.fullname}{' '} {a.key && <IdLink>{a.key}</IdLink>}
+                  {a.fullname}
                 </h3>
               ))}
             </span>

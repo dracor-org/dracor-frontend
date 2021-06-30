@@ -1,0 +1,76 @@
+.main {
+  display: flex;
+  gap: 1em;
+
+  span {
+    line-height: 1;
+    white-space: nowrap;
+
+    h4 {
+      font-weight: 400;
+      margin-bottom: 0.1em;
+    }
+
+    p {
+      margin-bottom: 0.4em;
+    }
+  }
+}
+
+.image {
+  position: relative;
+  height: 6em;
+  width: 5em;
+  overflow: hidden;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cpath style='fill:%23fff' class='st0' d='M21.75,90.08c-2.28,41.51,47.26,95.14,50.82,134.94c0,0,0.09,62.44,0.09,62.44c-0.8,6.58,4.55,12.5,11.07,12.54 c0,0,87.71,0,87.71,0c5.93-0.07,10.99-4.5,11.35-10.51l0,0c0,0,0.09-23.98,0.09-23.98c0-6.36,5.07-11.44,11.44-11.44 c0,0,44.92-1.84,44.92-1.84c8.85,0,16.05-7.1,16.05-15.96l4.7-32.74c-0.71-2.82,13.62-11.86,15.49-13.93 c3.21-2.72,3.86-8.13,1.11-11.44c0,0-17.16-29.88-17.16-29.88l-0.55-0.92c-3.35-2.42,1.24-42.35,0.83-46.21 c0.03-1.05,0.94-10.05,0.74-11.07c0-49.16-39.84-89.01-89.01-89.01C101.67-3.37,26.17,2.34,21.75,90.08z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: center;
+  border: solid;
+  border-radius: 0.5em;
+
+  & > img {
+    object-fit: cover;
+    object-position: top;
+    width: 100%;
+    height: 100%;
+  }
+
+  // Wikimedia commons link
+  & > a {
+    position: absolute;
+    display: flex;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0);
+    z-index: 1;
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.6);
+    }
+
+    img {
+      place-self: center;
+      width: 100%;
+      margin: 0 auto;
+      padding: 20%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--main);
+    mix-blend-mode: color;
+  }
+}
