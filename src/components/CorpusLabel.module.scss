@@ -26,10 +26,13 @@
       text-transform: capitalize;
       transition: background-color .2s ease-in-out;
     }
+
+    &:hover > em {
+      background-color: var(--primary-accent);
+    }
   }
 
   .dracor-id {
-    width: 0;
     overflow: hidden;
     margin-left: .1em;
     margin-right: .1em;
@@ -59,7 +62,7 @@
     font-size: 2.1em;
     padding: 0 .35rem;
 
-    &:hover > .dracor-id {
+    .dracor-id {
       width: 0;
     }
   }
@@ -71,13 +74,5 @@
     a, span {
       font-size: 85%;
     }
-  }
-
-  &:hover > a em {
-    background-color: var(--primary-accent);
-  }
-
-  &:hover > .dracor-id {
-    width: 100%;
   }
 }

@@ -15,8 +15,11 @@ const CorpusLabel = ({name, title, id}) => {
       </Link>
       {id && (
         <span className={cx('dracor-id')}>
-          ID:{' '}
-          <CopyToClipboard text={id} title="copy to clipboard">
+          {' | '}
+          <CopyToClipboard
+            text={`https://dracor.org/id/${id}`}
+            title="copy to clipboard"
+          >
             <span>{id}</span>
           </CopyToClipboard>
         </span>
