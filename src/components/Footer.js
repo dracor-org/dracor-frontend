@@ -50,7 +50,7 @@ const Footer = () => {
         </p>
       </Col>
       <Col className={cx('license')}>
-        <h5>Drama Corpora Project 2020</h5>
+        <h5>Drama Corpora Project</h5>
         <p>Unless otherwise stated, all corpora and the web design<br/> are released under Creative Commons
           {' '}
           <a
