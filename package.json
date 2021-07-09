@@ -11,12 +11,14 @@
     "@types/node": "^16.3.0",
     "@types/react": "^17.0.14",
     "@types/react-dom": "^17.0.9",
+    "@typescript-eslint/eslint-plugin": "^4.28.2",
     "CETEIcean": "^1.3.0",
     "apisauce": "^2.0.0",
     "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
     "chart.js": "^2.9.4",
     "classnames": "^2.2.6",
+    "eslint-config-xo-typescript": "^0.43.0",
     "http-proxy-middleware": "1.0.6",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
@@ -109,6 +111,7 @@
           "ignore": []
         }
       ],
+      "react/react-in-jsx-scope": 0,
       "react/static-property-placement": 0,
       "unicorn/filename-case": 0,
       "unicorn/no-reduce": 1,
