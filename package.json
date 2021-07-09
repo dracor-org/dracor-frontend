@@ -76,6 +76,14 @@
           }
         }
       ],
+      "padding-line-between-statements": [
+        "error",
+        {
+          "blankLine": "always",
+          "prev": "*",
+          "next": ["class", "function"]
+        }
+      ],
       "react/boolean-prop-naming": 1,
       "react/destructuring-assignment": [
         1,
