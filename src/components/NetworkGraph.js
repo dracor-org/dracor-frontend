@@ -12,7 +12,7 @@ import {
 
 class NetworkGraph extends Component {
   render () {
-    const {graph, nodeColor, edgeColor, play} = this.props;
+    const {graph, nodeColor, edgeColor} = this.props;
 
     const settings = {
       maxEdgeSize: 5,
