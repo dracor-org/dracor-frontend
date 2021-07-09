@@ -23,6 +23,16 @@ const apiUrl = api.getBaseURL();
 const edgeColor = '#61affe65';
 const nodeColor = '#61affe';
 
+const genderColor = node => {
+  if (node.sex === 'FEMALE') {
+    return '#1F2448';
+  }
+  if (node.sex === 'MALE') {
+    return '#aaeeff';
+  }
+  return 'grey';
+};
+
 const navItems = [
   {name: 'network', label: 'Network'},
   {name: 'relations', label: 'Relations'},
@@ -48,7 +58,7 @@ const PlayInfo = ({corpusId, playId}) => {
         const response = await api.get(url);
         if (response.ok) {
           const {cast, segments} = response.data;
-          const graph = makeGraph(cast, segments, edgeColor);
+          const graph = makeGraph(cast, segments, genderColor, edgeColor);
           setPlay(response.data);
           setGraph(graph);
         } else if (response.status === 404) {
