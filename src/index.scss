@@ -291,6 +291,22 @@ a:hover {
   line-height: 1em;
 }
 
+// adjust position of prev/next buttons
+.slick-arrow.slick-next {
+  right: 20%;
+}
+.slick-arrow.slick-prev {
+  left: 20%;
+}
+@media (max-width: 1280px) {
+  .slick-arrow.slick-next {
+    right: 15%;
+  }
+  .slick-arrow.slick-prev {
+    left: 15%;
+  }
+}
+
 /* ############################# */
 /* #CORPUS                     # */
 /* ############################# */
