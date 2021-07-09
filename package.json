@@ -106,7 +106,10 @@
       "unicorn/no-reduce": 1,
       "unicorn/prefer-includes": 1,
       "unicorn/prevent-abbreviations": 0
-    }
+    },
+    "ignores": [
+      "src/react-app-env.d.ts"
+    ]
   },
   "browserslist": [
     ">0.2%",

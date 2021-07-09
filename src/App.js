@@ -18,6 +18,7 @@ const App = () => {
 
   useEffect(() => {
     console.log('fetching API info...');
+
     async function fetchInfo () {
       try {
         const response = await api.get('/info');
@@ -36,6 +37,7 @@ const App = () => {
 
   useEffect(() => {
     console.log('fetching corpora...');
+
     async function fetchCorpora () {
       try {
         const response = await api.get('/corpora');

@@ -98,11 +98,7 @@ class Sapogov extends Component {
       options.scales.yAxes[0].ticks.stepSize = 1;
     }
 
-    return (
-      <>
-        <Line data={data} options={options}/>
-      </>
-    );
+    return <Line data={data} options={options}/>;
   }
 }
 

@@ -51,60 +51,58 @@ const TrilckeFischer = ({segments}) => {
   });
 
   return (
-    <>
-      <ResponsiveContainer width="100%" height={453}>
-        <LineChart
-          data={data}
-        >
-          <CartesianGrid strokeDasharray="3 3"/>
-          <XAxis
-            dataKey="transitionNum"
-            scale="point"
-            label={{
-              value: 'segment transition no.',
-              position: 'insideBottom',
-              color: 'green',
-              fontSize: 12
-            }}
-            tick={{
-              fontSize: 10
-            }}
-          />
-          <YAxis
-            label={{
-              value: 'change rate',
-              angle: -90,
-              position: 'insideLeft',
-              fontSize: 12
-            }}
-            tick={{
-              fontSize: 10
-            }}
-          />
-          <Tooltip labelFormatter={v => `Transition ${v}`}/>
-          <ReferenceLine
-            y={dramaChangeRate}
-            label={{
-              value: `Drama Change Rate: ${dramaChangeRate.toFixed(3)}`,
-              fill: '#1F2448',
-              position: dramaChangeRate > 0.9 ? 'bottom' : 'top',
-              fontSize: 12
-            }}
-            stroke="#aaeeff"
-            strokeWidth={2}
-            strokeDasharray="3 3"
-          />
-          <Line
-            dataKey="rate"
-            stroke="#61affe"
-            backgroundColor="#61affe1a"
-            strokeWidth={3}
-            activeDot={{r: 4}}
-            dot={false}
-          />
-        </LineChart>
-      </ResponsiveContainer>
-    </>
+    <ResponsiveContainer width="100%" height={453}>
+      <LineChart
+        data={data}
+      >
+        <CartesianGrid strokeDasharray="3 3"/>
+        <XAxis
+          dataKey="transitionNum"
+          scale="point"
+          label={{
+            value: 'segment transition no.',
+            position: 'insideBottom',
+            color: 'green',
+            fontSize: 12
+          }}
+          tick={{
+            fontSize: 10
+          }}
+        />
+        <YAxis
+          label={{
+            value: 'change rate',
+            angle: -90,
+            position: 'insideLeft',
+            fontSize: 12
+          }}
+          tick={{
+            fontSize: 10
+          }}
+        />
+        <Tooltip labelFormatter={v => `Transition ${v}`}/>
+        <ReferenceLine
+          y={dramaChangeRate}
+          label={{
+            value: `Drama Change Rate: ${dramaChangeRate.toFixed(3)}`,
+            fill: '#1F2448',
+            position: dramaChangeRate > 0.9 ? 'bottom' : 'top',
+            fontSize: 12
+          }}
+          stroke="#aaeeff"
+          strokeWidth={2}
+          strokeDasharray="3 3"
+        />
+        <Line
+          dataKey="rate"
+          stroke="#61affe"
+          backgroundColor="#61affe1a"
+          strokeWidth={3}
+          activeDot={{r: 4}}
+          dot={false}
+        />
+      </LineChart>
+    </ResponsiveContainer>
   );
 };
 
