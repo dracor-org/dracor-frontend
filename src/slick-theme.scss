@@ -120,7 +120,8 @@
 }
 @media only screen and (max-width: 767px) {
     .slick-track {
-        display: block;
+        display: flex;
+        flex-direction: column;
     }
     .slick-slide {
         padding: 0 1em 1em 1em;
