@@ -8,6 +8,8 @@ import IdLink from './IdLink';
 import Years from './Years';
 import style from './PlayDetailsHeader.module.scss';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import {faClipboard} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const cx = classnames.bind(style);
 
@@ -35,11 +37,12 @@ const PlayDetailsHeader = ({play, children}) => {
           <span className={cx('meta')}>
             {id && (
               <span className={cx('dracor-id')}>
+                <img src="/img/DraCor.svg"/>
                 <CopyToClipboard
                   text={`https://dracor.org/id/${id}`}
                   title="copy to clipboard"
                 >
-                  <span>{id}</span>
+                  <span>{id}<FontAwesomeIcon icon="clipboard" size="sm"/></span>
                 </CopyToClipboard>
               </span>
             )}
