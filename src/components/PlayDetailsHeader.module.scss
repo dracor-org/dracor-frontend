@@ -77,6 +77,16 @@
             &:hover {
               color: #0056b3;
             }
+
+            &:not(:active) > svg {
+              color: var(--main);
+              transition: color 1s step-end;
+              animation: FadeOutIn 1s linear;
+            }
+  
+            &:active > svg {
+              color: var(--primary-accent);
+            }
           }
         }
 
