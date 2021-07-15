@@ -7,6 +7,7 @@ import CorpusLabel from './CorpusLabel';
 import IdLink from './IdLink';
 import Years from './Years';
 import style from './PlayDetailsHeader.module.scss';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 
 const cx = classnames.bind(style);
 
@@ -32,6 +33,16 @@ const PlayDetailsHeader = ({play, children}) => {
           {subtitle && <h2 className={cx('subtitle')}>{subtitle}</h2>}
 
           <span className={cx('meta')}>
+            {id && (
+              <span className={cx('dracor-id')}>
+                <CopyToClipboard
+                  text={`https://dracor.org/id/${id}`}
+                  title="copy to clipboard"
+                >
+                  <span>{id}</span>
+                </CopyToClipboard>
+              </span>
+            )}
             {wikidataId && (
               <IdLink button className={cx('data-link')}>
                 {`wikidata:${wikidataId}`}
