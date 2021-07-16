@@ -26,7 +26,7 @@ const TopNav = () => {
   const toggleNav = () => setNavOpen(!navOpen);
 
   return (
-    <Headroom enable disableInlineStyles upTolerance={50}>
+    <Headroom enable disableInlineStyles upTolerance={50} pinStart={250}>
       <Navbar expand="md" className={cx('base')}>
         <NavbarBrand title="Drama Corpora Project (DraCor)" href="/"/>
         <NavbarToggler onClick={toggleNav}/>
