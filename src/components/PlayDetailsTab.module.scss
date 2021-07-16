@@ -16,14 +16,14 @@
   //   1 var(--bootstrap-padding) padding-top on .main
   //   1 var(--bootstrap-padding) padding-bottom on .main
   //   1 var(--bootstrap-padding) padding-top on .sticky-inner-wrapper > span
-  //   4em min-height on .sticky-inner-wrapper > span
+  //   4.5em min-height on .sticky-inner-wrapper > span
   //   2em min-height on .PlayDetailsNav_main
   //
   // And leave at least one pixel to trigger the sticky header – that's the "-1px".
-  height: calc(100vh - (6em - 1px) - (var(--bootstrap-padding) * 3));
+  height: calc(100vh - (6.5em - 1px) - (var(--bootstrap-padding) * 3));
   
   @media only screen and (max-width: 1440px) {
-    height: calc(100vh - (6em - 3px) - (var(--bootstrap-padding) * 3));
+    height: calc(100vh - (6.5em - 3px) - (var(--bootstrap-padding) * 3));
   }
 
   .content {
