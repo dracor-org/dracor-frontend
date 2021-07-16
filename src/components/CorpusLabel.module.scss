@@ -32,29 +32,6 @@
     }
   }
 
-  .dracor-id {
-    overflow: hidden;
-    margin-left: .1em;
-    margin-right: .1em;
-    font-weight: 500;
-    transition: width .3s linear;
-
-    a, span {
-      color: var(--primary-accent);
-      font-weight: normal;
-      cursor: pointer;
-
-      &:after {
-        content: '';
-        background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 24 24' style='enable-background:new 0 0 24 24;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:none;%7D .st1%7Bfill:%231F2448;%7D%0A%3C/style%3E%3Cpath class='st0' d='M0,0h24v24H0V0z'/%3E%3Cpath class='st1' d='M16,21H4V7H2v14c0,1.1,0.9,2,2,2h12V21z M21,17V3c0-1.1-0.9-2-2-2H8C6.9,1,6,1.9,6,3v14c0,1.1,0.9,2,2,2h11 C20.1,19,21,18.1,21,17z M19,17H8V3h11V17z'/%3E%3C/svg%3E%0A");
-        width: 1em;
-        height: 1em;
-        display: inline-block;
-        margin-left: .2em;
-      }
-    }
-  }
-
   // FIXME: This takes care of changing the size when switching on the sticky
   // header. It would be nice to find a solution that does not rely on external
   // class names.

@@ -49,12 +49,54 @@
         display: block;
         margin-top: 1em;
 
+        .dracor-id {
+          margin-right: 1em;
+          font-weight: 500;
+          background: var(--background-light);
+          border-radius: .3em;
+          vertical-align: text-bottom;
+
+          img {
+            max-height: .8em;
+            max-width: .8em;
+            margin: .2em;
+            vertical-align: text-top;
+          }
+
+          svg {
+            color: var(--main);
+            margin: 0 .2em .1em;
+          }
+      
+          a, span {
+            color: var(--primary-accent);
+            font-weight: normal;
+            cursor: pointer;
+            transition: color .3s ease-in-out;
+
+            &:hover {
+              color: #0056b3;
+            }
+
+            &:not(:active) > svg {
+              color: var(--main);
+              transition: color 1s step-end;
+              animation: FadeOutIn 1s linear;
+            }
+  
+            &:active > svg {
+              color: var(--primary-accent);
+            }
+          }
+        }
+
         .data-link {
           margin-right: 1em;
         }
 
         .years {
           vertical-align: text-bottom;
+          white-space: nowrap;
           
           span {
             margin-right: 1rem;
