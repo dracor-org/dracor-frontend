@@ -6,7 +6,7 @@ import style from './CorpusLabel.module.scss';
 
 const cx = classnames.bind(style);
 
-const CorpusLabel = ({name, title, id}) => {
+const CorpusLabel = ({name, title}) => {
   return (
     <span className={cx('main')}>
       <Link to={`/${name}`} title={title || 'Corpus'}>
@@ -18,12 +18,10 @@ const CorpusLabel = ({name, title, id}) => {
 
 CorpusLabel.propTypes = {
   name: PropTypes.string.isRequired,
-  id: PropTypes.string,
   title: PropTypes.string
 };
 
 CorpusLabel.defaultProps = {
-  id: null,
   title: null
 };
 
