@@ -1,4 +1,6 @@
 .base {
+  min-height: calc(5 * var(--bootstrap-padding));
+  padding: var(--bootstrap-padding);
   // main entries in top navigation
   :global(.navbar-nav .nav-item),
   :global(.navbar-nav .dropdown .dropdown-toggle)
@@ -20,13 +22,8 @@
     margin: 0;
     padding: 0;
     font-size: 1em;
-    // FIXME: use bootsrap grid
-    width: calc(2 * var(--x));
-    height: calc(2 * var(--x));
-    @media only screen and (max-width: 1440px) {
-      width: calc(3 * var(--x));
-      height: calc(3 * var(--x));
-    }
+    width: calc(3 * var(--bootstrap-padding));
+    height: calc(3 * var(--bootstrap-padding));
   }
 }
 
@@ -40,13 +37,8 @@
   margin: 0;
   padding: 0;
   border-bottom: none;
-  // FIXME: use bootsrap grid
-  width: calc(2 * var(--x));
-  height: calc(2 * var(--x));
-  @media only screen and (max-width: 1440px) {
-    width: calc(3 * var(--x));
-    height: calc(3 * var(--x));
-  }
+  width: calc(3 * var(--bootstrap-padding));
+  height: calc(3 * var(--bootstrap-padding));
 
   :global(.fa-github) {
     width: 100%;

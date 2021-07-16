@@ -3,9 +3,9 @@
 .main {
   color: var(--background-light);
   background-color: var(--main);
-  padding-top: var(--x);
-  padding-bottom: var(--x);
-  margin-bottom: var(--x);
+  padding-top: var(--bootstrap-padding);
+  padding-bottom: var(--bootstrap-padding);
+  margin-bottom: var(--bootstrap-padding);
 
   h1 {
     @include pagetitle;
