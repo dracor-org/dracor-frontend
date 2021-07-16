@@ -10,21 +10,37 @@
   --background-light: #FFFFFF;
   --primary-accent: #0088ff;
   --secondary-accent: #aaeeff;
-  --x: 2rem;
   --bootstrap-padding: 15px;
 }
 
 html, #root {
   height: 100%;
   font-family: 'Rubik', sans-serif;
+  position: relative;
 }
 
 body {
-  height: 100%;
+  height: auto;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: var(--main);
+
+  &::after {
+    content: '';
+    position: fixed;
+    height: 50%;
+    width: 100%;
+    background-color: var(--background);
+    bottom: 0;
+    z-index: -1;
+  }
+}
+
+#root {
   background-color: var(--background);
+  height: auto;
+  margin-top: calc(5 * var(--bootstrap-padding));
 }
 
 ul {
@@ -51,7 +67,6 @@ a:hover {
 
 // FIXME: move navbar overrides to TopNav.module.scss
 .navbar {
-  padding: var(--x);
   z-index: 2;
 }
 
@@ -60,7 +75,7 @@ a:hover {
   border-bottom: solid transparent .17em;
   margin-right: 1.5em;
   padding: 0;
-  transition: .3s ease-in-out;
+  transition: border-bottom .3s ease-in-out;
 }
 
 .navbar .navbar-nav .nav-link.active,
@@ -86,6 +101,10 @@ a:hover {
 
 .headroom-wrapper {
   z-index: 2;
+  margin-top: calc(-5 * var(--bootstrap-padding));
+  position: relative;
+  min-height: calc(5 * var(--bootstrap-padding));
+  max-height: 100%;  
 }
 
 .headroom {
@@ -115,34 +134,11 @@ a:hover {
   left: 0;
   right: 0;
   z-Index: 2;
-  box-shadow: 0 5px 5px 0 var(--shadow), 0 4px 0px 0 var(--main-shadow);
 }
 
 /* ############################# */
 /* #PAGE                       # */
 /* ############################# */
-
-.content {
-  position: relative;
-}
-
-/*
-  mitigate visual gap caused by headroom failing to recalculate height after
-  viewport resizing, see
-  https://github.com/dracor-org/dracor-frontend/pull/100#discussion_r528681936
-
-  This might be fixed with a solution for
-  https://github.com/dracor-org/dracor-frontend/issues/109
- */
-.content::before {
-  content: '';
-  background: var(--main);
-  height: 10em;
-  top: -10em;
-  width: 100%;
-  display: block;
-  position: absolute;
-}
 
 .dracor-page hgroup {
   color: var(--background-light);
@@ -169,12 +165,12 @@ a:hover {
 
 .dracor-page img[alt~="logo"] {
   height: 10em;
-  padding: var(--x);
+  padding: var(--bootstrap-padding);
 }
 
 .dracor-page img[alt~="card"] {
   max-height: 30em;
-  margin: 0 var(--x) var(--x) 0;
+  margin: 0 var(--bootstrap-padding) var(--bootstrap-padding) 0;
   border-radius: 1em;
   box-shadow: 0 5px 5px 0 var(--shadow), 0 4px 0px 0 var(--main-shadow);
 }
@@ -373,9 +369,9 @@ table a:hover {
 }
 
 .corpus-wrapper {
-  margin: var(--x) calc(0em - var(--x));
+  margin: var(--bootstrap-padding) calc(0em - var(--bootstrap-padding));
   color: var(--main);
-  width: calc(100% + var(--x) * 2);
+  width: calc(100% + var(--bootstrap-padding) * 2);
   overflow-x: auto;
 }
 
@@ -595,7 +591,6 @@ table.table.corpus th:focus {
 
 @media only screen and (max-width: 1440px) {
   :root {
-    --x: 1rem;
     font-size: .85rem;
   }
 }
