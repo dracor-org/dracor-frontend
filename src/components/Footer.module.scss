@@ -59,9 +59,10 @@
     text-align: left;
     white-space: normal;
     margin-bottom: 1em;
-    // FIXME: remove <br> from license text
-    br {
-      display: none;
+    flex: 1 1 100%;
+
+    & h5 {
+      white-space: normal;
     }
   }
 }
