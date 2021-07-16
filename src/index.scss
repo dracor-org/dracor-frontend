@@ -16,6 +16,7 @@
 html, #root {
   height: 100%;
   font-family: 'Rubik', sans-serif;
+  position: relative;
 }
 
 body {
@@ -23,7 +24,23 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: var(--main);
+
+  &::after {
+    content: '';
+    position: fixed;
+    height: 50%;
+    width: 100%;
+    background-color: var(--background);
+    bottom: 0;
+    z-index: -1;
+  }
+}
+
+#root {
   background-color: var(--background);
+  height: auto;
+  margin-top: calc(5 * var(--bootstrap-padding));
 }
 
 ul {
@@ -84,7 +101,10 @@ a:hover {
 
 .headroom-wrapper {
   z-index: 2;
-
+  margin-top: calc(-5 * var(--bootstrap-padding));
+  position: relative;
+  min-height: calc(5 * var(--bootstrap-padding));
+  max-height: 100%;  
 }
 
 .headroom {
@@ -114,34 +134,11 @@ a:hover {
   left: 0;
   right: 0;
   z-Index: 2;
-  box-shadow: 0 5px 5px 0 var(--shadow), 0 4px 0px 0 var(--main-shadow);
 }
 
 /* ############################# */
 /* #PAGE                       # */
 /* ############################# */
-
-.content {
-  position: relative;
-}
-
-/*
-  mitigate visual gap caused by headroom failing to recalculate height after
-  viewport resizing, see
-  https://github.com/dracor-org/dracor-frontend/pull/100#discussion_r528681936
-
-  This might be fixed with a solution for
-  https://github.com/dracor-org/dracor-frontend/issues/109
- */
-.content::before {
-  content: '';
-  background: var(--main);
-  height: 10em;
-  top: -10em;
-  width: 100%;
-  display: block;
-  position: absolute;
-}
 
 .dracor-page hgroup {
   color: var(--background-light);
