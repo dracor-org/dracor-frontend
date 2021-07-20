@@ -26,6 +26,14 @@ const CastList = ({cast, hasTitle}) => (
             <FontAwesomeIcon icon="venus" title="female" />
           )}{' '}
           {member.isGroup && <FontAwesomeIcon icon="users" size="sm" />}
+          {member.wikidataId && (
+            <a
+              href={`https://www.wikidata.org/wiki/${member.wikidataId}`}
+              title={`Wikidata: ${member.wikidataId}`}
+            >
+              wd
+            </a>
+          )}
         </li>
       ))}
     </ol>
