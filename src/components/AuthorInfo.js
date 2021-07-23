@@ -12,6 +12,8 @@ const AuthorInfo = ({author}) => {
   const [info, setInfo] = useState(null);
 
   useEffect(() => {
+    let wikidataId;
+
     async function fetchAuthorInfo() {
       const url = `/author/${wikidataId}`;
       console.log('loading author info %s ...', url);
@@ -50,7 +52,6 @@ const AuthorInfo = ({author}) => {
       }
     }
 
-    let wikidataId;
     const wikidataRef = author.refs.find((r) => r.type === 'wikidata');
     if (wikidataRef) {
       wikidataId = wikidataRef.ref;

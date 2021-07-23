@@ -34,13 +34,13 @@ const DownloadLinks = ({play}) => {
         <p>Co-occurrence network:</p>
         <span className={cx('formats')}>
           <a href={csvUrl} download={`${play.id}-${play.name}.csv`}>
-            <img src={svgCSV} />
+            <img src={svgCSV} alt="CSV" />
           </a>
           <a href={gexfUrl} download={`${play.id}-${play.name}.gexf`}>
-            <img src={svgGEXF} />
+            <img src={svgGEXF} alt="GEFX" />
           </a>
           <a href={graphmlUrl} download={`${play.id}-${play.name}.graphml`}>
-            <img src={svgGraphML} />
+            <img src={svgGraphML} alt="GraphML" />
           </a>
         </span>
         {play.relations ? (
@@ -57,13 +57,13 @@ const DownloadLinks = ({play}) => {
                 href={csvRelationsUrl}
                 download={`${play.id}-${play.name}.csv`}
               >
-                <img src={svgCSV} />
+                <img src={svgCSV} alt="CSV" />
               </a>
               <a
                 href={gexfRelationsUrl}
                 download={`${play.id}-${play.name}.gexf`}
               >
-                <img src={svgGEXF} />
+                <img src={svgGEXF} alt="GEXF" />
               </a>
             </span>
           </>
@@ -71,8 +71,8 @@ const DownloadLinks = ({play}) => {
           <>
             <p>Relation data not available.</p>
             <span className={cx('formats')}>
-              <img disabled src={svgCSV} />
-              <img disabled src={svgGEXF} />
+              <img disabled src={svgCSV} alt="CSV" />
+              <img disabled src={svgGEXF} alt="GEXF" />
             </span>
           </>
         )}
@@ -85,7 +85,7 @@ const DownloadLinks = ({play}) => {
             href={`${playUrl}/spoken-text-by-character.json`}
             download={`${play.id}-${play.name}-spoken.json`}
           >
-            <img src={svgJSON} />
+            <img src={svgJSON} alt="JSON" />
           </a>
         </span>
         <p>Plain (no markup):</p>
@@ -94,7 +94,7 @@ const DownloadLinks = ({play}) => {
             href={`${playUrl}/spoken-text`}
             download={`${play.id}-${play.name}-spoken.txt`}
           >
-            <img src={svgTXT} />
+            <img src={svgTXT} alt="TXT" />
           </a>
         </span>
       </span>
@@ -106,7 +106,7 @@ const DownloadLinks = ({play}) => {
             href={`${playUrl}/stage-directions`}
             download={`${play.id}-${play.name}-stage.txt`}
           >
-            <img src={svgTXT} />
+            <img src={svgTXT} alt="TXT" />
           </a>
         </span>
         <p>Including speaker names:</p>
@@ -115,7 +115,7 @@ const DownloadLinks = ({play}) => {
             href={`${playUrl}/stage-directions-with-speakers`}
             download={`${play.id}-${play.name}-stage-with-speakers.txt`}
           >
-            <img src={svgTXT} />
+            <img src={svgTXT} alt="TXT" />
           </a>
         </span>
       </span>
@@ -124,10 +124,10 @@ const DownloadLinks = ({play}) => {
         <p>Including precalculated data:</p>
         <span className={cx('formats')}>
           <a href={csvCastUrl} download={`${play.id}-${play.name}-cast.csv`}>
-            <img src={svgCSV} />
+            <img src={svgCSV} alt="CSV" />
           </a>
           <a href={jsonCastUrl} download={`${play.id}-${play.name}-cast.json`}>
-            <img src={svgJSON} />
+            <img src={svgJSON} alt="JSON" />
           </a>
         </span>
       </span>
@@ -136,7 +136,7 @@ const DownloadLinks = ({play}) => {
         <p>TEI-encoded:</p>
         <span className={cx('formats')}>
           <a href={teiUrl} download={`${play.id}-${play.name}.tei.xml`}>
-            <img src={svgTEI} />
+            <img src={svgTEI} alt="TEI" />
           </a>
         </span>
       </span>
@@ -145,7 +145,7 @@ const DownloadLinks = ({play}) => {
         <p>In RDF format:</p>
         <span className={cx('formats')}>
           <a href={rdfUrl} download={`${play.id}-${play.name}.rdf`}>
-            <img src={svgRDF} />
+            <img src={svgRDF} alt="RDF" />
           </a>
         </span>
       </span>
