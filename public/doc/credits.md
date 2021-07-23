@@ -5,8 +5,8 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 ## Platform (dracor.org)
 * Editor-in-chief: [Frank Fischer](https://lehkost.github.io/) (Moscow)
 * Co-editors: [Peer Trilcke](https://www.uni-potsdam.de/de/lit-19-jhd/peertrilcke/) (Potsdam), [Julia Jennifer Beine](https://rub.academia.edu/JuliaJenniferBeine) (Bochum), [Boris Orekhov](http://nevmenandr.net/bo.php) (Moscow)
-* Technical lead: [Carsten Milling](https://hashtable.de/) (Berlin)
-* Technical co-leads: [Ingo Börner](https://www.oeaw.ac.at/acdh/team/current-team/ingo-boerner/) (Vienna), [Mathias Göbel](https://www.sub.uni-goettingen.de/en/contact/staff-a-z/staff-details/person/mathias-goebel/) (Göttingen)
+* Technical lead: [Carsten Milling](https://hashtable.de/) (Potsdam)
+* Technical co-leads: [Ingo Börner](https://www.oeaw.ac.at/acdh/team/current-team/ingo-boerner/) (Potsdam), [Mathias Göbel](https://www.sub.uni-goettingen.de/en/contact/staff-a-z/staff-details/person/mathias-goebel/) (Göttingen)
 * Art director: [Mark Schwindt](https://www.markschwindt.com/) (Bochum)
 
 ## Applications
@@ -74,8 +74,8 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 * Maintainers: Daniil Skorinkin, Frank Fischer
 
 ### BashDraCor
-*(not yet online due to unresolved copyright situation)*
 * Maintainer: Boris Orekhov
+* Marsel Ishimbaev (Ufa)
 
 ## DraCor side projects
 
