@@ -8,7 +8,7 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink
+  NavLink,
 } from 'reactstrap';
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -28,31 +28,34 @@ const TopNav = () => {
   return (
     <Headroom disableInlineStyles enable="true" upTolerance={50} pinStart={250}>
       <Navbar expand="md" className={cx('base')}>
-        <NavbarBrand title="Drama Corpora Project (DraCor)" href="/"/>
-        <NavbarToggler onClick={toggleNav}/>
+        <NavbarBrand title="Drama Corpora Project (DraCor)" href="/" />
+        <NavbarToggler onClick={toggleNav} />
         <Collapse navbar isOpen={navOpen}>
           <Nav navbar tag="div" className={cx('main')}>
             <TopNavDropdown
-              label="About" items={[
+              label="About"
+              items={[
                 {label: 'What is DraCor?', to: '/doc/what-is-dracor'},
                 {label: 'FAQ', to: '/doc/faq'},
                 {label: 'Credits', to: '/doc/credits'},
-                {label: 'Imprint', to: '/doc/imprint-and-gdpr'}
+                {label: 'Imprint', to: '/doc/imprint-and-gdpr'},
               ]}
             />
-            <CorporaDropdown/>
+            <CorporaDropdown />
             <TopNavDropdown
-              label="Tools" items={[
+              label="Tools"
+              items={[
                 {label: 'API', to: '/doc/api'},
                 {label: 'SPARQL', to: '/sparql'},
                 {label: 'ezlinavis', href: ezlinavisUrl},
-                {label: 'Shiny DraCor', href: 'https://shiny.dracor.org/'}
+                {label: 'Shiny DraCor', href: 'https://shiny.dracor.org/'},
               ]}
             />
             <TopNavDropdown
-              label="How To" items={[
+              label="How To"
+              items={[
                 {label: 'Tutorials', to: '/doc/tutorials'},
-                {label: 'Research', to: '/doc/research'}
+                {label: 'Research', to: '/doc/research'},
               ]}
             />
             <NavItem tag="div">
@@ -68,7 +71,7 @@ const TopNav = () => {
                 title="DraCor GitHub"
               >
                 <span>DraCor GitHub</span>
-                <FontAwesomeIcon icon={faGithub} size="lg"/>
+                <FontAwesomeIcon icon={faGithub} size="lg" />
               </NavLink>
             </NavItem>
           </Nav>

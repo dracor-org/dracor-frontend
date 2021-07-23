@@ -3,8 +3,7 @@
   padding: var(--bootstrap-padding);
   // main entries in top navigation
   :global(.navbar-nav .nav-item),
-  :global(.navbar-nav .dropdown .dropdown-toggle)
-  {
+  :global(.navbar-nav .dropdown .dropdown-toggle) {
     font-size: 1.2em;
     font-weight: 400;
     text-transform: uppercase;
@@ -55,7 +54,7 @@
     height: auto;
 
     :global(.nav-item .nav-link:hover) {
-      border-bottom: solid var(--secondary-accent) .17em;
+      border-bottom: solid var(--secondary-accent) 0.17em;
     }
   }
 }

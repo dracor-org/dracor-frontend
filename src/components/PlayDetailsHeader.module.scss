@@ -53,26 +53,27 @@
           margin-right: 1em;
           font-weight: 500;
           background: var(--background-light);
-          border-radius: .3em;
+          border-radius: 0.3em;
           vertical-align: text-bottom;
 
           img {
-            max-height: .8em;
-            max-width: .8em;
-            margin: .2em;
+            max-height: 0.8em;
+            max-width: 0.8em;
+            margin: 0.2em;
             vertical-align: text-top;
           }
 
           svg {
             color: var(--main);
-            margin: 0 .2em .1em;
+            margin: 0 0.2em 0.1em;
           }
-      
-          a, span {
+
+          a,
+          span {
             color: var(--primary-accent);
             font-weight: normal;
             cursor: pointer;
-            transition: color .3s ease-in-out;
+            transition: color 0.3s ease-in-out;
 
             &:hover {
               color: #0056b3;
@@ -83,7 +84,7 @@
               transition: color 1s step-end;
               animation: FadeOutIn 1s linear;
             }
-  
+
             &:active > svg {
               color: var(--primary-accent);
             }
@@ -97,7 +98,7 @@
         .years {
           vertical-align: text-bottom;
           white-space: nowrap;
-          
+
           span {
             margin-right: 1rem;
           }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {Line} from 'react-chartjs-2';
 
 class Yarkho extends Component {
-  render () {
+  render() {
     const {groups, segments} = this.props;
 
     const data = {
@@ -25,9 +25,9 @@ class Yarkho extends Component {
           pointRadius: 1,
           pointHitRadius: 10,
           lineTension: 0,
-          data: []
-        }
-      ]
+          data: [],
+        },
+      ],
     };
 
     if (groups.length > 0) {
@@ -42,47 +42,52 @@ class Yarkho extends Component {
         pointRadius: 1,
         pointHitRadius: 10,
         lineTension: 0,
-        data: []
+        data: [],
       });
     }
 
     const options = {
       scales: {
-        xAxes: [{
-          type: 'linear',
-          display: true,
-          ticks: {
-            callback: value => Number.parseInt(value, 10),
-            min: 1,
-            stepSize: 1
+        xAxes: [
+          {
+            type: 'linear',
+            display: true,
+            ticks: {
+              callback: (value) => Number.parseInt(value, 10),
+              min: 1,
+              stepSize: 1,
+            },
+            scaleLabel: {
+              labelString:
+                'number of characters per scene (monologues, dialogues, polylogues)',
+              display: true,
+            },
           },
-          scaleLabel: {
-            labelString: 'number of characters per scene (monologues, dialogues, polylogues)',
-            display: true
-          }
-        }],
-        yAxes: [{
-          type: 'linear',
-          ticks: {
-            beginAtZero: true
+        ],
+        yAxes: [
+          {
+            type: 'linear',
+            ticks: {
+              beginAtZero: true,
+            },
+            scaleLabel: {
+              labelString: 'number of scenes',
+              display: true,
+            },
           },
-          scaleLabel: {
-            labelString: 'number of scenes',
-            display: true
-          }
-        }]
-      }
+        ],
+      },
     };
 
     const yarkho = {};
     const nonGroups = {};
     let maxSpeakers = 0;
 
-    segments.forEach(seg => {
+    segments.forEach((seg) => {
       const numSpeakers = seg.speakers ? seg.speakers.length : 0;
-      const numNonGroups = numSpeakers ? seg.speakers.filter(
-        id => !groups.includes(id)
-      ).length : 0;
+      const numNonGroups = numSpeakers
+        ? seg.speakers.filter((id) => !groups.includes(id)).length
+        : 0;
 
       if (numSpeakers > 0) {
         if (yarkho[numSpeakers]) {
@@ -117,24 +122,20 @@ class Yarkho extends Component {
       }
     }
 
-    data.datasets[0].data = Object.keys(yarkho).map(
-      k => {
-        return {x: Number.parseInt(k, 10), y: yarkho[k]};
-      }
-    );
+    data.datasets[0].data = Object.keys(yarkho).map((k) => {
+      return {x: Number.parseInt(k, 10), y: yarkho[k]};
+    });
     if (groups.length > 0) {
-      data.datasets[1].data = Object.keys(nonGroups).map(
-        k => {
-          return {x: Number.parseInt(k, 10), y: nonGroups[k]};
-        }
-      );
+      data.datasets[1].data = Object.keys(nonGroups).map((k) => {
+        return {x: Number.parseInt(k, 10), y: nonGroups[k]};
+      });
     }
 
     // adjust step size to avoid decimal numbers but still take advantage of the
     // nice numbers algorithm when numbers are higher (see
     // http://www.chartjs.org/docs/latest/axes/radial/linear.html#step-size)
     let max = 0;
-    data.datasets[0].data.forEach(n => {
+    data.datasets[0].data.forEach((n) => {
       if (n > max) {
         max = n;
       }
@@ -143,13 +144,13 @@ class Yarkho extends Component {
       options.scales.yAxes[0].ticks.stepSize = 1;
     }
 
-    return <Line data={data} options={options}/>;
+    return <Line data={data} options={options} />;
   }
 }
 
 Yarkho.propTypes = {
   groups: PropTypes.array.isRequired,
-  segments: PropTypes.array.isRequired
+  segments: PropTypes.array.isRequired,
 };
 
 export default Yarkho;

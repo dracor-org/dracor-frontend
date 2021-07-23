@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
-export function formatEra (year, ceBefore = 0) {
+export function formatEra(year, ceBefore = 0) {
   if (year === null) {
     return '';
   }
@@ -20,10 +20,10 @@ export function formatEra (year, ceBefore = 0) {
   return String(y);
 }
 
-export function formatYear (yearString) {
+export function formatYear(yearString) {
   // range, both BCE
   if (yearString.match('^-[0-9]{4}/-[0-9]{4}$')) {
-    const years = yearString.split('/').map(y => Number.parseInt(y, 10) * -1);
+    const years = yearString.split('/').map((y) => Number.parseInt(y, 10) * -1);
     return `${years[0]}-${years[1]} BCE`;
   }
 
@@ -59,24 +59,25 @@ const Years = ({written, premiere, print}) => {
       {written && (
         <>
           <span title="written">
-            <FontAwesomeIcon icon="pen-fancy" size="sm"/>&nbsp;
+            <FontAwesomeIcon icon="pen-fancy" size="sm" />
+            &nbsp;
             {formatYear(written)}
-          </span>
-          {' '}
+          </span>{' '}
         </>
       )}
       {premiere && (
         <>
           <span title="premiered">
-            <FontAwesomeIcon icon="theater-masks" size="sm"/>&nbsp;
+            <FontAwesomeIcon icon="theater-masks" size="sm" />
+            &nbsp;
             {formatYear(premiere)}
-          </span>
-          {' '}
+          </span>{' '}
         </>
       )}
       {print && (
         <span title="printed">
-          <FontAwesomeIcon icon="book" size="sm"/>&nbsp;
+          <FontAwesomeIcon icon="book" size="sm" />
+          &nbsp;
           {formatYear(print)}
         </span>
       )}
@@ -85,24 +86,15 @@ const Years = ({written, premiere, print}) => {
 };
 
 Years.propTypes = {
-  written: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]),
-  premiere: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]),
-  print: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ])
+  written: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  premiere: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  print: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 Years.defaultProps = {
   written: null,
   premiere: null,
-  print: null
+  print: null,
 };
 
 export default Years;

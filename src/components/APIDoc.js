@@ -8,14 +8,14 @@ import 'swagger-ui-react/swagger-ui.css';
 import './APIDoc.scss';
 
 class APIDoc extends Component {
-  render () {
+  render() {
     return (
       <Container fluid>
         <Helmet titleTemplate="%s - DraCor">
           <title>API Documentation</title>
         </Helmet>
-        <SwaggerUI url="/api.yaml"/>
-        <Footer/>
+        <SwaggerUI url="/api.yaml" />
+        <Footer />
       </Container>
     );
   }

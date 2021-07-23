@@ -40,7 +40,7 @@
   }
 
   .servers {
-    margin-top: .5rem;
+    margin-top: 0.5rem;
   }
 
   .info {
@@ -52,16 +52,16 @@
 
     hgroup.main {
       display: inline-grid;
-      margin-bottom: .5rem;
+      margin-bottom: 0.5rem;
       .link {
         color: var(--background-light);
-        padding: .1em .6em;
+        padding: 0.1em 0.6em;
         border-radius: 1em;
         background-color: var(--primary-accent);
-        margin-left: .2em;
+        margin-left: 0.2em;
         margin-top: 1em;
         display: inline-block;
-        transition: .3s ease-in-out;
+        transition: 0.3s ease-in-out;
         width: fit-content;
         &:hover {
           color: var(--secondary-accent);

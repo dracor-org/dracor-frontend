@@ -9,7 +9,7 @@ const cx = classnames.bind(style);
 const PlayDetailsNav = ({items, current}) => {
   return (
     <Nav tabs className={cx('main')}>
-      {items.map(item => (
+      {items.map((item) => (
         <NavItem key={item.name}>
           <NavLink
             href={`#${item.name}`}
@@ -27,14 +27,14 @@ PlayDetailsNav.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.required,
-      label: PropTypes.string.required
+      label: PropTypes.string.required,
     })
   ).isRequired,
-  current: PropTypes.string
+  current: PropTypes.string,
 };
 
 PlayDetailsNav.defaultProps = {
-  current: null
+  current: null,
 };
 
 export default PlayDetailsNav;

@@ -8,9 +8,9 @@
   display: flex;
   background-color: var(--background-light);
   color: var(--main);
-  padding: .05rem .25rem;
-  border-radius: .3em;
-  transition: font-size .3s ease-in-out;
+  padding: 0.05rem 0.25rem;
+  border-radius: 0.3em;
+  transition: font-size 0.3s ease-in-out;
 
   a {
     color: var(--main);
@@ -18,13 +18,13 @@
     em {
       color: var(--background-light);
       background-color: var(--main);
-      padding: 0 .25rem;
-      border-radius: .2em;
-      margin-right: .1em;
+      padding: 0 0.25rem;
+      border-radius: 0.2em;
+      margin-right: 0.1em;
       font-weight: 400;
       font-style: normal;
       text-transform: capitalize;
-      transition: background-color .2s ease-in-out;
+      transition: background-color 0.2s ease-in-out;
     }
 
     &:hover > em {
@@ -37,7 +37,7 @@
   // class names.
   :global(.sticky-outer-wrapper.active) & {
     font-size: 2.1em;
-    padding: 0 .35rem;
+    padding: 0 0.35rem;
 
     .dracor-id {
       width: 0;
@@ -48,7 +48,8 @@
     font-weight: normal;
 
     // DraCor ID link
-    a, span {
+    a,
+    span {
       font-size: 85%;
     }
   }

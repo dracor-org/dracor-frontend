@@ -7,7 +7,7 @@ tei-body > tei-head {
   text-indent: 0;
   padding-top: 1.8em;
 }
-tei-div[type="epigraph"] {
+tei-div[type='epigraph'] {
   padding: 2em;
   padding-bottom: 1em;
   font-style: italic;
@@ -25,7 +25,8 @@ tei-div > tei-div > tei-head {
 tei-div > tei-div > tei-div > tei-head {
   padding-top: 1.4em;
 }
-tei-div > tei-div > tei-div > tei-div > tei-head, list > tei-head {
+tei-div > tei-div > tei-div > tei-div > tei-head,
+list > tei-head {
   padding-top: 1.3em;
 }
 tei-div > tei-div > tei-div > tei-div > tei-div > tei-head {

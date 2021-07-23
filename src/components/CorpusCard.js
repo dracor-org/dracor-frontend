@@ -4,20 +4,15 @@ import {Link} from 'react-router-dom';
 
 // Numbers received from the API can be in scientific notation (e.g.
 // 8.248968E6), which is why we need to use parseFloat.
-const fn = val => Number(Number.parseFloat(val)).toLocaleString('en');
+const fn = (val) => Number(Number.parseFloat(val)).toLocaleString('en');
 
 const CorpusCard = ({name, title, metrics}) => {
   return (
-    <div
-      className="corpus-card"
-      xl={4}
-      lg={6}
-      md={6}
-      sm={12}
-      xs={12}
-    >
+    <div className="corpus-card" xl={4} lg={6} md={6} sm={12} xs={12}>
       <Link to={`/${name}`}>
-        <h2><span>{name}</span>DraCor</h2>
+        <h2>
+          <span>{name}</span>DraCor
+        </h2>
       </Link>
       <h3>
         <Link to={`/${name}`}>{title}</Link>
@@ -31,52 +26,52 @@ const CorpusCard = ({name, title, metrics}) => {
           <tr>
             <th>
               {fn(metrics.characters)}
-              <br/>
+              <br />
               <span>
-                {
-                  metrics.male + metrics.female > 0
-                    ? ` (M: ${metrics.male}, F: ${metrics.female})`
-                    : ''
-                }
+                {metrics.male + metrics.female > 0
+                  ? ` (M: ${metrics.male}, F: ${metrics.female})`
+                  : ''}
               </span>
             </th>
             <td>
               <code>person</code> + <code>personGrp</code>
-              <br/>Number of characters
+              <br />
+              Number of characters
             </td>
           </tr>
           <tr>
-            <th>
-              {fn(metrics.wordcount.text)}
-            </th>
+            <th>{fn(metrics.wordcount.text)}</th>
             <td>
               <code>text</code>
-              <br/>Text tokens
+              <br />
+              Text tokens
             </td>
           </tr>
           <tr>
             <th>
-              {fn(metrics.sp)} <br/><span>({fn(metrics.wordcount.sp)})</span>
+              {fn(metrics.sp)} <br />
+              <span>({fn(metrics.wordcount.sp)})</span>
             </th>
             <td>
               <code>sp</code>
-              <br/>(Tokens)
+              <br />
+              (Tokens)
             </td>
           </tr>
           <tr>
             <th>
-              {fn(metrics.stage)} <br/><span>({fn(metrics.wordcount.stage)})</span>
+              {fn(metrics.stage)} <br />
+              <span>({fn(metrics.wordcount.stage)})</span>
             </th>
             <td>
               <code>stage</code>
-              <br/>(Tokens)
+              <br />
+              (Tokens)
             </td>
           </tr>
           <tr>
-            <th>
-              Last update
-            </th>
-            <td>{(new Date(metrics.updated)).toLocaleString()}</td>
+            <th>Last update</th>
+            <td>{new Date(metrics.updated).toLocaleString()}</td>
           </tr>
         </tbody>
       </table>
@@ -87,7 +82,7 @@ const CorpusCard = ({name, title, metrics}) => {
 CorpusCard.propTypes = {
   name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  metrics: PropTypes.object.isRequired
+  metrics: PropTypes.object.isRequired,
 };
 
 export default CorpusCard;

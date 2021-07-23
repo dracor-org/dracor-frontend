@@ -7,7 +7,7 @@ import {
   NodeShapes,
   ForceAtlas2,
   RelativeSize,
-  RandomizeNodePositions
+  RandomizeNodePositions,
 } from 'react-sigma/lib/';
 
 /* eslint-disable camelcase */
@@ -18,19 +18,19 @@ const edgeColors = {
   associated_with: '#61affe', // blue
   siblings: '#49cc90', // green
   spouses: '#e83e8c', // pink
-  friends: '#1F2448' // navy
+  friends: '#1F2448', // navy
 };
 /* eslint-enable camelcase */
 
 const RelationsGraph = ({play, nodeColor, edgeColor}) => {
-  const nodes = play.cast.map(c => ({id: c.id, label: c.name || `#${c.id}`}));
+  const nodes = play.cast.map((c) => ({id: c.id, label: c.name || `#${c.id}`}));
   const edges = (play.relations || []).map((r, i) => ({
     id: i,
     source: r.source,
     target: r.target,
     label: r.type,
     color: edgeColors[r.type] || edgeColor,
-    type: r.directed ? 'curvedArrow' : 'curve'
+    type: r.directed ? 'curvedArrow' : 'curve',
   }));
   const graph = {nodes, edges};
 
@@ -47,7 +47,7 @@ const RelationsGraph = ({play, nodeColor, edgeColor}) => {
     drawEdgeLabels: true,
     edgeLabelSize: 'proportional',
     minNodeSize: 2,
-    minArrowSize: 10
+    minArrowSize: 10,
   };
 
   const layoutOptions = {
@@ -59,10 +59,10 @@ const RelationsGraph = ({play, nodeColor, edgeColor}) => {
     slowDown: 5,
     linLogMode: true,
     outboundAttractionDistribution: false,
-    strongGravityMode: true
+    strongGravityMode: true,
   };
 
-  const layout = <ForceAtlas2 {...layoutOptions}/>;
+  const layout = <ForceAtlas2 {...layoutOptions} />;
 
   let sigma = null;
   if (graph && graph.nodes.length > 0) {
@@ -73,11 +73,11 @@ const RelationsGraph = ({play, nodeColor, edgeColor}) => {
         settings={settings}
         style={{display: 'flex', flexGrow: 1}}
       >
-        <EdgeShapes default="curvedArrow"/>
-        <NodeShapes default="circle"/>
+        <EdgeShapes default="curvedArrow" />
+        <NodeShapes default="circle" />
         <RandomizeNodePositions>
           {layout}
-          <RelativeSize initialSize={15}/>
+          <RelativeSize initialSize={15} />
         </RandomizeNodePositions>
       </Sigma>
     );
@@ -89,10 +89,10 @@ const RelationsGraph = ({play, nodeColor, edgeColor}) => {
 RelationsGraph.propTypes = {
   play: PropTypes.shape({
     cast: PropTypes.array.isRequired,
-    relations: PropTypes.array.isRequired
+    relations: PropTypes.array.isRequired,
   }).isRequired,
   nodeColor: PropTypes.string.isRequired,
-  edgeColor: PropTypes.string.isRequired
+  edgeColor: PropTypes.string.isRequired,
 };
 
 export default RelationsGraph;

@@ -1,5 +1,5 @@
 .main {
-  font-size: .85rem;
+  font-size: 0.85rem;
 
   // title
   h4 {
@@ -18,7 +18,8 @@
     color: var(--primary-accent);
   }
   // gender icons
-  :global(.fa-mars), :global(.fa-venus) {
-    opacity: .4;
+  :global(.fa-mars),
+  :global(.fa-venus) {
+    opacity: 0.4;
   }
 }

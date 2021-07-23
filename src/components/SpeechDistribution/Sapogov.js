@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {Line} from 'react-chartjs-2';
 
 class Sapogov extends Component {
-  render () {
+  render() {
     const {groups, segments} = this.props;
     const data = {
       datasets: [
@@ -23,9 +23,9 @@ class Sapogov extends Component {
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: []
-        }
-      ]
+          data: [],
+        },
+      ],
     };
 
     if (groups.length > 0) {
@@ -39,30 +39,34 @@ class Sapogov extends Component {
         pointHoverBorderColor: '#1F2448',
         pointRadius: 1,
         pointHitRadius: 10,
-        data: []
+        data: [],
       });
     }
 
     const options = {
       scales: {
-        xAxes: [{
-          type: 'category',
-          scaleLabel: {
-            labelString: 'number of scene',
-            display: true
-          }
-        }],
-        yAxes: [{
-          type: 'linear',
-          ticks: {
-            beginAtZero: true
+        xAxes: [
+          {
+            type: 'category',
+            scaleLabel: {
+              labelString: 'number of scene',
+              display: true,
+            },
           },
-          scaleLabel: {
-            labelString: 'number of characters',
-            display: true
-          }
-        }]
-      }
+        ],
+        yAxes: [
+          {
+            type: 'linear',
+            ticks: {
+              beginAtZero: true,
+            },
+            scaleLabel: {
+              labelString: 'number of characters',
+              display: true,
+            },
+          },
+        ],
+      },
     };
 
     const labels = [];
@@ -77,7 +81,7 @@ class Sapogov extends Component {
       if (groups.length > 0) {
         const speakers = seg.speakers || [];
         const numNonGroups = speakers.filter(
-          id => groups.indexOf(id) === -1
+          (id) => groups.indexOf(id) === -1
         ).length;
         data.datasets[1].data.push(numNonGroups);
       }
@@ -89,7 +93,7 @@ class Sapogov extends Component {
     // nice numbers algorithm when numbers are higher (see
     // http://www.chartjs.org/docs/latest/axes/radial/linear.html#step-size)
     let max = 0;
-    data.datasets[0].data.forEach(n => {
+    data.datasets[0].data.forEach((n) => {
       if (n > max) {
         max = n;
       }
@@ -98,13 +102,13 @@ class Sapogov extends Component {
       options.scales.yAxes[0].ticks.stepSize = 1;
     }
 
-    return <Line data={data} options={options}/>;
+    return <Line data={data} options={options} />;
   }
 }
 
 Sapogov.propTypes = {
   groups: PropTypes.array.isRequired,
-  segments: PropTypes.array.isRequired
+  segments: PropTypes.array.isRequired,
 };
 
 export default Sapogov;

@@ -4,5 +4,5 @@ import './index.scss';
 import App from './App';
 import {unregister} from './registerServiceWorker';
 
-ReactDOM.render(<App/>, document.querySelector('#root'));
+ReactDOM.render(<App />, document.querySelector('#root'));
 unregister();

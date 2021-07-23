@@ -17,12 +17,15 @@ const SourceInfo = ({source, original}) => {
             </a>
           ) : (
             source.name
-          )}. TEI adaptation, corrections, enhancements by DraCor.
+          )}
+          . TEI adaptation, corrections, enhancements by DraCor.
         </p>
       )}
 
       {original && (
-        <p>Direct print source: <em>{original}</em></p>
+        <p>
+          Direct print source: <em>{original}</em>
+        </p>
       )}
     </div>
   );
@@ -30,7 +33,7 @@ const SourceInfo = ({source, original}) => {
 
 SourceInfo.propTypes = {
   source: PropTypes.object,
-  original: PropTypes.string
+  original: PropTypes.string,
 };
 
 export default SourceInfo;

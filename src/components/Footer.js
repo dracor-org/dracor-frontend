@@ -21,19 +21,20 @@ const Footer = () => {
     <Row className={cx('main')}>
       <Col className={cx('citation')}>
         <h5>
-          If you want to cite DraCor, <wbr/>please use the following reference:
+          If you want to cite DraCor, <wbr />
+          please use the following reference:
         </h5>
         <a
           href={`${process.env.PUBLIC_URL}/cite_dracor.bib`}
           type="application/x-bibtex"
         >
-          <img src={svgBibTex} alt="BibTeX"/>
+          <img src={svgBibTex} alt="BibTeX" />
         </a>
         <a
           href={`${process.env.PUBLIC_URL}/cite_dracor.ris`}
           type="application/x-research-info-systems"
         >
-          <img src={svgRIS} alt="RIS"/>
+          <img src={svgRIS} alt="RIS" />
         </a>
         <p>
           Fischer, Frank, et al. (2019). Programmable Corpora: Introducing
@@ -46,13 +47,15 @@ const Footer = () => {
             target="_blank"
           >
             doi:10.5281/zenodo.4284002
-          </a>.
+          </a>
+          .
         </p>
       </Col>
       <Col className={cx('license')}>
         <h5>Drama Corpora Project</h5>
-        <p>Unless otherwise stated, all corpora and the web design<br/> are released under Creative Commons
-          {' '}
+        <p>
+          Unless otherwise stated, all corpora and the web design
+          <br /> are released under Creative Commons{' '}
           <a
             href="https://creativecommons.org/publicdomain/zero/1.0"
             rel="noopener noreferrer license"
@@ -65,24 +68,19 @@ const Footer = () => {
             rel="noopener noreferrer license"
             target="_blank"
           >
-            <img src={svgCC0} alt="CC0"/>
+            <img src={svgCC0} alt="CC0" />
           </a>
         </p>
         {apiInfo.version && (
           <p className="api-info">
-            This site runs on
-            {' '}
+            This site runs on{' '}
             <span className="version-pill">
               <span>DraCor API</span>
-              <a
-                href={apiVersionUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href={apiVersionUrl} target="_blank" rel="noopener noreferrer">
                 {apiInfo.version}
               </a>
             </span>
-            <wbr/>
+            <wbr />
             {' using '}
             <span className="version-pill">
               <span>eXist-db</span>

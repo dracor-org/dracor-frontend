@@ -8,18 +8,18 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  ReferenceLine
+  ReferenceLine,
 } from 'recharts';
 
-function calcSegmentChangeRate (s1, s2) {
+function calcSegmentChangeRate(s1, s2) {
   const all = [...new Set(s1.concat(s2))];
   let edits = 0;
-  s1.forEach(s => {
+  s1.forEach((s) => {
     if (!s2.includes(s)) {
       edits += 1;
     }
   });
-  s2.forEach(s => {
+  s2.forEach((s) => {
     if (!s1.includes(s)) {
       edits += 1;
     }
@@ -28,7 +28,7 @@ function calcSegmentChangeRate (s1, s2) {
   return changeRate;
 }
 
-function calcChangeRates (segments) {
+function calcChangeRates(segments) {
   const changeRates = [];
   for (let i = 0; i < segments.length - 1; i++) {
     const s1 = segments[i].speakers || [];
@@ -41,10 +41,8 @@ function calcChangeRates (segments) {
 
 const TrilckeFischer = ({segments}) => {
   const changeRates = calcChangeRates(segments);
-  const dramaChangeRate = changeRates.reduce(
-    (acc, rate) => acc + rate,
-    0
-  ) / changeRates.length;
+  const dramaChangeRate =
+    changeRates.reduce((acc, rate) => acc + rate, 0) / changeRates.length;
 
   const data = changeRates.map((rate, i) => {
     return {rate, transitionNum: i + 1};
@@ -52,10 +50,8 @@ const TrilckeFischer = ({segments}) => {
 
   return (
     <ResponsiveContainer width="100%" height={453}>
-      <LineChart
-        data={data}
-      >
-        <CartesianGrid strokeDasharray="3 3"/>
+      <LineChart data={data}>
+        <CartesianGrid strokeDasharray="3 3" />
         <XAxis
           dataKey="transitionNum"
           scale="point"
@@ -63,10 +59,10 @@ const TrilckeFischer = ({segments}) => {
             value: 'segment transition no.',
             position: 'insideBottom',
             color: 'green',
-            fontSize: 12
+            fontSize: 12,
           }}
           tick={{
-            fontSize: 10
+            fontSize: 10,
           }}
         />
         <YAxis
@@ -74,20 +70,20 @@ const TrilckeFischer = ({segments}) => {
             value: 'change rate',
             angle: -90,
             position: 'insideLeft',
-            fontSize: 12
+            fontSize: 12,
           }}
           tick={{
-            fontSize: 10
+            fontSize: 10,
           }}
         />
-        <Tooltip labelFormatter={v => `Transition ${v}`}/>
+        <Tooltip labelFormatter={(v) => `Transition ${v}`} />
         <ReferenceLine
           y={dramaChangeRate}
           label={{
             value: `Drama Change Rate: ${dramaChangeRate.toFixed(3)}`,
             fill: '#1F2448',
             position: dramaChangeRate > 0.9 ? 'bottom' : 'top',
-            fontSize: 12
+            fontSize: 12,
           }}
           stroke="#aaeeff"
           strokeWidth={2}
@@ -107,7 +103,7 @@ const TrilckeFischer = ({segments}) => {
 };
 
 TrilckeFischer.propTypes = {
-  segments: PropTypes.array.isRequired
+  segments: PropTypes.array.isRequired,
 };
 
 export default TrilckeFischer;

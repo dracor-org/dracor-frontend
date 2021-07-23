@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import api from '../api';
 
-function round (n) {
+function round(n) {
   return Math.round(n * 100) / 100;
 }
 
@@ -48,15 +48,15 @@ const PlayMetrics = ({play}) => {
     maxDegreeIds = [],
     averageDegree,
     averagePathLength,
-    averageClustering
+    averageClustering,
   } = metrics;
 
   const names = {};
-  play.cast.forEach(c => {
+  play.cast.forEach((c) => {
     names[c.id] = c.name;
   });
 
-  const maxDegreeNames = maxDegreeIds.map(id => names[id] || id).join(', ');
+  const maxDegreeNames = maxDegreeIds.map((id) => names[id] || id).join(', ');
 
   const allInPercentage = Math.round(play.allInIndex * 100);
 
@@ -64,33 +64,35 @@ const PlayMetrics = ({play}) => {
     <div>
       <h4>Network properties</h4>
       Segments: {play.segments.length}
-      <br/>
+      <br />
       All-in at segment {play.allInSegment + ' '}
       (at {allInPercentage}%)
-      <br/>
+      <br />
       <span title="number of characters">Network size</span>: {size}
-      <br/>
+      <br />
       Density: {round(density)}
-      <br/>
+      <br />
       Diameter: {diameter}
-      <br/>
+      <br />
       Average path length: {round(averagePathLength)}
-      <br/>
+      <br />
       Average clustering coefficient: {round(averageClustering)}
-      <br/>
+      <br />
       Average degree: {round(averageDegree)}
-      <br/>
-      Maximum degree: {maxDegree} ({
-        maxDegreeIds.length > 2
-          ? <span title={maxDegreeNames}>{maxDegreeIds.length} characters</span>
-          : <span>{maxDegreeNames}</span>
-      })
+      <br />
+      Maximum degree: {maxDegree} (
+      {maxDegreeIds.length > 2 ? (
+        <span title={maxDegreeNames}>{maxDegreeIds.length} characters</span>
+      ) : (
+        <span>{maxDegreeNames}</span>
+      )}
+      )
     </div>
   );
 };
 
 PlayMetrics.propTypes = {
-  play: PropTypes.object.isRequired
+  play: PropTypes.object.isRequired,
 };
 
 export default PlayMetrics;

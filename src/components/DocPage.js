@@ -24,7 +24,7 @@ const DocPage = ({match}) => {
   const {slug} = match.params;
 
   useEffect(() => {
-    async function fetchMarkdown () {
+    async function fetchMarkdown() {
       const url = `${process.env.PUBLIC_URL}/doc/${slug}.md`;
       try {
         const response = await axios.get(url);
@@ -63,8 +63,8 @@ const DocPage = ({match}) => {
         <Helmet titleTemplate="%s - DraCor">
           <title>{title}</title>
         </Helmet>
-        <ReactMarkdown source={markdown} renderers={{heading}}/>
-        <Footer/>
+        <ReactMarkdown source={markdown} renderers={{heading}} />
+        <Footer />
       </div>
     </Container>
   );

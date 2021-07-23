@@ -12,7 +12,7 @@ const AuthorInfo = ({author}) => {
   const [info, setInfo] = useState(null);
 
   useEffect(() => {
-    async function fetchAuthorInfo () {
+    async function fetchAuthorInfo() {
       const url = `/author/${wikidataId}`;
       console.log('loading author info %s ...', url);
       try {
@@ -34,7 +34,8 @@ const AuthorInfo = ({author}) => {
 
           if (info.imageUrl) {
             info.commonsPage = info.imageUrl.replace(
-              /Special:FilePath\//, 'File:'
+              /Special:FilePath\//,
+              'File:'
             );
           }
 
@@ -50,7 +51,7 @@ const AuthorInfo = ({author}) => {
     }
 
     let wikidataId;
-    const wikidataRef = author.refs.find(r => r.type === 'wikidata');
+    const wikidataRef = author.refs.find((r) => r.type === 'wikidata');
     if (wikidataRef) {
       wikidataId = wikidataRef.ref;
     } else if (author.key && author.key.startsWith('wikidata:')) {
@@ -69,31 +70,39 @@ const AuthorInfo = ({author}) => {
     birthYear,
     birthPlace,
     deathYear,
-    deathPlace
+    deathPlace,
   } = info || {};
 
   return (
     <div className={cx('main')}>
       <div className={cx('image')}>
-        {imageUrl && (
-          <img src={imageUrl} title={name} alt=""/>
-        )}
+        {imageUrl && <img src={imageUrl} title={name} alt="" />}
         {commonsPage && (
           <a href={commonsPage} title="© Wikimedia Commons">
-            <img src="/img/commons-logo.svg" width="17" alt="Wikimedia Commons"/>
+            <img
+              src="/img/commons-logo.svg"
+              width="17"
+              alt="Wikimedia Commons"
+            />
           </a>
         )}
       </div>
       <span>
         <h4>{author.fullname}</h4>
         {author.key && (
-          <p><IdLink button>{author.key}</IdLink></p>
+          <p>
+            <IdLink button>{author.key}</IdLink>
+          </p>
         )}
         {(birthYear || birthPlace) && (
-          <p>b. {birthYear}, {birthPlace}</p>
+          <p>
+            b. {birthYear}, {birthPlace}
+          </p>
         )}
         {(deathYear || deathPlace) && (
-          <p>d. {deathYear}, {deathPlace}</p>
+          <p>
+            d. {deathYear}, {deathPlace}
+          </p>
         )}
       </span>
     </div>
@@ -101,7 +110,7 @@ const AuthorInfo = ({author}) => {
 };
 
 AuthorInfo.propTypes = {
-  author: PropTypes.object.isRequired
+  author: PropTypes.object.isRequired,
 };
 
 export default AuthorInfo;
