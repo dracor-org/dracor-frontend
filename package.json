@@ -66,7 +66,11 @@
       "plugin:prettier/recommended",
       "prettier/standard",
       "prettier/react"
-    ]
+    ],
+    "rules": {
+      "no-use-before-define": "off",
+      "@typescript-eslint/no-use-before-define": ["error"]
+    }
   },
   "browserslist": {
     "production": [
