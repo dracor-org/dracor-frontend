@@ -6,6 +6,7 @@ import {
   Switch,
 } from 'react-router-dom';
 import api from './api';
+import {ApiInfo} from './types';
 import {DracorContext} from './context';
 import asyncComponent from './components/AsyncComponent';
 import Home from './components/Home';
@@ -18,7 +19,7 @@ const AsyncYasgui = asyncComponent(() => import('./components/Yasgui'));
 const AsyncAPIDoc = asyncComponent(() => import('./components/APIDoc'));
 
 const App = () => {
-  const [apiInfo, setApiInfo] = useState([]);
+  const [apiInfo, setApiInfo] = useState<ApiInfo | {}>({});
   const [corpora, setCorpora] = useState([]);
 
   useEffect(() => {
@@ -28,7 +29,7 @@ const App = () => {
       try {
         const response = await api.get('/info');
         if (response.ok) {
-          setApiInfo(response.data);
+          setApiInfo(response.data as ApiInfo);
         } else {
           throw new Error(
             `Failed to load API info. Status: ${response.status}`
@@ -49,7 +50,7 @@ const App = () => {
       try {
         const response = await api.get('/corpora');
         if (response.ok) {
-          setCorpora(response.data);
+          setCorpora(response.data as []);
         } else {
           throw new Error(`Failed to load corpora. Status: ${response.status}`);
         }
