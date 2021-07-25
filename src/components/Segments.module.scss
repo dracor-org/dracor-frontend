@@ -1,0 +1,23 @@
+.main {
+  ol {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  ol ol {
+    padding-left: 1rem;
+  }
+
+  li {
+    margin-bottom: 0.2em;
+    // segment title
+    & > p {
+      margin-bottom: 0;
+    }
+    // segment speakers
+    & > i {
+      font-size: 80%;
+    }
+  }
+}

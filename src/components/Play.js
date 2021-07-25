@@ -15,6 +15,7 @@ import RelationsGraph from './RelationsGraph';
 import SpeechDistribution, {SpeechDistributionNav} from './SpeechDistribution';
 import TEIPanel from './TEIPanel';
 import PlayMetrics from './PlayMetrics';
+import Segments from './Segments';
 
 import './Play.scss';
 
@@ -111,6 +112,7 @@ const PlayInfo = ({corpusId, playId}) => {
   let description = null;
   let cast = null;
   let metrics = null;
+  let segments = null;
 
   if (tab === 'speech') {
     tabContent = (
@@ -140,6 +142,7 @@ const PlayInfo = ({corpusId, playId}) => {
     description = (
       <SourceInfo source={play.source} original={play.originalSource} />
     );
+    segments = <Segments play={play} />;
   } else if (tab === 'relations') {
     tabContent = <RelationsGraph {...{play, nodeColor, edgeColor}} />;
     cast = castList;
@@ -181,7 +184,12 @@ const PlayInfo = ({corpusId, playId}) => {
         <PlayDetailsNav items={items} current={tab} />
       </PlayDetailsHeader>
       <Container fluid>
-        <PlayDetailsTab cast={cast} description={description} metrics={metrics}>
+        <PlayDetailsTab
+          cast={cast}
+          description={description}
+          metrics={metrics}
+          segments={segments}
+        >
           {tabContent}
         </PlayDetailsTab>
       </Container>
