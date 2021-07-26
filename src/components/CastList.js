@@ -30,9 +30,7 @@ const CastList = ({cast, hasTitle}) => (
             <a
               href={`https://www.wikidata.org/wiki/${member.wikidataId}`}
               title={`Wikidata: ${member.wikidataId}`}
-            >
-              wd
-            </a>
+            ></a>
           )}
         </li>
       ))}
