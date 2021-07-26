@@ -8,16 +8,16 @@ const cx = classnames.bind(style);
 const types = {
   isni: {
     label: 'ISNI',
-    url: 'https://isni.org/isni/'
+    url: 'https://isni.org/isni/',
   },
   pnd: {
     label: 'PND',
-    url: 'https://d-nb.info/gnd/'
+    url: 'https://d-nb.info/gnd/',
   },
   wikidata: {
     label: 'Wikidata',
-    url: 'https://www.wikidata.org/wiki/'
-  }
+    url: 'https://www.wikidata.org/wiki/',
+  },
 };
 
 const IdLink = ({button, children, className, showLabel}) => {
@@ -35,7 +35,9 @@ const IdLink = ({button, children, className, showLabel}) => {
   return (
     <span className={mainClass}>
       {showLabel && `${label}: `}
-      <a className={cx(type)} href={`${url}${id}`} title={label}>{id}</a>
+      <a className={cx(type)} href={`${url}${id}`} title={label}>
+        {id}
+      </a>
     </span>
   );
 };
@@ -44,13 +46,13 @@ IdLink.propTypes = {
   children: PropTypes.string.isRequired,
   className: PropTypes.string,
   button: PropTypes.bool,
-  showLabel: PropTypes.bool
+  showLabel: PropTypes.bool,
 };
 
 IdLink.defaultProps = {
   button: false,
   className: '',
-  showLabel: false
+  showLabel: false,
 };
 
 export default IdLink;

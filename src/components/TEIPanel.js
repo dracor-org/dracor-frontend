@@ -7,21 +7,21 @@ import '../CETEIcean.scss';
 
 const TEIPanel = ({url}) => {
   const CETEIcean = new CETEI();
-  CETEIcean.getHTML5(url, data => {
+  CETEIcean.getHTML5(url, (data) => {
     document.querySelector('#TEI').append(data);
   });
 
   return (
     <div className="tei-frame dracor-scrollbar">
       <div className="ceteicean">
-        <div id="TEI"/>
+        <div id="TEI" />
       </div>
     </div>
   );
 };
 
 TEIPanel.propTypes = {
-  url: PropTypes.string.isRequired
+  url: PropTypes.string.isRequired,
 };
 
 export default TEIPanel;

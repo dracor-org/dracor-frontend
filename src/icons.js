@@ -8,7 +8,7 @@ import {
   faPenFancy,
   faTheaterMasks,
   faMars,
-  faVenus
+  faVenus,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(

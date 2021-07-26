@@ -6,7 +6,7 @@ import '../slick.css';
 import '../slick-theme.css';
 import '../slick-theme.scss';
 
-function byNumOfPlays (a, b) {
+function byNumOfPlays(a, b) {
   if (a.metrics.plays > b.metrics.plays) {
     return 1;
   }
@@ -30,46 +30,53 @@ const settings = {
   customPadding: '60px',
   slidesToShow: 7,
   speed: 350,
-  responsive: [{
-    breakpoint: 2360,
-    settings: {
-      slidesToShow: 6
-    }
-  }, {
-    breakpoint: 2050,
-    settings: {
-      slidesToShow: 5
-    }
-  }, {
-    breakpoint: 1700,
-    settings: {
-      slidesToShow: 4
-    }
-  }, {
-    breakpoint: 1200,
-    settings: {
-      slidesToShow: 3
-    }
-  }, {
-    breakpoint: 900,
-    settings: {
-      slidesToShow: 2,
-      arrows: false,
-      autoplay: true
-    }
-  }, {
-    breakpoint: 767,
-    settings: {
-      unslick: true
-    }
-  }]
+  responsive: [
+    {
+      breakpoint: 2360,
+      settings: {
+        slidesToShow: 6,
+      },
+    },
+    {
+      breakpoint: 2050,
+      settings: {
+        slidesToShow: 5,
+      },
+    },
+    {
+      breakpoint: 1700,
+      settings: {
+        slidesToShow: 4,
+      },
+    },
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 3,
+      },
+    },
+    {
+      breakpoint: 900,
+      settings: {
+        slidesToShow: 2,
+        arrows: false,
+        autoplay: true,
+      },
+    },
+    {
+      breakpoint: 767,
+      settings: {
+        unslick: true,
+      },
+    },
+  ],
 };
 
 const Corpora = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    async function fetchData () {
+    async function fetchData() {
       try {
         const response = await api.get('/corpora?include=metrics');
         setData(response.data);
@@ -87,14 +94,17 @@ const Corpora = () => {
 
   return (
     <Slider {...settings}>
-      {data.sort(byNumOfPlays).reverse().map(corpus => (
-        <CorpusCard
-          key={`card-${corpus.name}`}
-          name={corpus.name}
-          title={corpus.title}
-          metrics={corpus.metrics}
-        />
-      ))}
+      {data
+        .sort(byNumOfPlays)
+        .reverse()
+        .map((corpus) => (
+          <CorpusCard
+            key={`card-${corpus.name}`}
+            name={corpus.name}
+            title={corpus.title}
+            metrics={corpus.metrics}
+          />
+        ))}
     </Slider>
   );
 };

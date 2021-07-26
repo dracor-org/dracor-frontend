@@ -8,7 +8,6 @@ import IdLink from './IdLink';
 import Years from './Years';
 import style from './PlayDetailsHeader.module.scss';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
-import {faClipboard} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const cx = classnames.bind(style);
@@ -23,7 +22,7 @@ const PlayDetailsHeader = ({play, children}) => {
     wikidataId,
     yearPremiered,
     yearPrinted,
-    yearWritten
+    yearWritten,
   } = play;
 
   return (
@@ -37,12 +36,15 @@ const PlayDetailsHeader = ({play, children}) => {
           <span className={cx('meta')}>
             {id && (
               <span className={cx('dracor-id')}>
-                <img src="/img/DraCor.svg"/>
+                <img src="/img/DraCor.svg" alt="DraCor" />
                 <CopyToClipboard
                   text={`https://dracor.org/id/${id}`}
                   title="copy to clipboard"
                 >
-                  <span>{id}<FontAwesomeIcon icon="clipboard" size="sm"/></span>
+                  <span>
+                    {id}
+                    <FontAwesomeIcon icon="clipboard" size="sm" />
+                  </span>
                 </CopyToClipboard>
               </span>
             )}
@@ -61,17 +63,19 @@ const PlayDetailsHeader = ({play, children}) => {
           </span>
         </div>
         <div className={cx('authors')}>
-          {authors.map(a => <AuthorInfo key={id} author={a}/>)}
+          {authors.map((a) => (
+            <AuthorInfo key={id} author={a} />
+          ))}
         </div>
       </div>
 
       <Sticky enabled innerZ={1}>
         <span>
-          <CorpusLabel name={corpus} id={id}/>
+          <CorpusLabel name={corpus} id={id} />
           <div className={cx('sticky-headings')}>
             <h1>{title}</h1>
             <span>
-              {authors.map(a => (
+              {authors.map((a) => (
                 <h3 key={a.key} className="data-link-label">
                   {a.fullname}
                 </h3>
@@ -95,9 +99,9 @@ PlayDetailsHeader.propTypes = {
     wikidataId: PropTypes.string,
     yearPremiered: PropTypes.string,
     yearPrinted: PropTypes.string,
-    yearWritten: PropTypes.string
+    yearWritten: PropTypes.string,
   }),
-  children: PropTypes.element
+  children: PropTypes.element,
 };
 
 export default PlayDetailsHeader;

@@ -4,25 +4,25 @@
   .nav-tabs {
     background-color: var(--background);
 
-    li a[role=addTab] {
-      padding: 0 .5em !important;
+    li a[role='addTab'] {
+      padding: 0 0.5em !important;
     }
 
     & > li > a {
       border-radius: 8px 8px 0 0 !important;
     }
-
   }
 
   .tab-content {
-    box-shadow: 0 7px 5px 0 rgba(0, 0, 0, 0.2), 0 10px 1em 0 rgba(0,0,0,.08);
+    box-shadow: 0 7px 5px 0 rgba(0, 0, 0, 0.2), 0 10px 1em 0 rgba(0, 0, 0, 0.08);
   }
 
   .yasr {
     padding-bottom: 5px;
 
     .yasr_btn {
-      &.selected, &:focus {
+      &.selected,
+      &:focus {
         background-color: var(--main) !important;
         border-color: var(--main) !important;
       }

@@ -7,11 +7,11 @@ import {
   NodeShapes,
   ForceAtlas2,
   RelativeSize,
-  RandomizeNodePositions
+  RandomizeNodePositions,
 } from 'react-sigma/lib/';
 
 class NetworkGraph extends Component {
-  render () {
+  render() {
     const {graph, nodeColor, edgeColor} = this.props;
 
     const settings = {
@@ -23,7 +23,7 @@ class NetworkGraph extends Component {
       labelSize: 'fixed',
       drawLabels: true,
       mouseWheelEnabled: false,
-      drawEdges: true
+      drawEdges: true,
     };
 
     const layoutOptions = {
@@ -35,10 +35,10 @@ class NetworkGraph extends Component {
       slowDown: 5,
       linLogMode: true,
       outboundAttractionDistribution: false,
-      strongGravityMode: false
+      strongGravityMode: false,
     };
 
-    const layout = <ForceAtlas2 {...layoutOptions}/>;
+    const layout = <ForceAtlas2 {...layoutOptions} />;
 
     let sigma = null;
     if (graph && graph.nodes.length > 0) {
@@ -49,11 +49,11 @@ class NetworkGraph extends Component {
           settings={settings}
           style={{display: 'flex', flexGrow: 1}}
         >
-          <EdgeShapes default="line"/>
-          <NodeShapes default="circle"/>
+          <EdgeShapes default="line" />
+          <NodeShapes default="circle" />
           <RandomizeNodePositions>
             {layout}
-            <RelativeSize initialSize={15}/>
+            <RelativeSize initialSize={15} />
           </RandomizeNodePositions>
         </Sigma>
       );
@@ -66,10 +66,10 @@ class NetworkGraph extends Component {
 NetworkGraph.propTypes = {
   graph: PropTypes.shape({
     nodes: PropTypes.array.isRequired,
-    edges: PropTypes.array.isRequired
+    edges: PropTypes.array.isRequired,
   }).isRequired,
   nodeColor: PropTypes.string.isRequired,
-  edgeColor: PropTypes.string.isRequired
+  edgeColor: PropTypes.string.isRequired,
 };
 
 export default NetworkGraph;

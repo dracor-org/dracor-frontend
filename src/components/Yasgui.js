@@ -13,7 +13,7 @@ const endpoint = sparqlUrl;
 
 yasgui.defaults.catalogueEndpoints = [
   {endpoint, title: 'DraCor'},
-  {endpoint: 'https://query.wikidata.org/sparql', title: 'Wikidata'}
+  {endpoint: 'https://query.wikidata.org/sparql', title: 'Wikidata'},
 ];
 
 yasgui.YASQE.defaults.value = `PREFIX urn: <http://fliqz.com/>
@@ -23,24 +23,24 @@ SELECT *  FROM <urn:x-arq:UnionGraph> WHERE {
 LIMIT 50`;
 
 class Yasgui extends Component {
-  componentDidMount () {
+  componentDidMount() {
     yasgui(document.querySelector('#yasgui'), {
       api: {
-        urlShortener
+        urlShortener,
       },
       yasqe: {
         sparql: {
           endpoint,
           acceptHeaderSelect: 'application/sparql-results+xml',
           headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
-        }
-      }
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+        },
+      },
     });
   }
 
-  render () {
+  render() {
     return (
       <Container fluid>
         <div className="dracor-page">
@@ -48,8 +48,8 @@ class Yasgui extends Component {
             <title>SPARQL</title>
           </Helmet>
           <Header>SPARQL</Header>
-          <div id="yasgui"/>
-          <Footer/>
+          <div id="yasgui" />
+          <Footer />
         </div>
       </Container>
     );

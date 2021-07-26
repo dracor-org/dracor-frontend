@@ -4,8 +4,8 @@
 
 .button {
   a {
-    border-radius: .3em;
-    padding-right: .3em;
+    border-radius: 0.3em;
+    padding-right: 0.3em;
     background-color: #fff;
     font-size: 1rem;
     vertical-align: text-bottom;
@@ -15,7 +15,7 @@
       display: inline;
       vertical-align: bottom;
       color: var(--main);
-      padding-left: .3em;
+      padding-left: 0.3em;
       font-weight: bold;
     }
 
@@ -40,6 +40,4 @@
       content: 'PND ';
     }
   }
-
-
 }

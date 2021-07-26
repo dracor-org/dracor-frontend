@@ -1,5 +1,5 @@
 .main {
-  font-size: .9rem;
+  font-size: 0.9rem;
   line-height: 1.65;
   padding-top: var(--bootstrap-padding);
   padding-bottom: var(--bootstrap-padding);
@@ -24,7 +24,7 @@
 .citation {
   display: flex;
   flex-flow: row wrap;
-  
+
   p {
     flex: 1 0 0;
     place-self: flex-end;
@@ -32,11 +32,11 @@
 
   img {
     height: 5em;
-    padding-top: .3rem;
+    padding-top: 0.3rem;
     padding-right: 1rem;
-    transition: opacity .3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
     &:hover {
-      opacity: .85;
+      opacity: 0.85;
     }
   }
 }
@@ -46,16 +46,17 @@
   white-space: nowrap;
 
   a img {
-    margin: 0 0 .3rem .3rem;
+    margin: 0 0 0.3rem 0.3rem;
     height: 1.3rem;
     @media only screen and (max-width: 767px) {
-      margin: 0 0 .3rem .3rem;
+      margin: 0 0 0.3rem 0.3rem;
     }
   }
 }
 
 @media only screen and (max-width: 767px) {
-  .citation, .license {
+  .citation,
+  .license {
     text-align: left;
     white-space: normal;
     margin-bottom: 1em;

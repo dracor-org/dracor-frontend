@@ -5,14 +5,9 @@ import TopNavDropdown from './TopNavDropdown';
 const CorporaDropdown = () => {
   const {corpora} = useContext(DracorContext);
 
-  const items = corpora.map(c => ({to: `/${c.name}`, label: c.title}));
+  const items = corpora.map((c) => ({to: `/${c.name}`, label: c.title}));
 
-  return (
-    <TopNavDropdown
-      label="Corpora"
-      items={items}
-    />
-  );
+  return <TopNavDropdown label="Corpora" items={items} />;
 };
 
 export default CorporaDropdown;

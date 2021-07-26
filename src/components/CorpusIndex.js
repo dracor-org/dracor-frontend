@@ -15,36 +15,47 @@ import {faInfoCircle} from '@fortawesome/free-solid-svg-icons';
 
 const {SearchBar} = Search;
 
-function formatAuthor (authorNames, d) {
-  const keys = d.authors.filter(a => a.key).map(a => {
-    return <IdLink key={a.key} showLabel>{a.key}</IdLink>;
-  });
+function formatAuthor(authorNames, d) {
+  const keys = d.authors
+    .filter((a) => a.key)
+    .map((a) => {
+      return (
+        <IdLink key={a.key} showLabel>
+          {a.key}
+        </IdLink>
+      );
+    });
   return (
     <span>
       {authorNames}
-      <br/>
+      <br />
       <small className="data-link-label">
-        {
-          keys.map((elem, i) => (
-            <span key={`authorkey-${elem.key}`}>
-              {Boolean(i) && ' · '}
-              {elem}
-            </span>
-          ))
-        }
+        {keys.map((elem, i) => (
+          <span key={`authorkey-${elem.key}`}>
+            {Boolean(i) && ' · '}
+            {elem}
+          </span>
+        ))}
       </small>
     </span>
   );
 }
 
-function formatTitle (d, corpusId) {
+function formatTitle(d, corpusId) {
   return (
     <span>
-      <Link className="drama-title" to={`/${corpusId}/${d.name}`}>{d.title}</Link>
-      {d.subtitle ? <small><br/>{d.subtitle}</small> : null}
+      <Link className="drama-title" to={`/${corpusId}/${d.name}`}>
+        {d.title}
+      </Link>
+      {d.subtitle ? (
+        <small>
+          <br />
+          {d.subtitle}
+        </small>
+      ) : null}
       {d.wikidataId && (
         <small className="data-link-label">
-          <br/>
+          <br />
           <IdLink showLabel>{`wikidata:${d.wikidataId}`}</IdLink>
         </small>
       )}
@@ -52,11 +63,11 @@ function formatTitle (d, corpusId) {
   );
 }
 
-function formatYear (d) {
+function formatYear(d) {
   return (
     <span className="year">
       {formatEra(d.yearNormalized, 1000)}
-      <br/>
+      <br />
       <span className="year-details">
         <Years
           written={d.writtenYear}
@@ -68,7 +79,7 @@ function formatYear (d) {
   );
 }
 
-function formatYearHeader (column, colIndex, {sortElement}) {
+function formatYearHeader(column, colIndex, {sortElement}) {
   return (
     <>
       {column.text}
@@ -78,18 +89,24 @@ function formatYearHeader (column, colIndex, {sortElement}) {
         title="FAQ: What is the normalized year?"
         style={{marginLeft: '0.5em'}}
       >
-        <FontAwesomeIcon icon={faInfoCircle}/>
+        <FontAwesomeIcon icon={faInfoCircle} />
       </Link>
     </>
   );
 }
 
-function formatSource (d, corpusId) {
+function formatSource(d, corpusId) {
   const teiUrl = `${apiUrl}/corpora/${corpusId}/play/${d.name}/tei`;
   return (
     <span>
-      {d.sourceUrl ? <a target="_blank" rel="noopener noreferrer" href={d.sourceUrl}>{d.source}</a> : d.source}
-      <br/>
+      {d.sourceUrl ? (
+        <a target="_blank" rel="noopener noreferrer" href={d.sourceUrl}>
+          {d.source}
+        </a>
+      ) : (
+        d.source
+      )}
+      <br />
       <a
         className="download-button"
         href={teiUrl}
@@ -107,66 +124,78 @@ const CorpusIndex = ({data}) => {
     return null;
   }
 
-  const columns = [{
-    dataField: 'authorNames',
-    text: 'Authors',
-    sort: true,
-    filterValue: (cell, row) =>
-      `${cell} ${row.authors.map(a => {
-        let value = a.key;
-        if (a.alsoKnownAs) {
-          value += a.alsoKnownAs.join(' ');
+  const columns = [
+    {
+      dataField: 'authorNames',
+      text: 'Authors',
+      sort: true,
+      filterValue: (cell, row) =>
+        `${cell} ${row.authors
+          .map((a) => {
+            let value = a.key;
+            if (a.alsoKnownAs) {
+              value += a.alsoKnownAs.join(' ');
+            }
+
+            return value;
+          })
+          .join(' ')} `,
+      formatter: formatAuthor,
+    },
+    {
+      dataField: 'title',
+      text: 'Title',
+      sort: true,
+      filterValue: (cell, row) =>
+        `${row.title} ${row.subtitle} ${row.wikidataId}`,
+      formatter: (cell, row) => formatTitle(row, data.name),
+    },
+    {
+      dataField: 'yearNormalized',
+      text: 'Year (normalized)',
+      sort: true,
+      sortFunc: (a, b, order) => {
+        if (a === '') {
+          return order === 'asc' ? -1 : 1;
         }
 
-        return value;
-      }).join(' ')} `,
-    formatter: formatAuthor
-  }, {
-    dataField: 'title',
-    text: 'Title',
-    sort: true,
-    filterValue: (cell, row) =>
-      `${row.title} ${row.subtitle} ${row.wikidataId}`,
-    formatter: (cell, row) => formatTitle(row, data.name)
-  }, {
-    dataField: 'yearNormalized',
-    text: 'Year (normalized)',
-    sort: true,
-    sortFunc: (a, b, order) => {
-      if (a === '') {
-        return order === 'asc' ? -1 : 1;
-      }
+        if (b === '') {
+          return order === 'asc' ? 1 : -1;
+        }
 
-      if (b === '') {
-        return order === 'asc' ? 1 : -1;
-      }
-
-      return order === 'asc' ? a - b : b - a;
+        return order === 'asc' ? a - b : b - a;
+      },
+      filterValue: (cell, row) =>
+        `${row.yearNormalized} ${row.writtenYear} ` +
+        `${row.premiereYear} ${row.printYear}`,
+      formatter: (cell, row) => formatYear(row),
+      headerFormatter: formatYearHeader,
     },
-    filterValue: (cell, row) => `${row.yearNormalized} ${row.writtenYear} ` +
-      `${row.premiereYear} ${row.printYear}`,
-    formatter: (cell, row) => formatYear(row),
-    headerFormatter: formatYearHeader
-  }, {
-    dataField: 'networkSize',
-    text: 'Network Size',
-    formatter: cell => Number.parseInt(cell, 10) || 0,
-    sort: true
-  }, {
-    dataField: 'source',
-    text: 'Source',
-    sort: true,
-    formatter: (cell, row) => formatSource(row, data.name)
-  }, {
-    dataField: 'id',
-    text: 'ID',
-    sort: true
-  }];
+    {
+      dataField: 'networkSize',
+      text: 'Network Size',
+      formatter: (cell) => Number.parseInt(cell, 10) || 0,
+      sort: true,
+    },
+    {
+      dataField: 'source',
+      text: 'Source',
+      sort: true,
+      formatter: (cell, row) => formatSource(row, data.name),
+    },
+    {
+      dataField: 'id',
+      text: 'ID',
+      sort: true,
+    },
+  ];
 
-  const defaultSorted = [{
-    dataField: 'yearNormalized',
-    order: 'asc'
-  }];
+  const defaultSorted = [
+    {
+      dataField: 'yearNormalized',
+      order: 'asc',
+    },
+  ];
 
   return (
     <div>
@@ -179,43 +208,41 @@ const CorpusIndex = ({data}) => {
         data={data.dramas}
         columns={columns}
       >
-        {
-          props => (
-            <div>
-              <div className="corpus-description">
-                {(data.description || data.license) && (
-                  <div>
-                    {data.description && (
-                      <ReactMarkdown>{data.description}</ReactMarkdown>
-                    )}
-                    {data.licence && (
-                      <p>
-                        <span>Corpus licensed under </span>
-                        <a
-                          href={data.licenceUrl}
-                          rel="noopener noreferrer licence"
-                          target="_blank"
-                        >
-                          {data.licence}
-                        </a>
-                      </p>
-                    )}
-                  </div>
-                )}
-                <SearchBar {...props.searchProps}/>
-              </div>
-              <div className="corpus-wrapper">
-                <BootstrapTable
-                  {...props.baseProps}
-                  bootstrap4
-                  defaultSorted={defaultSorted}
-                  defaultSortDirection="asc"
-                  classes="corpus"
-                />
-              </div>
+        {(props) => (
+          <div>
+            <div className="corpus-description">
+              {(data.description || data.license) && (
+                <div>
+                  {data.description && (
+                    <ReactMarkdown>{data.description}</ReactMarkdown>
+                  )}
+                  {data.licence && (
+                    <p>
+                      <span>Corpus licensed under </span>
+                      <a
+                        href={data.licenceUrl}
+                        rel="noopener noreferrer licence"
+                        target="_blank"
+                      >
+                        {data.licence}
+                      </a>
+                    </p>
+                  )}
+                </div>
+              )}
+              <SearchBar {...props.searchProps} />
             </div>
-          )
-        }
+            <div className="corpus-wrapper">
+              <BootstrapTable
+                {...props.baseProps}
+                bootstrap4
+                defaultSorted={defaultSorted}
+                defaultSortDirection="asc"
+                classes="corpus"
+              />
+            </div>
+          </div>
+        )}
       </ToolkitProvider>
     </div>
   );

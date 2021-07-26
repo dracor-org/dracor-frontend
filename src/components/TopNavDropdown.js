@@ -1,11 +1,7 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {NavLink} from 'react-router-dom';
-import {
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu
-} from 'reactstrap';
+import {Dropdown, DropdownToggle, DropdownMenu} from 'reactstrap';
 
 const TopNavDropdown = ({label, items}) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,9 +10,11 @@ const TopNavDropdown = ({label, items}) => {
 
   return (
     <Dropdown isOpen={isOpen} toggle={toggle}>
-      <DropdownToggle nav caret>{label}</DropdownToggle>
+      <DropdownToggle nav caret>
+        {label}
+      </DropdownToggle>
       <DropdownMenu>
-        {items.map(item => {
+        {items.map((item) => {
           if (item.href) {
             return (
               <a
@@ -52,9 +50,9 @@ TopNavDropdown.propTypes = {
     PropTypes.shape({
       label: PropTypes.string,
       href: PropTypes.string,
-      to: PropTypes.string
+      to: PropTypes.string,
     })
-  ).isRequired
+  ).isRequired,
 };
 
 export default TopNavDropdown;

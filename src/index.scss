@@ -1,19 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i&display=swap');
 
 :root {
-  --main: #1F2448;
-  --main-transparent: #1F244800;
-  --main-shade: #1F24480a;
-  --main-shadow: #1F244820;
-  --shadow: #1F244835;
+  --main: #1f2448;
+  --main-transparent: #1f244800;
+  --main-shade: #1f24480a;
+  --main-shadow: #1f244820;
+  --shadow: #1f244835;
   --background: #ebf0f7;
-  --background-light: #FFFFFF;
+  --background-light: #ffffff;
   --primary-accent: #0088ff;
   --secondary-accent: #aaeeff;
   --bootstrap-padding: 15px;
 }
 
-html, #root {
+html,
+#root {
   height: 100%;
   font-family: 'Rubik', sans-serif;
   position: relative;
@@ -50,7 +51,7 @@ ul {
 
 a {
   color: var(--primary-accent);
-  transition: color .3s ease-in-out;
+  transition: color 0.3s ease-in-out;
 }
 
 a:hover {
@@ -72,16 +73,15 @@ a:hover {
 
 .navbar .navbar-nav .nav-link {
   color: var(--background-light);
-  border-bottom: solid transparent .17em;
+  border-bottom: solid transparent 0.17em;
   margin-right: 1.5em;
   padding: 0;
-  transition: border-bottom .3s ease-in-out;
+  transition: border-bottom 0.3s ease-in-out;
 }
 
 .navbar .navbar-nav .nav-link.active,
 .navbar .navbar-nav .nav-link:hover,
-.navbar .navbar-nav .nav-link:focus
-{
+.navbar .navbar-nav .nav-link:focus {
   color: var(--background-light);
 }
 
@@ -104,7 +104,7 @@ a:hover {
   margin-top: calc(-5 * var(--bootstrap-padding));
   position: relative;
   min-height: calc(5 * var(--bootstrap-padding));
-  max-height: 100%;  
+  max-height: 100%;
 }
 
 .headroom {
@@ -133,7 +133,7 @@ a:hover {
   transform: translateY(0%);
   left: 0;
   right: 0;
-  z-Index: 2;
+  z-index: 2;
 }
 
 /* ############################# */
@@ -163,24 +163,24 @@ a:hover {
   max-width: 100%;
 }
 
-.dracor-page img[alt~="logo"] {
+.dracor-page img[alt~='logo'] {
   height: 10em;
   padding: var(--bootstrap-padding);
 }
 
-.dracor-page img[alt~="card"] {
+.dracor-page img[alt~='card'] {
   max-height: 30em;
   margin: 0 var(--bootstrap-padding) var(--bootstrap-padding) 0;
   border-radius: 1em;
   box-shadow: 0 5px 5px 0 var(--shadow), 0 4px 0px 0 var(--main-shadow);
 }
 
-.dracor-page img[alt~="poster"] {
+.dracor-page img[alt~='poster'] {
   max-height: 40em;
   box-shadow: 0 5px 5px 0 var(--shadow), 0 4px 0px 0 var(--main-shadow);
 }
 
-.dracor-page img[alt~="shirt"] {
+.dracor-page img[alt~='shirt'] {
   max-height: 40em;
 }
 
@@ -191,15 +191,18 @@ a:hover {
 .corpus-card {
   display: inline-block;
   width: 100%;
-	box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2), 0 5px 1em 0 rgba(0,0,0,.08), 0 4px 0px 0 #33405220;
-	transition: .3s ease-in-out;
-  border-radius: .8em;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2), 0 5px 1em 0 rgba(0, 0, 0, 0.08),
+    0 4px 0px 0 #33405220;
+  transition: 0.3s ease-in-out;
+  border-radius: 0.8em;
   background-color: var(--background);
   color: var(--main);
 }
 
-.corpus-card:hover, .corpus-card:focus {
-	box-shadow: 0px 10px 35px -15px rgba(0,0,0,0.75), 0 5px 1em 0 rgba(0,0,0,.08), 0 2px 0px 0 #33405220;
+.corpus-card:hover,
+.corpus-card:focus {
+  box-shadow: 0px 10px 35px -15px rgba(0, 0, 0, 0.75),
+    0 5px 1em 0 rgba(0, 0, 0, 0.08), 0 2px 0px 0 #33405220;
   outline: none;
 }
 
@@ -214,21 +217,21 @@ a:hover {
 .corpus-card h2 {
   background-color: var(--background-light);
   color: var(--main);
-  padding: .75rem;
+  padding: 0.75rem;
   margin-bottom: 0;
-  border-radius: .4em .4em 0 0;
+  border-radius: 0.4em 0.4em 0 0;
   font-weight: 500;
   font-size: 2.5rem;
   border: 0;
   width: auto;
 }
 
-.corpus-card h2 span{
+.corpus-card h2 span {
   color: var(--background-light);
   background-color: var(--main);
-  padding: .05rem .45rem;
-  border-radius: .2em;
-  margin-right: .05em;
+  padding: 0.05rem 0.45rem;
+  border-radius: 0.2em;
+  margin-right: 0.05em;
   font-weight: 400;
   text-transform: capitalize;
 }
@@ -236,7 +239,7 @@ a:hover {
 .corpus-card h3 {
   font-weight: 200;
   font-size: 1.2em;
-  padding: .35rem .75rem;
+  padding: 0.35rem 0.75rem;
   background-color: var(--secondary-accent);
   margin: 0;
 }
@@ -247,7 +250,7 @@ a:hover {
 
 .corpus-card table {
   width: calc(100% - 1.6em);
-  margin: 0 .8em .8em;
+  margin: 0 0.8em 0.8em;
 }
 
 .corpus-card table tbody tr {
@@ -274,12 +277,12 @@ a:hover {
   font-weight: 300;
 }
 
-.corpus-card table tbody tr td code{
+.corpus-card table tbody tr td code {
   color: var(--background);
   background-color: var(--main);
-  padding: .1em .4em .15em .4em;
+  padding: 0.1em 0.4em 0.15em 0.4em;
   border-radius: 1em;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 .number-plays {
@@ -316,23 +319,26 @@ a:hover {
   margin-right: 2em;
 }
 
-.corpus-description a[rel~="licence"]:after {
+.corpus-description a[rel~='licence']:after {
   position: absolute;
-  margin-left: .3em;
-  margin-top: .1em;
+  margin-left: 0.3em;
+  margin-top: 0.1em;
 }
 
-.corpus-description a[rel~="licence"][href="https://creativecommons.org/licenses/by-nc/3.0/deed.en_US"]:after {
+.corpus-description a[rel~="licence"][href="https://creativecommons.org/licenses/by-nc/3.0/deed.en_US"]:after
+{
   content: url(./images/cc-by-nc.svg);
   width: 4em;
 }
 
-.corpus-description a[rel~="licence"][href="https://creativecommons.org/licenses/by-sa/3.0/us/"]:after {
+.corpus-description a[rel~="licence"][href="https://creativecommons.org/licenses/by-sa/3.0/us/"]:after
+{
   content: url(./images/cc-by-sa.svg);
   width: 4em;
 }
 
-.corpus-description a[rel~="licence"][href="https://creativecommons.org/share-your-work/public-domain/cc0/"]:after {
+.corpus-description a[rel~="licence"][href="https://creativecommons.org/share-your-work/public-domain/cc0/"]:after
+{
   content: url(./images/cc0.svg);
   width: 2.6em;
 }
@@ -347,21 +353,27 @@ a:hover {
   background-color: #fff;
   border: 0;
   border-radius: 2em;
-  box-shadow: 1px 3px 6px rgba(0,0,0,0.16), 1px 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.16), 1px 3px 6px rgba(0, 0, 0, 0.23);
   transition: 2s ease-in-out;
 }
 
-.search-label .form-control:hover, .search-label .form-control:focus {
-  box-shadow: inset 1px 3px 6px rgba(0,0,0,0.16), inset 1px 3px 6px rgba(0,0,0,0.23);
+.search-label .form-control:hover,
+.search-label .form-control:focus {
+  box-shadow: inset 1px 3px 6px rgba(0, 0, 0, 0.16),
+    inset 1px 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-.react-bootstrap-table th .order-4:after, .react-bootstrap-table th .caret-4-asc:after, .react-bootstrap-table th .caret-4-desc:after {
-    content: "\25BC" !important;
-    font-size: .9em;
+.react-bootstrap-table th .order-4:after,
+.react-bootstrap-table th .caret-4-asc:after,
+.react-bootstrap-table th .caret-4-desc:after {
+  content: '\25BC' !important;
+  font-size: 0.9em;
 }
 
-.react-bootstrap-table th .order-4:before, .react-bootstrap-table th .caret-4-asc:before, .react-bootstrap-table th .caret-4-desc:before {
-    content: "\25B2" !important;
+.react-bootstrap-table th .order-4:before,
+.react-bootstrap-table th .caret-4-asc:before,
+.react-bootstrap-table th .caret-4-desc:before {
+  content: '\25B2' !important;
 }
 
 table a:hover {
@@ -402,12 +414,13 @@ table.table.corpus th:focus {
   outline: none;
 }
 
-.table-bordered th, .table-bordered td {
-    border: 0;
+.table-bordered th,
+.table-bordered td {
+  border: 0;
 }
 
 .table-bordered {
-    border: 0;
+  border: 0;
 }
 
 .drama-title {
@@ -419,7 +432,7 @@ table.table.corpus th:focus {
 .year {
   font-weight: 400;
   font-size: 1.5em;
-  line-height: .9;
+  line-height: 0.9;
 }
 
 .year-details {
@@ -428,9 +441,9 @@ table.table.corpus th:focus {
 
 .download-button {
   color: var(--background-light);
-  border-radius: .5em;
+  border-radius: 0.5em;
   background-color: var(--main);
-  padding: .5em .7em;
+  padding: 0.5em 0.7em;
   line-height: 3.5em;
   box-shadow: 0 5px 5px 0 var(--shadow), 0 4px 0px 0 var(--main-shadow);
   white-space: nowrap;
@@ -444,13 +457,14 @@ table.table.corpus th:focus {
 
 .data-link-label a {
   color: var(--primary-accent);
-  padding: .1em .4em;
+  padding: 0.1em 0.4em;
   border-radius: 1em;
   background: var(--background-light);
   vertical-align: middle;
 }
 
-.data-link-label a:hover, .data-link-label a:focus {
+.data-link-label a:hover,
+.data-link-label a:focus {
   color: var(--main);
   text-decoration: none;
 }
@@ -479,15 +493,15 @@ table.table.corpus th:focus {
   height: fit-content;
   padding: 1em;
   border: 0;
-  border-radius: .5em;
+  border-radius: 0.5em;
   background-color: var(--background-light);
-  box-shadow: 0 7px 5px 0 rgba(0, 0, 0, 0.2), 0 10px 1em 0 rgba(0,0,0,.08), 0 4px 0px 0 #33405220;
+  box-shadow: 0 7px 5px 0 rgba(0, 0, 0, 0.2), 0 10px 1em 0 rgba(0, 0, 0, 0.08),
+    0 4px 0px 0 #33405220;
 }
-
 
 .nav-tabs .nav-link {
   font-size: 1.2em;
-  padding: .5em 0;
+  padding: 0.5em 0;
   margin: auto;
   border: none;
   color: var(--background-light);
@@ -502,15 +516,15 @@ table.table.corpus th:focus {
 
 .nav-tabs .nav-item a::after {
   opacity: 0;
-  height: .2em;
+  height: 0.2em;
   background-color: var(--secondary-accent);
   display: block;
   content: '';
-  border-radius: .3em .3em 0 0;
+  border-radius: 0.3em 0.3em 0 0;
   position: absolute;
   bottom: 0;
   width: 100%;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .nav-tabs .nav-link.active {
@@ -527,7 +541,8 @@ table.table.corpus th:focus {
   opacity: 1;
 }
 
-.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
   color: var(--secondary-accent);
   border: none;
   outline: none;
@@ -549,19 +564,19 @@ table.table.corpus th:focus {
 
 .dracor-scrollbar {
   &::-webkit-scrollbar {
-    width: .5rem;
+    width: 0.5rem;
   }
 
   &::-webkit-scrollbar-track {
     background: var(--background);
-    border-radius: .25rem;
+    border-radius: 0.25rem;
   }
 
   &::-webkit-scrollbar-thumb,
   &::-webkit-scrollbar-thumb:hover {
     background: var(--main);
     border: none;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
   }
 }
 
@@ -572,26 +587,26 @@ table.table.corpus th:focus {
 .version-pill > span {
   background-color: var(--main);
   color: var(--background);
-  border-radius: 1em 0 0 1em ;
-  padding: .1em .3em .1em .5em;
+  border-radius: 1em 0 0 1em;
+  padding: 0.1em 0.3em 0.1em 0.5em;
 }
 
 .version-pill > a {
   background-color: var(--primary-accent);
   color: var(--background);
   border-radius: 0 1em 1em 0;
-  padding: .1em .5em .1em .3em;
-  transition: .3s ease-in-out;
+  padding: 0.1em 0.5em 0.1em 0.3em;
+  transition: 0.3s ease-in-out;
 }
 
-.version-pill > a:hover{
+.version-pill > a:hover {
   background-color: #0056b3;
   color: var(--secondary-accent);
 }
 
 @media only screen and (max-width: 1440px) {
   :root {
-    font-size: .85rem;
+    font-size: 0.85rem;
   }
 }
 
@@ -601,17 +616,19 @@ table.table.corpus th:focus {
   }
   // FIXME: move navbar overrides to TopNav.module.scss
   .navbar .navbar-toggler-icon {
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="rgb(255, 255, 255)"><rect y="0" width="100%" height="12%" rx="0%" ry="0%" /><rect y="40%" width="100%" height="12%" rx="0%" ry="0%" /><rect y="80%" width="100%" height="12%" rx="0%" ry="0%" /></svg>') center / 100% 100% no-repeat;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="rgb(255, 255, 255)"><rect y="0" width="100%" height="12%" rx="0%" ry="0%" /><rect y="40%" width="100%" height="12%" rx="0%" ry="0%" /><rect y="80%" width="100%" height="12%" rx="0%" ry="0%" /></svg>')
+      center / 100% 100% no-repeat;
   }
   .navbar .navbar-nav .nav-link {
     display: block;
-    color: #FFF;
-    border-bottom: solid #FFF .17em;
+    color: #fff;
+    border-bottom: solid #fff 0.17em;
   }
   .navbar .navbar-nav .nav-link.active {
-    color: #FFF;
+    color: #fff;
   }
-  .navbar .navbar-nav .nav-link:hover, .navbar .navbar-nav .nav-link:focus {
+  .navbar .navbar-nav .nav-link:hover,
+  .navbar .navbar-nav .nav-link:focus {
     color: var(--secondary-accent);
   }
   .navbar .navbar-nav .nav-link {
@@ -634,7 +651,7 @@ table.table.corpus th:focus {
     width: calc(100vw - 2.5em);
   }
   .corpus-card table {
-    font-size: .9em;
+    font-size: 0.9em;
   }
   .corpus-card table tbody tr {
     height: 3.5rem;
@@ -647,7 +664,7 @@ table.table.corpus th:focus {
   }
   .search-label .form-control {
     width: 94vw;
-    margin-top: .5em;
+    margin-top: 0.5em;
   }
 
   .tei-frame {

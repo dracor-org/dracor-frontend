@@ -18,11 +18,11 @@ const CorpusLabel = ({name, title}) => {
 
 CorpusLabel.propTypes = {
   name: PropTypes.string.isRequired,
-  title: PropTypes.string
+  title: PropTypes.string,
 };
 
 CorpusLabel.defaultProps = {
-  title: null
+  title: null,
 };
 
 export default CorpusLabel;

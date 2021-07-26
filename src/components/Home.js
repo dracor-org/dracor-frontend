@@ -6,9 +6,9 @@ import Footer from './Footer';
 const Home = () => {
   return (
     <>
-      <Corpora/>
+      <Corpora />
       <Container fluid>
-        <Footer/>
+        <Footer />
       </Container>
     </>
   );

@@ -15,16 +15,17 @@ const CastList = ({cast, hasTitle}) => (
       </>
     )}
     <ol>
-      {cast.map(member => (
+      {cast.map((member) => (
         <li key={member.id} title={member.id}>
           {member.name ? <span>{member.name}</span> : <em>{member.id}</em>}
           {'  '}
-          {member.sex === 'MALE' && <FontAwesomeIcon icon="mars" title="male"/>}
-          {member.sex === 'FEMALE' && (
-            <FontAwesomeIcon icon="venus" title="female"/>
+          {member.sex === 'MALE' && (
+            <FontAwesomeIcon icon="mars" title="male" />
           )}
-          {' '}
-          {member.isGroup && <FontAwesomeIcon icon="users" size="sm"/>}
+          {member.sex === 'FEMALE' && (
+            <FontAwesomeIcon icon="venus" title="female" />
+          )}{' '}
+          {member.isGroup && <FontAwesomeIcon icon="users" size="sm" />}
         </li>
       ))}
     </ol>
@@ -33,7 +34,7 @@ const CastList = ({cast, hasTitle}) => (
 
 CastList.propTypes = {
   cast: PropTypes.array.isRequired,
-  hasTitle: PropTypes.bool
+  hasTitle: PropTypes.bool,
 };
 
 export default CastList;
