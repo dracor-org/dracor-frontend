@@ -17,7 +17,7 @@ const SourceInfo = ({source, original}) => {
             </a>
           ) : (
             source.name
-          )}. TEI adaptations, corrections, enhancements by DraCor.
+          )}. TEI adaptation, corrections, enhancements by DraCor.
         </p>
       )}
 
