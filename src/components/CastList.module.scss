@@ -22,4 +22,9 @@
   :global(.fa-venus) {
     opacity: 0.4;
   }
+  
+  a img[alt=Wikidata] {
+    display: inline-block;
+    height: 0.8em;
+  }
 }
