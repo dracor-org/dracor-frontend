@@ -32,7 +32,7 @@
     grid-row: span 3 / auto;
 
     @media only screen and (max-width: 767px) {
-      grid-row: 2 / 3;
+      grid-row: 3 / 4;
       min-height: calc(100vh - 15em);
       min-width: 100%;
       height: auto;
@@ -61,7 +61,7 @@
     }
   }
 
-  .cast {
+  .cast, .segments {
     grid-row: span 2;
   }
 
@@ -75,7 +75,7 @@
   .metrics {
     @media only screen and (max-width: 767px) {
       grid-column: 1;
-      grid-row: 3 / 4;
+      grid-row: 2 / 3;
     }
   }
 
@@ -83,6 +83,13 @@
     @media only screen and (max-width: 767px) {
       grid-column: 1;
       grid-row: 4 / 5;
+    }
+  }
+
+  .segments {
+    @media only screen and (max-width: 767px) {
+      grid-column: 1;
+      grid-row: 2 / 3;
     }
   }
 
