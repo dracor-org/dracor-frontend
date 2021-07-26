@@ -23,15 +23,8 @@
     opacity: 0.4;
   }
   
-  a {
-    content: '';
-    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 25.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Ebene_1' xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 810 500' style='enable-background:new 0 0 810 500;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%23990000;%7D .st1%7Bfill:%23339966;%7D .st2%7Bfill:%23006699;%7D%0A%3C/style%3E%3Cpath class='st0' d='M0,500h30V0H0V500z M60,500h90V0H60V500z M180,0v500h90V0H180z'/%3E%3Cpath class='st1' d='M720,500h30V0h-30V500z M780,0v500h30V0H780z M300,500h30V0h-30V500z M360,0v500h30V0H360z'/%3E%3Cpath class='st2' d='M420,500h90V0h-90V500z M540,500h30V0h-30V500z M600,0v500h90V0H600z'/%3E%3C/svg%3E%0A");
+  a img[alt=Wikidata] {
     display: inline-block;
-    width: 2em;
-    height: 1.14em;
-    background-repeat: no-repeat;
-    background-size: 65%;
-    background-position: left center;
-    vertical-align: text-bottom;
+    height: 0.8em;
   }
 }
