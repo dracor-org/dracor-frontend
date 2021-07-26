@@ -11,3 +11,18 @@ table.table.corpus {
     margin-right: 4px;
   }
 }
+
+.download-corpus {
+  display: table-cell;
+
+  img {
+    height: 4em;
+    margin: .5em .5em .5em 0;
+    transition: opacity 0.3s ease-in-out;
+
+    &:hover,
+    &:focus {
+      opacity: 0.85;
+    }
+  }
+}
