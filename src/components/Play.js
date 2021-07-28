@@ -48,7 +48,7 @@ const PlayInfo = ({corpusId, playId}) => {
   const [play, setPlay] = useState(null);
   const [graph, setGraph] = useState(null);
   const [error, setError] = useState(null);
-  const [chartType, setChartType] = useState('trilckefischer');
+  const [chartType, setChartType] = useState('sapogov');
 
   useEffect(() => {
     async function fetchPlay() {
