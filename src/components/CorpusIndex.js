@@ -200,8 +200,8 @@ const CorpusIndex = ({data}) => {
     },
   ];
 
-  const jsonUrl = `${apiUrl}/corpus/#/metadata/`;
-  const csvUrl = `${apiUrl}/corpus/#/metadata/csv`;
+  const jsonUrl = `${apiUrl}/corpora/${data.name}/metadata`;
+  const csvUrl = `${apiUrl}/corpora/${data.name}/metadata/csv`;
 
   return (
     <div>
@@ -242,7 +242,7 @@ const CorpusIndex = ({data}) => {
                       href={jsonUrl}
                       target="_blank"
                       rel="noreferrer noopener"
-                      download="#.json"
+                      download={`${data.name}dracor-metadata.json`}
                     >
                       <img src={svgJSON} alt="JSON" />
                     </a>
@@ -251,7 +251,7 @@ const CorpusIndex = ({data}) => {
                       href={csvUrl}
                       target="_blank"
                       rel="noreferrer noopener"
-                      download="#.csv"
+                      download={`${data.name}dracor-metadata.csv`}
                     >
                       <img src={svgCSV} alt="" />
                     </a>
