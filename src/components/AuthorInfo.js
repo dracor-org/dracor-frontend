@@ -21,18 +21,20 @@ const AuthorInfo = ({author}) => {
         const response = await api.get(url);
         if (response.ok) {
           console.log(response.data);
-          const info = {...response.data};
+          const info = {...response.data, birth: [], death: []};
           if (info.birthDate) {
-            info.birthYear = formatYear(
-              info.birthDate.replace(/^(-?\d{4}).*$/, '$1')
+            info.birth.push(
+              formatYear(info.birthDate.replace(/^(-?\d{4}).*$/, '$1'))
             );
           }
+          if (info.birthPlace) info.birth.push(info.birthPlace);
 
           if (info.deathDate) {
-            info.deathYear = formatYear(
-              info.deathDate.replace(/^(-?\d{4}).*$/, '$1')
+            info.death.push(
+              formatYear(info.deathDate.replace(/^(-?\d{4}).*$/, '$1'))
             );
           }
+          if (info.deathPlace) info.death.push(info.deathPlace);
 
           if (info.imageUrl) {
             info.commonsPage = info.imageUrl.replace(
@@ -40,7 +42,7 @@ const AuthorInfo = ({author}) => {
               'File:'
             );
           }
-
+          console.log(info);
           setInfo(info);
         } else if (response.status === 404) {
           console.log('not found');
@@ -64,15 +66,7 @@ const AuthorInfo = ({author}) => {
     }
   }, [author]);
 
-  const {
-    name,
-    imageUrl,
-    commonsPage,
-    birthYear,
-    birthPlace,
-    deathYear,
-    deathPlace,
-  } = info || {};
+  const {name, imageUrl, commonsPage, birth = [], death = []} = info || {};
 
   return (
     <div className={cx('main')}>
@@ -95,16 +89,8 @@ const AuthorInfo = ({author}) => {
             <IdLink button>{author.key}</IdLink>
           </p>
         )}
-        {(birthYear || birthPlace) && (
-          <p>
-            b. {birthYear}, {birthPlace}
-          </p>
-        )}
-        {(deathYear || deathPlace) && (
-          <p>
-            d. {deathYear}, {deathPlace}
-          </p>
-        )}
+        {birth.length > 0 && <p>b. {birth.join(', ')}</p>}
+        {death.length > 0 && <p>d. {death.join(', ')}</p>}
       </span>
     </div>
   );
