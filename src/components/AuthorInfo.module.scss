@@ -1,6 +1,5 @@
 .main {
   display: flex;
-  gap: 1em;
 
   span {
     line-height: 1;
@@ -28,6 +27,7 @@
   background-position: center;
   border: solid;
   border-radius: 0.5em;
+  margin-right: 1em;
 
   & > img {
     object-fit: cover;
