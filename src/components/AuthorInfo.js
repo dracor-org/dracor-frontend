@@ -20,7 +20,6 @@ const AuthorInfo = ({author}) => {
       try {
         const response = await api.get(url);
         if (response.ok) {
-          console.log(response.data);
           const info = {...response.data, birth: [], death: []};
           if (info.birthDate) {
             info.birth.push(
@@ -37,12 +36,12 @@ const AuthorInfo = ({author}) => {
           if (info.deathPlace) info.death.push(info.deathPlace);
 
           if (info.imageUrl) {
-            info.commonsPage = info.imageUrl.replace(
-              /Special:FilePath\//,
-              'File:'
-            );
+            info.imageUrl = info.imageUrl.replace(/^http:/, 'https:');
+            info.commonsPage = info.imageUrl
+              .replace(/Special:FilePath\//, 'File:')
+              .replace(/^http:/, 'https:');
           }
-          console.log(info);
+
           setInfo(info);
         } else if (response.status === 404) {
           console.log('not found');
