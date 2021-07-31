@@ -35,13 +35,11 @@ function getCooccurrences(segments) {
   return cooccurrences;
 }
 
-export function makeGraph(cast, segments, color, edgeColor = 'black') {
+export function makeGraph(cast, segments, nodeProps = {}, edgeColor = 'black') {
   const nodes = [];
   cast.forEach((p) => {
-    const node = {id: p.id, label: p.name || `#${p.id}`};
-    if (color && typeof color === 'function') {
-      node.color = color(p);
-    }
+    const props = typeof nodeProps === 'function' ? nodeProps(p) : nodeProps;
+    const node = {id: p.id, label: p.name || `#${p.id}`, ...props};
     nodes.push(node);
   });
   const cooccurrences = getCooccurrences(segments);
