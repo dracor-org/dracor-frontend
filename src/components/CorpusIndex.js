@@ -13,9 +13,6 @@ import './CorpusIndex.scss';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faInfoCircle} from '@fortawesome/free-solid-svg-icons';
 
-import svgJSON from '../images/json.svg';
-import svgCSV from '../images/csv.svg';
-
 const {SearchBar} = Search;
 
 function formatAuthor(authorNames, d) {
@@ -236,7 +233,7 @@ const CorpusIndex = ({data}) => {
                   )}
                   <p>
                     Download a comprehensive table with metadata on all plays in
-                    the corpus:
+                    the corpus:{' '}
                     <a
                       className="download-corpus"
                       href={jsonUrl}
@@ -244,8 +241,8 @@ const CorpusIndex = ({data}) => {
                       rel="noreferrer noopener"
                       download={`${data.name}dracor-metadata.json`}
                     >
-                      <img src={svgJSON} alt="JSON" />
-                    </a>
+                      JSON
+                    </a>{' '}
                     <a
                       className="download-corpus"
                       href={csvUrl}
@@ -253,7 +250,7 @@ const CorpusIndex = ({data}) => {
                       rel="noreferrer noopener"
                       download={`${data.name}dracor-metadata.csv`}
                     >
-                      <img src={svgCSV} alt="" />
+                      CSV
                     </a>
                   </p>
                 </div>

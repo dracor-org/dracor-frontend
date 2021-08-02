@@ -447,6 +447,7 @@ table.table.corpus th:focus {
   line-height: 3.5em;
   box-shadow: 0 5px 5px 0 var(--shadow), 0 4px 0px 0 var(--main-shadow);
   white-space: nowrap;
+  transition: all .3s ease-in-out;
 }
 
 .download-button:hover {

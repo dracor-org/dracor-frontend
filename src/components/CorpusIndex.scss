@@ -13,16 +13,18 @@ table.table.corpus {
 }
 
 .download-corpus {
-  display: table-cell;
+  color: var(--background-light);
+  border-radius: 0.5em;
+  font-size: .85em;
+  background-color: var(--main);
+  padding: 0.3em 0.6em;
+  box-shadow: 0 5px 5px 0 var(--shadow), 0 4px 0px 0 var(--main-shadow);
+  white-space: nowrap;
+  transition: all .3s ease-in-out;
+}
 
-  img {
-    height: 4em;
-    margin: .5em .5em .5em 0;
-    transition: opacity 0.3s ease-in-out;
-
-    &:hover,
-    &:focus {
-      opacity: 0.85;
-    }
-  }
+.download-corpus:hover {
+  text-decoration: none;
+  color: var(--secondary-accent);
+  box-shadow: 0 3px 0px 0 #33405220;
 }
