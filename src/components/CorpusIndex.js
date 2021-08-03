@@ -17,11 +17,13 @@ const {SearchBar} = Search;
 
 function formatAuthor(authorNames, d) {
   const keys = d.authors
-    .filter((a) => a.key)
+    .filter((a) => a.refs && a.refs.find((r) => r.type === 'wikidata'))
     .map((a) => {
+      const wikidataRef = a.refs.find((r) => r.type === 'wikidata');
+      const wikidataId = wikidataRef.ref;
       return (
-        <IdLink key={a.key} showLabel>
-          {a.key}
+        <IdLink key={wikidataId} showLabel>
+          {`wikidata:${wikidataId}`}
         </IdLink>
       );
     });
@@ -132,11 +134,11 @@ const CorpusIndex = ({data}) => {
       filterValue: (cell, row) =>
         `${cell} ${row.authors
           .map((a) => {
-            let value = a.key;
+            const refs = a.refs ? a.refs.map((r) => r.ref).join(' ') : '';
+            let value = refs;
             if (a.alsoKnownAs) {
               value += a.alsoKnownAs.join(' ');
             }
-
             return value;
           })
           .join(' ')} `,

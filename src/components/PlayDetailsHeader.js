@@ -64,7 +64,7 @@ const PlayDetailsHeader = ({play, children}) => {
         </div>
         <div className={cx('authors')}>
           {authors.map((a) => (
-            <AuthorInfo key={id} author={a} />
+            <AuthorInfo key={a.fullname} author={a} />
           ))}
         </div>
       </div>
@@ -76,7 +76,7 @@ const PlayDetailsHeader = ({play, children}) => {
             <h1>{title}</h1>
             <span>
               {authors.map((a) => (
-                <h3 key={a.key} className="data-link-label">
+                <h3 key={a.fullname} className="data-link-label">
                   {a.fullname}
                 </h3>
               ))}

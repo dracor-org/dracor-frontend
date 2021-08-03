@@ -8,12 +8,13 @@ import style from './AuthorInfo.module.scss';
 
 const cx = classnames.bind(style);
 
-const AuthorInfo = ({author}) => {
+const AuthorInfo = ({author: {fullname, refs = []}}) => {
   const [info, setInfo] = useState(null);
 
-  useEffect(() => {
-    let wikidataId;
+  const wikidataRef = refs.find((r) => r.type === 'wikidata');
+  const wikidataId = wikidataRef ? wikidataRef.ref : undefined;
 
+  useEffect(() => {
     async function fetchAuthorInfo() {
       const url = `/author/${wikidataId}`;
       console.log('loading author info %s ...', url);
@@ -53,17 +54,10 @@ const AuthorInfo = ({author}) => {
       }
     }
 
-    const wikidataRef = author.refs.find((r) => r.type === 'wikidata');
-    if (wikidataRef) {
-      wikidataId = wikidataRef.ref;
-    } else if (author.key && author.key.startsWith('wikidata:')) {
-      wikidataId = author.key.slice(9);
-    }
-
     if (wikidataId && wikidataId !== 'Q4233718' /* anonymous */) {
       fetchAuthorInfo();
     }
-  }, [author]);
+  }, [wikidataId]);
 
   const {name, imageUrl, commonsPage, birth = [], death = []} = info || {};
 
@@ -82,10 +76,10 @@ const AuthorInfo = ({author}) => {
         )}
       </div>
       <span>
-        <h4>{author.fullname}</h4>
-        {author.key && (
+        <h4>{fullname}</h4>
+        {wikidataId && (
           <p>
-            <IdLink button>{author.key}</IdLink>
+            <IdLink button>{`wikidata:${wikidataId}`}</IdLink>
           </p>
         )}
         {birth.length > 0 && <p>b. {birth.join(', ')}</p>}
