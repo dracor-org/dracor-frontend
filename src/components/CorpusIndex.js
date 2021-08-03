@@ -197,6 +197,9 @@ const CorpusIndex = ({data}) => {
     },
   ];
 
+  const jsonUrl = `${apiUrl}/corpora/${data.name}/metadata`;
+  const csvUrl = `${apiUrl}/corpora/${data.name}/metadata/csv`;
+
   return (
     <div>
       <Helmet titleTemplate="%s - DraCor">
@@ -228,6 +231,28 @@ const CorpusIndex = ({data}) => {
                       </a>
                     </p>
                   )}
+                  <p>
+                    Download a comprehensive table with metadata on all plays in
+                    the corpus:{' '}
+                    <a
+                      className="download-corpus"
+                      href={jsonUrl}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      download={`${data.name}dracor-metadata.json`}
+                    >
+                      JSON
+                    </a>{' '}
+                    <a
+                      className="download-corpus"
+                      href={csvUrl}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      download={`${data.name}dracor-metadata.csv`}
+                    >
+                      CSV
+                    </a>
+                  </p>
                 </div>
               )}
               <SearchBar {...props.searchProps} />

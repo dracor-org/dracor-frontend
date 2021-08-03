@@ -11,3 +11,20 @@ table.table.corpus {
     margin-right: 4px;
   }
 }
+
+.download-corpus {
+  color: var(--background-light);
+  border-radius: 0.5em;
+  font-size: .85em;
+  background-color: var(--main);
+  padding: 0.3em 0.6em;
+  box-shadow: 0 5px 5px 0 var(--shadow), 0 4px 0px 0 var(--main-shadow);
+  white-space: nowrap;
+  transition: all .3s ease-in-out;
+}
+
+.download-corpus:hover {
+  text-decoration: none;
+  color: var(--secondary-accent);
+  box-shadow: 0 3px 0px 0 #33405220;
+}
