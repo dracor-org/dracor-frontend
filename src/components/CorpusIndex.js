@@ -22,7 +22,7 @@ function formatAuthor(authorNames, d) {
       const wikidataRef = a.refs.find((r) => r.type === 'wikidata');
       const wikidataId = wikidataRef.ref;
       return (
-        <IdLink key={wikidataId} showLabel>
+        <IdLink key={wikidataId} button>
           {`wikidata:${wikidataId}`}
         </IdLink>
       );
@@ -31,7 +31,7 @@ function formatAuthor(authorNames, d) {
     <span>
       {authorNames}
       <br />
-      <small className="data-link-label">
+      <small>
         {keys.map((elem, i) => (
           <span key={`authorkey-${elem.key}`}>
             {Boolean(i) && ' · '}
@@ -56,9 +56,9 @@ function formatTitle(d, corpusId) {
         </small>
       ) : null}
       {d.wikidataId && (
-        <small className="data-link-label">
+        <small>
           <br />
-          <IdLink showLabel>{`wikidata:${d.wikidataId}`}</IdLink>
+          <IdLink button>{`wikidata:${d.wikidataId}`}</IdLink>
         </small>
       )}
     </span>

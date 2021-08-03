@@ -456,20 +456,6 @@ table.table.corpus th:focus {
   box-shadow: 0 3px 0px 0 #33405220;
 }
 
-.data-link-label a {
-  color: var(--primary-accent);
-  padding: 0.1em 0.4em;
-  border-radius: 1em;
-  background: var(--background-light);
-  vertical-align: middle;
-}
-
-.data-link-label a:hover,
-.data-link-label a:focus {
-  color: var(--main);
-  text-decoration: none;
-}
-
 /* ############################# */
 /* #PLAY                       # */
 /* ############################# */
