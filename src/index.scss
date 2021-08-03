@@ -537,7 +537,40 @@ table.table.corpus th:focus {
 
 .tei-frame {
   width: inherit;
-  overflow-y: scroll;
+  display: flex;
+
+  .ceteicean {
+    position: relative;
+    overflow-y: auto;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 3em;
+    width: calc(100% - 1rem);
+    z-index: 1;
+    background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
+
+    @media only screen and (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 6em;
+    width: calc(100% - 1rem);
+    z-index: 1;
+    background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
+
+    @media only screen and (max-width: 767px) {
+      display: none;
+    }
+  }
 }
 
 .speech-dist-container {
