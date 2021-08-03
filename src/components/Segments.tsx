@@ -65,7 +65,7 @@ const Segments = ({play: {cast, segments}}: Props) => {
   return (
     <div className={cx('main')}>
       <h4>Segments</h4>
-      <ol>
+      <ol className={cx('wrapper', 'dracor-scrollbar')}>
         {tree.map((segment) => (
           <Seg key={segment.title} seg={segment} />
         ))}

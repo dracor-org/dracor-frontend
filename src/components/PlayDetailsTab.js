@@ -11,10 +11,8 @@ const PlayDetailsTab = ({children, description, cast, metrics, segments}) => {
       <div className={cx('content')}>{children}</div>
       <div className={cx('description')}>{description}</div>
       {metrics && <div className={cx('metrics')}>{metrics}</div>}
-      {cast && <div className={cx('cast', 'dracor-scrollbar')}>{cast}</div>}
-      {segments && (
-        <div className={cx('segments', 'dracor-scrollbar')}>{segments}</div>
-      )}
+      {cast && <div className={cx('cast')}>{cast}</div>}
+      {segments && <div className={cx('segments')}>{segments}</div>}
     </div>
   );
 };

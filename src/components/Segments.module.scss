@@ -1,4 +1,46 @@
 .main {
+  position: relative;
+  display: flex;
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 2em;
+    width: calc(100% - .5rem);
+    bottom: 0;
+    display: block;
+    background: linear-gradient(0deg, rgba(235, 240, 247, 1) 0%, rgba(235, 240, 247, 0) 100%);
+  }
+
+  h4 {
+    position: absolute;
+    width: calc(100% - .5rem);
+    background: #ebf0f7;
+    height: 2em;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 2em;
+      height: 2em;
+      width: 100%;
+      display: block;
+      background: linear-gradient(180deg, rgba(235, 240, 247, 1) 0%, rgba(235, 240, 247, 0) 100%);
+    }
+  }
+
+  .wrapper {
+    font-weight: bold;
+    overflow-y: scroll;
+    padding-top: 4em;
+    margin-bottom: 0;
+
+    &::-webkit-scrollbar-track {
+      background: white;
+    
+    }
+  }
+
   ol {
     list-style-type: none;
     margin-left: 0;
@@ -6,8 +48,9 @@
   }
 
   ol ol {
-    padding-left: 1rem;
     margin-bottom: 1em;
+    margin-top: .5em;
+    font-weight: normal;
   }
 
   li {
