@@ -25,7 +25,6 @@ function branch(level: TreeSegment[], title: string, speakers?: string[]) {
 }
 
 function buildTree(segments: Segment[], map: CastMap) {
-  console.log(segments);
   const tree: TreeSegment[] = segments.reduce((acc: TreeSegment[], segment) => {
     const title = segment.title || `[#${segment.number}]`;
     const parts = title.split(' | ');

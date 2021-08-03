@@ -25,10 +25,9 @@ const edgeColor = '#61affe65';
 const nodeColor = '#61affe';
 
 const nodeProps = (node) => {
-  const {sex, id} = node;
+  const {sex} = node;
   const color = sex === 'MALE' || sex === 'FEMALE' ? '#1f2448' : '#61affe';
   const type = sex === 'MALE' ? 'square' : 'circle';
-  console.log({id, type, sex, color});
   return {color, type};
 };
 
