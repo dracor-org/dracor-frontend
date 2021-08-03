@@ -76,9 +76,7 @@ const PlayDetailsHeader = ({play, children}) => {
             <h1>{title}</h1>
             <span>
               {authors.map((a) => (
-                <h3 key={a.fullname} className="data-link-label">
-                  {a.fullname}
-                </h3>
+                <h3 key={a.fullname}>{a.fullname}</h3>
               ))}
             </span>
           </div>

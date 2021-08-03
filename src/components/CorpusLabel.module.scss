@@ -8,12 +8,14 @@
   display: flex;
   background-color: var(--background-light);
   color: var(--main);
-  padding: 0.05rem 0.25rem;
+  padding: 2px 4px 2px 2px;
   border-radius: 0.3em;
   transition: font-size 0.3s ease-in-out;
 
   a {
     color: var(--main);
+    display: flex;
+    line-height: 1.2;
 
     em {
       color: var(--background-light);
@@ -37,7 +39,7 @@
   // class names.
   :global(.sticky-outer-wrapper.active) & {
     font-size: 2.1em;
-    padding: 0 0.35rem;
+    padding: 4px 8px 4px 4px;
 
     .dracor-id {
       width: 0;
