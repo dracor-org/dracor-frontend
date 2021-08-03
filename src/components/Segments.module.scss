@@ -31,13 +31,12 @@
 
   .wrapper {
     font-weight: bold;
-    overflow-y: scroll;
+    overflow-y: auto;
     padding-top: 4em;
     margin-bottom: 0;
 
     &::-webkit-scrollbar-track {
       background: white;
-    
     }
   }
 
@@ -45,6 +44,10 @@
     list-style-type: none;
     margin-left: 0;
     padding-left: 0;
+
+    i {
+      font-weight: normal;
+    }
   }
 
   ol ol {

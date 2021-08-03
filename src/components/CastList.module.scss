@@ -35,7 +35,7 @@
   }
 
   ol {
-    overflow-y: scroll;
+    overflow-y: auto;
     padding-top: 4em;
     padding-bottom: 1em;
     padding-inline-start: 0;
@@ -45,7 +45,6 @@
 
     &::-webkit-scrollbar-track {
       background: white;
-    
     }
   }
 
