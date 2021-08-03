@@ -1,6 +1,7 @@
 .main {
   position: relative;
   display: flex;
+  width: 100%;
 
   &::after {
     content: '';
@@ -35,6 +36,7 @@
     padding-top: 4em;
     padding-bottom: 1em;
     margin-bottom: 0;
+    width: 100%;
 
     &::-webkit-scrollbar-track {
       background: white;
