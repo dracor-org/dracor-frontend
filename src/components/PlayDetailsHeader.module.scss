@@ -55,17 +55,21 @@
           background: var(--background-light);
           border-radius: 0.3em;
           vertical-align: text-bottom;
+          display: inline-flex;
+          align-items: center;
+          
 
           img {
-            max-height: 0.8em;
-            max-width: 0.8em;
-            margin: 0.2em;
+            height: 0.85em;
+            width: 0.85em;
+            margin: 0 0.4em;
+            padding: 0.01em;
             vertical-align: text-top;
           }
 
           svg {
             color: var(--main);
-            margin: 0 0.2em 0.1em;
+            margin: 0 0.4em 0.1em;
           }
 
           a,
@@ -74,6 +78,7 @@
             font-weight: normal;
             cursor: pointer;
             transition: color 0.3s ease-in-out;
+            line-height: 1.4;
 
             &:hover {
               color: #0056b3;
