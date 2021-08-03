@@ -23,7 +23,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 ### GerDraCor
 * Editors: Frank Fischer, Peer Trilcke
 * Contributors: Mathias Göbel, [Dario Kampkaspar](https://www.oeaw.ac.at/acdh/team/current-team/dario-kampkaspar-1) (Vienna)
-* Character annotations: [Nathalie Wiedmer](https://www.ims.uni-stuttgart.de/institut/team/Wiedmer/), [Janis Pagel](https://janispagel.de/), [Nils Reiter](https://nilsreiter.de/) (all Stuttgart)
+* Character annotations: [Nathalie Wiedmer](https://www.ims.uni-stuttgart.de/institut/team/Wiedmer/), [Janis Pagel](https://janispagel.de/) (both Stuttgart), [Nils Reiter](https://nilsreiter.de/) (Cologne)
 
 ### RusDraCor
 * Editors: Frank Fischer, [Daniil Skorinkin](https://www.hse.ru/en/staff/skorinkin) (Moscow)
@@ -32,7 +32,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 * Annotators: Tatiana Orlova, Svetlana Lashchuk, Veronika Faynberg, Evgeniya Shlosman, German Palchikov, Natalia Tyshkevich (all Moscow)
 
 ### FreDraCor
-*(derived from Paul Fièvre's [Théâtre Classique](http://theatre-classique.fr/))*
+*(derived from Paul Fièvre's [Théâtre Classique](https://www.theatre-classique.fr/index.html))*
 * Maintainers: Frank Fischer, Mathias Göbel, Carsten Milling
 
 ### ItaDraCor
@@ -48,10 +48,11 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 
 ### CalDraCor
 * Maintainer: [Institute of Romance Languages and Literatures of University of Tübingen](https://uni-tuebingen.de/fakultaeten/philosophische-fakultaet/fachbereiche/neuphilologie/romanisches-seminar/home/)
+* Contact person: [Jörg Lehmann](https://uni-tuebingen.de/fakultaeten/philosophische-fakultaet/fachbereiche/neuphilologie/romanisches-seminar/ehrlicher/ehrlicher/mitarbeiter/)
 
 ### GreekDraCor
 *(derived from [Perseus Digital Library](http://www.perseus.tufts.edu/hopper/opensource/download))*
-* Maintainers: Boris Orekhov, Frank Fischer
+* Maintainers: Boris Orekhov, Julia Jennifer Beine, Frank Fischer
 * Metric annotations: Dmitry Krylov (Moscow)
 
 ### ShakeDraCor
@@ -68,7 +69,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 * Maintainers: [María Concepción Jiménez](https://www.unir.net/profesores/maria-concepcion-jimenez-fernandez/) (Madrid), [Teresa Santa María Fernández](https://www.unir.net/profesores/ma-teresa-santa-maria-fernandez/) (Madrid), [José Calvo Tello](https://www.sub.uni-goettingen.de/kontakt/personen-a-z/personendetails/person/jose-calvo-tello/) (Göttingen)
 
 ### AlsDraCor
-* Maintainer: [Pablo Ruiz Fabo](https://lilpa.unistra.fr/fdt/membres/chercheurs/ruiz-fabo-pablo/) (Strasbourg)
+* Maintainer: [Pablo Ruiz Fabo](https://lilpa.unistra.fr/theme-1-lexiques-discours-et-transpositions/membres/enseignants-chercheurs/ruiz-fabo-pablo/) (Strasbourg)
 
 ### TatDraCor
 * Maintainers: Daniil Skorinkin, Frank Fischer
