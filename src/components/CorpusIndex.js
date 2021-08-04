@@ -34,7 +34,7 @@ function formatAuthor(authorNames, d) {
       <small>
         {keys.map((elem, i) => (
           <span key={`authorkey-${elem.key}`}>
-            {Boolean(i) && ' · '}
+            {Boolean(i) && ' '}
             {elem}
           </span>
         ))}
