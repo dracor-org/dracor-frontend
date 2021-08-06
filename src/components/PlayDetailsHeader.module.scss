@@ -5,7 +5,7 @@
   background-color: var(--main);
   padding-top: var(--bootstrap-padding);
   padding-bottom: 0;
-  z-index: 2;
+  z-index: 1;
 
   h1 {
     @include pagetitle;

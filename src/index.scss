@@ -538,6 +538,7 @@ table.table.corpus th:focus {
 .tei-frame {
   width: inherit;
   display: flex;
+  z-index: 0;
 
   .ceteicean {
     position: relative;
