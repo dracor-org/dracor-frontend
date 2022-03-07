@@ -92,6 +92,10 @@ const Corpora = () => {
     return <p className="loading">Loading...</p>;
   }
 
+  if (data.length === 0) {
+    return <p className="loading">No corpora found</p>;
+  }
+
   return (
     <Slider {...settings}>
       {data
