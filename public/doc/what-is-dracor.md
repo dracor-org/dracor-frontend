@@ -25,5 +25,5 @@ Preferred hashtags: **#DraCor** **#dracor_org** **#ProgrammableCorpora** **#Digi
 
 DraCor as a project and the platform dracor.org are run jointly by our team at Freie Universität Berlin and University of Potsdam. For a full list of credits, please see our [Credits page](credits).
 
-![logo hse moscow](../img/hse.svg "Higher School of Economics, Moscow")
+![logo fu berlin](../img/fu-berlin.svg "Free University of Berlin")
 ![logo potsdam](../img/uni-potsdam.svg "University of Potsdam")
