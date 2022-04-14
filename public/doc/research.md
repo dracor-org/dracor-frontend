@@ -2,6 +2,10 @@
 
 An (incomplete) collection of research articles on drama using data provided through DraCor (including papers authored by the [DLINA collective](https://dlina.github.io/), the project preceding DraCor):
 
+## 2022
+
+* Dîlan Canan Çakir, Frank Fischer: Dramatische Metadaten. Die Datenbank deutschsprachiger Einakter 1740–1850. In: DHd2022: »Kulturen des digitalen Gedächtnisses«. 7–11 March 2022. Book of Abstracts. University of Potsdam. ([doi:10.5281/zenodo.6327977](https://doi.org/10.5281/zenodo.6327977))
+
 ## 2021
 
 * Inna Wendell: [A Statistical Analysis of Genre Dynamics: Evolution of the Russian Five-Act Comedy in Verse in the Eighteenth and Nineteenth Centuries.](https://escholarship.org/uc/item/9rr5k9p7) Dissertation, University of California, Los Angeles, 2021.
