@@ -3,7 +3,7 @@
 DraCor is an open source project. Everybody is welcome to contribute. You are free to use it, fork it or run your own instance. We always benefited from pull requests and community annotations and we gained some maintainers from within the community to help maintain and enhance our corpora. If you want to contribute on any level, please drop us a line.
 
 ## Platform (dracor.org)
-* Editor-in-chief: [Frank Fischer](https://lehkost.github.io/) (Moscow)
+* Editor-in-chief: [Frank Fischer](https://lehkost.github.io/) (Berlin)
 * Co-editors: [Peer Trilcke](https://www.uni-potsdam.de/de/lit-19-jhd/peertrilcke/) (Potsdam), [Julia Jennifer Beine](https://rub.academia.edu/JuliaJenniferBeine) (Bochum), [Boris Orekhov](http://nevmenandr.net/bo.php) (Moscow)
 * Technical lead: [Carsten Milling](https://hashtable.de/) (Potsdam)
 * Technical co-leads: [Ingo Börner](https://www.oeaw.ac.at/acdh/team/current-team/ingo-boerner/) (Potsdam), [Mathias Göbel](https://www.sub.uni-goettingen.de/en/contact/staff-a-z/staff-details/person/mathias-goebel/) (Göttingen)
@@ -85,4 +85,4 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 
 ### [Einakter](https://einakter.dracor.org/)
 *(Database of German-Language One-Act Plays 1740s–1850s)*
-* Maintainers: [Dîlan Canan Çakir](https://www.ilw.uni-stuttgart.de/institut/team/Cakir-00001/) (Stuttgart), Frank Fischer
+* Maintainers: [Dîlan Canan Çakir](https://www.ilw.uni-stuttgart.de/institut/team/Cakir-00001/) (Stuttgart/Marbach), Frank Fischer

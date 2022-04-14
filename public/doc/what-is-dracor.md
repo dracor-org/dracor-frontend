@@ -23,7 +23,7 @@ powerful, direct access point is the [documented API](api).
 
 Preferred hashtags: **#DraCor** **#dracor_org** **#ProgrammableCorpora** **#DigitalHumanities**
 
-DraCor as a concept and the platform dracor.org were initially developed by digital humanists at Higher School of Economics, Moscow. The website is hosted at University of Potsdam. For a full list of credits, please see our [Credits page](credits).
+DraCor as a project and the platform dracor.org are run jointly by our team at Freie Universität Berlin and University of Potsdam. For a full list of credits, please see our [Credits page](credits).
 
 ![logo hse moscow](../img/hse.svg "Higher School of Economics, Moscow")
 ![logo potsdam](../img/uni-potsdam.svg "University of Potsdam")
