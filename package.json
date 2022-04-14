@@ -17,7 +17,7 @@
     "@types/react-router-dom": "^5.1.8",
     "CETEIcean": "^1.3.0",
     "apisauce": "^2.0.0",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "bootstrap": "^4.5.3",
     "chart.js": "^2.9.4",
     "classnames": "^2.2.6",
