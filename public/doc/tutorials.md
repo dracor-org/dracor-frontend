@@ -2,7 +2,7 @@
 
 There is a growing number of training material around DraCor, some of which is listed here:
 
-* [dracor-tutorials repo on GitHub](https://github.com/dracor-org/dracor-tutorials): Jupyter Notebooks to get you acquainted with API functions (executable online via binder)
+* [dracor-notebooks repo on GitHub](https://github.com/dracor-org/dracor-notebooks): a collection of Jupyter Notebooks to get you acquainted with DraCor API functions (executable online via Binder)
 * [Getting started with rdracor](https://github.com/Pozdniakov/rdracor) (using our API wrapper in RStudio, experimental)
 * forText™ training sessions (in German, many hands-on videos):
   * [Comprehensive DraCor project description](https://fortext.net/ressourcen/textsammlungen/dracor-drama-corpora-project) (Jan Horstmann, 2019)
