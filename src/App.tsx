@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Suspense, lazy} from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -8,15 +8,14 @@ import {
 import api from './api';
 import {ApiInfo} from './types';
 import {DracorContext} from './context';
-import asyncComponent from './components/AsyncComponent';
 import Home from './components/Home';
 import DocPage from './components/DocPage';
 import TopNav from './components/TopNav';
 import Corpus from './components/Corpus';
 import './icons';
 
-const AsyncYasgui = asyncComponent(() => import('./components/Yasgui'));
-const AsyncAPIDoc = asyncComponent(() => import('./components/APIDoc'));
+const APIDoc = lazy(() => import('./components/APIDoc'));
+const Yasgui = lazy(() => import('./components/Yasgui'));
 
 const App = () => {
   const [apiInfo, setApiInfo] = useState<ApiInfo | {}>({});
@@ -74,13 +73,15 @@ const App = () => {
           </Route>
           <Route path="/" component={TopNav} />
           <div>
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/sparql" component={AsyncYasgui} />
-              <Route exact path="/doc/api" component={AsyncAPIDoc} />
-              <Route path="/doc/:slug" component={DocPage} />
-              <Route path="/:corpusId" component={Corpus} />
-            </Switch>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/sparql" component={Yasgui} />
+                <Route exact path="/doc/api" component={APIDoc} />
+                <Route path="/doc/:slug" component={DocPage} />
+                <Route path="/:corpusId" component={Corpus} />
+              </Switch>
+            </Suspense>
           </div>
         </div>
       </DracorContext.Provider>
