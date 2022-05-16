@@ -26,8 +26,8 @@ const PlayDetailsNav = ({items, current}) => {
 PlayDetailsNav.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string.required,
-      label: PropTypes.string.required,
+      name: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
     })
   ).isRequired,
   current: PropTypes.string,
