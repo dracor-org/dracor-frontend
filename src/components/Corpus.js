@@ -17,12 +17,14 @@ const PlayPage = ({match}) => (
 const Corpus = ({match, location}) => {
   const {corpusId} = match.params;
   const [corpus, setCorpus] = useState(null);
+  const [loading, setLoading] = useState(false);
   const {corpora} = useContext(DracorContext);
   const validCorpus = corpora.filter((c) => c.name === corpusId).length === 1;
 
   useEffect(() => {
     async function fetchCorpus() {
       console.log('fetching corpus...');
+      setLoading(true);
       try {
         const response = await api.get(`/corpora/${corpusId}`);
         response.data.dramas.forEach((d) => {
@@ -35,8 +37,10 @@ const Corpus = ({match, location}) => {
           }
         });
         setCorpus(response.data);
+        setLoading(false);
       } catch (error) {
         console.error(error);
+        setLoading(false);
       }
     }
 
@@ -53,7 +57,7 @@ const Corpus = ({match, location}) => {
     );
   }
 
-  if (!corpus) {
+  if (loading || !corpus) {
     return <p className="loading">Loading...</p>;
   }
 

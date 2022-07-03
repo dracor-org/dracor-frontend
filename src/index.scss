@@ -68,7 +68,7 @@ a:hover {
 
 // FIXME: move navbar overrides to TopNav.module.scss
 .navbar {
-  z-index: 2;
+  z-index: 3;
 }
 
 .navbar .navbar-nav .nav-link {
@@ -538,6 +538,7 @@ table.table.corpus th:focus {
 .tei-frame {
   width: inherit;
   display: flex;
+  z-index: 0;
 
   .ceteicean {
     position: relative;

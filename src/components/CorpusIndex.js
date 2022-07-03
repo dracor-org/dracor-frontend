@@ -2,7 +2,10 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {Helmet} from 'react-helmet';
 import BootstrapTable from 'react-bootstrap-table-next';
-import ToolkitProvider, {Search} from 'react-bootstrap-table2-toolkit';
+// see https://github.com/react-bootstrap-table/react-bootstrap-table2/pull/1506
+import ToolkitProvider, {
+  Search,
+} from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min';
 import ReactMarkdown from 'react-markdown';
 import {apiUrl} from '../config';
 import IdLink from './IdLink';

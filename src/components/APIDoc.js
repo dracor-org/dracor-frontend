@@ -14,7 +14,7 @@ class APIDoc extends Component {
         <Helmet titleTemplate="%s - DraCor">
           <title>API Documentation</title>
         </Helmet>
-        <SwaggerUI url="/api.yaml" />
+        <SwaggerUI url="/api/openapi.yaml" />
         <Footer />
       </Container>
     );

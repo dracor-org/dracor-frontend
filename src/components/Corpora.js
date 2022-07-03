@@ -107,6 +107,7 @@ const Corpora = () => {
             name={corpus.name}
             title={corpus.title}
             metrics={corpus.metrics}
+            acronym={corpus.acronym}
           />
         ))}
     </Slider>

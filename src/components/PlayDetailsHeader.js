@@ -1,4 +1,4 @@
-import React from 'react';
+import {useContext} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames/bind';
 import Sticky from 'react-stickynode';
@@ -9,6 +9,7 @@ import Years from './Years';
 import style from './PlayDetailsHeader.module.scss';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {DracorContext} from '../context';
 
 const cx = classnames.bind(style);
 
@@ -24,6 +25,9 @@ const PlayDetailsHeader = ({play, children}) => {
     yearPrinted,
     yearWritten,
   } = play;
+
+  const {corpora} = useContext(DracorContext);
+  const {acronym} = corpora.find((c) => c.name === corpus) || {};
 
   return (
     <div className={cx('main')}>
@@ -71,7 +75,7 @@ const PlayDetailsHeader = ({play, children}) => {
 
       <Sticky enabled innerZ={1}>
         <span>
-          <CorpusLabel name={corpus} id={id} />
+          <CorpusLabel name={corpus} acronym={acronym} />
           <div className={cx('sticky-headings')}>
             <h1>{title}</h1>
             <span>
