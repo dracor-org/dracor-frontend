@@ -22,11 +22,11 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 
 ### GerDraCor
 * Editors: Frank Fischer, Peer Trilcke
-* Contributors: Mathias Göbel, [Dario Kampkaspar](https://www.oeaw.ac.at/acdh/team/current-team/dario-kampkaspar-1) (Vienna)
-* Character annotations: [Nathalie Wiedmer](https://www.ims.uni-stuttgart.de/institut/team/Wiedmer/), [Janis Pagel](https://janispagel.de/) (both Stuttgart), [Nils Reiter](https://nilsreiter.de/) (Cologne)
+* Contributors: Mathias Göbel, [Dario Kampkaspar](https://www.ulb.tu-darmstadt.de/die_bibliothek/ueberuns/organisation/kontakt_details_17792.en.jsp) (Darmstadt/Vienna)
+* Character annotations: [Nathalie Wiedmer](https://uni-tuebingen.de/forschung/forschungsschwerpunkte/sonderforschungsbereiche/sfb-andere-aesthetik/organisation/mitglieder-alphabetisch/nathalie-wiedmer/) (Stuttgart), [Janis Pagel](https://janispagel.de/), [Nils Reiter](https://nilsreiter.de/) (both Cologne)
 
 ### RusDraCor
-* Editors: Frank Fischer, [Daniil Skorinkin](https://www.hse.ru/en/staff/skorinkin) (Moscow)
+* Editors: Frank Fischer, [Daniil Skorinkin](https://twitter.com/danya_sko) (Potsdam)
 * Encoders: Eduard Grigoryev, [Irina Pavlova](https://www.mod-langs.ox.ac.uk/people/irina-pavlova) (Oxford), Daniil Skorinkin, Kirill Mazur (Moscow), Matvey Kolbasov (Moscow)
 * Developers: Daria Maximova, Eugenia Ustinova, [Alyaxey Yaskevich](https://yaskevich.com/) (all Moscow)
 * Annotators: Tatiana Orlova, Svetlana Lashchuk, Veronika Faynberg, Evgeniya Shlosman, German Palchikov, Natalia Tyshkevich (all Moscow)
