@@ -4,10 +4,14 @@ An (incomplete) collection of research articles on drama using data provided thr
 
 ## 2022
 
+* Frank Fischer, Teresa Santa María Fernández, José Calvo Tello, Carsten Milling: Una perspectiva comparativa del teatro español: integración de la »Biblioteca Electrónica Textual del Teatro en Español« en la plataforma »DraCor«. In: Celis Sánchez, María Ángela (eds.): Las humanidades digitales como expresión y estudio del patrimonio digital. Cuenca: Ediciones de la Universidad de Castilla–La Mancha 2021 \[recte: 2022\], pp. 273–282. ([doi:10.18239/jornadas_2021.31.00](http://doi.org/10.18239/jornadas_2021.31.00))
+* Simon Kroll: [»Rhythmus und soziale Interaktion bei Calderón de la Barca«.](https://journals.univie.ac.at/index.php/adv/article/view/7525) In: Avisos de Viena. Viennese Cultural Studies. No. 4 (2022), pp. 60–72.
 * Dîlan Canan Çakir, Frank Fischer: Dramatische Metadaten. Die Datenbank deutschsprachiger Einakter 1740–1850. In: DHd2022: »Kulturen des digitalen Gedächtnisses«. 7–11 March 2022. Book of Abstracts. University of Potsdam. ([doi:10.5281/zenodo.6327977](https://doi.org/10.5281/zenodo.6327977))
+* Ingo Börner, Frank Fischer, Carsten Milling, Henny Sluyter-Gäthje: Einführung in DraCor: Programmable Corpora für die digitale Dramenanalyse. In: DHd2022: »Kulturen des digitalen Gedächtnisses«. 7–11 March 2022. Book of Abstracts. University of Potsdam. ([doi:10.5281/zenodo.6327951](https://doi.org/10.5281/zenodo.6327951))
 
 ## 2021
 
+* David Merino Recalde: »FISCHER, Frank y MILLING, Carsten. Easy Linavis. Simple Network Visualization for Literary Texts, 2017.« \[Review of [ezlinavis](https://ezlinavis.dracor.org/).\] In: Revista de Humanidades Digitales, Vol. 6 (2021), pp. 252–258. ([doi:10.5944/rhd.vol.6.2021.27371](https://doi.org/10.5944/rhd.vol.6.2021.27371))
 * Felix Schneider, Björn Barz, Phillip Brandes, Sophie Marshall, Joachim Denzler: Data-Driven Detection of General Chiasmi Using Lexical and Semantic Features. In: Proceedings of the 5th Joint SIGHUM Workshop on Computational Linguistics for Cultural Heritage, Social Sciences, Humanities and Literature, pp. 96–100. Punta Cana, Dominican Republic (online). Association for Computational Linguistics. ([doi:10.18653/v1/2021.latechclfl-1.11](http://doi.org/10.18653/v1/2021.latechclfl-1.11))
 * Inna Wendell: [A Statistical Analysis of Genre Dynamics: Evolution of the Russian Five-Act Comedy in Verse in the Eighteenth and Nineteenth Centuries.](https://escholarship.org/uc/item/9rr5k9p7) Dissertation, University of California, Los Angeles, 2021.
 * Margarita Berseneva, Aleksandr Dyuldenko, Frank Fischer, Anna Oskina: Parents and Children in Russian Drama. Research Scenarios Based on the Annotation of Kinship and Social Relations. In: EADH2021: »Interdisciplinary Perspectives on Data«. 21–25 September 2021. Siberian Federal University, Krasnoyarsk. (forthcoming)
@@ -22,7 +26,6 @@ An (incomplete) collection of research articles on drama using data provided thr
 
 ## 2019
 
-* Frank Fischer, Teresa Santa María Fernández, José Calvo Tello, Carsten Milling: Una perspectiva comparativa del teatro español: integración de la »Biblioteca Electrónica Textual del Teatro en Español« en la plataforma »DraCor«. In: HDH2019: »Humanidades digitales y patrimonio cultural«. 23–25 October 2019. Universidad de Castilla–La Mancha, Toledo.
 * Frank Fischer, Susanne Haaf, Marius Hug: [The Best of Three Worlds: Mutual Enhancement of Corpora of Dramatic Texts (GerDraCor, German Text Archive, TextGrid Repository).](https://office.clarin.eu/v/CE-2019-1512_CLARIN2019_ConferenceProceedings.pdf#page=104) In: CLARIN Annual Conference 2019. 30 September–2 October 2019. University of Leipzig. Proceedings. Edited by Kiril Simov and Maria Eskevich.
 * Daria Maximova, Frank Fischer: [Using Machine Learning for the Automated Classification of Stage Directions in TEI-Encoded Drama Corpora.](https://graz-2019.tei-c.org/files/BoATEI2019.pdf#page=123) In: TEI2019: »What is text, really? TEI and beyond«. 16–20 September 2019. Book of Abstracts. University of Graz.
 * Frank Fischer, Ingo Börner, Mathias Göbel, Angelika Hechtl, Christopher Kittel, Carsten Milling, Peer Trilcke: [Programmable Corpora: Introducing DraCor, an Infrastructure for the Research on European Drama.](https://dev.clariah.nl/files/dh2019/boa/0268.html) In: DH2019: »Complexities«. 9–12 July 2019. Book of Abstracts. Utrecht University. ([doi:10.5281/zenodo.4284002](https://doi.org/10.5281/zenodo.4284002))
