@@ -12,6 +12,7 @@
 * 32 cards containing network data of German-language plays from 1730–1930
 * Released in December 2019, [order at etkbooks (Bern, Switzerland)](http://www.etkbooks.com/dramenquartett/), ISBN 978-3-905846-55-3
 * [General information and rules of play (in German)](https://dramenquartett.github.io/)
+* Update 2022: out of print (looking for a publisher to do a second edition)
 
 ---
 
@@ -35,7 +36,7 @@
 *by Frank Fischer, Mark Schwindt*
 
 * 32 cards containing network data of Russian plays from the 18th to 20th century
-* Release planned for 2021
+* Update 2022: publication put on hold
 
 ---
 
