@@ -3,6 +3,26 @@
 tei-TEI tei-head {
   font-family: Rubik, sans-serif;
 }
+tei-titlePage {
+  display: block;
+  margin-bottom: 3em;
+  tei-docTitle {
+    display: block;
+    margin-bottom: 1.5em;
+    tei-titlePart {
+      display: block;
+      margin-bottom: .5em;
+      font-size: 170%;
+      &[type=main] {
+        font-size: 200%;
+        font-weight: 400;
+      }
+    }
+  }
+  tei-docAuthor {
+    font-size: large;
+  }
+}
 tei-body > tei-head {
   text-indent: 0;
   padding-top: 1.8em;
