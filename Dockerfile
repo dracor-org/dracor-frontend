@@ -10,10 +10,8 @@ COPY . ./
 RUN yarn build
 
 FROM nginx:stable-alpine
-ARG DRACOR_API=https://dracor.org/api
-ENV DRACOR_API=${DRACOR_API}
+ENV DRACOR_API=${DRACOR_API:-https://dracor.org/api}
 COPY --from=build /app/build /usr/share/nginx/html
-COPY --from=build /app/nginx.conf /tmp
-RUN envsubst '$DRACOR_API' < /tmp/nginx.conf > /etc/nginx/conf.d/default.conf
+COPY --from=build /app/nginx.conf /etc/nginx/templates/default.conf.template
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
