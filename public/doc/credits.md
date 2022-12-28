@@ -4,7 +4,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 
 ## Platform (dracor.org)
 * Editor-in-chief: [Frank Fischer](https://lehkost.github.io/) (Freie Universität Berlin)
-* Co-editors: [Peer Trilcke](https://www.uni-potsdam.de/de/lit-19-jhd/peertrilcke/) (University of Potsdam), [Julia Jennifer Beine](https://rub.academia.edu/JuliaJenniferBeine) (Ruhr University Bochum)
+* Co-editors: [Peer Trilcke](https://www.uni-potsdam.de/de/lit-19-jhd/peertrilcke/) (University of Potsdam), [Julia Jennifer Beine](https://rub.academia.edu/JuliaJenniferBeine) (Ruhr University Bochum), [Daniil Skorinkin](https://www.uni-potsdam.de/de/digital-humanities/daniil-skorinkin) (University of Potsdam)
 * Technical lead: [Carsten Milling](https://hashtable.de/) (University of Potsdam)
 * Technical co-leads: [Ingo Börner](https://www.oeaw.ac.at/acdh/team/current-team/ingo-boerner/) (University of Potsdam), [Mathias Göbel](https://www.sub.uni-goettingen.de/en/contact/staff-a-z/staff-details/person/mathias-goebel/) (University of Göttingen)
 * Art director: [Mark Schwindt](https://www.markschwindt.com/) (Ruhr University Bochum)
@@ -26,7 +26,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 * Character annotations: [Nathalie Wiedmer](https://uni-tuebingen.de/forschung/forschungsschwerpunkte/sonderforschungsbereiche/sfb-andere-aesthetik/organisation/mitglieder-alphabetisch/nathalie-wiedmer/) (University of Tübingen), [Janis Pagel](https://janispagel.de/), [Nils Reiter](https://nilsreiter.de/) (both University of Cologne)
 
 ### RusDraCor
-* Editors: Frank Fischer, [Daniil Skorinkin](https://www.uni-potsdam.de/de/digital-humanities/daniil-skorinkin) (University of Potsdam)
+* Editors: Frank Fischer, Daniil Skorinkin
 * Encoders: Eduard Grigoryev, [Irina Pavlova](https://www.mod-langs.ox.ac.uk/people/irina-pavlova) (Oxford), Daniil Skorinkin, Kirill Mazur, Matvey Kolbasov (both formerly HSE, Moscow)
 * Developers: Eugenia Ustinova (Charles University), Daria Maximova, [Alyaxey Yaskevich](https://yaskevich.com/) (both formerly HSE, Moscow)
 * Annotators: Tatiana Orlova, Svetlana Lashchuk, Veronika Faynberg, Evgeniya Shlosman, German Palchikov, Natalia Tyshkevich (all formerly HSE, Moscow)
