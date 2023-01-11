@@ -82,7 +82,7 @@ const TopNav = () => {
                 href="https://tei-c.org/activities/rahtz-prize-for-tei-ingenuity/"
                 title="Rahtz Prize for TEI Ingenuity 2022"
               >
-                <span className={cx('prize-name')}>Rathz Prize</span>
+                <span className={cx('prize-name')}>Rahtz Prize</span>
                 <span className={cx('prize-year')}>2022</span>
                 <img alt="TEI Logo" src={svgTEI}></img>
               </NavLink>
