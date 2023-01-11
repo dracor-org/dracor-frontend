@@ -39,6 +39,10 @@
   width: calc(3 * var(--bootstrap-padding));
   height: calc(3 * var(--bootstrap-padding));
 
+  span {
+    display: none;
+  }
+
   :global(.fa-github) {
     width: 100%;
     height: 100%;
@@ -55,6 +59,88 @@
 
     :global(.nav-item .nav-link:hover) {
       border-bottom: solid var(--secondary-accent) 0.17em;
+    }
+
+    span {
+      display: block;
+    }
+  }
+}
+
+// Prize link
+.prize {
+  background-color: var(--background-light);
+  width: calc(3 * var(--bootstrap-padding));
+  margin-left: var(--bootstrap-padding);
+  margin-top: calc(-1 * var(--bootstrap-padding));
+  padding: .3em;
+  border-radius: 0 0 calc(1.5 * var(--bootstrap-padding)) calc(1.5 * var(--bootstrap-padding));
+
+  @media only screen and (max-width: 767px) {
+    width: auto;
+    padding: 0;
+    margin: 0;
+    background-color: var(--main);
+  }
+
+  :global(.nav-item .nav-link) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:hover {
+      border-bottom-color: transparent;
+    }
+
+    @media only screen and (max-width: 767px) {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: .3em;
+
+            
+      &:hover {
+        border-bottom: solid var(--secondary-accent) 0.17em;
+
+        span {
+          color: var(--secondary-accent);
+        }
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+    padding: .1em;
+    margin-bottom: -.2em;
+
+    @media only screen and (max-width: 767px) {
+      width: 1.5em;
+      padding: .15em;
+      background-color: var(--background-light);
+      border-radius: 100%;
+      margin-block: .2em;
+    }
+  }
+
+  span {
+    color: var(--main);
+    font-size: calc(.375 * var(--bootstrap-padding));
+    line-height: .75;
+
+    &.prize-year {
+      font-size: var(--bootstrap-padding);
+      line-height: 1.1;
+
+      @media only screen and (max-width: 767px) {
+        line-height: 2em;
+        font-size: 1em;
+      }
+    }
+
+    @media only screen and (max-width: 767px) {
+      color: var(--background-light);
+      line-height: 2em;
+      font-size: 1em;
     }
   }
 }
