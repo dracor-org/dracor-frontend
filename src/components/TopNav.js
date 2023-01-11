@@ -17,6 +17,7 @@ import {ezlinavisUrl} from '../config';
 import CorporaDropdown from './CorporaDropdown';
 import TopNavDropdown from './TopNavDropdown';
 import style from './TopNav.module.scss';
+import svgTEI from '../images/TEI-Logo.svg';
 
 const cx = classnames.bind(style);
 
@@ -72,6 +73,18 @@ const TopNav = () => {
               >
                 <span>DraCor GitHub</span>
                 <FontAwesomeIcon icon={faGithub} size="lg" />
+              </NavLink>
+            </NavItem>
+          </Nav>
+          <Nav navbar className={cx('prize')}>
+            <NavItem>
+              <NavLink
+                href="https://tei-c.org/activities/rahtz-prize-for-tei-ingenuity/"
+                title="Rahtz Prize for TEI Ingenuity 2022"
+              >
+                <span className={cx('prize-name')}>Rathz Prize</span>
+                <span className={cx('prize-year')}>2022</span>
+                <img alt="TEI Logo" src={svgTEI}></img>
               </NavLink>
             </NavItem>
           </Nav>
