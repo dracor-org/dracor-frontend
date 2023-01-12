@@ -126,6 +126,7 @@
     color: var(--main);
     font-size: calc(.375 * var(--bootstrap-padding));
     line-height: .75;
+    white-space: nowrap;
 
     &.prize-year {
       font-size: var(--bootstrap-padding);
