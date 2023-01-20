@@ -23,7 +23,17 @@ powerful, direct access point is the [documented API](api).
 
 Preferred hashtags: **#DraCor** **#dracor_org** **#ProgrammableCorpora** **#DigitalHumanities**
 
-DraCor as a project and the platform dracor.org are run jointly by our team at Freie Universität Berlin and University of Potsdam. For a full list of credits, please see our [Credits page](credits). In the context of [CLS INFRA](https://clsinfra.io/), the project has received funding from the European Union's Horizon 2020 research and innovation programme under grant agreement [No. 101004984](https://cordis.europa.eu/project/id/101004984).
+DraCor as a project and the platform dracor.org are run jointly by our team at Freie Universität Berlin and University of Potsdam. For a full list of credits, please see our [Credits page](credits).
+
+<div id="eu-funding-note">
+
+In the context of [CLS INFRA](https://clsinfra.io/), the project has received
+funding from the European Union's Horizon 2020 research and innovation programme
+under grant agreement
+[No. 101004984](https://cordis.europa.eu/project/id/101004984).
+
+</div>
+
 
 ![logo fu berlin](../img/fu-berlin.svg "Free University of Berlin")
 ![logo potsdam](../img/uni-potsdam.svg "University of Potsdam")
