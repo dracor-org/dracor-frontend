@@ -49,6 +49,10 @@ const TopNav = () => {
                 {label: 'API', to: '/doc/api'},
                 {label: 'SPARQL', to: '/sparql'},
                 {label: 'ezlinavis', href: ezlinavisUrl},
+                {
+                  label: 'rdracor',
+                  href: 'https://github.com/dracor-org/rdracor',
+                },
                 {label: 'Shiny DraCor', href: 'https://shiny.dracor.org/'},
               ]}
             />

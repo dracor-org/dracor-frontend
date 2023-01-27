@@ -699,6 +699,25 @@ table.table.corpus th:focus {
   }
 }
 
+#eu-funding-note {
+  padding: 1em;
+  background-color: #e3e8f1;
+  font-weight: normal;
+  border-radius: 1em;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em;
+
+  p {
+    margin: 0;
+  }
+
+  img {
+    height: 100%;
+    max-width: 80px;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   .headroom-wrapper {
     height: auto !important;
