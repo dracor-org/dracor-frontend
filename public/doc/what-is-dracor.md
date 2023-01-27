@@ -27,12 +27,15 @@ DraCor as a project and the platform dracor.org are run jointly by our team at F
 
 <div id="eu-funding-note">
 
+<img alt="eu flag" title="EU Flag" src="../img/eu.svg">
+
 In the context of [CLS INFRA](https://clsinfra.io/), the project has received
 funding from the European Union's Horizon 2020 research and innovation programme
 under grant agreement
 [No. 101004984](https://cordis.europa.eu/project/id/101004984).
 
 </div>
+
 
 
 ![logo fu berlin](../img/fu-berlin.svg "Free University of Berlin")
