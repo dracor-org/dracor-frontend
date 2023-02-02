@@ -22,6 +22,7 @@ const DownloadLinks = ({play}) => {
   const graphmlUrl = `${playUrl}/networkdata/graphml`;
   const csvRelationsUrl = `${playUrl}/relations/csv`;
   const gexfRelationsUrl = `${playUrl}/relations/gexf`;
+  const graphmlRelationsUrl = `${playUrl}/relations/graphml`;
   const jsonCastUrl = `${playUrl}/cast`;
   const csvCastUrl = `${playUrl}/cast/csv`;
   const rdfUrl = `${playUrl}/rdf`;
@@ -65,6 +66,12 @@ const DownloadLinks = ({play}) => {
               >
                 <img src={svgGEXF} alt="GEXF" />
               </a>
+              <a
+                href={graphmlRelationsUrl}
+                download={`${play.id}-${play.name}.graphml`}
+              >
+                <img src={svgGraphML} alt="GraphML" />
+              </a>
             </span>
           </>
         ) : (
@@ -73,6 +80,7 @@ const DownloadLinks = ({play}) => {
             <span className={cx('formats')}>
               <img disabled src={svgCSV} alt="CSV" />
               <img disabled src={svgGEXF} alt="GEXF" />
+              <img disabled src={GraphML} alt="GraphML" />
             </span>
           </>
         )}
