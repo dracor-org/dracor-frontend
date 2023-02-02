@@ -80,7 +80,7 @@ const DownloadLinks = ({play}) => {
             <span className={cx('formats')}>
               <img disabled src={svgCSV} alt="CSV" />
               <img disabled src={svgGEXF} alt="GEXF" />
-              <img disabled src={GraphML} alt="GraphML" />
+              <img disabled src={svgGraphML} alt="GraphML" />
             </span>
           </>
         )}
