@@ -75,9 +75,9 @@ function formatYear(d) {
       <br />
       <span className="year-details">
         <Years
-          written={d.writtenYear}
-          premiere={d.premiereYear}
-          print={d.printYear}
+          written={d.yearWritten}
+          premiere={d.yearPremiered}
+          print={d.yearPrinted}
         />
       </span>
     </span>
@@ -171,8 +171,8 @@ const CorpusIndex = ({data}) => {
         return order === 'asc' ? a - b : b - a;
       },
       filterValue: (cell, row) =>
-        `${row.yearNormalized} ${row.writtenYear} ` +
-        `${row.premiereYear} ${row.printYear}`,
+        `${row.yearNormalized} ${row.yearWritten} ` +
+        `${row.yearPremiered} ${row.yearPrinted}`,
       formatter: (cell, row) => formatYear(row),
       headerFormatter: formatYearHeader,
     },
