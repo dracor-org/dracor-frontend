@@ -40,7 +40,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 *(derived from [Biblioteca Italiana](http://www.bibliotecaitaliana.it/))*
 * Maintainers: Frank Fischer, Carsten Milling
 * Character annotations: [Michael Sonkin](https://twitter.com/Migabaj) (formerly HSE, Moscow)
-* Thanks to: [Fabio Ciotti](http://directory.uniroma2.it/index.php/chart/dettagliDocente/8353) (University of Rome Tor Vergata)
+* Thanks to: [Fabio Ciotti](http://directory.uniroma2.it/index.php/chart/dettagliDocente/8353) (University of Rome Tor Vergata), [Luca Giovannini](https://lucagiovannini7.github.io/) (University of Potsdam)
 
 ### SweDraCor
 *(derived from [Dramawebben](https://litteraturbanken.se/dramawebben))*
@@ -75,8 +75,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 * Maintainers: Daniil Skorinkin, Frank Fischer
 
 ### BashDraCor
-* Maintainer: Boris Orekhov
-* Marsel Ishimbaev (Ufa)
+* Maintainers: Boris Orekhov, Marsel Ishimbaev (Ufa)
 
 ## DraCor side projects
 
