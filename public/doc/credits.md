@@ -14,7 +14,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 * [dramavis](https://dlina.github.io/dramavis/) (deprecated): [Christopher Kittel](http://www.christopherkittel.eu/) (Open Knowledge Foundation), Frank Fischer
 
 ## API wrappers (experimental)
-* for Python ([PyDraCor](https://pypi.org/project/pydracor/)): Eduard Grigoryev (formerly HSE, Moscow)
+* for Python ([PyDraCor](https://pypi.org/project/pydracor/)): Eduard Grigoryev (formerly HSE, Moscow), Henny Sluyter-Gäthje (University of Potsdam)
 * for R ([rdracor](https://github.com/dracor-org/rdracor)): Ivan Pozdniakov
 * for Haskell ([HDraCor](https://github.com/dracor-org/hdracor)): [Christian Lück](https://www.uni-muenster.de/DH/scdh/team.html) (University of Münster)
 
