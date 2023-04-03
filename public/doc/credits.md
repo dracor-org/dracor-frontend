@@ -14,7 +14,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 * [dramavis](https://dlina.github.io/dramavis/) (deprecated): [Christopher Kittel](http://www.christopherkittel.eu/) (Open Knowledge Foundation), Frank Fischer
 
 ## API wrappers (experimental)
-* for Python ([PyDraCor](https://pypi.org/project/pydracor/)): Eduard Grigoryev (formerly HSE, Moscow)
+* for Python ([PyDraCor](https://pypi.org/project/pydracor/)): Eduard Grigoryev (formerly HSE, Moscow), Henny Sluyter-Gäthje (University of Potsdam)
 * for R ([rdracor](https://github.com/dracor-org/rdracor)): Ivan Pozdniakov
 * for Haskell ([HDraCor](https://github.com/dracor-org/hdracor)): [Christian Lück](https://www.uni-muenster.de/DH/scdh/team.html) (University of Münster)
 
@@ -22,7 +22,8 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 
 ### GerDraCor
 * Editors: Frank Fischer, Peer Trilcke
-* Contributors: Mathias Göbel, [Dario Kampkaspar](https://www.ulb.tu-darmstadt.de/die_bibliothek/ueberuns/organisation/kontakt_details_17792.en.jsp) (Technical University of Darmstadt/ACDH-CH, Vienna)
+* Support during the initial compilation of the corpus from TextGrid Repository: Mathias Göbel, [Dario Kampkaspar](https://www.ulb.tu-darmstadt.de/die_bibliothek/ueberuns/organisation/kontakt_details_17792.en.jsp) (Technical University of Darmstadt/ACDH-CH, Vienna)
+* Additional encoders: [Erik Renz](https://www.germanistik.uni-rostock.de/forschung/digital-humanities/mitarbeiterinnen/erik-renz/) (University of Rostock)
 * Character annotations: [Nathalie Wiedmer](https://uni-tuebingen.de/forschung/forschungsschwerpunkte/sonderforschungsbereiche/sfb-andere-aesthetik/organisation/mitglieder-alphabetisch/nathalie-wiedmer/) (University of Tübingen), [Janis Pagel](https://janispagel.de/), [Nils Reiter](https://nilsreiter.de/) (both University of Cologne)
 
 ### RusDraCor
@@ -39,7 +40,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 *(derived from [Biblioteca Italiana](http://www.bibliotecaitaliana.it/))*
 * Maintainers: Frank Fischer, Carsten Milling
 * Character annotations: [Michael Sonkin](https://twitter.com/Migabaj) (formerly HSE, Moscow)
-* Thanks to: [Fabio Ciotti](http://directory.uniroma2.it/index.php/chart/dettagliDocente/8353) (University of Rome Tor Vergata)
+* Thanks to: [Fabio Ciotti](http://directory.uniroma2.it/index.php/chart/dettagliDocente/8353) (University of Rome Tor Vergata), [Luca Giovannini](https://lucagiovannini7.github.io/) (University of Potsdam)
 
 ### SweDraCor
 *(derived from [Dramawebben](https://litteraturbanken.se/dramawebben))*
@@ -74,8 +75,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 * Maintainers: Daniil Skorinkin, Frank Fischer
 
 ### BashDraCor
-* Maintainer: Boris Orekhov
-* Marsel Ishimbaev (Ufa)
+* Maintainers: Boris Orekhov, Marsel Ishimbaev (Ufa)
 
 ## DraCor side projects
 
