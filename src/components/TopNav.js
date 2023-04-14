@@ -50,6 +50,10 @@ const TopNav = () => {
                 {label: 'SPARQL', to: '/sparql'},
                 {label: 'ezlinavis', href: ezlinavisUrl},
                 {
+                  label: 'pydracor',
+                  href: 'https://pypi.org/project/pydracor/',
+                },
+                {
                   label: 'rdracor',
                   href: 'https://github.com/dracor-org/rdracor',
                 },
