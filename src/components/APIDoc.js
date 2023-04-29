@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Container} from 'reactstrap';
 import {Helmet} from 'react-helmet';
 import SwaggerUI from 'swagger-ui-react';
+import {apiUrl} from '../config';
 import Footer from './Footer';
 
 import 'swagger-ui-react/swagger-ui.css';
@@ -14,7 +15,7 @@ class APIDoc extends Component {
         <Helmet titleTemplate="%s - DraCor">
           <title>API Documentation</title>
         </Helmet>
-        <SwaggerUI url="/api/openapi.yaml" deepLinking />
+        <SwaggerUI url={`${apiUrl}/openapi.yaml`} deepLinking />
         <Footer />
       </Container>
     );
