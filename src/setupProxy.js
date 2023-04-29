@@ -6,7 +6,6 @@ module.exports = function (app) {
       target: 'http://localhost:8080/',
       pathRewrite: {
         '^/api/': '/exist/restxq/',
-        '^/api.yaml': '/exist/apps/dracor/api.yaml',
       },
     })
   );
