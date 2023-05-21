@@ -24,6 +24,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 * Editors: Frank Fischer, Peer Trilcke
 * Support during the initial compilation of the corpus from TextGrid Repository: Mathias Göbel, [Dario Kampkaspar](https://www.ulb.tu-darmstadt.de/die_bibliothek/ueberuns/organisation/kontakt_details_17792.en.jsp) (Technical University of Darmstadt/ACDH-CH, Vienna)
 * Additional encoders: [Erik Renz](https://www.germanistik.uni-rostock.de/forschung/digital-humanities/mitarbeiterinnen/erik-renz/) (University of Rostock)
+* Bibliographic research: Lilly Welz (Freie Universität Berlin)
 * Character annotations: [Nathalie Wiedmer](https://uni-tuebingen.de/forschung/forschungsschwerpunkte/sonderforschungsbereiche/sfb-andere-aesthetik/organisation/mitglieder-alphabetisch/nathalie-wiedmer/) (University of Tübingen), [Janis Pagel](https://janispagel.de/), [Nils Reiter](https://nilsreiter.de/) (both University of Cologne)
 
 ### RusDraCor
