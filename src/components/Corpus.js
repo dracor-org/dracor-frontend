@@ -27,7 +27,7 @@ const Corpus = ({match, location}) => {
       setLoading(true);
       try {
         const response = await api.get(`/corpora/${corpusId}`);
-        response.data.dramas.forEach((d) => {
+        response.data.plays.forEach((d) => {
           d.networkSize = Number.parseInt(d.networkSize, 10) || 0;
           if (d.authors) {
             d.authorNames = d.authors.map((a) => a.name).join(' · ');
