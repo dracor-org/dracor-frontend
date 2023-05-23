@@ -2,9 +2,14 @@
 
 An (incomplete) collection of research articles on drama using data provided through DraCor (including papers authored by the [DLINA collective](https://dlina.github.io/), the project preceding DraCor):
 
+## 2023
+
+* Peer Trilcke: Small Worlds, Beat Charts und die Netzwerkanalyse dramatischer Texte. Reflexionen aus dem Rabbit Hole. In: Fotis Jannidis (ed.): Digitale Literaturwissenschaft. Germanistische Symposien. Stuttgart: Metzler 2023, pp. 563–596. ([doi:10.1007/978-3-476-05886-7_23](https://doi.org/10.1007/978-3-476-05886-7_23))
+
 ## 2022
 
-* Frank Fischer, Teresa Santa María Fernández, José Calvo Tello, Carsten Milling: Una perspectiva comparativa del teatro español: integración de la »Biblioteca Electrónica Textual del Teatro en Español« en la plataforma »DraCor«. In: Celis Sánchez, María Ángela (eds.): Las humanidades digitales como expresión y estudio del patrimonio digital. Cuenca: Ediciones de la Universidad de Castilla–La Mancha 2021 \[recte: 2022\], pp. 273–282. ([doi:10.18239/jornadas_2021.31.00](http://doi.org/10.18239/jornadas_2021.31.00))
+* Andrea Peverelli, Marieke van Erp, Jan Bloemendal: [The Process of Imitatio Through Stylometric Analysis: the Case of Terence's Eunuchus.](https://ceur-ws.org/Vol-3290/long_paper988.pdf) In: Folgert Karsdorp, Alie Lassche, Kristoffer Nielbo (eds.): Proceedings of the Computational Humanities Research Conference 2022 (CHR2022). 12–14 December 2022. University of Antwerp. (= CEUR Workshop Proceedings, vol. 3290, pp. 337–354.)
+* Frank Fischer, Teresa Santa María Fernández, José Calvo Tello, Carsten Milling: Una perspectiva comparativa del teatro español: integración de la »Biblioteca Electrónica Textual del Teatro en Español« en la plataforma »DraCor«. In: Celis Sánchez, María Ángela (eds.): Las humanidades digitales como expresión y estudio del patrimonio digital. Cuenca: Ediciones de la Universidad de Castilla–La Mancha 2021 \[recte: 2022\], pp. 273–282. ([doi:10.17169/refubium-38797](https://doi.org/10.17169/refubium-38797))
 * Simon Kroll: [»Rhythmus und soziale Interaktion bei Calderón de la Barca«.](https://journals.univie.ac.at/index.php/adv/article/view/7525) In: Avisos de Viena. Viennese Cultural Studies. No. 4 (2022), pp. 60–72.
 * Dîlan Canan Çakir, Frank Fischer: Dramatische Metadaten. Die Datenbank deutschsprachiger Einakter 1740–1850. In: DHd2022: »Kulturen des digitalen Gedächtnisses«. 7–11 March 2022. Book of Abstracts. University of Potsdam. ([doi:10.5281/zenodo.6327977](https://doi.org/10.5281/zenodo.6327977))
 * Ingo Börner, Frank Fischer, Carsten Milling, Henny Sluyter-Gäthje: Einführung in DraCor: Programmable Corpora für die digitale Dramenanalyse. In: DHd2022: »Kulturen des digitalen Gedächtnisses«. 7–11 March 2022. Book of Abstracts. University of Potsdam. ([doi:10.5281/zenodo.6327951](https://doi.org/10.5281/zenodo.6327951))
