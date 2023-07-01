@@ -101,15 +101,16 @@ function formatYearHeader(column, colIndex, {sortElement}) {
 }
 
 function formatSource(d, corpusId) {
+  const {source = {}} = d;
   const teiUrl = `${apiUrl}/corpora/${corpusId}/play/${d.name}/tei`;
   return (
     <span>
-      {d.sourceUrl ? (
-        <a target="_blank" rel="noopener noreferrer" href={d.sourceUrl}>
-          {d.source}
+      {source.url ? (
+        <a target="_blank" rel="noopener noreferrer" href={source.url}>
+          {source.name}
         </a>
       ) : (
-        d.source
+        source.name
       )}
       <br />
       <a
@@ -186,6 +187,7 @@ const CorpusIndex = ({data}) => {
       dataField: 'source',
       text: 'Source',
       sort: true,
+      filterValue: (cell, row) => (row.source ? row.source.name : ''),
       formatter: (cell, row) => formatSource(row, data.name),
     },
     {
