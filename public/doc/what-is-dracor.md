@@ -36,7 +36,7 @@ under grant agreement
 
 </div>
 
-
+In 2023, [Transkribus](https://readcoop.eu/transkribus/) supported DraCor with free credits for the digitisation of German-language plays printed in 𝔉𝔯𝔞𝔨𝔱𝔲𝔯 typefaces.
 
 ![logo fu berlin](../img/fu-berlin.svg "Free University of Berlin")
 ![logo potsdam](../img/uni-potsdam.svg "University of Potsdam")
