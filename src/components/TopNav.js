@@ -13,7 +13,7 @@ import {
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import classnames from 'classnames/bind';
-import {ezlinavisUrl} from '../config';
+import {ezlinavisUrl, legacyApiUrl, legacyDocPath} from '../config';
 import CorporaDropdown from './CorporaDropdown';
 import TopNavDropdown from './TopNavDropdown';
 import style from './TopNav.module.scss';
@@ -47,6 +47,9 @@ const TopNav = () => {
               label="Tools"
               items={[
                 {label: 'API', to: '/doc/api'},
+                legacyApiUrl
+                  ? {label: 'API v0 (legacy)', to: legacyDocPath}
+                  : null,
                 {label: 'SPARQL', to: '/sparql'},
                 {label: 'ezlinavis', href: ezlinavisUrl},
                 {
@@ -58,7 +61,7 @@ const TopNav = () => {
                   href: 'https://github.com/dracor-org/rdracor',
                 },
                 {label: 'Shiny DraCor', href: 'https://shiny.dracor.org/'},
-              ]}
+              ].filter((item) => item)}
             />
             <TopNavDropdown
               label="How To"
