@@ -4,6 +4,8 @@ An (incomplete) collection of research articles on drama using data provided thr
 
 ## 2023
 
+* Janis Pagel, Benjamin Krautter, Melanie Andresen, Marcus Willand, Nils Reiter: On Designing Collaboration in a Mixed-Methods Scenario. Reflecting Quantitative Drama Analytics (QuaDrama). In: Birgit Schneider, Beate Löffler, Tino Mager, Carola Hein (eds.): Mixing Methods. Practical Insights from the Humanities in the Digital Age. Bielefeld University Press 2023, pp. 81–102. ([doi:10.14361/9783839469132](https://doi.org/10.14361/9783839469132))
+* Ingo Börner, Peer Trilcke et al.: On Programmable Corpora. Report and Prototype (DraCor). CLS INFRA D7.1. Zenodo, 28 February 2023. ([doi:10.5281/zenodo.7664964](https://doi.org/10.5281/zenodo.7664964))
 * Peer Trilcke: Small Worlds, Beat Charts und die Netzwerkanalyse dramatischer Texte. Reflexionen aus dem Rabbit Hole. In: Fotis Jannidis (ed.): Digitale Literaturwissenschaft. Germanistische Symposien. Stuttgart: Metzler 2023, pp. 563–596. ([doi:10.1007/978-3-476-05886-7_23](https://doi.org/10.1007/978-3-476-05886-7_23))
 * María Teresa Santa María Fernández, Monika Dabrowska: Análisis comparativo del Coro como personaje en tres tragedias griega y tres dramas españoles del Corpus DraCor. In: Neophilologus (2023). ([doi:10.1007/s11061-023-09768-7](https://doi.org/10.1007/s11061-023-09768-7))
 * Katrin Dennerlein, Thomas Schmidt, Christian Wolff: Computational emotion classification for genre corpora of German tragedies and comedies from 17th to early 19th century. In: Digital Scholarship in the Humanities (2023). ([doi:10.1093/llc/fqad046](https://doi.org/10.1093/llc/fqad046))
