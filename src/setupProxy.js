@@ -8,7 +8,7 @@ module.exports = function (app) {
       target: 'http://localhost:8080/',
       pathRewrite: {
         '^/api/v0/': '/exist/restxq/v0/',
-        '^/api/': proxyPath,
+        '^/api/v1/': proxyPath,
       },
     })
   );
