@@ -90,8 +90,8 @@ const DownloadLinks = ({play}) => {
         <p>By character:</p>
         <span className={cx('formats')}>
           <a
-            href={`${playUrl}/spoken-text-by-character.json`}
-            download={`${play.id}-${play.name}-spoken.json`}
+            href={`${playUrl}/spoken-text-by-character`}
+            download={`${play.id}-${play.name}-spoken-by-character.json`}
           >
             <img src={svgJSON} alt="JSON" />
           </a>
