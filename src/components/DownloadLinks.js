@@ -16,7 +16,7 @@ const cx = classnames.bind(style);
 const apiUrl = api.getBaseURL();
 
 const DownloadLinks = ({play}) => {
-  const playUrl = `${apiUrl}/corpora/${play.corpus}/play/${play.name}`;
+  const playUrl = `${apiUrl}/corpora/${play.corpus}/plays/${play.name}`;
   const csvUrl = `${playUrl}/networkdata/csv`;
   const gexfUrl = `${playUrl}/networkdata/gexf`;
   const graphmlUrl = `${playUrl}/networkdata/graphml`;

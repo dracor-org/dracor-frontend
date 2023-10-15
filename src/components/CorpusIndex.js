@@ -102,7 +102,7 @@ function formatYearHeader(column, colIndex, {sortElement}) {
 
 function formatSource(d, corpusId) {
   const {source = {}} = d;
-  const teiUrl = `${apiUrl}/corpora/${corpusId}/play/${d.name}/tei`;
+  const teiUrl = `${apiUrl}/corpora/${corpusId}/plays/${d.name}/tei`;
   return (
     <span>
       {source.url ? (
