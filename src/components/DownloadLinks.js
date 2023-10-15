@@ -16,7 +16,7 @@ const cx = classnames.bind(style);
 const apiUrl = api.getBaseURL();
 
 const DownloadLinks = ({play}) => {
-  const playUrl = `${apiUrl}/corpora/${play.corpus}/play/${play.name}`;
+  const playUrl = `${apiUrl}/corpora/${play.corpus}/plays/${play.name}`;
   const csvUrl = `${playUrl}/networkdata/csv`;
   const gexfUrl = `${playUrl}/networkdata/gexf`;
   const graphmlUrl = `${playUrl}/networkdata/graphml`;
@@ -90,8 +90,8 @@ const DownloadLinks = ({play}) => {
         <p>By character:</p>
         <span className={cx('formats')}>
           <a
-            href={`${playUrl}/spoken-text-by-character.json`}
-            download={`${play.id}-${play.name}-spoken.json`}
+            href={`${playUrl}/spoken-text-by-character`}
+            download={`${play.id}-${play.name}-spoken-by-character.json`}
           >
             <img src={svgJSON} alt="JSON" />
           </a>

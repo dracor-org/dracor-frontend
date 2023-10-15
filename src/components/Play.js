@@ -50,7 +50,7 @@ const PlayInfo = ({corpusId, playId}) => {
   useEffect(() => {
     async function fetchPlay() {
       setError(null);
-      const url = `/corpora/${corpusId}/play/${playId}`;
+      const url = `/corpora/${corpusId}/plays/${playId}`;
       console.log('loading play %s ...', url);
       try {
         const response = await api.get(url);
@@ -99,7 +99,7 @@ const PlayInfo = ({corpusId, playId}) => {
     tab = 'network';
   }
 
-  const teiUrl = `${apiUrl}/corpora/${play.corpus}/play/${play.name}/tei`;
+  const teiUrl = `${apiUrl}/corpora/${play.corpus}/plays/${play.name}/tei`;
 
   const castList = <CastList hasTitle cast={play.cast || []} />;
 

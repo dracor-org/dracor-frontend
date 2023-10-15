@@ -8,6 +8,7 @@ import {
 import api from './api';
 import {ApiInfo} from './types';
 import {DracorContext} from './context';
+import {legacyApiUrl, legacyDocPath} from './config';
 import Home from './components/Home';
 import DocPage from './components/DocPage';
 import TopNav from './components/TopNav';
@@ -78,6 +79,9 @@ const App = () => {
                 <Route exact path="/" component={Home} />
                 <Route exact path="/sparql" component={Yasgui} />
                 <Route exact path="/doc/api" component={APIDoc} />
+                {legacyApiUrl && (
+                  <Route exact path={legacyDocPath} component={APIDoc} />
+                )}
                 <Route path="/doc/:slug" component={DocPage} />
                 <Route path="/:corpusId" component={Corpus} />
               </Switch>
