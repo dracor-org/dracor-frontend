@@ -36,6 +36,14 @@ under grant agreement
 
 </div>
 
+<div id="dfg-funding-note">
+
+<img alt="exc temporal communities" title="EXC Temporal Communities" src="../img/exc-tc-logo.svg">
+
+Funded by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) under Germany's Excellence Strategy in the context of the Cluster of Excellence Temporal Communities: Doing Literature in a Global Perspective – EXC 2020 – Project [ID 390608380](https://gepris.dfg.de/gepris/projekt/390608380).
+
+</div>
+
 In 2023, [Transkribus](https://readcoop.eu/transkribus/) supported DraCor with free credits for the digitisation of German-language plays printed in 𝔉𝔯𝔞𝔨𝔱𝔲𝔯 typefaces.
 
 ![logo fu berlin](../img/fu-berlin.svg "Free University of Berlin")
