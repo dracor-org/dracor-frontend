@@ -16,7 +16,7 @@ import Corpus from './components/Corpus';
 import './icons';
 
 const APIDoc = lazy(() => import('./components/APIDoc'));
-const Yasgui = lazy(() => import('./components/Yasgui'));
+const SparqlUi = lazy(() => import('./components/SparqlUi'));
 
 const App = () => {
   const [apiInfo, setApiInfo] = useState<ApiInfo | {}>({});
@@ -77,7 +77,7 @@ const App = () => {
             <Suspense fallback={<div>Loading...</div>}>
               <Switch>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/sparql" component={Yasgui} />
+                <Route exact path="/sparql" component={SparqlUi} />
                 <Route exact path="/doc/api" component={APIDoc} />
                 {legacyApiUrl && (
                   <Route exact path={legacyDocPath} component={APIDoc} />
