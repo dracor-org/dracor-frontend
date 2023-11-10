@@ -7,7 +7,6 @@ import svgCSV from '../images/csv.svg';
 import svgGEXF from '../images/gexf.svg';
 import svgGraphML from '../images/graphml.svg';
 import svgTXT from '../images/txt.svg';
-import svgRDF from '../images/rdf.svg';
 import svgJSON from '../images/json.svg';
 import svgTEI from '../images/tei.svg';
 
@@ -25,7 +24,6 @@ const DownloadLinks = ({play}) => {
   const graphmlRelationsUrl = `${playUrl}/relations/graphml`;
   const jsonCastUrl = `${playUrl}/cast`;
   const csvCastUrl = `${playUrl}/cast/csv`;
-  const rdfUrl = `${playUrl}/rdf`;
   const teiUrl = `${playUrl}/tei`;
 
   return (
@@ -154,15 +152,6 @@ const DownloadLinks = ({play}) => {
         <span className={cx('formats')}>
           <a href={teiUrl} download={`${play.id}-${play.name}.tei.xml`}>
             <img src={svgTEI} alt="TEI" />
-          </a>
-        </span>
-      </span>
-      <span>
-        <h4>Linked data</h4>
-        <p>In RDF format:</p>
-        <span className={cx('formats')}>
-          <a href={rdfUrl} download={`${play.id}-${play.name}.rdf`}>
-            <img src={svgRDF} alt="RDF" />
           </a>
         </span>
       </span>
