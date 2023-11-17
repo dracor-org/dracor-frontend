@@ -40,6 +40,12 @@ export default function SparqlUi() {
           <title>SPARQL</title>
         </Helmet>
         <Header>SPARQL</Header>
+        <p style={{margin: '2em 0 1em', textAlign: 'center'}}>
+          <em>
+            The RDF implementation is still experimental. A stable version will
+            be released at a later date.
+          </em>
+        </p>
         <div id="yasgui" />
         <Footer />
       </div>

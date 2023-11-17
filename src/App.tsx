@@ -13,10 +13,15 @@ import Home from './components/Home';
 import DocPage from './components/DocPage';
 import TopNav from './components/TopNav';
 import Corpus from './components/Corpus';
-import SparqlPlaceholder from './components/SparqlPlaceholder';
 import './icons';
 
 const APIDoc = lazy(() => import('./components/APIDoc'));
+const SparqlUi = lazy(() => {
+  if (process.env.REACT_APP_WITH_SPARQL === 'yes') {
+    return import('./components/SparqlUi');
+  }
+  return import('./components/SparqlPlaceholder');
+});
 
 const App = () => {
   const [apiInfo, setApiInfo] = useState<ApiInfo | {}>({});
@@ -77,7 +82,7 @@ const App = () => {
             <Suspense fallback={<div>Loading...</div>}>
               <Switch>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/sparql" component={SparqlPlaceholder} />
+                <Route exact path="/sparql" component={SparqlUi} />
                 <Route exact path="/doc/api" component={APIDoc} />
                 {legacyApiUrl && (
                   <Route exact path={legacyDocPath} component={APIDoc} />
