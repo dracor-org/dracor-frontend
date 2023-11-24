@@ -23,7 +23,10 @@ const edgeColors = {
 /* eslint-enable camelcase */
 
 const RelationsGraph = ({play, nodeColor, edgeColor}) => {
-  const nodes = play.cast.map((c) => ({id: c.id, label: c.name || `#${c.id}`}));
+  const nodes = play.characters.map((c) => ({
+    id: c.id,
+    label: c.name || `#${c.id}`,
+  }));
   const edges = (play.relations || []).map((r, i) => ({
     id: i,
     source: r.source,
@@ -88,7 +91,7 @@ const RelationsGraph = ({play, nodeColor, edgeColor}) => {
 
 RelationsGraph.propTypes = {
   play: PropTypes.shape({
-    cast: PropTypes.array.isRequired,
+    characters: PropTypes.array.isRequired,
     relations: PropTypes.array.isRequired,
   }).isRequired,
   nodeColor: PropTypes.string.isRequired,

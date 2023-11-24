@@ -22,8 +22,8 @@ const DownloadLinks = ({play}) => {
   const csvRelationsUrl = `${playUrl}/relations/csv`;
   const gexfRelationsUrl = `${playUrl}/relations/gexf`;
   const graphmlRelationsUrl = `${playUrl}/relations/graphml`;
-  const jsonCastUrl = `${playUrl}/cast`;
-  const csvCastUrl = `${playUrl}/cast/csv`;
+  const jsonCharactersUrl = `${playUrl}/characters`;
+  const csvCharactersUrl = `${playUrl}/characters/csv`;
   const teiUrl = `${playUrl}/tei`;
 
   return (
@@ -133,13 +133,13 @@ const DownloadLinks = ({play}) => {
         <p>Including precalculated data:</p>
         <span className={cx('formats')}>
           <a
-            href={csvCastUrl}
+            href={csvCharactersUrl}
             download={`${play.id}-${play.name}.characters.csv`}
           >
             <img src={svgCSV} alt="CSV" />
           </a>
           <a
-            href={jsonCastUrl}
+            href={jsonCharactersUrl}
             download={`${play.id}-${play.name}.characters.json`}
           >
             <img src={svgJSON} alt="JSON" />

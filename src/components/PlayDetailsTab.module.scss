@@ -41,7 +41,7 @@
   .description,
   .metrics,
   .segments,
-  .cast {
+  .characters {
     align-self: start;
     background: var(--background);
     padding: var(--bootstrap-padding);
@@ -61,7 +61,7 @@
     }
   }
 
-  .cast, .segments {
+  .characters, .segments {
     grid-row: span 2;
   }
 
@@ -79,7 +79,7 @@
     }
   }
 
-  .cast {
+  .characters {
     @media only screen and (max-width: 767px) {
       grid-column: 1;
       grid-row: 4 / 5;

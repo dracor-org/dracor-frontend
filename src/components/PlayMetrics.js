@@ -52,7 +52,7 @@ const PlayMetrics = ({play}) => {
   } = metrics;
 
   const names = {};
-  play.cast.forEach((c) => {
+  play.characters.forEach((c) => {
     names[c.id] = c.name;
   });
 

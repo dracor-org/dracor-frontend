@@ -6,16 +6,16 @@ import style from './CastList.module.scss';
 
 const cx = classnames.bind(style);
 
-const CastList = ({cast, hasTitle}) => (
+const CastList = ({characters, hasTitle}) => (
   <div className={cx('main')}>
     {hasTitle && (
       <span className={cx('header')}>
-        <h4>Cast list</h4>
+        <h4>Characters</h4>
         <p>(in order of appearance)</p>
       </span>
     )}
     <ol className={cx('dracor-scrollbar')}>
-      {cast.map((member) => (
+      {characters.map((member) => (
         <li key={member.id} title={member.id}>
           {member.name ? <span>{member.name}</span> : <em>{member.id}</em>}
           {'  '}
@@ -44,7 +44,7 @@ const CastList = ({cast, hasTitle}) => (
 );
 
 CastList.propTypes = {
-  cast: PropTypes.array.isRequired,
+  characters: PropTypes.array.isRequired,
   hasTitle: PropTypes.bool,
 };
 

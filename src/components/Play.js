@@ -55,8 +55,8 @@ const PlayInfo = ({corpusId, playId}) => {
       try {
         const response = await api.get(url);
         if (response.ok) {
-          const {cast, segments} = response.data;
-          const graph = makeGraph(cast, segments, nodeProps, edgeColor);
+          const {characters, segments} = response.data;
+          const graph = makeGraph(characters, segments, nodeProps, edgeColor);
           setPlay(response.data);
           setGraph(graph);
         } else if (response.status === 404) {
@@ -92,7 +92,9 @@ const PlayInfo = ({corpusId, playId}) => {
   console.log('PLAY', play);
   console.log('GRAPH', graph);
 
-  const groups = play.cast.filter((m) => Boolean(m.isGroup)).map((m) => m.id);
+  const groups = play.characters
+    .filter((m) => Boolean(m.isGroup))
+    .map((m) => m.id);
 
   let tab = document.location.hash.replace('#', '');
   if (!tabNames.has(tab) || (tab === 'relations' && !play.relations)) {
@@ -101,13 +103,13 @@ const PlayInfo = ({corpusId, playId}) => {
 
   const teiUrl = `${apiUrl}/corpora/${play.corpus}/plays/${play.name}/tei`;
 
-  const castList = <CastList hasTitle cast={play.cast || []} />;
+  const castList = <CastList hasTitle characters={play.characters || []} />;
 
   const playMetrics = <PlayMetrics play={play} />;
 
   let tabContent = null;
   let description = null;
-  let cast = null;
+  let characters = null;
   let metrics = null;
   let segments = null;
 
@@ -142,7 +144,7 @@ const PlayInfo = ({corpusId, playId}) => {
     segments = <Segments play={play} />;
   } else if (tab === 'relations') {
     tabContent = <RelationsGraph {...{play, nodeColor, edgeColor}} />;
-    cast = castList;
+    characters = castList;
     description = (
       <p>
         This tab visualises kinship and other relationship data, following the
@@ -155,7 +157,7 @@ const PlayInfo = ({corpusId, playId}) => {
     );
   } else {
     tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor, play}} />;
-    cast = castList;
+    characters = castList;
     metrics = playMetrics;
     description = (
       <p>
@@ -182,7 +184,7 @@ const PlayInfo = ({corpusId, playId}) => {
       </PlayDetailsHeader>
       <Container fluid>
         <PlayDetailsTab
-          cast={cast}
+          characters={characters}
           description={description}
           metrics={metrics}
           segments={segments}
