@@ -81,7 +81,6 @@ const Footer = () => {
         </p>
         {apiInfo.version && (
           <p className="api-info">
-            This site runs the {''}
             <span className="version-pill">
               <span>DraCor Frontend</span>
               <a
@@ -91,16 +90,14 @@ const Footer = () => {
               >
                 {pkg.version}
               </a>
-            </span>
-            {' on '}
+            </span>{' '}
             <span className="version-pill">
               <span>DraCor API</span>
               <a href={apiVersionUrl} target="_blank" rel="noopener noreferrer">
                 {apiInfo.version}
               </a>
-            </span>
+            </span>{' '}
             <wbr />
-            {' using '}
             <span className="version-pill">
               <span>eXist-db</span>
               <a
