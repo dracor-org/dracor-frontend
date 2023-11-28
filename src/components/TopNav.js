@@ -39,6 +39,7 @@ const TopNav = () => {
                 {label: 'What is DraCor?', to: '/doc/what-is-dracor'},
                 {label: 'FAQ', to: '/doc/faq'},
                 {label: 'Credits', to: '/doc/credits'},
+                {label: 'Media Kit', to: '/doc/media-kit'},
                 {label: 'Imprint', to: '/doc/imprint-and-gdpr'},
               ]}
             />
