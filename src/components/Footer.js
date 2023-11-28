@@ -16,7 +16,7 @@ const Footer = () => {
 
   let apiVersionUrl = 'https://github.com/dracor-org/dracor-api/releases/';
   if (/^\d+\.\d+\.\d+(-(alpha|beta)(\.\d+)?)?$/.test(apiInfo.version)) {
-    apiVersionUrl += `/tag/v${apiInfo.version}`;
+    apiVersionUrl += `tag/v${apiInfo.version}`;
   }
 
   let frontendVersionUrl =
