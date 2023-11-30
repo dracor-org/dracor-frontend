@@ -14,9 +14,18 @@ Here, we assembled an array of high-quality mockups, distinct visuals showcasing
 
 ---
 
-### Logo Assets
+### Logos
 
+#### SVG
 
- [Download](../DraCor-Symbol.zip)
+<a download style="margin:1em" href="../img/logos/dracor-blue.svg"><img src="../img/logos/dracor-blue.svg" width="200"></a>
+<a download style="margin:1em" href="../img/logos/dracor-hexagon.svg"><img src="../img/logos/dracor-hexagon.svg" width="200"></a>
+<a download style="margin:1em" href="../img/logos/dracor-square-blue.svg"><img src="../img/logos/dracor-square-blue.svg" width="200"></a>
+
+#### PNG (2048px)
+
+<a download style="margin:1em" href="../img/logos/dracor-blue.png"><img src="../img/logos/dracor-blue.png" width="200"></a>
+<a download style="margin:1em" href="../img/logos/dracor-hexagon.png"><img src="../img/logos/dracor-hexagon.png" width="200"></a>
+<a download style="margin:1em" href="../img/logos/dracor-square-blue.png"><img src="../img/logos/dracor-square-blue.png" width="200"></a>
 
 ---
