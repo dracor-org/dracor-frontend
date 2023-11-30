@@ -63,3 +63,7 @@ docker run -it --rm -p 8088:80 \
   -e DRACOR_API=https://staging.dracor.org/api/v1 \
   dracor-frontend
 ```
+
+## License
+
+dracor-frontend is [MIT licensed](./LICENSE).
