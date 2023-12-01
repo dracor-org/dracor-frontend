@@ -2,7 +2,7 @@
 
 ## Welcome to the DraCor Media Kit page!
 
-Here, we assembled an array of high-quality mockups, distinct visuals showcasing our frontend in various environments. Additionally, we included a curated logo collection, offering diverse formats and versions to facilitate seamless integration into publications, collaborations, or promotional materials, while embracing the CC0 (Creative Commons Zero) licence, allowing for unrestricted use and adaptation.
+Here, we assembled an array of high-quality mockups, distinct visuals showcasing our frontend on various devices. Additionally, we included a curated logo collection, offering diverse formats and versions to facilitate seamless integration into publications, collaborations, or promotional materials, while embracing the CC0 (Creative Commons Zero) licence, allowing for unrestricted use and adaptation.
 
 ### Mockups
 
