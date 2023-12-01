@@ -75,9 +75,9 @@ function formatYear(d) {
       <br />
       <span className="year-details">
         <Years
-          written={d.writtenYear}
-          premiere={d.premiereYear}
-          print={d.printYear}
+          written={d.yearWritten}
+          premiere={d.yearPremiered}
+          print={d.yearPrinted}
         />
       </span>
     </span>
@@ -101,15 +101,16 @@ function formatYearHeader(column, colIndex, {sortElement}) {
 }
 
 function formatSource(d, corpusId) {
-  const teiUrl = `${apiUrl}/corpora/${corpusId}/play/${d.name}/tei`;
+  const {source = {}} = d;
+  const teiUrl = `${apiUrl}/corpora/${corpusId}/plays/${d.name}/tei`;
   return (
     <span>
-      {d.sourceUrl ? (
-        <a target="_blank" rel="noopener noreferrer" href={d.sourceUrl}>
-          {d.source}
+      {source.url ? (
+        <a target="_blank" rel="noopener noreferrer" href={source.url}>
+          {source.name}
         </a>
       ) : (
-        d.source
+        source.name
       )}
       <br />
       <a
@@ -125,7 +126,7 @@ function formatSource(d, corpusId) {
 }
 
 const CorpusIndex = ({data}) => {
-  if (!data || !data.dramas) {
+  if (!data || !data.plays) {
     return null;
   }
 
@@ -171,8 +172,8 @@ const CorpusIndex = ({data}) => {
         return order === 'asc' ? a - b : b - a;
       },
       filterValue: (cell, row) =>
-        `${row.yearNormalized} ${row.writtenYear} ` +
-        `${row.premiereYear} ${row.printYear}`,
+        `${row.yearNormalized} ${row.yearWritten} ` +
+        `${row.yearPremiered} ${row.yearPrinted}`,
       formatter: (cell, row) => formatYear(row),
       headerFormatter: formatYearHeader,
     },
@@ -186,6 +187,7 @@ const CorpusIndex = ({data}) => {
       dataField: 'source',
       text: 'Source',
       sort: true,
+      filterValue: (cell, row) => (row.source ? row.source.name : ''),
       formatter: (cell, row) => formatSource(row, data.name),
     },
     {
@@ -213,7 +215,7 @@ const CorpusIndex = ({data}) => {
       <ToolkitProvider
         search
         keyField="name"
-        data={data.dramas}
+        data={data.plays}
         columns={columns}
       >
         {(props) => (

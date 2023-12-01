@@ -35,9 +35,14 @@ function getCooccurrences(segments) {
   return cooccurrences;
 }
 
-export function makeGraph(cast, segments, nodeProps = {}, edgeColor = 'black') {
+export function makeGraph(
+  characters,
+  segments,
+  nodeProps = {},
+  edgeColor = 'black'
+) {
   const nodes = [];
-  cast.forEach((p) => {
+  characters.forEach((p) => {
     const props = typeof nodeProps === 'function' ? nodeProps(p) : nodeProps;
     const node = {id: p.id, label: p.name || `#${p.id}`, ...props};
     nodes.push(node);

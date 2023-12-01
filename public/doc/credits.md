@@ -7,7 +7,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 * Co-editors: [Peer Trilcke](https://www.uni-potsdam.de/de/lit-19-jhd/peertrilcke/) (University of Potsdam), [Julia Jennifer Beine](https://rub.academia.edu/JuliaJenniferBeine) (Ruhr University Bochum), [Daniil Skorinkin](https://www.uni-potsdam.de/de/digital-humanities/daniil-skorinkin) (University of Potsdam)
 * Technical lead: [Carsten Milling](https://hashtable.de/) (University of Potsdam)
 * Technical co-leads: [Ingo Börner](https://www.oeaw.ac.at/acdh/team/current-team/ingo-boerner/) (University of Potsdam), [Mathias Göbel](https://www.sub.uni-goettingen.de/en/contact/staff-a-z/staff-details/person/mathias-goebel/) (University of Göttingen)
-* Art director: [Mark Schwindt](https://www.markschwindt.com/) (Ruhr University Bochum)
+* Art director: [Mark Schwindt](https://www.temporal-communities.de/people/schwindt/index.html) (Freie Universität Berlin)
 
 ## Applications
 * [DraCor Shiny app](https://shiny.dracor.org/): Ivan Pozdniakov (formerly HSE, Moscow)
@@ -24,6 +24,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 * Editors: Frank Fischer, Peer Trilcke
 * Support during the initial compilation of the corpus from TextGrid Repository: Mathias Göbel, [Dario Kampkaspar](https://www.ulb.tu-darmstadt.de/die_bibliothek/ueberuns/organisation/kontakt_details_17792.en.jsp) (Technical University of Darmstadt/ACDH-CH, Vienna)
 * Additional encoders: [Erik Renz](https://www.germanistik.uni-rostock.de/forschung/digital-humanities/mitarbeiterinnen/erik-renz/) (University of Rostock)
+* Bibliographic research: Lilly Welz (Freie Universität Berlin)
 * Character annotations: [Nathalie Wiedmer](https://uni-tuebingen.de/forschung/forschungsschwerpunkte/sonderforschungsbereiche/sfb-andere-aesthetik/organisation/mitglieder-alphabetisch/nathalie-wiedmer/) (University of Tübingen), [Janis Pagel](https://janispagel.de/), [Nils Reiter](https://nilsreiter.de/) (both University of Cologne)
 
 ### RusDraCor
@@ -84,4 +85,4 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 
 ### [Einakter](https://einakter.dracor.org/)
 *(Database of German-Language One-Act Plays 1740s–1850s)*
-* Maintainers: [Dîlan Canan Çakir](https://www.mww-forschung.de/d%C3%AElan-canan-%C3%87akir) (DLA Marbach), Frank Fischer, Carsten Milling, Mark Schwindt
+* Maintainers: [Dîlan Canan Çakir](https://www.temporal-communities.de/people/cakir/index.html) (Freie Universität Berlin), Frank Fischer, Carsten Milling, Mark Schwindt

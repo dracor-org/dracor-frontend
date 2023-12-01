@@ -45,7 +45,7 @@ best performance. The build is minified and the filenames include the hashes.
 
 We provide a `Dockerfile` that allows to build and run the DraCor Frontend in a
 Docker container. The DraCor API to connect the frontend to can be adjusted with
-the environment variable `DRACOR_API` (default: https://dracor.org/api).
+the environment variable `DRACOR_API` (default: https://dracor.org/api/v1).
 
 ```sh
 # build the container
@@ -60,6 +60,10 @@ variable `DRACOR_API` like this:
 
 ```sh
 docker run -it --rm -p 8088:80 \
-  -e DRACOR_API=https://staging.dracor.org/api \
+  -e DRACOR_API=https://staging.dracor.org/api/v1 \
   dracor-frontend
 ```
+
+## License
+
+dracor-frontend is [MIT licensed](./LICENSE).

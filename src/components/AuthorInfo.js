@@ -16,7 +16,7 @@ const AuthorInfo = ({author: {fullname, refs = []}}) => {
 
   useEffect(() => {
     async function fetchAuthorInfo() {
-      const url = `/author/${wikidataId}`;
+      const url = `/wikidata/author/${wikidataId}`;
       console.log('loading author info %s ...', url);
       try {
         const response = await api.get(url);

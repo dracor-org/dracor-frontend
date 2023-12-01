@@ -7,7 +7,6 @@ import svgCSV from '../images/csv.svg';
 import svgGEXF from '../images/gexf.svg';
 import svgGraphML from '../images/graphml.svg';
 import svgTXT from '../images/txt.svg';
-import svgRDF from '../images/rdf.svg';
 import svgJSON from '../images/json.svg';
 import svgTEI from '../images/tei.svg';
 
@@ -16,16 +15,15 @@ const cx = classnames.bind(style);
 const apiUrl = api.getBaseURL();
 
 const DownloadLinks = ({play}) => {
-  const playUrl = `${apiUrl}/corpora/${play.corpus}/play/${play.name}`;
+  const playUrl = `${apiUrl}/corpora/${play.corpus}/plays/${play.name}`;
   const csvUrl = `${playUrl}/networkdata/csv`;
   const gexfUrl = `${playUrl}/networkdata/gexf`;
   const graphmlUrl = `${playUrl}/networkdata/graphml`;
   const csvRelationsUrl = `${playUrl}/relations/csv`;
   const gexfRelationsUrl = `${playUrl}/relations/gexf`;
   const graphmlRelationsUrl = `${playUrl}/relations/graphml`;
-  const jsonCastUrl = `${playUrl}/cast`;
-  const csvCastUrl = `${playUrl}/cast/csv`;
-  const rdfUrl = `${playUrl}/rdf`;
+  const jsonCharactersUrl = `${playUrl}/characters`;
+  const csvCharactersUrl = `${playUrl}/characters/csv`;
   const teiUrl = `${playUrl}/tei`;
 
   return (
@@ -34,13 +32,16 @@ const DownloadLinks = ({play}) => {
         <h4>Network data</h4>
         <p>Co-occurrence network:</p>
         <span className={cx('formats')}>
-          <a href={csvUrl} download={`${play.id}-${play.name}.csv`}>
+          <a href={csvUrl} download={`${play.id}-${play.name}.network.csv`}>
             <img src={svgCSV} alt="CSV" />
           </a>
-          <a href={gexfUrl} download={`${play.id}-${play.name}.gexf`}>
+          <a href={gexfUrl} download={`${play.id}-${play.name}.network.gexf`}>
             <img src={svgGEXF} alt="GEFX" />
           </a>
-          <a href={graphmlUrl} download={`${play.id}-${play.name}.graphml`}>
+          <a
+            href={graphmlUrl}
+            download={`${play.id}-${play.name}.network.graphml`}
+          >
             <img src={svgGraphML} alt="GraphML" />
           </a>
         </span>
@@ -56,19 +57,19 @@ const DownloadLinks = ({play}) => {
             <span className={cx('formats')}>
               <a
                 href={csvRelationsUrl}
-                download={`${play.id}-${play.name}.csv`}
+                download={`${play.id}-${play.name}.relations.csv`}
               >
                 <img src={svgCSV} alt="CSV" />
               </a>
               <a
                 href={gexfRelationsUrl}
-                download={`${play.id}-${play.name}.gexf`}
+                download={`${play.id}-${play.name}.relations.gexf`}
               >
                 <img src={svgGEXF} alt="GEXF" />
               </a>
               <a
                 href={graphmlRelationsUrl}
-                download={`${play.id}-${play.name}.graphml`}
+                download={`${play.id}-${play.name}.relations.graphml`}
               >
                 <img src={svgGraphML} alt="GraphML" />
               </a>
@@ -90,8 +91,8 @@ const DownloadLinks = ({play}) => {
         <p>By character:</p>
         <span className={cx('formats')}>
           <a
-            href={`${playUrl}/spoken-text-by-character.json`}
-            download={`${play.id}-${play.name}-spoken.json`}
+            href={`${playUrl}/spoken-text-by-character`}
+            download={`${play.id}-${play.name}.spoken-text-by-character.json`}
           >
             <img src={svgJSON} alt="JSON" />
           </a>
@@ -100,7 +101,7 @@ const DownloadLinks = ({play}) => {
         <span className={cx('formats')}>
           <a
             href={`${playUrl}/spoken-text`}
-            download={`${play.id}-${play.name}-spoken.txt`}
+            download={`${play.id}-${play.name}.spoken-text.txt`}
           >
             <img src={svgTXT} alt="TXT" />
           </a>
@@ -112,7 +113,7 @@ const DownloadLinks = ({play}) => {
         <span className={cx('formats')}>
           <a
             href={`${playUrl}/stage-directions`}
-            download={`${play.id}-${play.name}-stage.txt`}
+            download={`${play.id}-${play.name}.stage-directions.txt`}
           >
             <img src={svgTXT} alt="TXT" />
           </a>
@@ -121,7 +122,7 @@ const DownloadLinks = ({play}) => {
         <span className={cx('formats')}>
           <a
             href={`${playUrl}/stage-directions-with-speakers`}
-            download={`${play.id}-${play.name}-stage-with-speakers.txt`}
+            download={`${play.id}-${play.name}.stage-directions-with-speakers.txt`}
           >
             <img src={svgTXT} alt="TXT" />
           </a>
@@ -131,10 +132,16 @@ const DownloadLinks = ({play}) => {
         <h4>List of characters</h4>
         <p>Including precalculated data:</p>
         <span className={cx('formats')}>
-          <a href={csvCastUrl} download={`${play.id}-${play.name}-cast.csv`}>
+          <a
+            href={csvCharactersUrl}
+            download={`${play.id}-${play.name}.characters.csv`}
+          >
             <img src={svgCSV} alt="CSV" />
           </a>
-          <a href={jsonCastUrl} download={`${play.id}-${play.name}-cast.json`}>
+          <a
+            href={jsonCharactersUrl}
+            download={`${play.id}-${play.name}.characters.json`}
+          >
             <img src={svgJSON} alt="JSON" />
           </a>
         </span>
@@ -145,15 +152,6 @@ const DownloadLinks = ({play}) => {
         <span className={cx('formats')}>
           <a href={teiUrl} download={`${play.id}-${play.name}.tei.xml`}>
             <img src={svgTEI} alt="TEI" />
-          </a>
-        </span>
-      </span>
-      <span>
-        <h4>Linked data</h4>
-        <p>In RDF format:</p>
-        <span className={cx('formats')}>
-          <a href={rdfUrl} download={`${play.id}-${play.name}.rdf`}>
-            <img src={svgRDF} alt="RDF" />
           </a>
         </span>
       </span>

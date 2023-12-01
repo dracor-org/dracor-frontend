@@ -13,7 +13,7 @@ const PlayMetrics = ({play}) => {
   useEffect(() => {
     const fetchMetrics = async () => {
       setError(null);
-      const url = `/corpora/${play.corpus}/play/${play.name}/metrics`;
+      const url = `/corpora/${play.corpus}/plays/${play.name}/metrics`;
       try {
         const response = await api.get(url);
         if (response.ok) {
@@ -52,7 +52,7 @@ const PlayMetrics = ({play}) => {
   } = metrics;
 
   const names = {};
-  play.cast.forEach((c) => {
+  play.characters.forEach((c) => {
     names[c.id] = c.name;
   });
 

@@ -7,6 +7,8 @@ import svgRIS from '../images/ris.svg';
 import svgCC0 from '../images/cc0.svg';
 import style from './Footer.module.scss';
 
+import pkg from '../../package.json';
+
 const cx = classnames.bind(style);
 
 const Footer = () => {
@@ -14,7 +16,13 @@ const Footer = () => {
 
   let apiVersionUrl = 'https://github.com/dracor-org/dracor-api/releases/';
   if (/^\d+\.\d+\.\d+(-(alpha|beta)(\.\d+)?)?$/.test(apiInfo.version)) {
-    apiVersionUrl += `/tag/v${apiInfo.version}`;
+    apiVersionUrl += `tag/v${apiInfo.version}`;
+  }
+
+  let frontendVersionUrl =
+    'https://github.com/dracor-org/dracor-frontend/releases/';
+  if (/^\d+\.\d+\.\d+(-(alpha|beta)(\.\d+)?)?$/.test(pkg.version)) {
+    frontendVersionUrl += `tag/v${pkg.version}`;
   }
 
   return (
@@ -73,15 +81,23 @@ const Footer = () => {
         </p>
         {apiInfo.version && (
           <p className="api-info">
-            This site runs on{' '}
+            <span className="version-pill">
+              <span>DraCor Frontend</span>
+              <a
+                href={frontendVersionUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {pkg.version}
+              </a>
+            </span>{' '}
             <span className="version-pill">
               <span>DraCor API</span>
               <a href={apiVersionUrl} target="_blank" rel="noopener noreferrer">
                 {apiInfo.version}
               </a>
-            </span>
+            </span>{' '}
             <wbr />
-            {' using '}
             <span className="version-pill">
               <span>eXist-db</span>
               <a

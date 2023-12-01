@@ -5,20 +5,26 @@ import style from './PlayDetailsTab.module.scss';
 
 const cx = classnames.bind(style);
 
-const PlayDetailsTab = ({children, description, cast, metrics, segments}) => {
+const PlayDetailsTab = ({
+  children,
+  description,
+  characters,
+  metrics,
+  segments,
+}) => {
   return (
     <div className={cx('main')}>
       <div className={cx('content')}>{children}</div>
       <div className={cx('description')}>{description}</div>
       {metrics && <div className={cx('metrics')}>{metrics}</div>}
-      {cast && <div className={cx('cast')}>{cast}</div>}
+      {characters && <div className={cx('characters')}>{characters}</div>}
       {segments && <div className={cx('segments')}>{segments}</div>}
     </div>
   );
 };
 
 PlayDetailsTab.propTypes = {
-  cast: PropTypes.element,
+  characters: PropTypes.element,
   description: PropTypes.element,
   metrics: PropTypes.element,
   children: PropTypes.oneOfType([
@@ -28,7 +34,7 @@ PlayDetailsTab.propTypes = {
 };
 
 PlayDetailsTab.defaultProps = {
-  cast: null,
+  characters: null,
 };
 
 export default PlayDetailsTab;

@@ -699,23 +699,27 @@ table.table.corpus th:focus {
   }
 }
 
-#eu-funding-note {
+#eu-funding-note, #dfg-funding-note {
   padding: 1em;
   background-color: #e3e8f1;
   font-weight: normal;
   border-radius: 1em;
-  display: grid;
-  grid-template-columns: auto 1fr;
+  display: flex;
+  align-items: center;
   gap: 1em;
+  margin-bottom: 1em;
 
   p {
     margin: 0;
   }
+}
 
-  img {
-    height: 100%;
-    max-width: 80px;
-  }
+#eu-funding-note img {
+  height: 3em;
+}
+
+#dfg-funding-note img {
+  height: 4em;
 }
 
 @media only screen and (max-width: 767px) {
@@ -780,5 +784,9 @@ table.table.corpus th:focus {
   }
   .tei-frame #TEI {
     padding: 0 !important;
+  }
+
+  #eu-funding-note, #dfg-funding-note {
+    flex-wrap: wrap;
   }
 }

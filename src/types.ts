@@ -19,7 +19,7 @@ export interface Author {
   key?: string;
 }
 
-export interface CastMember {
+export interface Character {
   id: string;
   name: string;
   sex?: 'FEMALE' | 'MALE' | 'UNKNOWN';
@@ -52,7 +52,7 @@ export interface Play {
   libretto: boolean;
   originalSource: string;
   relations?: Relation[];
-  cast: CastMember[];
+  characters: Character[];
   segments: Segment[];
   source?: {
     name: string;

@@ -54,8 +54,8 @@ interface Props {
   play: Play;
 }
 
-const Segments = ({play: {cast, segments}}: Props) => {
-  const castMap: CastMap = cast.reduce((map: CastMap, member) => {
+const Segments = ({play: {characters, segments}}: Props) => {
+  const castMap: CastMap = characters.reduce((map: CastMap, member) => {
     map[member.id] = member.name;
     return map;
   }, {});

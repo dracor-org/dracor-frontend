@@ -106,3 +106,12 @@
     padding: var(--bootstrap-padding) !important;
   }
 }
+
+.legacy-disclaimer {
+  font-size: larger;
+  text-align: center;
+  color: white;
+  background-color: var(--main) !important;
+  margin: 0 -1em;
+  padding: 1em 1em 3em;
+}

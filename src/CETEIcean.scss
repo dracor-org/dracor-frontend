@@ -64,3 +64,6 @@ tei-teiHeader {
 tei-titleStmt > tei-title {
   font-family: Rubik, sans-serif;
 }
+tei-head tei-note {
+  display: none;
+}
