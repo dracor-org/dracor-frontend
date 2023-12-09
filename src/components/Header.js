@@ -12,7 +12,7 @@ const cx = classnames.bind(style);
  * a string or one or more bootstrap columns containing a h1 element.
  */
 
-const Header = ({children, className}) => {
+const Header = ({children, className = ''}) => {
   return (
     <Row tag="header" className={cx(['main', className])}>
       {typeof children === 'string' ? <Col tag="h1">{children}</Col> : children}
