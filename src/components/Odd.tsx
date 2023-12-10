@@ -2,6 +2,7 @@ import {useEffect, useRef} from 'react';
 import axios from 'axios';
 import classnames from 'classnames/bind';
 import style from './Odd.module.scss';
+import './Odd.scss';
 
 const cx = classnames.bind(style);
 const url = '/odd.html';
