@@ -13,7 +13,12 @@ import {
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import classnames from 'classnames/bind';
-import {ezlinavisUrl, legacyApiUrl, legacyDocPath} from '../config';
+import {
+  ezlinavisUrl,
+  legacyApiUrl,
+  legacyDocPath,
+  showPrizeBadge,
+} from '../config';
 import CorporaDropdown from './CorporaDropdown';
 import TopNavDropdown from './TopNavDropdown';
 import style from './TopNav.module.scss';
@@ -88,18 +93,20 @@ const TopNav = () => {
               </NavLink>
             </NavItem>
           </Nav>
-          <Nav navbar className={cx('prize')}>
-            <NavItem>
-              <NavLink
-                href="https://tei-c.org/activities/rahtz-prize-for-tei-ingenuity/"
-                title="Rahtz Prize for TEI Ingenuity 2022"
-              >
-                <span className={cx('prize-name')}>Rahtz Prize</span>
-                <span className={cx('prize-year')}>2022</span>
-                <img alt="TEI Logo" src={svgTEI}></img>
-              </NavLink>
-            </NavItem>
-          </Nav>
+          {showPrizeBadge && (
+            <Nav navbar className={cx('prize')}>
+              <NavItem>
+                <NavLink
+                  href="https://tei-c.org/activities/rahtz-prize-for-tei-ingenuity/"
+                  title="Rahtz Prize for TEI Ingenuity 2022"
+                >
+                  <span className={cx('prize-name')}>Rahtz Prize</span>
+                  <span className={cx('prize-year')}>2022</span>
+                  <img alt="TEI Logo" src={svgTEI}></img>
+                </NavLink>
+              </NavItem>
+            </Nav>
+          )}
         </Collapse>
       </Navbar>
     </Headroom>
