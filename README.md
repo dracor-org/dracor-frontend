@@ -26,7 +26,7 @@ environment variable `REACT_APP_DRACOR_API` to the respective API base URL,
 e.g.:
 
 ```
-REACT_APP_DRACOR_API=https://dracor.org/api yarn start
+REACT_APP_DRACOR_API=https://dracor.org/api/v1 yarn start
 ```
 
 
