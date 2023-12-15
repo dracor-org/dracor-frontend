@@ -1,59 +1,64 @@
 // Styles selectively copied from
 // https://github.com/TEIC/Stylesheets/blob/dev/css/tei.css
 
-.titlePage {
-  display: none;
-}
+.odd-wrapper {
+  background: white;
+  padding: 1em;
 
-ul.toc {
-  list-style: none;
-}
+  .titlePage {
+    display: none;
+  }
 
-div.egXML_valid {
-  background-color: #f7f9f6;
-  border-color: #c5d8bb;
-}
+  ul.toc {
+    list-style: none;
+  }
 
-pre,
-div.pre,
-div.pre_eg,
-pre.eg,
-div.eg {
-  clear: both;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  border-top-width: 4px;
-  border-bottom-width: 4px;
-  border-left-width: 2px;
-  border-right-width: 2px;
-  border-style: solid;
-  padding: 10px;
-  color: #000000;
-  line-height: 1.1em;
-  font-family: monospace;
-  font-size: 10pt;
-  white-space: pre;
-}
+  div.egXML_valid {
+    background-color: #f7f9f6;
+    border-color: #c5d8bb;
+  }
 
-span.element {
-  font-weight: bold;
-  color: black;
-}
+  pre,
+  div.pre,
+  div.pre_eg,
+  pre.eg,
+  div.eg {
+    clear: both;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border-top-width: 4px;
+    border-bottom-width: 4px;
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-style: solid;
+    padding: 10px;
+    color: #000000;
+    line-height: 1.1em;
+    font-family: monospace;
+    font-size: 10pt;
+    white-space: pre;
+  }
 
-span.attribute {
-  color: #222288;
-}
+  span.element {
+    font-weight: bold;
+    color: black;
+  }
 
-span.attributevalue {
-  font-weight: normal;
-  color: black;
-}
+  span.attribute {
+    color: #222288;
+  }
 
-table.wovenodd {
-  width: 100%;
-  clear: both;
-}
+  span.attributevalue {
+    font-weight: normal;
+    color: black;
+  }
 
-td.wovenodd-col2 {
-  width: 85%;
+  table.wovenodd {
+    width: 100%;
+    clear: both;
+  }
+
+  td.wovenodd-col2 {
+    width: 85%;
+  }
 }

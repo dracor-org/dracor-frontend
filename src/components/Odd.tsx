@@ -1,10 +1,7 @@
 import {useEffect, useRef} from 'react';
 import axios from 'axios';
-import classnames from 'classnames/bind';
-import style from './Odd.module.scss';
 import './Odd.scss';
 
-const cx = classnames.bind(style);
 const url = '/odd.html';
 
 const Odd = () => {
@@ -38,7 +35,7 @@ const Odd = () => {
   }, []);
 
   return (
-    <div ref={ref} className={cx('main')}>
+    <div ref={ref} className="odd-wrapper">
       <p>Loading...</p>
     </div>
   );
