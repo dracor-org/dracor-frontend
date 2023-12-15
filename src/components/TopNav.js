@@ -56,6 +56,7 @@ const TopNav = () => {
                 legacyApiUrl
                   ? {label: 'API v0 (legacy)', to: legacyDocPath}
                   : null,
+                {label: 'ODD', to: '/doc/odd'},
                 {label: 'SPARQL', to: '/sparql'},
                 {label: 'ezlinavis', href: ezlinavisUrl},
                 {

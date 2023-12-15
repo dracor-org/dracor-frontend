@@ -13,6 +13,7 @@ import Home from './components/Home';
 import DocPage from './components/DocPage';
 import TopNav from './components/TopNav';
 import Corpus from './components/Corpus';
+import OddPage from './components/OddPage';
 import './icons';
 
 const APIDoc = lazy(() => import('./components/APIDoc'));
@@ -84,6 +85,7 @@ const App = () => {
                 <Route exact path="/" component={Home} />
                 <Route exact path="/sparql" component={SparqlUi} />
                 <Route exact path="/doc/api" component={APIDoc} />
+                <Route exact path="/doc/odd" component={OddPage} />
                 {legacyApiUrl && (
                   <Route exact path={legacyDocPath} component={APIDoc} />
                 )}
