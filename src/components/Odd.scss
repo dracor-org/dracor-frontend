@@ -37,6 +37,7 @@
     font-family: monospace;
     font-size: 10pt;
     white-space: pre;
+    width: fit-content;
   }
 
   span.element {
@@ -60,5 +61,9 @@
 
   td.wovenodd-col2 {
     width: 85%;
+  }
+
+  .refdoc .table {
+    overflow-x: scroll;
   }
 }
