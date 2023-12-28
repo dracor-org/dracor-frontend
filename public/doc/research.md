@@ -4,6 +4,8 @@ An (incomplete) collection of research articles on drama using data provided thr
 
 ## 2023
 
+* Katrin Dennerlein, Thomas Schmidt, Christian Wolff: EmoDrama. Ein Korpus mit Emotionsinformationen in Dramen von 1650–1815. In: Zeitschrift für digitale Geisteswissenschaften 8 (2023). ([doi:10.17175/2023_010](https://doi.org/10.17175/2023_010))
+* Florian Cafiero, Simon Gabay: Dating the Stylistic Turn: The Strength of the Auctorial Signal in Early Modern French Plays. In: CHR2023. 6–8 December 2023. Paris. ([hal-04343340](https://hal.science/hal-04343340))
 * Janis Pagel, Benjamin Krautter, Melanie Andresen, Marcus Willand, Nils Reiter: On Designing Collaboration in a Mixed-Methods Scenario. Reflecting Quantitative Drama Analytics (QuaDrama). In: Birgit Schneider, Beate Löffler, Tino Mager, Carola Hein (eds.): Mixing Methods. Practical Insights from the Humanities in the Digital Age. Bielefeld University Press 2023, pp. 81–102. ([doi:10.14361/9783839469132](https://doi.org/10.14361/9783839469132))
 * Ingo Börner, Peer Trilcke et al.: On Programmable Corpora. Report and Prototype (DraCor). CLS INFRA D7.1. Zenodo, 28 February 2023. ([doi:10.5281/zenodo.7664964](https://doi.org/10.5281/zenodo.7664964))
 * Peer Trilcke: Small Worlds, Beat Charts und die Netzwerkanalyse dramatischer Texte. Reflexionen aus dem Rabbit Hole. In: Fotis Jannidis (ed.): Digitale Literaturwissenschaft. Germanistische Symposien. Stuttgart: Metzler 2023, pp. 563–596. ([doi:10.1007/978-3-476-05886-7_23](https://doi.org/10.1007/978-3-476-05886-7_23))
@@ -54,7 +56,7 @@ An (incomplete) collection of research articles on drama using data provided thr
 
 ## 2017
 
-* Frank Fischer, Gilles Dazord, Mathias Göbel, Christopher Kittel, Peer Trilcke: [Le drame comme réseau de relations. Une application de l’analyse automatisée pour l’histoire littéraire du théâtre.](https://hal.archives-ouvertes.fr/hal-01811799) In: Revue d’Historiographie du Théâtre. Numéro 4 (2017). (hal-01811799)
+* Frank Fischer, Gilles Dazord, Mathias Göbel, Christopher Kittel, Peer Trilcke: Le drame comme réseau de relations. Une application de l’analyse automatisée pour l’histoire littéraire du théâtre. In: Revue d’Historiographie du Théâtre. Numéro 4 (2017). ([hal-01811799](https://hal.science/hal-01811799))
 * Frank Fischer, Mathias Göbel, Carsten Milling, Tatiana Orlova, German Palchikov, Irina Pavlova, Ivan Pozdniakov, Daniil Skorinkin, Peer Trilcke: [Life(!) on Stage: Building an interface for the network analysis of TEI-encoded drama corpora.](https://hcmc.uvic.ca/tei2017/abstracts/t_115_fischeretal_lifeonstage.html) In: TEI2017: »Pedagogy and Praxis«. 11–15 November 2017. Book of Abstracts, vol. 16. University of Victoria.
 * Frank Fischer, Mathias Göbel, Dario Kampkaspar, Christopher Kittel, Peer Trilcke: [Network Dynamics, Plot Analysis. Approaching the Progressive Structuration of Literary Texts.](https://dh2017.adho.org/abstracts/071/071.pdf) In: DH2017: »Access/Accès«. 8–11 August 2017. Book of Abstracts. McGill University, Montréal.
 * Peer Trilcke, Frank Fischer, Mathias Göbel, Dario Kampkaspar, Christopher Kittel: Netzwerkdynamik, Plotanalyse – Zur Visualisierung und Berechnung der ›progressiven Strukturierung‹ literarischer Texte. In: DHd2017: »Digitale Nachhaltigkeit«. 13–18 February 2017. Book of Abstracts. University of Bern, pp. 175–180. ([doi:10.5281/zenodo.4622799](https://doi.org/10.5281/zenodo.4622799))
