@@ -5,6 +5,7 @@ An (incomplete) collection of research articles on drama using data provided thr
 ## 2024
 
 * Benjamin Krautter: The Scales of (Computational) Literary Studies: Martin Mueller’s Concept of Scalable Reading in Theory and Practice. In: Florentina Armaselu, Andreas Fickers (eds.): Zoomland: Exploring Scale in Digital History and Humanities. Berlin, Boston: De Gruyter Oldenbourg 2024, pp. 261–286. ([doi:10.1515/9783111317779-011](https://doi.org/10.1515/9783111317779-011))
+* Melanie Andresen, Benjamin Krautter, Janis Pagel, Nils Reiter: Knowledge Distribution in German Drama. In: Journal of Open Humanities Data. Vol. 10 (2024), No. 1, pp. 1–7. ([doi:10.5334/johd.167](https://doi.org/10.5334/johd.167))
 
 ## 2023
 
