@@ -1,5 +1,14 @@
 // network graph utility functions
 
+function interpolateNodeSize(minWords, maxWords, numOfWords) {
+  const MAX_SIZE = 30;
+  const MIN_SIZE = 15;
+  return (
+    MIN_SIZE +
+    ((numOfWords - minWords) / (maxWords - minWords)) * (MAX_SIZE - MIN_SIZE)
+  );
+}
+
 function getCooccurrences(segments) {
   const map = {};
   segments.forEach((s) => {
@@ -41,10 +50,18 @@ export function makeGraph(
   nodeProps = {},
   edgeColor = 'black'
 ) {
+  const maxWords = Math.max(...characters.map((p) => p.numOfWords));
+  const minWords = Math.min(...characters.map((p) => p.numOfWords));
   const nodes = [];
   characters.forEach((p) => {
     const props = typeof nodeProps === 'function' ? nodeProps(p) : nodeProps;
-    const node = {id: p.id, label: p.name || `#${p.id}`, ...props};
+    const nodeSize = interpolateNodeSize(minWords, maxWords, p.numOfWords);
+    const node = {
+      id: p.id,
+      label: p.name,
+      size: nodeSize || `#${p.id}`,
+      ...props,
+    };
     nodes.push(node);
   });
   const cooccurrences = getCooccurrences(segments);

@@ -6,7 +6,6 @@ import {
   EdgeShapes,
   NodeShapes,
   ForceAtlas2,
-  RelativeSize,
   RandomizeNodePositions,
 } from 'react-sigma/lib/';
 
@@ -51,10 +50,7 @@ class NetworkGraph extends Component {
         >
           <EdgeShapes default="line" />
           <NodeShapes default="circle" />
-          <RandomizeNodePositions>
-            {layout}
-            <RelativeSize initialSize={15} />
-          </RandomizeNodePositions>
+          <RandomizeNodePositions>{layout}</RandomizeNodePositions>
         </Sigma>
       );
     }

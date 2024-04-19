@@ -25,9 +25,10 @@ const edgeColor = '#61affe65';
 const nodeColor = '#61affe';
 
 const nodeProps = (node) => {
-  const {sex} = node;
-  const color = sex === 'MALE' || sex === 'FEMALE' ? '#1f2448' : '#61affe';
-  const type = sex === 'MALE' ? 'square' : 'circle';
+  const {gender} = node;
+  const color =
+    gender === 'MALE' || gender === 'FEMALE' ? '#1f2448' : '#61affe';
+  const type = gender === 'MALE' ? 'square' : 'circle';
   return {color, type};
 };
 
@@ -55,10 +56,16 @@ const PlayInfo = ({corpusId, playId}) => {
       try {
         const response = await api.get(url);
         if (response.ok) {
-          const {characters, segments} = response.data;
-          const graph = makeGraph(characters, segments, nodeProps, edgeColor);
+          const {segments} = response.data;
+          const response2 = await api.get(`${url}/characters`);
+          if (response2.ok) {
+            const characters = response2.data;
+            const graph = makeGraph(characters, segments, nodeProps, edgeColor);
+            setGraph(graph);
+          } else {
+            setError(response.originalError);
+          }
           setPlay(response.data);
-          setGraph(graph);
         } else if (response.status === 404) {
           setError(new Error('not found'));
         } else {

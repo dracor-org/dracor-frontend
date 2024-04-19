@@ -6,7 +6,6 @@ import {
   EdgeShapes,
   NodeShapes,
   ForceAtlas2,
-  RelativeSize,
   RandomizeNodePositions,
 } from 'react-sigma/lib/';
 
@@ -78,10 +77,7 @@ const RelationsGraph = ({play, nodeColor, edgeColor}) => {
       >
         <EdgeShapes default="curvedArrow" />
         <NodeShapes default="circle" />
-        <RandomizeNodePositions>
-          {layout}
-          <RelativeSize initialSize={15} />
-        </RandomizeNodePositions>
+        <RandomizeNodePositions>{layout}</RandomizeNodePositions>
       </Sigma>
     );
   }
