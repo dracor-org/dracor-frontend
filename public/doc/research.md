@@ -26,7 +26,7 @@ An (incomplete) collection of research articles on drama using data provided thr
 * Peer Trilcke: Small Worlds, Beat Charts und die Netzwerkanalyse dramatischer Texte. Reflexionen aus dem Rabbit Hole. In: Fotis Jannidis (ed.): Digitale Literaturwissenschaft. Germanistische Symposien. Stuttgart: Metzler 2023, pp. 563–596. ([doi:10.1007/978-3-476-05886-7_23](https://doi.org/10.1007/978-3-476-05886-7_23))
 * María-Ángel Somalo Fernández: Las mujeres en Valle-Inclán. Las Comedias bárbaras, una perspectiva desde las humanidades digitales. In: Santiago Sevilla Vallejo (ed.): Didáctica e identidad en la literatura en español. Salamanca: Ediciones Universidad de Salamanca 2023, pp. 143–161. ([doi:10.14201/0AQ0346 ](https://doi.org/10.14201/0AQ0346 ))
 * María Teresa Santa María Fernández, Monika Dabrowska: Análisis comparativo del Coro como personaje en tres tragedias griega y tres dramas españoles del Corpus DraCor. In: Neophilologus (2023). ([doi:10.1007/s11061-023-09768-7](https://doi.org/10.1007/s11061-023-09768-7))
-* Katrin Dennerlein, Thomas Schmidt, Christian Wolff: Computational emotion classification for genre corpora of German tragedies and comedies from 17th to early 19th century. In: Digital Scholarship in the Humanities (2023). ([doi:10.1093/llc/fqad046](https://doi.org/10.1093/llc/fqad046))
+* Katrin Dennerlein, Thomas Schmidt, Christian Wolff: Computational emotion classification for genre corpora of German tragedies and comedies from 17th to early 19th century. In: Digital Scholarship in the Humanities. Vol. 38, Issue 4 (December 2023), pp. 1466–1481. ([doi:10.1093/llc/fqad046](https://doi.org/10.1093/llc/fqad046))
 
 ## 2022
 
