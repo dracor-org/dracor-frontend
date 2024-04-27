@@ -1,4 +1,10 @@
-
+tei-tei[lang="ara"],
+tei-tei[lang="heb"],
+tei-tei[lang="yid"]
+{
+  direction: rtl;
+  text-align: right;
+}
 
 /* Choice elements */
 tei-choice tei-abbr + tei-expan:before,
