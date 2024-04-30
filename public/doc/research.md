@@ -5,6 +5,7 @@ An (incomplete) collection of research articles on drama using data provided thr
 ## 2024
 
 * Julia Jennifer Beine, Frank Fischer, Viktor J. Illmer: Just the Type: Analysing Character Typology in Roman Comedy with RomDraCor. In: DH2024: »Reinvention & Responsibility«. 6–10 August 2024. Washington, DC. Book of Abstracts. (forthcoming)
+* Julia Jennifer Beine: The Schemer Unmasked. Sketching a Digital Profile of the Scheming Slave in Roman Comedy. In: Journal of Computational Literary Studies. Vol. 3 (2024), issue 1. ([doi:10.48694/jcls.3670](https://doi.org/10.48694/jcls.3670)) (forthcoming)
 * Peer Trilcke, Evgeniya Ustinova, Ingo Börner, Frank Fischer, Carsten Milling: Detecting Small Worlds in a Corpus of Thousands of Theatre Plays: A DraCor Study in Comparative Literary Network Analysis. In: Melanie Andresen, Nils Reiter (eds.): [Computational Drama Analysis. Reflecting Methods and Interpretations.](https://www.degruyter.com/document/isbn/9783111071763/html) Berlin/Boston: De Gruyter 2024. (forthcoming)
 * Michael Falk: Drama: Inner Seas in the Tragedies of Baillie and Harpur. In: Romanticism and the Contingent Self. The Challenge of Representation. Cham: Palgrave Macmillan 2024, pp. 183–228. ([doi:10.1007/978-3-031-49959-3_5](https://doi.org/10.1007/978-3-031-49959-3_5))
 * Ingo Börner, Peer Trilcke et al.: On Versioning Living and Programmable Corpora (v1.0.0). CLS INFRA D7.3. Zenodo, 27 February 2024. ([doi:10.5281/zenodo.11081934](https://doi.org/10.5281/zenodo.11081934))
