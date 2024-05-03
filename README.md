@@ -44,24 +44,33 @@ best performance. The build is minified and the filenames include the hashes.
 ## Docker
 
 We provide a `Dockerfile` that allows to build and run the DraCor Frontend in a
-Docker container. The DraCor API to connect the frontend to can be adjusted with
-the environment variable `DRACOR_API_HOST` (default: https://dracor.org).
+Docker container. You can either use a pre-built image from
+[DockerHub](https://hub.docker.com/r/dracor/frontend) or build an image yourself
+from the sources:
 
 ```sh
-# build the container
-docker build -t dracor-frontend .
-# run the container
-docker run -it --rm -p 8088:80 dracor-frontend
+# use the latest pre-build image
+docker pull dracor/frontend
+# or build the image yourself
+docker build -t dracor/frontend .
+```
+
+To start the frontend container and make it available at port 8088 of the local
+machine run:
+
+```sh
+docker run -it --rm -p 8088:80 dracor/frontend
 # now open http://localhost:8088 in a browser
 ```
 
-To connect the frontend to another DraCor API instance specify the environment
+By default the frontend is connected to the DraCor API at https://dracor.org. To
+connect the frontend to another API instance specify the environment
 variable `DRACOR_API_HOST` like this:
 
 ```sh
 docker run -it --rm -p 8088:80 \
   -e DRACOR_API_HOST=https://staging.dracor.org \
-  dracor-frontend
+  dracor/frontend
 ```
 
 This implies that the base URL for the API is
@@ -73,7 +82,19 @@ e.g. in a local development environment, it can be overridden with the
 docker run -it --rm -p 8088:80 \
   -e DRACOR_API_HOST=https://192.168.0.10:8080 \
   -e DRACOR_API_PREFIX=/exist/restxq/v1 \
-  dracor-frontend
+  dracor/frontend
+```
+
+If you want to use local domain names or encounter "502 Bad Gateway" errors you
+may need to specify a DNS server that can resolve the domain name of your API
+host:
+
+```sh
+docker run -it --rm -p 8088:80 \
+  -e DRACOR_API_HOST=https://exist:8080 \
+  -e DRACOR_API_PREFIX=/exist/restxq/v1 \
+  -e NGINX_RESOLVER=192.168.0.1 \
+  dracor/frontend
 ```
 
 ## License
