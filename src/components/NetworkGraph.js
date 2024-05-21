@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import {makeGraph} from '../network';
 // we need to require from react-sigma/lib/ to make build work
 import {
   Sigma,
@@ -11,7 +12,9 @@ import {
 
 class NetworkGraph extends Component {
   render() {
-    const {graph, nodeColor, edgeColor} = this.props;
+    const {characters, play, nodeColor, edgeColor} = this.props;
+
+    const graph = makeGraph(characters, play, edgeColor, 'cooccurence');
 
     const settings = {
       maxEdgeSize: 5,
@@ -60,9 +63,12 @@ class NetworkGraph extends Component {
 }
 
 NetworkGraph.propTypes = {
-  graph: PropTypes.shape({
-    nodes: PropTypes.array.isRequired,
-    edges: PropTypes.array.isRequired,
+  characters: PropTypes.array.isRequired,
+  play: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    corpus: PropTypes.string.isRequired,
+    relations: PropTypes.array.isRequired,
+    segments: PropTypes.array.isRequired,
   }).isRequired,
   nodeColor: PropTypes.string.isRequired,
   edgeColor: PropTypes.string.isRequired,
