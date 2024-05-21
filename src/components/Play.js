@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {Container} from 'reactstrap';
 import {Helmet} from 'react-helmet';
 import api from '../api';
-import {makeGraph} from '../network';
 import PlayDetailsHeader from './PlayDetailsHeader';
 import PlayDetailsNav from './PlayDetailsNav';
 import PlayDetailsTab from './PlayDetailsTab';
@@ -24,14 +23,6 @@ const apiUrl = api.getBaseURL();
 const edgeColor = '#61affe65';
 const nodeColor = '#61affe';
 
-const nodeProps = (node) => {
-  const {gender} = node;
-  const color =
-    gender === 'MALE' || gender === 'FEMALE' ? '#1f2448' : '#61affe';
-  const type = gender === 'MALE' ? 'square' : 'circle';
-  return {color, type};
-};
-
 const navItems = [
   {name: 'network', label: 'Network'},
   {name: 'relations', label: 'Relations'},
@@ -44,7 +35,7 @@ const tabNames = new Set(navItems.map((item) => item.name));
 
 const PlayInfo = ({corpusId, playId}) => {
   const [play, setPlay] = useState(null);
-  const [graph, setGraph] = useState(null);
+  const [characters, setCharacters] = useState(null);
   const [error, setError] = useState(null);
   const [chartType, setChartType] = useState('sapogov');
 
@@ -56,15 +47,6 @@ const PlayInfo = ({corpusId, playId}) => {
       try {
         const response = await api.get(url);
         if (response.ok) {
-          const {segments} = response.data;
-          const response2 = await api.get(`${url}/characters`);
-          if (response2.ok) {
-            const characters = response2.data;
-            const graph = makeGraph(characters, segments, nodeProps, edgeColor);
-            setGraph(graph);
-          } else {
-            setError(response.originalError);
-          }
           setPlay(response.data);
         } else if (response.status === 404) {
           setError(new Error('not found'));
@@ -79,6 +61,27 @@ const PlayInfo = ({corpusId, playId}) => {
     fetchPlay();
   }, [corpusId, playId]);
 
+  useEffect(() => {
+    async function fetchCharacters() {
+      setError(null);
+      const url = `/corpora/${corpusId}/plays/${playId}/characters`;
+      try {
+        const response = await api.get(url);
+        if (response.ok) {
+          setCharacters(response.data);
+        } else if (response.status === 404) {
+          setError(new Error('not found'));
+        } else {
+          setError(response.originalError);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    fetchCharacters();
+  }, [corpusId, playId]);
+
   if (error && error.message === 'not found') {
     return <p>No such play!</p>;
   }
@@ -88,16 +91,11 @@ const PlayInfo = ({corpusId, playId}) => {
     return <p>Error!</p>;
   }
 
-  if (!play) {
+  if (!play || !characters) {
     return <p className="loading">Loading...</p>;
   }
 
-  if (!graph) {
-    return <p>No Graph!</p>;
-  }
-
   console.log('PLAY', play);
-  console.log('GRAPH', graph);
 
   const groups = play.characters
     .filter((m) => Boolean(m.isGroup))
@@ -116,7 +114,7 @@ const PlayInfo = ({corpusId, playId}) => {
 
   let tabContent = null;
   let description = null;
-  let characters = null;
+  let cast = null;
   let metrics = null;
   let segments = null;
 
@@ -150,8 +148,10 @@ const PlayInfo = ({corpusId, playId}) => {
     );
     segments = <Segments play={play} />;
   } else if (tab === 'relations') {
-    tabContent = <RelationsGraph {...{play, nodeColor, edgeColor}} />;
-    characters = castList;
+    tabContent = (
+      <RelationsGraph {...{characters, play, nodeColor, edgeColor}} />
+    );
+    cast = castList;
     description = (
       <p>
         This tab visualises kinship and other relationship data, following the
@@ -163,8 +163,8 @@ const PlayInfo = ({corpusId, playId}) => {
       </p>
     );
   } else {
-    tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor, play}} />;
-    characters = castList;
+    tabContent = <NetworkGraph {...{characters, play, nodeColor, edgeColor}} />;
+    cast = castList;
     metrics = playMetrics;
     description = (
       <p>
@@ -191,7 +191,7 @@ const PlayInfo = ({corpusId, playId}) => {
       </PlayDetailsHeader>
       <Container fluid>
         <PlayDetailsTab
-          characters={characters}
+          characters={cast}
           description={description}
           metrics={metrics}
           segments={segments}

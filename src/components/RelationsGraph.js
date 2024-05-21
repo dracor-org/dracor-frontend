@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {makeGraph} from '../network';
 // we need to require from react-sigma/lib/ to make build work
 import {
   Sigma,
@@ -9,32 +10,8 @@ import {
   RandomizeNodePositions,
 } from 'react-sigma/lib/';
 
-/* eslint-disable camelcase */
-const edgeColors = {
-  parent_of: '#6f42c1', // purple
-  lover_of: '#f93e3e', // red
-  related_with: '#fca130', // orange
-  associated_with: '#61affe', // blue
-  siblings: '#49cc90', // green
-  spouses: '#e83e8c', // pink
-  friends: '#1F2448', // navy
-};
-/* eslint-enable camelcase */
-
-const RelationsGraph = ({play, nodeColor, edgeColor}) => {
-  const nodes = play.characters.map((c) => ({
-    id: c.id,
-    label: c.name || `#${c.id}`,
-  }));
-  const edges = (play.relations || []).map((r, i) => ({
-    id: i,
-    source: r.source,
-    target: r.target,
-    label: r.type,
-    color: edgeColors[r.type] || edgeColor,
-    type: r.directed ? 'curvedArrow' : 'curve',
-  }));
-  const graph = {nodes, edges};
+const RelationsGraph = ({characters, play, nodeColor, edgeColor}) => {
+  const graph = makeGraph(characters, play, edgeColor, 'relation');
 
   const settings = {
     maxEdgeSize: 5,
@@ -48,7 +25,6 @@ const RelationsGraph = ({play, nodeColor, edgeColor}) => {
     drawEdges: true,
     drawEdgeLabels: true,
     edgeLabelSize: 'proportional',
-    minNodeSize: 2,
     minArrowSize: 10,
   };
 
@@ -86,9 +62,12 @@ const RelationsGraph = ({play, nodeColor, edgeColor}) => {
 };
 
 RelationsGraph.propTypes = {
+  characters: PropTypes.array.isRequired,
   play: PropTypes.shape({
-    characters: PropTypes.array.isRequired,
+    name: PropTypes.string.isRequired,
+    corpus: PropTypes.string.isRequired,
     relations: PropTypes.array.isRequired,
+    segments: PropTypes.array.isRequired,
   }).isRequired,
   nodeColor: PropTypes.string.isRequired,
   edgeColor: PropTypes.string.isRequired,
