@@ -64,12 +64,8 @@ function getCooccurrences(segments) {
   return cooccurrences;
 }
 
-export function makeGraph(
-  characters,
-  play,
-  edgeColor = 'black',
-  type = 'cooccurence'
-) {
+export function makeGraph(characters, play, type = 'cooccurence') {
+  const edgeColor = '#61affe65';
   const maxWords = Math.max(...characters.map((c) => c.numOfWords));
   const minWords = Math.min(...characters.map((c) => c.numOfWords));
   const nodes = [];

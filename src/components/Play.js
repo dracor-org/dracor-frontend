@@ -9,8 +9,8 @@ import PlayDetailsTab from './PlayDetailsTab';
 import CastList from './CastList';
 import SourceInfo from './SourceInfo';
 import DownloadLinks from './DownloadLinks';
-import NetworkGraph from './NetworkGraph';
-import RelationsGraph from './RelationsGraph';
+import NetworkGraph from './Graph/NetworkGraph';
+import RelationsGraph from './Graph/RelationsGraph';
 import SpeechDistribution, {SpeechDistributionNav} from './SpeechDistribution';
 import TEIPanel from './TEIPanel';
 import PlayMetrics from './PlayMetrics';
@@ -19,9 +19,6 @@ import Segments from './Segments';
 import './Play.scss';
 
 const apiUrl = api.getBaseURL();
-
-const edgeColor = '#61affe65';
-const nodeColor = '#61affe';
 
 const navItems = [
   {name: 'network', label: 'Network'},
@@ -148,9 +145,7 @@ const PlayInfo = ({corpusId, playId}) => {
     );
     segments = <Segments play={play} />;
   } else if (tab === 'relations') {
-    tabContent = (
-      <RelationsGraph {...{characters, play, nodeColor, edgeColor}} />
-    );
+    tabContent = <RelationsGraph {...{characters, play}} />;
     cast = castList;
     description = (
       <p>
@@ -163,7 +158,7 @@ const PlayInfo = ({corpusId, playId}) => {
       </p>
     );
   } else {
-    tabContent = <NetworkGraph {...{characters, play, nodeColor, edgeColor}} />;
+    tabContent = <NetworkGraph {...{characters, play}} />;
     cast = castList;
     metrics = playMetrics;
     description = (
