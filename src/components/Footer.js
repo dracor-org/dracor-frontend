@@ -1,13 +1,12 @@
 import React, {useContext} from 'react';
 import {Col, Row} from 'reactstrap';
 import classnames from 'classnames/bind';
+import {version} from '../config';
 import {DracorContext} from '../context';
 import svgBibTex from '../images/bibtex.svg';
 import svgRIS from '../images/ris.svg';
 import svgCC0 from '../images/cc0.svg';
 import style from './Footer.module.scss';
-
-import pkg from '../../package.json';
 
 const cx = classnames.bind(style);
 
@@ -21,8 +20,8 @@ const Footer = () => {
 
   let frontendVersionUrl =
     'https://github.com/dracor-org/dracor-frontend/releases/';
-  if (/^\d+\.\d+\.\d+(-(alpha|beta)(\.\d+)?)?$/.test(pkg.version)) {
-    frontendVersionUrl += `tag/v${pkg.version}`;
+  if (/^\d+\.\d+\.\d+(-(alpha|beta)(\.\d+)?)?$/.test(version)) {
+    frontendVersionUrl += `tag/v${version}`;
   }
 
   return (
@@ -88,7 +87,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {pkg.version}
+                {version}
               </a>
             </span>{' '}
             <span className="version-pill">
