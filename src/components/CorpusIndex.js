@@ -9,6 +9,7 @@ import ToolkitProvider, {
 import ReactMarkdown from 'react-markdown';
 import {apiUrl} from '../config';
 import IdLink from './IdLink';
+import Commit from './Commit';
 import Years, {formatEra} from './Years';
 
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
@@ -236,6 +237,12 @@ const CorpusIndex = ({data}) => {
                       >
                         {data.licence}
                       </a>
+                    </p>
+                  )}
+                  {data.commit && (
+                    <p>
+                      Git commit:{' '}
+                      <Commit repo={data.repository}>{data.commit}</Commit>
                     </p>
                   )}
                   <p>
