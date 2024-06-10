@@ -18,7 +18,7 @@ export default function Commit({repo, children}: Props) {
   return (
     <>
       {repo && (
-        <a href={url} target="_blank">
+        <a href={url} target="_blank" rel="noreferrer noopener">
           <FontAwesomeIcon icon={faGithub} size="lg" className={cx('icon')} />
           {short}
         </a>
