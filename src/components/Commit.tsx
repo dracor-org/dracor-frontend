@@ -1,5 +1,7 @@
 import classnames from 'classnames/bind';
 import style from './Commit.module.scss';
+import {faGithub} from '@fortawesome/free-brands-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const cx = classnames.bind(style);
 
@@ -16,7 +18,8 @@ export default function Commit({repo, children}: Props) {
   return (
     <>
       {repo && (
-        <a href={url} target="_blank" title="Git commit">
+        <a href={url} target="_blank">
+          <FontAwesomeIcon icon={faGithub} size="lg" className={cx('icon')} />
           {short}
         </a>
       )}
