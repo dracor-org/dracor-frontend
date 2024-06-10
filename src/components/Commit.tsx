@@ -16,11 +16,11 @@ export default function Commit({repo, children}: Props) {
   return (
     <>
       {repo && (
-        <a href={url} target="_blank">
+        <a href={url} target="_blank" title="Git commit">
           {short}
         </a>
       )}
-      {!repo && <span>{short}</span>}
+      {!repo && <span title="Git commit">{short}</span>}
     </>
   );
 }
