@@ -12,7 +12,7 @@ export interface Props {
 
 export default function Commit({repo, children}: Props) {
   const sha = children.trim();
-  const short = sha.substring(0, 8);
+  const short = sha.substring(0, 7);
   const url = `${repo}/commit/${sha}`;
 
   return (
