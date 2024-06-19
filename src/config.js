@@ -1,3 +1,6 @@
+import pkg from '../package.json';
+
+export const version = process.env.REACT_APP_VERSION || pkg.version;
 export const apiUrl = process.env.REACT_APP_DRACOR_API;
 export const sparqlUrl = process.env.REACT_APP_SPARQL_URL;
 export const ezlinavisUrl = process.env.REACT_APP_EZLINAVIS_URL;

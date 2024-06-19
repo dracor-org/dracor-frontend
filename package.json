@@ -53,8 +53,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "REACT_APP_VERSION=`./version.sh` react-scripts start",
+    "build": "REACT_APP_VERSION=`./version.sh` react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

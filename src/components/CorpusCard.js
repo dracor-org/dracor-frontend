@@ -1,12 +1,12 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import Commit from './Commit';
 
 // Numbers received from the API can be in scientific notation (e.g.
 // 8.248968E6), which is why we need to use parseFloat.
 const fn = (val) => Number(Number.parseFloat(val)).toLocaleString('en');
 
-const CorpusCard = ({name, title, acronym, metrics}) => {
+const CorpusCard = ({name, title, acronym, commit, repo, metrics}) => {
   const prefix = acronym
     ? acronym.replace('DraCor', '')
     : name.charAt(0).toUpperCase() + name.slice(1);
@@ -74,7 +74,15 @@ const CorpusCard = ({name, title, acronym, metrics}) => {
           </tr>
           <tr>
             <th>Last update</th>
-            <td>{new Date(metrics.updated).toLocaleString()}</td>
+            <td>
+              {commit && (
+                <>
+                  <Commit repo={repo}>{commit}</Commit>
+                  <br />
+                </>
+              )}
+              {new Date(metrics.updated).toLocaleString()}
+            </td>
           </tr>
         </tbody>
       </table>
@@ -86,6 +94,8 @@ CorpusCard.propTypes = {
   name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   acronym: PropTypes.string,
+  repo: PropTypes.string,
+  commit: PropTypes.string,
   metrics: PropTypes.object.isRequired,
 };
 
