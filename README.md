@@ -22,11 +22,11 @@ You will also see any lint errors in the console.
 available at [http://localhost:8080](http://localhost:8080).
 
 You can run the development frontend against a different backend by setting the
-environment variable `REACT_APP_DRACOR_API` to the respective API base URL,
+environment variable `VITE_DRACOR_API` to the respective API base URL,
 e.g.:
 
 ```
-REACT_APP_DRACOR_API=https://dracor.org/api/v1 yarn start
+VITE_DRACOR_API=https://dracor.org/api/v1 yarn start
 ```
 
 

@@ -52,9 +52,9 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "REACT_APP_VERSION=`./version.sh` vite",
-    "build": "REACT_APP_VERSION=`./version.sh` vite build",
-    "serve": "REACT_APP_VERSION=`./version.sh` vite preview",
+    "start": "VITE_VERSION=`./version.sh` vite",
+    "build": "VITE_VERSION=`./version.sh` vite build",
+    "serve": "VITE_VERSION=`./version.sh` vite preview",
     "test": "echo 'Tests not implemented yet!'"
   },
   "eslintConfig": {

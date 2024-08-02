@@ -18,7 +18,7 @@ import './icons';
 
 const APIDoc = lazy(() => import('./components/APIDoc'));
 const SparqlUi = lazy(() => {
-  if (import.meta.env.REACT_APP_WITH_SPARQL === 'yes') {
+  if (import.meta.env.VITE_WITH_SPARQL === 'yes') {
     return import('./components/SparqlUi');
   }
   return import('./components/SparqlPlaceholder');
