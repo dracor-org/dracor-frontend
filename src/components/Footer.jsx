@@ -32,13 +32,13 @@ const Footer = () => {
           please use the following reference:
         </h5>
         <a
-          href={`${process.env.PUBLIC_URL}/cite_dracor.bib`}
+          href={`${import.meta.env.PUBLIC_URL}/cite_dracor.bib`}
           type="application/x-bibtex"
         >
           <img src={svgBibTex} alt="BibTeX" />
         </a>
         <a
-          href={`${process.env.PUBLIC_URL}/cite_dracor.ris`}
+          href={`${import.meta.env.PUBLIC_URL}/cite_dracor.ris`}
           type="application/x-research-info-systems"
         >
           <img src={svgRIS} alt="RIS" />

@@ -33,7 +33,7 @@ const CastList = ({characters, hasTitle}) => (
             >
               <img
                 alt="Wikidata"
-                src={`${process.env.PUBLIC_URL}/wikidata.svg`}
+                src={`${import.meta.env.PUBLIC_URL}/wikidata.svg`}
               />
             </a>
           )}

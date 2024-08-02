@@ -14,7 +14,7 @@ const DocPage = ({match}) => {
 
   useEffect(() => {
     async function fetchMarkdown() {
-      const url = `${process.env.PUBLIC_URL}/doc/${slug}.md`;
+      const url = `${import.meta.env.PUBLIC_URL}/doc/${slug}.md`;
       try {
         const response = await axios.get(url);
         if (
