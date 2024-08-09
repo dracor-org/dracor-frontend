@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import {useParams} from 'react-router-dom';
 import {Helmet} from 'react-helmet';
 import {Container, Col} from 'reactstrap';
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 import rehypeRaw from 'rehype-raw';
 import Header from './Header';
 import Footer from './Footer';
@@ -32,11 +32,15 @@ const DocPage = () => {
           setMarkdown('Not Found');
           setTitle('Not Found');
         }
-      } catch (error: any) {
-        if (error.message === 'Request failed with status code 404') {
+      } catch (error) {
+        if (
+          axios.isAxiosError(error) &&
+          error.message === 'Request failed with status code 404'
+        ) {
           setMarkdown('Not Found');
           setTitle('Not Found');
         } else {
+          // eslint-disable-next-line no-console
           console.error(error);
         }
       }
@@ -56,7 +60,7 @@ const DocPage = () => {
         <ReactMarkdown
           children={markdown}
           components={{
-            h1: ({node, children}) => (
+            h1: ({children}) => (
               <Header>
                 <Col tag="h1">{children}</Col>
               </Header>

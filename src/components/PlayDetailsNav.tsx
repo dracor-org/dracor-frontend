@@ -21,7 +21,7 @@ const PlayDetailsNav = ({items, current}: Props) => {
         <NavItem key={item.name}>
           <NavLink
             href={`#${item.name}`}
-            className={classnames({active: current === item.name})}
+            className={cx({active: current === item.name})}
           >
             {item.label || item.name}
           </NavLink>

@@ -29,6 +29,7 @@ export default function SparqlUi() {
         ],
       },
     });
+    // eslint-disable-next-line no-console
     console.log(yasgui);
     return () => {};
   }, []);

@@ -1,7 +1,7 @@
-import { useParams } from "react-router-dom";
-import PlayInfo from "./Play";
+import {useParams} from 'react-router-dom';
+import PlayInfo from './Play';
 
-export default function PlayPage () {
+export default function PlayPage() {
   const {corpusId, playId} = useParams();
 
   return (
@@ -9,4 +9,4 @@ export default function PlayPage () {
       <PlayInfo corpusId={corpusId} playId={playId} />
     </div>
   );
-};
+}

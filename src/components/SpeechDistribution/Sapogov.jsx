@@ -74,7 +74,7 @@ class Sapogov extends Component {
       const n = i + 1;
       const numSpeakers = seg.speakers ? seg.speakers.length : 0;
       labels.push(n);
-      //labels.push(seg.title ? seg.title.split(' | ') : n);
+      // labels.push(seg.title ? seg.title.split(' | ') : n);
       data.datasets[0].data.push(numSpeakers);
 
       if (groups.length > 0) {

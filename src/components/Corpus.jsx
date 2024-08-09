@@ -16,7 +16,6 @@ const Corpus = () => {
 
   useEffect(() => {
     async function fetchCorpus() {
-      console.log('fetching corpus...');
       setLoading(true);
       try {
         const response = await api.get(`/corpora/${corpusId}`);
@@ -32,6 +31,7 @@ const Corpus = () => {
         setCorpus(response.data);
         setLoading(false);
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error(error);
         setLoading(false);
       }

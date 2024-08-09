@@ -8,7 +8,7 @@ import {
   Tooltip,
   ReferenceLine,
 } from 'recharts';
-import { Segment } from '../../types';
+import {Segment} from '../../types';
 
 function calcSegmentChangeRate(s1: string[], s2: string[]) {
   const all = [...new Set(s1.concat(s2))];
@@ -38,7 +38,7 @@ function calcChangeRates(segments: Segment[]) {
   return changeRates;
 }
 
-const TrilckeFischer = ({segments}: { segments: Segment[] }) => {
+const TrilckeFischer = ({segments}: {segments: Segment[]}) => {
   const changeRates = calcChangeRates(segments);
   const dramaChangeRate =
     changeRates.reduce((acc, rate) => acc + rate, 0) / changeRates.length;

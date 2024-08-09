@@ -25,7 +25,7 @@ interface Props {
   className?: string;
   button?: boolean;
   showLabel?: boolean;
-};
+}
 
 const IdLink = ({button, children, className, showLabel}: Props) => {
   const mainClass = cx(className, 'main', {button});

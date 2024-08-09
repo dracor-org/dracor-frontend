@@ -7,7 +7,7 @@ interface Props {
   source: {
     name: string;
     url: string;
-  }
+  };
   original: string;
 }
 

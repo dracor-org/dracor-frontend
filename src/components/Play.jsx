@@ -50,12 +50,13 @@ const PlayInfo = ({corpusId, playId}) => {
     async function fetchPlay() {
       setError(null);
       const url = `/corpora/${corpusId}/plays/${playId}`;
+      // eslint-disable-next-line no-console
       console.log('loading play %s ...', url);
       try {
         const response = await api.get(url);
         if (response.ok && response.data) {
           const play = response.data;
-          const {characters, segments} = play ;
+          const {characters, segments} = play;
           const graph = makeGraph(characters, segments, nodeProps, edgeColor);
           setPlay(play);
           setGraph(graph);
@@ -65,6 +66,7 @@ const PlayInfo = ({corpusId, playId}) => {
           setError(response.originalError);
         }
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error(error);
       }
     }
@@ -77,6 +79,7 @@ const PlayInfo = ({corpusId, playId}) => {
   }
 
   if (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
     return <p>Error!</p>;
   }
@@ -88,9 +91,6 @@ const PlayInfo = ({corpusId, playId}) => {
   if (!graph) {
     return <p>No Graph!</p>;
   }
-
-  console.log('PLAY', play);
-  console.log('GRAPH', graph);
 
   const groups = play.characters
     .filter((m) => Boolean(m.isGroup))

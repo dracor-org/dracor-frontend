@@ -2,8 +2,9 @@ import {Form, FormGroup, Label, Input} from 'reactstrap';
 import Sapogov from './SpeechDistribution/Sapogov';
 import Yarkho from './SpeechDistribution/Yarkho';
 import TrilckeFischer from './SpeechDistribution/TrilckeFischer';
+import {Segment} from '../types';
 
-const defaultType = 'trilckefischer';
+// const defaultType = 'trilckefischer';
 
 interface NavProps {
   type: string;
@@ -11,6 +12,7 @@ interface NavProps {
 }
 
 export const SpeechDistributionNav = ({type, onChange}: NavProps) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleChange = (e: any) => onChange(e.target.value);
 
   return (
@@ -64,8 +66,9 @@ export const SpeechDistributionNav = ({type, onChange}: NavProps) => {
 
 interface Props {
   type: string;
-  groups: any[];
-  segments: any[];
+  // TODO: fix type
+  groups: unknown[];
+  segments: Segment[];
 }
 
 const SpeechDistribution = ({type, groups, segments}: Props) => {

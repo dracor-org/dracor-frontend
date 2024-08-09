@@ -10,7 +10,7 @@ import './APIDoc.scss';
 
 const APIDoc = () => {
   const location = useLocation();
-  console.log(location);
+
   if (location.pathname === legacyDocPath) {
     return (
       <Container fluid>

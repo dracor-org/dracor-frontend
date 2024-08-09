@@ -1,4 +1,3 @@
-import React from 'react';
 import {Col, Row} from 'reactstrap';
 import classnames from 'classnames/bind';
 import style from './Header.module.scss';

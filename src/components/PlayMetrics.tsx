@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import api from '../api';
-import { Play, PlayMetrics as Metrics } from '../types';
+import {Play, PlayMetrics as Metrics} from '../types';
 
 function round(n: number) {
   return Math.round(n * 100) / 100;
@@ -8,11 +8,11 @@ function round(n: number) {
 
 const PlayMetrics = ({play}: {play: Play}) => {
   const [metrics, setMetrics] = useState<Metrics>();
-  const [error, setError] = useState<any>();
+  const [error, setError] = useState<Error>();
 
   useEffect(() => {
     const fetchMetrics = async () => {
-      setError(null);
+      setError(undefined);
       const url = `/corpora/${play.corpus}/plays/${play.name}/metrics`;
       try {
         const response = await api.get(url);
@@ -24,6 +24,7 @@ const PlayMetrics = ({play}: {play: Play}) => {
           setError(response.originalError);
         }
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error(error);
       }
     };
@@ -32,6 +33,7 @@ const PlayMetrics = ({play}: {play: Play}) => {
   }, [play]);
 
   if (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
     return <p>Error!</p>;
   }
@@ -51,7 +53,7 @@ const PlayMetrics = ({play}: {play: Play}) => {
     averageClustering,
   } = metrics;
 
-  const names: { [name: string]: string } = {};
+  const names: {[name: string]: string} = {};
   play.characters.forEach((c) => {
     names[c.id] = c.name;
   });

@@ -1,10 +1,5 @@
 import {useState, useEffect, lazy} from 'react';
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  redirect,
-} from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import api from './api';
 import {ApiInfo} from './types';
 import {DracorContext} from './context';
@@ -26,10 +21,11 @@ const SparqlUi = lazy(() => {
 });
 
 const App = () => {
-  const [apiInfo, setApiInfo] = useState<ApiInfo | {}>({});
+  const [apiInfo, setApiInfo] = useState<ApiInfo | object>({});
   const [corpora, setCorpora] = useState([]);
 
   useEffect(() => {
+    // eslint-disable-next-line no-console
     console.log('fetching API info...');
 
     async function fetchInfo() {
@@ -43,6 +39,7 @@ const App = () => {
           );
         }
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error(error);
       }
     }
@@ -51,6 +48,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    // eslint-disable-next-line no-console
     console.log('fetching corpora...');
 
     async function fetchCorpora() {
@@ -62,6 +60,7 @@ const App = () => {
           throw new Error(`Failed to load corpora. Status: ${response.status}`);
         }
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error(error);
       }
     }

@@ -13,9 +13,10 @@ export default [
   eslintPluginPrettierRecommended,
   {
     rules: {
+      'camelcase': 'warn',
       'no-console': 'warn',
       'spaced-comment': ['error', 'always'],
     },
-    ignores: ['src/react-app-env.d.ts'],
+    ignores: ['src/vite-env.d.ts'],
   },
 ];

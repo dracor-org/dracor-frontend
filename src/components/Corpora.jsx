@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import Slider from 'react-slick';
 import api from '../api';
 import CorpusCard from './CorpusCard';
@@ -81,6 +81,7 @@ const Corpora = () => {
         const response = await api.get('/corpora?include=metrics');
         setData(response.data);
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error(error);
       }
     }

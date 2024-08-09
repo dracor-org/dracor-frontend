@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import {ReactElement} from 'react';
 import classnames from 'classnames/bind';
 import style from './PlayDetailsTab.module.scss';
 

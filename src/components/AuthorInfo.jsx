@@ -16,6 +16,7 @@ const AuthorInfo = ({author: {fullname, refs = []}}) => {
   useEffect(() => {
     async function fetchAuthorInfo() {
       const url = `/wikidata/author/${wikidataId}`;
+      // eslint-disable-next-line no-console
       console.log('loading author info %s ...', url);
       try {
         const response = await api.get(url);
@@ -44,11 +45,14 @@ const AuthorInfo = ({author: {fullname, refs = []}}) => {
 
           setInfo(info);
         } else if (response.status === 404) {
+          // eslint-disable-next-line no-console
           console.log('not found');
         } else {
+          // eslint-disable-next-line no-console
           console.log(response.originalError);
         }
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error(error);
       }
     }
