@@ -17,13 +17,9 @@
     "bootstrap": "^4.5.3",
     "chart.js": "^2.9.4",
     "classnames": "^2.2.6",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-mdx": "^1.14.1",
-    "eslint-plugin-prettier": "^3.3.1",
     "http-proxy-middleware": "1.0.6",
     "husky": "^7.0.1",
     "lint-staged": "^11.0.1",
-    "prettier": "^2.3.2",
     "react": "^18.3.1",
     "react-bootstrap-table-next": "^4.0.3",
     "react-bootstrap-table2-toolkit": "^2.0.0",
@@ -44,39 +40,32 @@
     "swagger-ui-react": "4.12.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.8.0",
+    "@types/eslint__js": "^8.42.3",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@types/react-helmet": "^6.1.11",
     "@types/react-router-dom": "^5.3.3",
     "@types/recharts": "^1.8.29",
-    "@typescript-eslint/eslint-plugin": "^8.0.0",
-    "@typescript-eslint/parser": "^8.0.0",
     "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^9.8.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-mdx": "^3.1.5",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.35.0",
+    "prettier": "^3.3.3",
     "typescript": "^5.5.4",
+    "typescript-eslint": "^8.0.1",
     "vite": "^5.4.0",
+    "vite-plugin-eslint": "^1.8.1",
     "vite-plugin-svgr": "^4.2.0"
   },
   "scripts": {
     "start": "VITE_VERSION=`./version.sh` vite",
     "build": "VITE_VERSION=`./version.sh` vite build",
     "serve": "VITE_VERSION=`./version.sh` vite preview",
+    "lint": "eslint src",
     "test": "echo 'Tests not implemented yet!'"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest",
-      "plugin:mdx/recommended",
-      "plugin:prettier/recommended",
-      "prettier/standard",
-      "prettier/react"
-    ],
-    "rules": {
-      "no-use-before-define": "off",
-      "@typescript-eslint/no-use-before-define": [
-        "error"
-      ]
-    }
   },
   "browserslist": {
     "production": [
