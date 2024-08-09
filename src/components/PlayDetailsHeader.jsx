@@ -1,5 +1,4 @@
 import {useContext} from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames/bind';
 import Sticky from 'react-stickynode';
 import AuthorInfo from './AuthorInfo';
@@ -89,21 +88,6 @@ const PlayDetailsHeader = ({play, children}) => {
       </Sticky>
     </div>
   );
-};
-
-PlayDetailsHeader.propTypes = {
-  play: PropTypes.shape({
-    id: PropTypes.string,
-    authors: PropTypes.array,
-    title: PropTypes.string,
-    subtitle: PropTypes.string,
-    corpus: PropTypes.string,
-    wikidataId: PropTypes.string,
-    yearPremiered: PropTypes.string,
-    yearPrinted: PropTypes.string,
-    yearWritten: PropTypes.string,
-  }),
-  children: PropTypes.element,
 };
 
 export default PlayDetailsHeader;

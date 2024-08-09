@@ -1,9 +1,9 @@
-import React, {useState, useEffect, Suspense, lazy} from 'react';
+import {useState, useEffect, lazy} from 'react';
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
+  Routes,
   Route,
-  Redirect,
-  Switch,
+  redirect,
 } from 'react-router-dom';
 import api from './api';
 import {ApiInfo} from './types';
@@ -13,6 +13,7 @@ import Home from './components/Home';
 import DocPage from './components/DocPage';
 import TopNav from './components/TopNav';
 import Corpus from './components/Corpus';
+import Play from './components/PlayPage';
 import OddPage from './components/OddPage';
 import './icons';
 
@@ -69,34 +70,27 @@ const App = () => {
   }, []);
 
   return (
-    <Router>
+    <BrowserRouter>
       <DracorContext.Provider value={{corpora, apiInfo}}>
         <div className="d-flex flex-column" style={{height: '100%'}}>
-          <Route exact path="/documentation/api">
-            <Redirect to="/doc/api" />
-          </Route>
-          <Route exact path="/about">
-            <Redirect to="/doc/what-is-dracor" />
-          </Route>
-          <Route path="/" component={TopNav} />
-          <div>
-            <Suspense fallback={<div>Loading...</div>}>
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/sparql" component={SparqlUi} />
-                <Route exact path="/doc/api" component={APIDoc} />
-                <Route exact path="/doc/odd" component={OddPage} />
-                {legacyApiUrl && (
-                  <Route exact path={legacyDocPath} component={APIDoc} />
-                )}
-                <Route path="/doc/:slug" component={DocPage} />
-                <Route path="/:corpusId" component={Corpus} />
-              </Switch>
-            </Suspense>
-          </div>
+          <TopNav />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/:corpusId">
+              <Route index element={<Corpus />} />
+              <Route path=":playId" element={<Play />} />
+            </Route>
+            <Route path="/doc/:slug" element={<DocPage />} />
+            <Route path="/doc/api" element={<APIDoc />} />
+            <Route path="/doc/odd" element={<OddPage />} />
+            {legacyApiUrl && (
+              <Route path={legacyDocPath} element={<APIDoc />} />
+            )}
+            <Route path="/sparql" element={<SparqlUi />} />
+          </Routes>
         </div>
       </DracorContext.Provider>
-    </Router>
+    </BrowserRouter>
   );
 };
 

@@ -1,7 +1,6 @@
-import React from 'react';
 import {Container} from 'reactstrap';
 import {Helmet} from 'react-helmet';
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import SwaggerUI from 'swagger-ui-react';
 import {apiUrl, legacyApiUrl, legacyDocPath} from '../config';
 import Footer from './Footer';
@@ -9,7 +8,8 @@ import Footer from './Footer';
 import 'swagger-ui-react/swagger-ui.css';
 import './APIDoc.scss';
 
-const APIDoc = ({location}) => {
+const APIDoc = () => {
+  const location = useLocation();
   console.log(location);
   if (location.pathname === legacyDocPath) {
     return (

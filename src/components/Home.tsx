@@ -1,4 +1,3 @@
-import React from 'react';
 import {Container} from 'reactstrap';
 import Corpora from './Corpora';
 import Footer from './Footer';

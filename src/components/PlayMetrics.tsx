@@ -1,14 +1,14 @@
-import React, {useEffect, useState} from 'react';
-import PropTypes from 'prop-types';
+import {useEffect, useState} from 'react';
 import api from '../api';
+import { Play, PlayMetrics as Metrics } from '../types';
 
-function round(n) {
+function round(n: number) {
   return Math.round(n * 100) / 100;
 }
 
-const PlayMetrics = ({play}) => {
-  const [metrics, setMetrics] = useState(null);
-  const [error, setError] = useState(null);
+const PlayMetrics = ({play}: {play: Play}) => {
+  const [metrics, setMetrics] = useState<Metrics>();
+  const [error, setError] = useState<any>();
 
   useEffect(() => {
     const fetchMetrics = async () => {
@@ -17,7 +17,7 @@ const PlayMetrics = ({play}) => {
       try {
         const response = await api.get(url);
         if (response.ok) {
-          setMetrics(response.data);
+          setMetrics(response.data as Metrics);
         } else if (response.status === 404) {
           setError(new Error('not found'));
         } else {
@@ -51,14 +51,14 @@ const PlayMetrics = ({play}) => {
     averageClustering,
   } = metrics;
 
-  const names = {};
+  const names: { [name: string]: string } = {};
   play.characters.forEach((c) => {
     names[c.id] = c.name;
   });
 
   const maxDegreeNames = maxDegreeIds.map((id) => names[id] || id).join(', ');
 
-  const allInPercentage = Math.round(play.allInIndex * 100);
+  const allInPercentage = Math.round((play.allInIndex || 0) * 100);
 
   return (
     <div>
@@ -89,10 +89,6 @@ const PlayMetrics = ({play}) => {
       )
     </div>
   );
-};
-
-PlayMetrics.propTypes = {
-  play: PropTypes.object.isRequired,
 };
 
 export default PlayMetrics;

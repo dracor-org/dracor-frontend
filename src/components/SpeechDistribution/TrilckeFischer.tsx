@@ -1,5 +1,3 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import {
   ResponsiveContainer,
   LineChart,
@@ -10,8 +8,9 @@ import {
   Tooltip,
   ReferenceLine,
 } from 'recharts';
+import { Segment } from '../../types';
 
-function calcSegmentChangeRate(s1, s2) {
+function calcSegmentChangeRate(s1: string[], s2: string[]) {
   const all = [...new Set(s1.concat(s2))];
   let edits = 0;
   s1.forEach((s) => {
@@ -28,7 +27,7 @@ function calcSegmentChangeRate(s1, s2) {
   return changeRate;
 }
 
-function calcChangeRates(segments) {
+function calcChangeRates(segments: Segment[]) {
   const changeRates = [];
   for (let i = 0; i < segments.length - 1; i++) {
     const s1 = segments[i].speakers || [];
@@ -39,7 +38,7 @@ function calcChangeRates(segments) {
   return changeRates;
 }
 
-const TrilckeFischer = ({segments}) => {
+const TrilckeFischer = ({segments}: { segments: Segment[] }) => {
   const changeRates = calcChangeRates(segments);
   const dramaChangeRate =
     changeRates.reduce((acc, rate) => acc + rate, 0) / changeRates.length;
@@ -92,7 +91,7 @@ const TrilckeFischer = ({segments}) => {
         <Line
           dataKey="rate"
           stroke="#61affe"
-          backgroundColor="#61affe1a"
+          fill="#61affe1a"
           strokeWidth={3}
           activeDot={{r: 4}}
           dot={false}
@@ -100,10 +99,6 @@ const TrilckeFischer = ({segments}) => {
       </LineChart>
     </ResponsiveContainer>
   );
-};
-
-TrilckeFischer.propTypes = {
-  segments: PropTypes.array.isRequired,
 };
 
 export default TrilckeFischer;

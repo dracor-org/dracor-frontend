@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import {Component} from 'react';
+
 // we need to require from react-sigma/lib/ to make build work
 import {
   Sigma,
@@ -62,14 +62,5 @@ class NetworkGraph extends Component {
     return sigma;
   }
 }
-
-NetworkGraph.propTypes = {
-  graph: PropTypes.shape({
-    nodes: PropTypes.array.isRequired,
-    edges: PropTypes.array.isRequired,
-  }).isRequired,
-  nodeColor: PropTypes.string.isRequired,
-  edgeColor: PropTypes.string.isRequired,
-};
 
 export default NetworkGraph;

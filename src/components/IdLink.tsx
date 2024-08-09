@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames/bind';
 import style from './IdLink.module.scss';
 
 const cx = classnames.bind(style);
+
+type IdTypes = 'isni' | 'pnd' | 'wikidata';
 
 const types = {
   isni: {
@@ -20,7 +20,14 @@ const types = {
   },
 };
 
-const IdLink = ({button, children, className, showLabel}) => {
+interface Props {
+  children: string;
+  className?: string;
+  button?: boolean;
+  showLabel?: boolean;
+};
+
+const IdLink = ({button, children, className, showLabel}: Props) => {
   const mainClass = cx(className, 'main', {button});
 
   const matches = children.match(/^(wikidata|pnd|isni):([a-z\d]+)$/i);
@@ -30,7 +37,7 @@ const IdLink = ({button, children, className, showLabel}) => {
 
   const type = matches[1].toLowerCase();
   const id = matches[2];
-  const {url, label} = types[type];
+  const {url, label} = types[type as IdTypes];
 
   return (
     <span className={mainClass}>
@@ -40,19 +47,6 @@ const IdLink = ({button, children, className, showLabel}) => {
       </a>
     </span>
   );
-};
-
-IdLink.propTypes = {
-  children: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  button: PropTypes.bool,
-  showLabel: PropTypes.bool,
-};
-
-IdLink.defaultProps = {
-  button: false,
-  className: '',
-  showLabel: false,
 };
 
 export default IdLink;

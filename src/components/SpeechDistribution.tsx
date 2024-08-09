@@ -1,5 +1,3 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import {Form, FormGroup, Label, Input} from 'reactstrap';
 import Sapogov from './SpeechDistribution/Sapogov';
 import Yarkho from './SpeechDistribution/Yarkho';
@@ -7,8 +5,13 @@ import TrilckeFischer from './SpeechDistribution/TrilckeFischer';
 
 const defaultType = 'trilckefischer';
 
-export const SpeechDistributionNav = ({type, onChange}) => {
-  const handleChange = (e) => onChange(e.target.value);
+interface NavProps {
+  type: string;
+  onChange: (type: string) => null;
+}
+
+export const SpeechDistributionNav = ({type, onChange}: NavProps) => {
+  const handleChange = (e: any) => onChange(e.target.value);
 
   return (
     <div>
@@ -59,12 +62,13 @@ export const SpeechDistributionNav = ({type, onChange}) => {
   );
 };
 
-SpeechDistributionNav.propTypes = {
-  type: PropTypes.string,
-  onChange: PropTypes.func,
-};
+interface Props {
+  type: string;
+  groups: any[];
+  segments: any[];
+}
 
-const SpeechDistribution = ({type, groups, segments}) => {
+const SpeechDistribution = ({type, groups, segments}: Props) => {
   let chart;
   if (type === 'yarkho') {
     chart = <Yarkho {...{groups, segments}} />;
@@ -81,16 +85,6 @@ const SpeechDistribution = ({type, groups, segments}) => {
       </div>
     </div>
   );
-};
-
-SpeechDistribution.propTypes = {
-  type: PropTypes.string,
-  groups: PropTypes.array.isRequired,
-  segments: PropTypes.array.isRequired,
-};
-
-SpeechDistribution.defaultProps = {
-  type: defaultType,
 };
 
 export default SpeechDistribution;

@@ -1,20 +1,21 @@
 import {useEffect, useState} from 'react';
 import ReactMarkdown from 'react-markdown';
+import {useParams} from 'react-router-dom';
 import {Helmet} from 'react-helmet';
 import {Container, Col} from 'reactstrap';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import rehypeRaw from 'rehype-raw';
 import Header from './Header';
 import Footer from './Footer';
 
-const DocPage = ({match}) => {
+const DocPage = () => {
   const [markdown, setMarkdown] = useState('');
   const [title, setTitle] = useState('');
-  const {slug} = match.params;
+  const {slug} = useParams();
 
   useEffect(() => {
     async function fetchMarkdown() {
-      const url = `${import.meta.env.PUBLIC_URL}/doc/${slug}.md`;
+      const url = `/doc/${slug}.md`;
       try {
         const response = await axios.get(url);
         if (
@@ -31,7 +32,7 @@ const DocPage = ({match}) => {
           setMarkdown('Not Found');
           setTitle('Not Found');
         }
-      } catch (error) {
+      } catch (error: any) {
         if (error.message === 'Request failed with status code 404') {
           setMarkdown('Not Found');
           setTitle('Not Found');

@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import {useContext} from 'react';
 import {Col, Row} from 'reactstrap';
 import classnames from 'classnames/bind';
 import {version} from '../config';
@@ -31,16 +31,10 @@ const Footer = () => {
           If you want to cite DraCor, <wbr />
           please use the following reference:
         </h5>
-        <a
-          href={`${import.meta.env.PUBLIC_URL}/cite_dracor.bib`}
-          type="application/x-bibtex"
-        >
+        <a href={'/cite_dracor.bib'} type="application/x-bibtex">
           <img src={svgBibTex} alt="BibTeX" />
         </a>
-        <a
-          href={`${import.meta.env.PUBLIC_URL}/cite_dracor.ris`}
-          type="application/x-research-info-systems"
-        >
+        <a href={'/cite_dracor.ris'} type="application/x-research-info-systems">
           <img src={svgRIS} alt="RIS" />
         </a>
         <p>

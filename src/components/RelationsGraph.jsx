@@ -1,5 +1,3 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 // we need to require from react-sigma/lib/ to make build work
 import {
   Sigma,
@@ -87,15 +85,6 @@ const RelationsGraph = ({play, nodeColor, edgeColor}) => {
   }
 
   return sigma;
-};
-
-RelationsGraph.propTypes = {
-  play: PropTypes.shape({
-    characters: PropTypes.array.isRequired,
-    relations: PropTypes.array.isRequired,
-  }).isRequired,
-  nodeColor: PropTypes.string.isRequired,
-  edgeColor: PropTypes.string.isRequired,
 };
 
 export default RelationsGraph;

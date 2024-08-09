@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import Commit from './Commit';
 
@@ -88,15 +87,6 @@ const CorpusCard = ({name, title, acronym, commit, repo, metrics}) => {
       </table>
     </div>
   );
-};
-
-CorpusCard.propTypes = {
-  name: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  acronym: PropTypes.string,
-  repo: PropTypes.string,
-  commit: PropTypes.string,
-  metrics: PropTypes.object.isRequired,
 };
 
 export default CorpusCard;

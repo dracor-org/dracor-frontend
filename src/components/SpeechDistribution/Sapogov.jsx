@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import {Component} from 'react';
 import {Line} from 'react-chartjs-2';
 
 class Sapogov extends Component {
@@ -105,10 +104,5 @@ class Sapogov extends Component {
     return <Line data={data} options={options} />;
   }
 }
-
-Sapogov.propTypes = {
-  groups: PropTypes.array.isRequired,
-  segments: PropTypes.array.isRequired,
-};
 
 export default Sapogov;

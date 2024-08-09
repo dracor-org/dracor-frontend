@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import classnames from 'classnames/bind';
 import style from './CastList.module.scss';
@@ -31,10 +30,7 @@ const CastList = ({characters, hasTitle}) => (
               href={`https://www.wikidata.org/wiki/${member.wikidataId}`}
               title={`Wikidata: ${member.wikidataId}`}
             >
-              <img
-                alt="Wikidata"
-                src={`${import.meta.env.PUBLIC_URL}/wikidata.svg`}
-              />
+              <img alt="Wikidata" src={'/wikidata.svg'} />
             </a>
           )}
         </li>
@@ -42,10 +38,5 @@ const CastList = ({characters, hasTitle}) => (
     </ol>
   </div>
 );
-
-CastList.propTypes = {
-  characters: PropTypes.array.isRequired,
-  hasTitle: PropTypes.bool,
-};
 
 export default CastList;

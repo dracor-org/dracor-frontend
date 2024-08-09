@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import {Component} from 'react';
 import {Line} from 'react-chartjs-2';
 
 class Yarkho extends Component {
@@ -147,10 +146,5 @@ class Yarkho extends Component {
     return <Line data={data} options={options} />;
   }
 }
-
-Yarkho.propTypes = {
-  groups: PropTypes.array.isRequired,
-  segments: PropTypes.array.isRequired,
-};
 
 export default Yarkho;

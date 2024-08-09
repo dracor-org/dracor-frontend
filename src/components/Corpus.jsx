@@ -1,21 +1,14 @@
-import React, {useState, useEffect, useContext} from 'react';
-import {Route} from 'react-router-dom';
+import {useState, useEffect, useContext} from 'react';
+import {useParams} from 'react-router-dom';
 import {Container} from 'reactstrap';
 import {DracorContext} from '../context';
 import api from '../api';
 import CorpusIndex from './CorpusIndex';
-import Play from './Play';
 import Header from './Header';
 import Footer from './Footer';
 
-const PlayPage = ({match}) => (
-  <div style={{height: '100%'}}>
-    <Play {...match.params} />
-  </div>
-);
-
-const Corpus = ({match, location}) => {
-  const {corpusId} = match.params;
+const Corpus = () => {
+  const {corpusId} = useParams();
   const [corpus, setCorpus] = useState(null);
   const [loading, setLoading] = useState(false);
   const {corpora} = useContext(DracorContext);
@@ -61,7 +54,7 @@ const Corpus = ({match, location}) => {
     return <p className="loading">Loading...</p>;
   }
 
-  if (match.url === location.pathname) {
+  if (!loading && corpus) {
     return (
       <Container fluid>
         <div className="dracor-page">
@@ -72,8 +65,6 @@ const Corpus = ({match, location}) => {
       </Container>
     );
   }
-
-  return <Route path={`${match.path}/:playId`} component={PlayPage} />;
 };
 
 export default Corpus;

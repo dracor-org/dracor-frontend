@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import PropTypes from 'prop-types';
+import {useEffect, useState} from 'react';
 import classnames from 'classnames/bind';
 import IdLink from './IdLink';
 import {formatYear} from './Years';
@@ -87,10 +86,6 @@ const AuthorInfo = ({author: {fullname, refs = []}}) => {
       </span>
     </div>
   );
-};
-
-AuthorInfo.propTypes = {
-  author: PropTypes.object.isRequired,
 };
 
 export default AuthorInfo;

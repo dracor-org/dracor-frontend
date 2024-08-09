@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import PropTypes from 'prop-types';
+import {useEffect, useState} from 'react';
 import {Container} from 'reactstrap';
 import {Helmet} from 'react-helmet';
 import api from '../api';
@@ -54,10 +53,11 @@ const PlayInfo = ({corpusId, playId}) => {
       console.log('loading play %s ...', url);
       try {
         const response = await api.get(url);
-        if (response.ok) {
-          const {characters, segments} = response.data;
+        if (response.ok && response.data) {
+          const play = response.data;
+          const {characters, segments} = play ;
           const graph = makeGraph(characters, segments, nodeProps, edgeColor);
-          setPlay(response.data);
+          setPlay(play);
           setGraph(graph);
         } else if (response.status === 404) {
           setError(new Error('not found'));
@@ -194,11 +194,6 @@ const PlayInfo = ({corpusId, playId}) => {
       </Container>
     </div>
   );
-};
-
-PlayInfo.propTypes = {
-  corpusId: PropTypes.string,
-  playId: PropTypes.string,
 };
 
 export default PlayInfo;

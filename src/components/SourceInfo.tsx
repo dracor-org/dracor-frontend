@@ -1,11 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames/bind';
 import style from './SourceInfo.module.scss';
 
 const cx = classnames.bind(style);
 
-const SourceInfo = ({source, original}) => {
+interface Props {
+  source: {
+    name: string;
+    url: string;
+  }
+  original: string;
+}
+
+const SourceInfo = ({source, original}: Props) => {
   return (
     <div className={cx('main')}>
       {source && (
@@ -29,11 +35,6 @@ const SourceInfo = ({source, original}) => {
       )}
     </div>
   );
-};
-
-SourceInfo.propTypes = {
-  source: PropTypes.object,
-  original: PropTypes.string,
 };
 
 export default SourceInfo;

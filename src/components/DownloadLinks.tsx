@@ -1,5 +1,3 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames/bind';
 import api from '../api';
 import style from './DownloadLinks.module.scss';
@@ -9,12 +7,13 @@ import svgGraphML from '../images/graphml.svg';
 import svgTXT from '../images/txt.svg';
 import svgJSON from '../images/json.svg';
 import svgTEI from '../images/tei.svg';
+import {Play} from '../types';
 
 const cx = classnames.bind(style);
 
 const apiUrl = api.getBaseURL();
 
-const DownloadLinks = ({play}) => {
+const DownloadLinks = ({play}: {play: Play}) => {
   const playUrl = `${apiUrl}/corpora/${play.corpus}/plays/${play.name}`;
   const csvUrl = `${playUrl}/networkdata/csv`;
   const gexfUrl = `${playUrl}/networkdata/gexf`;
@@ -79,9 +78,9 @@ const DownloadLinks = ({play}) => {
           <>
             <p>Relation data not available.</p>
             <span className={cx('formats')}>
-              <img disabled src={svgCSV} alt="CSV" />
-              <img disabled src={svgGEXF} alt="GEXF" />
-              <img disabled src={svgGraphML} alt="GraphML" />
+              <img className="disabled" src={svgCSV} alt="CSV" />
+              <img className="disabled" src={svgGEXF} alt="GEXF" />
+              <img className="disabled" src={svgGraphML} alt="GraphML" />
             </span>
           </>
         )}
@@ -157,10 +156,6 @@ const DownloadLinks = ({play}) => {
       </span>
     </div>
   );
-};
-
-DownloadLinks.propTypes = {
-  play: PropTypes.object.isRequired,
 };
 
 export default DownloadLinks;

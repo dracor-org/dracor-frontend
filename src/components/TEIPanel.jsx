@@ -1,5 +1,3 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import CETEI from 'CETEIcean';
 
 import '../CETEIcean.css';
@@ -18,10 +16,6 @@ const TEIPanel = ({url}) => {
       </div>
     </div>
   );
-};
-
-TEIPanel.propTypes = {
-  url: PropTypes.string.isRequired,
 };
 
 export default TEIPanel;

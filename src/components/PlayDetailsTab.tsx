@@ -1,9 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { ReactElement } from 'react';
 import classnames from 'classnames/bind';
 import style from './PlayDetailsTab.module.scss';
 
 const cx = classnames.bind(style);
+
+interface Props {
+  children: ReactElement | ReactElement[];
+  characters: ReactElement;
+  description: ReactElement;
+  metrics: ReactElement;
+  segments: ReactElement;
+}
 
 const PlayDetailsTab = ({
   children,
@@ -11,7 +18,7 @@ const PlayDetailsTab = ({
   characters,
   metrics,
   segments,
-}) => {
+}: Props) => {
   return (
     <div className={cx('main')}>
       <div className={cx('content')}>{children}</div>
@@ -21,20 +28,6 @@ const PlayDetailsTab = ({
       {segments && <div className={cx('segments')}>{segments}</div>}
     </div>
   );
-};
-
-PlayDetailsTab.propTypes = {
-  characters: PropTypes.element,
-  description: PropTypes.element,
-  metrics: PropTypes.element,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
-};
-
-PlayDetailsTab.defaultProps = {
-  characters: null,
 };
 
 export default PlayDetailsTab;
