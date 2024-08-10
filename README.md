@@ -4,36 +4,32 @@ The web app running the [dracor.org](https://dracor.org) website.
 
 ## Development
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). See its
-[documentation](https://facebook.github.io/create-react-app/docs/documentation-intro) on how to perform common tasks.
-
-In the project directory, you can run:
+This project uses [Vite](https://vitejs.dev) as a development and build
+environment. In the project directory, you can run:
 
 ### `yarn start`
 
 Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-**Note:** The app expects a local eXist database with the
-[dracor-api](https://github.com/dracor-org/dracor-api) installed to be
-available at [http://localhost:8080](http://localhost:8080).
+**Note:** The app, by default, expects a local instance of the
+[DraCor API](https://github.com/dracor-org/dracor-api) to be available at
+[http://localhost:8080](http://localhost:8080).
 
-You can run the development frontend against a different backend by setting the
-environment variable `VITE_DRACOR_API` to the respective API base URL,
+You can run the development frontend against a different API instance by setting
+the environment variable `VITE_DRACOR_API` to the respective API base URL,
 e.g.:
 
 ```
 VITE_DRACOR_API=https://dracor.org/api/v1 yarn start
 ```
 
-
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the documentation about [running tests](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#running-tests) for more information.
+Launches the test runner in the interactive watch mode.
 
 ### `yarn build`
 
