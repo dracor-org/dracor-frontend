@@ -15,8 +15,6 @@
     "chart.js": "^2.9.4",
     "classnames": "^2.2.6",
     "http-proxy-middleware": "1.0.6",
-    "husky": "^7.0.1",
-    "lint-staged": "^11.0.1",
     "react": "^18.3.1",
     "react-bootstrap-table-next": "^4.0.3",
     "react-bootstrap-table2-toolkit": "^2.0.0",
@@ -55,7 +53,9 @@
     "eslint-plugin-mdx": "^3.1.5",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.35.0",
+    "husky": ">=6",
     "jsdom": "^24.1.1",
+    "lint-staged": ">=10",
     "prettier": "^3.3.3",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.0.1",
@@ -71,7 +71,8 @@
     "lint": "eslint src",
     "test": "vitest",
     "test:coverage": "vitest run --coverage --watch=false",
-    "test:coverage:browse": "vitest run --coverage --watch=false && open-cli coverage/index.html"
+    "test:coverage:browse": "vitest run --coverage --watch=false && open-cli coverage/index.html",
+    "prepare": "husky install"
   },
   "browserslist": {
     "production": [
@@ -85,14 +86,10 @@
       "last 1 safari version"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "prettier --write"
-    ]
+    ],
+    "*.js": "eslint --cache --fix"
   }
 }
