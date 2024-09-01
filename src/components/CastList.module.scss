@@ -53,6 +53,9 @@
     font-size: 1.3rem;
     font-weight: normal;
     margin: 0;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   // subtitle
