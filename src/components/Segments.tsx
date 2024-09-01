@@ -1,4 +1,3 @@
-import React from 'react';
 import classnames from 'classnames/bind';
 import {Play, Segment} from '../types';
 import style from './Segments.module.scss';

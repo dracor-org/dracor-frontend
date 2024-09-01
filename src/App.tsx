@@ -1,10 +1,5 @@
-import React, {useState, useEffect, Suspense, lazy} from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch,
-} from 'react-router-dom';
+import {useState, useEffect, lazy} from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import api from './api';
 import {ApiInfo} from './types';
 import {DracorContext} from './context';
@@ -13,22 +8,24 @@ import Home from './components/Home';
 import DocPage from './components/DocPage';
 import TopNav from './components/TopNav';
 import Corpus from './components/Corpus';
+import Play from './components/PlayPage';
 import OddPage from './components/OddPage';
 import './icons';
 
 const APIDoc = lazy(() => import('./components/APIDoc'));
 const SparqlUi = lazy(() => {
-  if (process.env.REACT_APP_WITH_SPARQL === 'yes') {
+  if (import.meta.env.VITE_WITH_SPARQL === 'yes') {
     return import('./components/SparqlUi');
   }
   return import('./components/SparqlPlaceholder');
 });
 
 const App = () => {
-  const [apiInfo, setApiInfo] = useState<ApiInfo | {}>({});
+  const [apiInfo, setApiInfo] = useState<ApiInfo | object>({});
   const [corpora, setCorpora] = useState([]);
 
   useEffect(() => {
+    // eslint-disable-next-line no-console
     console.log('fetching API info...');
 
     async function fetchInfo() {
@@ -42,6 +39,7 @@ const App = () => {
           );
         }
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error(error);
       }
     }
@@ -50,6 +48,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    // eslint-disable-next-line no-console
     console.log('fetching corpora...');
 
     async function fetchCorpora() {
@@ -61,6 +60,7 @@ const App = () => {
           throw new Error(`Failed to load corpora. Status: ${response.status}`);
         }
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error(error);
       }
     }
@@ -69,34 +69,27 @@ const App = () => {
   }, []);
 
   return (
-    <Router>
+    <BrowserRouter>
       <DracorContext.Provider value={{corpora, apiInfo}}>
         <div className="d-flex flex-column" style={{height: '100%'}}>
-          <Route exact path="/documentation/api">
-            <Redirect to="/doc/api" />
-          </Route>
-          <Route exact path="/about">
-            <Redirect to="/doc/what-is-dracor" />
-          </Route>
-          <Route path="/" component={TopNav} />
-          <div>
-            <Suspense fallback={<div>Loading...</div>}>
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/sparql" component={SparqlUi} />
-                <Route exact path="/doc/api" component={APIDoc} />
-                <Route exact path="/doc/odd" component={OddPage} />
-                {legacyApiUrl && (
-                  <Route exact path={legacyDocPath} component={APIDoc} />
-                )}
-                <Route path="/doc/:slug" component={DocPage} />
-                <Route path="/:corpusId" component={Corpus} />
-              </Switch>
-            </Suspense>
-          </div>
+          <TopNav />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/:corpusId">
+              <Route index element={<Corpus />} />
+              <Route path=":playId" element={<Play />} />
+            </Route>
+            <Route path="/doc/:slug" element={<DocPage />} />
+            <Route path="/doc/api" element={<APIDoc />} />
+            <Route path="/doc/odd" element={<OddPage />} />
+            {legacyApiUrl && (
+              <Route path={legacyDocPath} element={<APIDoc />} />
+            )}
+            <Route path="/sparql" element={<SparqlUi />} />
+          </Routes>
         </div>
       </DracorContext.Provider>
-    </Router>
+    </BrowserRouter>
   );
 };
 

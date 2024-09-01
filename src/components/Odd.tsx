@@ -21,12 +21,14 @@ const Odd = () => {
             ref.current?.appendChild(div);
           });
         } else {
+          // eslint-disable-next-line no-console
           console.log('Cannot load html, status: %s', response.status);
           const p = document.createElement('p');
           p.append('Failed to load ODD file.');
           ref.current?.appendChild(p);
         }
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error(error);
       }
     }

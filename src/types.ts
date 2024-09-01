@@ -66,3 +66,30 @@ export interface Play {
   allInIndex?: number;
   allInSegment?: number;
 }
+
+export interface PlayMetricsNode {
+  id: string;
+  betweenness: number;
+  closeness: number;
+  degree: number;
+  eigenvector: number | null;
+  weightedDegree: number;
+}
+
+export interface PlayMetrics {
+  id: string;
+  name: string;
+  corpus: string;
+  nodes: PlayMetricsNode[];
+  averageClustering: number;
+  averageDegree: number;
+  averagePathLength: number;
+  density: number;
+  diameter: number;
+  maxDegree: number;
+  maxDegreeIds: string[];
+  numConnectedComponents: number;
+  numEdges: number;
+  size: number;
+  wikipediaLinkCount: number | null;
+}

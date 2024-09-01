@@ -41,7 +41,7 @@
         opacity: 0.85;
       }
 
-      &[disabled] {
+      &.disabled {
         opacity: 0.5;
       }
     }
