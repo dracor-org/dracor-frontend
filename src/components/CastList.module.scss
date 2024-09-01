@@ -22,7 +22,7 @@
     position: absolute;
     display: block;
     top: 0;
-    height: 3em;
+    height: 2em;
     width: calc(100% - 1rem);
     background: #ebf0f7;
     z-index: 1;
@@ -30,7 +30,7 @@
     &::after {
       content: '';
       position: absolute;
-      top: 3em;
+      top: 2em;
       height: 2em;
       width: 100%;
       display: block;
@@ -44,8 +44,8 @@
 
   ol {
     overflow-y: auto;
-    padding-top: 4em;
-    padding-bottom: 1em;
+    padding-top: 3.3em;
+    padding-bottom: 1.5em;
     padding-inline-start: 0;
     margin-bottom: 0;
     width: 100%;
