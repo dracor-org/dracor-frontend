@@ -11,7 +11,11 @@
     width: calc(100% - 1rem);
     bottom: 0;
     display: block;
-    background: linear-gradient(0deg, rgba(235, 240, 247, 1) 0%, rgba(235, 240, 247, 0) 100%);
+    background: linear-gradient(
+      0deg,
+      rgba(235, 240, 247, 1) 0%,
+      rgba(235, 240, 247, 0) 100%
+    );
   }
 
   .header {
@@ -30,7 +34,11 @@
       height: 2em;
       width: 100%;
       display: block;
-      background: linear-gradient(180deg, rgba(235, 240, 247, 1) 0%, rgba(235, 240, 247, 0) 100%);
+      background: linear-gradient(
+        180deg,
+        rgba(235, 240, 247, 1) 0%,
+        rgba(235, 240, 247, 0) 100%
+      );
     }
   }
 
@@ -72,8 +80,8 @@
   :global(.fa-venus) {
     opacity: 0.4;
   }
-  
-  a img[alt=Wikidata] {
+
+  a img[alt='Wikidata'] {
     display: inline-block;
     height: 0.8em;
   }
