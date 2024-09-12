@@ -8,8 +8,9 @@ const CastList = ({characters, hasTitle}) => (
   <div className={cx('main')}>
     {hasTitle && (
       <span className={cx('header')}>
-        <h4>Characters</h4>
-        <p>(in order of appearance)</p>
+        <h4 title="Characters in order of appearance">
+          Characters <small>(in order of appearance)</small>
+        </h4>
       </span>
     )}
     <ol className={cx('dracor-scrollbar')}>

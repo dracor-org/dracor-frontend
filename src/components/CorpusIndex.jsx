@@ -52,17 +52,17 @@ function formatTitle(d, corpusId) {
       <Link className="drama-title" to={`/${corpusId}/${d.name}`}>
         {d.title}
       </Link>
-      {d.subtitle ? (
-        <small>
+      {d.subtitle && (
+        <>
           <br />
           {d.subtitle}
-        </small>
-      ) : null}
+        </>
+      )}
       {d.wikidataId && (
-        <small>
+        <>
           <br />
           <IdLink button>{`wikidata:${d.wikidataId}`}</IdLink>
-        </small>
+        </>
       )}
     </span>
   );

@@ -11,14 +11,18 @@
     width: calc(100% - 1rem);
     bottom: 0;
     display: block;
-    background: linear-gradient(0deg, rgba(235, 240, 247, 1) 0%, rgba(235, 240, 247, 0) 100%);
+    background: linear-gradient(
+      0deg,
+      rgba(235, 240, 247, 1) 0%,
+      rgba(235, 240, 247, 0) 100%
+    );
   }
 
   .header {
     position: absolute;
     display: block;
     top: 0;
-    height: 3em;
+    height: 2em;
     width: calc(100% - 1rem);
     background: #ebf0f7;
     z-index: 1;
@@ -26,18 +30,22 @@
     &::after {
       content: '';
       position: absolute;
-      top: 3em;
+      top: 2em;
       height: 2em;
       width: 100%;
       display: block;
-      background: linear-gradient(180deg, rgba(235, 240, 247, 1) 0%, rgba(235, 240, 247, 0) 100%);
+      background: linear-gradient(
+        180deg,
+        rgba(235, 240, 247, 1) 0%,
+        rgba(235, 240, 247, 0) 100%
+      );
     }
   }
 
   ol {
     overflow-y: auto;
-    padding-top: 4em;
-    padding-bottom: 1em;
+    padding-top: 3.3em;
+    padding-bottom: 1.5em;
     padding-inline-start: 0;
     margin-bottom: 0;
     width: 100%;
@@ -53,6 +61,9 @@
     font-size: 1.3rem;
     font-weight: normal;
     margin: 0;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   // subtitle
@@ -69,8 +80,8 @@
   :global(.fa-venus) {
     opacity: 0.4;
   }
-  
-  a img[alt=Wikidata] {
+
+  a img[alt='Wikidata'] {
     display: inline-block;
     height: 0.8em;
   }
