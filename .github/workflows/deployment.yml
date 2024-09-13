@@ -29,6 +29,8 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
 
+      - run: ./version.sh
+      - run: git describe --tags --dirty --always
       - run: yarn install
       - run: yarn build
 
