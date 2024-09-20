@@ -44,7 +44,7 @@ jobs:
       - name: Deploy to ${{ inputs.host }}
         run: |
           rsync -rlvz --delete \
-            --exclude=robot.txt \
+            --exclude=robots.txt \
             --exclude=schema.rng \
             --exclude=dracor.sch \
             --exclude=google*.html \
