@@ -10,9 +10,9 @@ import TopNav from './components/TopNav';
 import Corpus from './components/Corpus';
 import Play from './components/PlayPage';
 import OddPage from './components/OddPage';
+import APIDoc from './components/APIDoc';
 import './icons';
 
-const APIDoc = lazy(() => import('./components/APIDoc'));
 const SparqlUi = lazy(() => {
   if (import.meta.env.VITE_WITH_SPARQL === 'yes') {
     return import('./components/SparqlUi');
