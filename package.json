@@ -1,6 +1,6 @@
 {
   "name": "dracor-frontend",
-  "version": "2.2.0",
+  "version": "2.3.0-beta.5",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
