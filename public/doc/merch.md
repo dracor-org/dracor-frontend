@@ -5,7 +5,7 @@
 #### Battle of the Plays
 
 ![card Battle of the Plays, back](../img/merch/battle_of_the_plays_back.jpg)
-![card Battle of the Plays, front](../img/merch/battle_of_the_plays_dramenquartett_front.png)
+![card Battle of the Plays, front](../img/merch/battle_of_the_plays_front.png)
 
 *by Frank Fischer, Mark Schwindt*
 
