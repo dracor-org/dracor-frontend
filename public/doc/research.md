@@ -1,11 +1,12 @@
 # Research
 
-This constantly updated bibliography is an attempt to collect all research publications whose authors have actively worked with DraCor (i.e. used DraCor-provided corpora or data obtained through our interface; a mere mention of DraCor would not be sufficient for a paper to be listed here). For the time between 2015 and 2018, we also included [DLINA](https://dlina.github.io/) publications, the project preceding DraCor. Within individual years, contributions are sorted according to the surname of the first author.
+This constantly updated bibliography is an attempt at collecting all research publications whose authors have actively worked with DraCor (i.e. used DraCor-provided corpora or data obtained through our interface; a mere mentioning of DraCor would not be sufficient for a paper to be listed here). For the time between 2015 and 2018, we also included [DLINA](https://dlina.github.io/) publications, the project preceding DraCor. Within individual years, contributions are sorted according to the surname of the first author.
 
 ## 2024
 
 * Melanie Andresen, Nils Reiter: Introduction. In: eid. (eds.): Computational Drama Analysis: Reflecting Methods and Interpretations. Berlin, Boston: De Gruyter 2024, pp. 1–6. ([doi:10.1515/9783111071824-001](https://doi.org/10.1515/9783111071824-001))
 * Melanie Andresen, Benjamin Krautter, Janis Pagel, Nils Reiter: Knowledge Distribution in German Drama. In: Journal of Open Humanities Data. Vol. 10 (2024), no. 1, pp. 1–7. ([doi:10.5334/johd.167](https://doi.org/10.5334/johd.167))
+* Julia Jennifer Beine: Das doppelte Spiel des »servus callidus«. Eine poetologische und gesellschaftliche Reflexionsfigur auf den europäischen Bühnen der Frühen Neuzeit. (Bochum, Univ., Diss., 2023.) Göttingen: Verlag Antike 2024. (= Studia Comica 23.) ([doi:10.13109/9783911065115](https://doi.org/10.13109/9783911065115))
 * Julia Jennifer Beine, Frank Fischer, Viktor J. Illmer: Just the Type: Analysing Character Typology in Roman Comedy with RomDraCor. In: DH2024: »Reinvention & Responsibility«. 6–10 August 2024. Washington, DC. Book of Abstracts. ([doi:10.5281/zenodo.13801481](https://doi.org/10.5281/zenodo.13801481))
 * Julia Jennifer Beine: The Schemer Unmasked. Sketching a Digital Profile of the Scheming Slave in Roman Comedy. In: Journal of Computational Literary Studies. Vol. 3 (2024), issue 1, pp. 1–29. ([doi:10.48694/jcls.3670](https://doi.org/10.48694/jcls.3670))
 * Ingo Börner, Peer Trilcke et al.: On Versioning Living and Programmable Corpora (v1.0.0). CLS INFRA D7.3. Zenodo, 27 February 2024. ([doi:10.5281/zenodo.11081934](https://doi.org/10.5281/zenodo.11081934))
