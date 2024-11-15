@@ -51,6 +51,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 ### CalDraCor
 * Maintainer: [Institute of Romance Languages and Literatures of University of Tübingen](https://uni-tuebingen.de/fakultaeten/philosophische-fakultaet/fachbereiche/neuphilologie/romanisches-seminar/home/)
 * Contact person: [Antonio Rojas Castro](https://uni-tuebingen.de/fakultaeten/philosophische-fakultaet/fachbereiche/neuphilologie/romanisches-seminar/ehrlicher/ehrlicher/team/dr-antonio-rojas-castro/)
+* Revision (with special focus on stage directions): [Jan Jokisch](https://www.aesthetics.mpg.de/institut/mitarbeiterinnen/jan-jokisch.html)
 
 ### GreekDraCor
 *(derived from [Perseus Digital Library](http://www.perseus.tufts.edu/hopper/opensource/download))*
@@ -59,7 +60,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 ### ShakeDraCor
 *(derived from the [Shakespeare Folger Library](https://www.folgerdigitaltexts.org/))*
 * Maintainer: DraCor team
-* Character annotations: Aliya Burusheva, Yana Gorodetskaya, Karina Daragan, Anastasiya Zhbanova, Alina Kuryshova, Anastasiya Pavlova, Ekaterina Podlesnaya, Karina Polyakova, Viktoriya Ragulina, Nina Sinyavskaya (all formerly HSE, Moscow)
+* Character annotations: [Roya Zendebudie](https://www.temporal-communities.de/people/zendebudie/index.html) (Freie Universität Berlin)
 
 ### GerShDraCor
 * Maintainer: Frank Fischer
