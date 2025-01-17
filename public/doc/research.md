@@ -4,6 +4,7 @@ This constantly updated bibliography is an attempt at collecting all research pu
 
 ## 2025
 
+* Monika Dabrowska, María Teresa Santa María Fernández: Gender relations in Spanish theatre during the Silver Age: a quantitative comparison of works in the Spanish Drama Corpus. In: Digital Scholarship in the Humanities. Vol. 40, Supplement 1 (January 2025), pp. i3–i17. ([doi:10.1093/llc/fqae007](https://doi.org/10.1093/llc/fqae007))
 * Viktor J. Illmer, Frank Fischer, Mark Schwindt, Jonas Rohe: »999 und noch etliche \[mehr\]«. Georg Nikolaus Bärmanns »Würfel-Almanach« von 1829 als Web-App. In: DHd2025: »Under Construction«. 3–7 March 2025. Book of Abstracts. Bielefeld University. (forthcoming)
 
 ## 2024
@@ -17,7 +18,6 @@ This constantly updated bibliography is an attempt at collecting all research pu
 * Ingo Börner, Peer Trilcke et al.: On Versioning Living and Programmable Corpora (v1.0.0). CLS INFRA D7.3. Zenodo, 27 February 2024. ([doi:10.5281/zenodo.11081934](https://doi.org/10.5281/zenodo.11081934))
 * Pierre Bourhis, Aaron Boussidan, Céline Fournial, Philippe Gambette: [Detecting semantic or structural similarities for theater play comparison.](http://igm.univ-mlv.fr/~gambette/2024BourhisBoussidanFournialGambette.pdf) In: 17th International Conference on Statistical Analysis of Textual Data (JADT 2024): »Mots comptés, textes déchiffrés«. 25–27 June 2024. Brussels. (pp. 139–148)
 * Dîlan Canan Çakir: Poetische Ökonomie im Drama. Einakter im 18. und frühen 19. Jahrhundert. Berlin, Boston: De Gruyter 2024. (= Studien und Texte zur Sozialgeschichte der Literatur. Vol. 164.) ([doi:10.1515/9783111334059](https://doi.org/10.1515/9783111334059))
-* Monika Dabrowska, María Teresa Santa María Fernández: Gender relations in Spanish theatre during the Silver Age: a quantitative comparison of works in the Spanish Drama Corpus. In: Digital Scholarship in the Humanities. Published: 26 February 2024. ([doi:10.1093/llc/fqae007](https://doi.org/10.1093/llc/fqae007))
 * Lucas van der Deijl: Orde en rationalisme in het toneel van Nil Volentibus Arduum. Een computationele benadering van vroegmoderne verhaalmodellen. In: Spiegel der Letteren. Vol. 66 (2024), issue 1, pp. 53–94. ([doi:10.2143/sdl.66.1.3293327](https://www.doi.org/10.2143/sdl.66.1.3293327))
 * Katrin Dennerlein, Thomas Schmidt, Christian Wolff: Emotions in Stage Directions in German Drama of the Early Modern Period: Explorations via Computational Emotion Classification. In: Melanie Andresen, Nils Reiter (eds.): Computational Drama Analysis: Reflecting Methods and Interpretations. Berlin, Boston: De Gruyter 2024, pp. 189–215. ([doi:10.1515/9783111071824-010](https://doi.org/10.1515/9783111071824-010))
 * Lena Ehlers: [Optimierung der Klassifikation von Figurenauf- und -abtritten in Dramentexten mittels Prompt Engineering.](http://nbn-resolving.de/urn:nbn:de:bsz:93-opus-ds-154917) (Master thesis.) University of Stuttgart. 2024.
