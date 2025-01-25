@@ -1,4 +1,4 @@
-@import '../mixins.scss';
+@use '../mixins.scss';
 
 .main {
   color: var(--background-light);
@@ -8,6 +8,6 @@
   margin-bottom: var(--bootstrap-padding);
 
   h1 {
-    @include pagetitle;
+    @include mixins.pagetitle;
   }
 }
