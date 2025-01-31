@@ -13,6 +13,7 @@ import NetworkGraph from './NetworkGraph';
 import RelationsGraph from './RelationsGraph';
 import SpeechDistribution, {SpeechDistributionNav} from './SpeechDistribution';
 import TEIPanel from './TEIPanel';
+import ToolsTab from './ToolsTab';
 import PlayMetrics from './PlayMetrics';
 import Segments from './Segments';
 
@@ -36,6 +37,7 @@ const navItems = [
   {name: 'speech', label: 'Speech distribution'},
   {name: 'text', label: 'Full text'},
   {name: 'downloads', label: 'Downloads'},
+  {name: 'tools', label: 'Tools'},
 ];
 
 const tabNames = new Set(navItems.map((item) => item.name));
@@ -154,6 +156,11 @@ const PlayInfo = ({corpusId, playId}) => {
         </a>
         .
       </p>
+    );
+  } else if (tab === 'tools') {
+    tabContent = <ToolsTab corpusId={corpusId} playId={playId} />;
+    description = (
+      <p>This tab allows you to analyze the play with external tools.</p>
     );
   } else {
     tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor, play}} />;
