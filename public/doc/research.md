@@ -4,9 +4,9 @@ This constantly updated bibliography is an attempt at collecting all research pu
 
 ## 2025
 
-* Krautter, Benjamin. "Dramenanalyse mit Methoden der Digital Humanities: Am Beispiel von Karl Kraus, Die letzten Tage der Menschheit (1918/19; 1922)". In: Andrea Albrecht, Franziska Bomski and Yongqiang Liu (eds.): Text trifft Theorie: Literaturwissenschaftliche Methodenkompetenz in der Praxis. Berlin, Boston: De Gruyter, 2025, pp. 295-334. ([doi:10.1515/9783111325019-012](https://doi.org/10.1515/9783111325019-012))
 * Monika Dabrowska, María Teresa Santa María Fernández: Gender relations in Spanish theatre during the Silver Age: a quantitative comparison of works in the Spanish Drama Corpus. In: Digital Scholarship in the Humanities. Vol. 40, Supplement 1 (January 2025), pp. i3–i17. ([doi:10.1093/llc/fqae007](https://doi.org/10.1093/llc/fqae007))
 * Viktor J. Illmer, Frank Fischer, Mark Schwindt, Jonas Rohe: »999 und noch etliche \[mehr\]«. Georg Nikolaus Bärmanns »Würfel-Almanach« von 1829 als Web-App. In: DHd2025: »Under Construction«. 3–7 March 2025. Book of Abstracts. Bielefeld University. (forthcoming)
+* Benjamin Krautter: Dramenanalyse mit Methoden der *Digital Humanities*: Am Beispiel von Karl Kraus, *Die letzten Tage der Menschheit* (1918/19; 1922). In: Andrea Albrecht, Franziska Bomski, Yongqiang Liu (eds.): Text trifft Theorie: Literaturwissenschaftliche Methodenkompetenz in der Praxis. Berlin, Boston: De Gruyter 2025, pp. 295–334. ([doi:10.1515/9783111325019-012](https://doi.org/10.1515/9783111325019-012))
 
 ## 2024
 
