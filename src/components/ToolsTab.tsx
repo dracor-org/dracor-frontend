@@ -37,7 +37,7 @@ export default function ToolsTab({corpusId, playId}: Props) {
       {isAccessible && (
         <>
           <p className={cx('select')}>
-            Text to analyze:{' '}
+            Text layer for analysis:{' '}
             <label onClick={() => setTextType('spoken-text')}>
               <input type="radio" checked={textType === 'spoken-text'} /> Spoken
               text
@@ -61,7 +61,7 @@ export default function ToolsTab({corpusId, playId}: Props) {
                 href={`https://switchboard.clarin.eu/#/vlo/${endpoint}`}
                 target="_blank"
               >
-                Clarin Switch-Board
+                CLARIN Language Resource Switchboard
               </a>
             </li>
           </ul>

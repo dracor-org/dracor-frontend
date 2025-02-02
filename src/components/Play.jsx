@@ -160,7 +160,10 @@ const PlayInfo = ({corpusId, playId}) => {
   } else if (tab === 'tools') {
     tabContent = <ToolsTab corpusId={corpusId} playId={playId} />;
     description = (
-      <p>This tab allows you to analyze the play with external tools.</p>
+      <p>
+        This tab provides links to third-party tools. The selected text layer
+        will be loaded from the DraCor API for external analysis.
+      </p>
     );
   } else {
     tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor, play}} />;
