@@ -11,9 +11,9 @@ interface Props {
 }
 
 export default function ToolsTab({corpusId, playId}: Props) {
-  const [textType, setTextType] = useState<'spoken-text' | 'stage-directions'>(
-    'spoken-text'
-  );
+  const [textType, setTextType] = useState<
+    'tei' | 'spoken-text' | 'stage-directions'
+  >('tei');
   const apiBase = new URL(apiUrl, window.location.href);
 
   const endpoint = encodeURIComponent(
@@ -38,6 +38,9 @@ export default function ToolsTab({corpusId, playId}: Props) {
         <>
           <p className={cx('select')}>
             Text layer for analysis:{' '}
+            <label onClick={() => setTextType('tei')}>
+              <input type="radio" checked={textType === 'tei'} /> TEI
+            </label>{' '}
             <label onClick={() => setTextType('spoken-text')}>
               <input type="radio" checked={textType === 'spoken-text'} /> Spoken
               text
