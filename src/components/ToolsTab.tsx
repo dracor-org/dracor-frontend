@@ -39,7 +39,8 @@ export default function ToolsTab({corpusId, playId}: Props) {
           <p className={cx('select')}>
             Text layer for analysis:{' '}
             <label onClick={() => setTextType('tei')}>
-              <input type="radio" checked={textType === 'tei'} /> TEI
+              <input type="radio" checked={textType === 'tei'} /> Full text
+              (TEI-encoded)
             </label>{' '}
             <label onClick={() => setTextType('spoken-text')}>
               <input type="radio" checked={textType === 'spoken-text'} /> Spoken
