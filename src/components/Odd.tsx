@@ -1,8 +1,7 @@
 import {useEffect, useRef} from 'react';
 import axios from 'axios';
+import {guidelinesUrl} from '../config';
 import './Odd.scss';
-
-const url = '/odd.html';
 
 const Odd = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -11,7 +10,7 @@ const Odd = () => {
     async function fetchMarkdown() {
       const html = document.createElement('html');
       try {
-        const response = await axios.get(url);
+        const response = await axios.get(guidelinesUrl);
         while (ref.current?.firstChild) {
           ref.current.removeChild(ref.current.firstChild);
         }
