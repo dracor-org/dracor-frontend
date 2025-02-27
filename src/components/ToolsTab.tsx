@@ -16,9 +16,9 @@ export default function ToolsTab({corpusId, playId}: Props) {
   >('tei');
   const apiBase = new URL(apiUrl, window.location.href);
 
-  const endpoint = encodeURIComponent(
-    `${apiBase.href}/corpora/${corpusId}/plays/${playId}/${textType}`
-  );
+  const urlBase = `${apiBase.href}/corpora/${corpusId}/plays/${playId}`;
+  const textUrl = encodeURIComponent(`${urlBase}/${textType}`);
+  const gexfUrl = encodeURIComponent(`${urlBase}/networkdata/gexf`);
 
   const isAccessible = /dracor\.org/.test(apiBase.hostname);
 
@@ -54,7 +54,7 @@ export default function ToolsTab({corpusId, playId}: Props) {
           <ul>
             <li>
               <a
-                href={`https://voyant-tools.org/?input=${endpoint}`}
+                href={`https://voyant-tools.org/?input=${textUrl}`}
                 target="_blank"
               >
                 Voyant Tools
@@ -62,10 +62,21 @@ export default function ToolsTab({corpusId, playId}: Props) {
             </li>
             <li>
               <a
-                href={`https://switchboard.clarin.eu/#/vlo/${endpoint}`}
+                href={`https://switchboard.clarin.eu/#/vlo/${textUrl}`}
                 target="_blank"
               >
                 CLARIN Language Resource Switchboard
+              </a>
+            </li>
+          </ul>
+          <p>Network analysis</p>
+          <ul>
+            <li>
+              <a
+                href={`https://gephi.org/gephi-lite/?file=${gexfUrl}`}
+                target="_blank"
+              >
+                Gephi Lite
               </a>
             </li>
           </ul>
