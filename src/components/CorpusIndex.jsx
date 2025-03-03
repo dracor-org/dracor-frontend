@@ -90,7 +90,7 @@ function formatYearHeader(column, colIndex, {sortElement}) {
       {column.text}
       {sortElement}
       <Link
-        to="doc/faq/#normalized-year"
+        to="/doc/faq/#normalized-year"
         title="FAQ: What is the normalized year?"
         style={{marginLeft: '0.5em'}}
       >
