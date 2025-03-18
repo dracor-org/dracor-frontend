@@ -55,7 +55,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 
 ### GreekDraCor
 *(derived from [Perseus Digital Library](http://www.perseus.tufts.edu/hopper/opensource/download))*
-* Maintainers: Julia Jennifer Beine, Frank Fischer, Boris Orekhov (HSE, Moscow)
+* Maintainers: Julia Jennifer Beine, Frank Fischer
 
 ### ShakeDraCor
 *(derived from the [Shakespeare Folger Library](https://www.folgerdigitaltexts.org/))*
@@ -64,6 +64,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 
 ### GerShDraCor
 * Maintainer: Frank Fischer
+* Character annotations: Roya Zendebudie
 
 ### RomDraCor
 *(derived from [Perseus Digital Library](http://www.perseus.tufts.edu/hopper/opensource/download))*
@@ -80,7 +81,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 * Maintainers: Daniil Skorinkin, Frank Fischer
 
 ### BashDraCor
-* Maintainers: Boris Orekhov, Marsel Ishimbaev (Ufa)
+* Maintainers: Boris Orekhov (HSE, Moscow), Marsel Ishimbaev (Ufa)
 
 ## DraCor side projects
 
