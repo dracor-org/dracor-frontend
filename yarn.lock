@@ -399,10 +399,10 @@
   resolved "https://registry.npmjs.org/@csstools/css-tokenizer/-/css-tokenizer-3.0.3.tgz#a5502c8539265fecbd873c1e395a890339f119c2"
   integrity sha512-UJnjoFsmxfKUdNYdWgOB0mWUypuLvAfQPH1+pyvRJs6euowbFkFC6P13w1l8mJyi3vxYMxc9kld5jZEGRQs6bw==
 
-"@dracor/registry@^1.5.1":
-  version "1.5.1"
-  resolved "https://registry.npmjs.org/@dracor/registry/-/registry-1.5.1.tgz#6cd799489500d1dadc06814e1ab44420b0d09381"
-  integrity sha512-w7UaG+Dfjn7OsAGPD3OiWvxXnsLHZHCi1e0eB9eIQ0u2skarzjDmzmjDTtEmAzwnU/p2WJtOmSMjFnNmGvQPZA==
+"@dracor/registry@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.npmjs.org/@dracor/registry/-/registry-1.6.0.tgz#ed94a1ed212cf929eec7b9e7a0047fc3cad1cee0"
+  integrity sha512-zcBn/UoRrTCJ83H+40QJbsvK+LcR4D9Nz+0AfUDGENlvTD2fr/FDun5RmZ6cD72mvIKc+G/bceWskt5QDobJrw==
 
 "@esbuild/aix-ppc64@0.24.2":
   version "0.24.2"
