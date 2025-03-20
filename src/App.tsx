@@ -83,11 +83,11 @@ const App = () => {
             <Route path="/doc/:slug" element={<DocPage />} />
             <Route path="/doc/api" element={<APIDoc />} />
             <Route path="/doc/odd" element={<OddPage />} />
+            <Route path="/doc/corpora" element={<CorpusRegistry />} />
             {legacyApiUrl && (
               <Route path={legacyDocPath} element={<APIDoc />} />
             )}
             <Route path="/sparql" element={<SparqlUi />} />
-            <Route path="/corpora" element={<CorpusRegistry />} />
           </Routes>
         </div>
       </DracorContext.Provider>
