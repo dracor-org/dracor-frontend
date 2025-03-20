@@ -11,6 +11,7 @@ import Corpus from './components/Corpus';
 import Play from './components/PlayPage';
 import OddPage from './components/OddPage';
 import APIDoc from './components/APIDoc';
+import CorpusRegistry from './components/CorpusRegistry';
 import './icons';
 
 const SparqlUi = lazy(() => {
@@ -86,6 +87,7 @@ const App = () => {
               <Route path={legacyDocPath} element={<APIDoc />} />
             )}
             <Route path="/sparql" element={<SparqlUi />} />
+            <Route path="/corpora" element={<CorpusRegistry />} />
           </Routes>
         </div>
       </DracorContext.Provider>
