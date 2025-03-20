@@ -48,6 +48,10 @@ function renderCorpus({
 }
 
 export default function CorpusRegistry() {
+  const published = corpora.filter(({status}) => status === 'published');
+  const drafts = corpora.filter(({status}) => status === 'draft');
+  const proposed = corpora.filter(({status}) => status === 'proposed');
+
   return (
     <Container fluid>
       <div className="dracor-page">
@@ -56,28 +60,18 @@ export default function CorpusRegistry() {
         </Helmet>
         <div className={cx('main')}>
           <Header>DraCor Corpora</Header>
-          <h2>Published</h2>
+          <h2>Published ({published.length})</h2>
           <p>The following corpora are available on dracor.org.</p>
-          <ul>
-            {corpora
-              .filter(({status}) => status === 'published')
-              .map(renderCorpus)}
-          </ul>
-          <h2>Draft</h2>
+          <ul>{published.map(renderCorpus)}</ul>
+          <h2>Drafted ({drafts.length})</h2>
           <p>The following corpora are available on staging.dracor.org.</p>
-          <ul>
-            {corpora.filter(({status}) => status === 'draft').map(renderCorpus)}
-          </ul>
-          <h2>Proposed</h2>
+          <ul>{drafts.map(renderCorpus)}</ul>
+          <h2>Proposed ({proposed.length})</h2>
           <p>
             The following corpora are planned but may not be publicly available
             yet.
           </p>
-          <ul>
-            {corpora
-              .filter(({status}) => status === 'proposed')
-              .map(renderCorpus)}
-          </ul>
+          <ul>{proposed.map(renderCorpus)}</ul>
         </div>
       </div>
     </Container>
