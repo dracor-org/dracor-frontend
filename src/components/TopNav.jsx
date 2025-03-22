@@ -43,6 +43,7 @@ const TopNav = () => {
               items={[
                 {label: 'What is DraCor?', to: '/doc/what-is-dracor'},
                 {label: 'FAQ', to: '/doc/faq'},
+                {label: 'Corpus registry', to: '/doc/corpora'},
                 {label: 'Credits', to: '/doc/credits'},
                 {label: 'Media Kit', to: '/doc/media-kit'},
                 {label: 'Imprint', to: '/doc/imprint-and-gdpr'},

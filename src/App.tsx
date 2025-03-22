@@ -11,6 +11,7 @@ import Corpus from './components/Corpus';
 import Play from './components/PlayPage';
 import OddPage from './components/OddPage';
 import APIDoc from './components/APIDoc';
+import CorpusRegistry from './components/CorpusRegistry';
 import './icons';
 
 const SparqlUi = lazy(() => {
@@ -82,6 +83,7 @@ const App = () => {
             <Route path="/doc/:slug" element={<DocPage />} />
             <Route path="/doc/api" element={<APIDoc />} />
             <Route path="/doc/odd" element={<OddPage />} />
+            <Route path="/doc/corpora" element={<CorpusRegistry />} />
             {legacyApiUrl && (
               <Route path={legacyDocPath} element={<APIDoc />} />
             )}
