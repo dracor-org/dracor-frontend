@@ -5,6 +5,11 @@ export interface ApiInfo {
   existdb: string;
 }
 
+export interface DracorContext {
+  corpora: never[];
+  apiInfo?: ApiInfo;
+}
+
 export interface Ref {
   ref: string;
   type: string;

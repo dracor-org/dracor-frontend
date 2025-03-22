@@ -1,5 +1,7 @@
-import {useState} from 'react';
+import {useContext, useState} from 'react';
 import classnames from 'classnames/bind';
+import {compareVersions} from 'compare-versions';
+import {DracorContext} from '../context';
 import style from './ToolsTab.module.scss';
 import {apiUrl} from '../config';
 
@@ -11,8 +13,9 @@ interface Props {
 }
 
 export default function ToolsTab({corpusId, playId}: Props) {
+  const {apiInfo} = useContext(DracorContext);
   const [textType, setTextType] = useState<
-    'tei' | 'spoken-text' | 'stage-directions'
+    'tei' | 'txt' | 'spoken-text' | 'stage-directions'
   >('tei');
   const apiBase = new URL(apiUrl, window.location.href);
 
@@ -42,6 +45,12 @@ export default function ToolsTab({corpusId, playId}: Props) {
               <input type="radio" checked={textType === 'tei'} /> Full text
               (TEI-encoded)
             </label>{' '}
+            {apiInfo &&
+              compareVersions(apiInfo.version, '1.1.0-beta.7') >= 0 && (
+                <label onClick={() => setTextType('txt')}>
+                  <input type="radio" checked={textType === 'txt'} /> Plain text{' '}
+                </label>
+              )}
             <label onClick={() => setTextType('spoken-text')}>
               <input type="radio" checked={textType === 'spoken-text'} /> Spoken
               text
