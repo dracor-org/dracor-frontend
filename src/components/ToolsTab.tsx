@@ -12,7 +12,7 @@ interface Props {
 
 export default function ToolsTab({corpusId, playId}: Props) {
   const [textType, setTextType] = useState<
-    'tei' | 'spoken-text' | 'stage-directions'
+    'tei' | 'txt' | 'spoken-text' | 'stage-directions'
   >('tei');
   const apiBase = new URL(apiUrl, window.location.href);
 
@@ -41,6 +41,9 @@ export default function ToolsTab({corpusId, playId}: Props) {
             <label onClick={() => setTextType('tei')}>
               <input type="radio" checked={textType === 'tei'} /> Full text
               (TEI-encoded)
+            </label>{' '}
+            <label onClick={() => setTextType('txt')}>
+              <input type="radio" checked={textType === 'txt'} /> Plain text
             </label>{' '}
             <label onClick={() => setTextType('spoken-text')}>
               <input type="radio" checked={textType === 'spoken-text'} /> Spoken
