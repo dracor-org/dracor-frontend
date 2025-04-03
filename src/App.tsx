@@ -22,7 +22,7 @@ const SparqlUi = lazy(() => {
 });
 
 const App = () => {
-  const [apiInfo, setApiInfo] = useState<ApiInfo | object>({});
+  const [apiInfo, setApiInfo] = useState<ApiInfo>();
   const [corpora, setCorpora] = useState([]);
 
   useEffect(() => {

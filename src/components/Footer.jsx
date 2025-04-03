@@ -11,7 +11,7 @@ import style from './Footer.module.scss';
 const cx = classnames.bind(style);
 
 const Footer = () => {
-  const {apiInfo} = useContext(DracorContext);
+  const {apiInfo = {}} = useContext(DracorContext);
 
   let apiVersionUrl = 'https://github.com/dracor-org/dracor-api/releases/';
   if (/^\d+\.\d+\.\d+(-(alpha|beta)(\.\d+)?)?$/.test(apiInfo.version)) {
