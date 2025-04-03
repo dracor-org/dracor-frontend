@@ -3,7 +3,7 @@
   "version": "2.3.0",
   "private": true,
   "dependencies": {
-    "@dracor/registry": "^1.6.0",
+    "@dracor/registry": "^1.7.0",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
