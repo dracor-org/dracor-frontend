@@ -4,6 +4,7 @@ This constantly updated bibliography is an attempt at collecting all research pu
 
 ## 2025
 
+* Julia Jennifer Beine: How to Figure out a Schemer. Tracing Types of Roman Comedy in Classical Receptions through Digital Methods. In: Dinah Wouters, Jan Bloemendal (eds.): [Transnational Encounters in Early Modern Drama, 1450–1750.](https://brill.com/display/title/71859) (= Drama and Theatre in Early Modern Europe. Vol. 13.) Leiden: Brill 2025, pp. 308–331. (fortcoming)
 * Monika Dabrowska, María Teresa Santa María Fernández: Gender relations in Spanish theatre during the Silver Age: a quantitative comparison of works in the Spanish Drama Corpus. In: Digital Scholarship in the Humanities. Vol. 40, Supplement 1 (January 2025), pp. i3–i17. ([doi:10.1093/llc/fqae007](https://doi.org/10.1093/llc/fqae007))
 * Katrin Dennerlein, Martin Rupnig, Christian Reul: Zum Aufbau digitaler Dramenkorpora. OCR4alltoDraCorTEI als Baustein für die Edition von maschinenlesbaren Versionen historischer Dramendrucke. In: DHd2025: »Under Construction«. 3–7 March 2025. Book of Abstracts. Bielefeld University. ([doi:10.5281/zenodo.14942992](https://doi.org/10.5281/zenodo.14942992))
 * Brais Fernández Prieto: [Los personajes de *El señor de Bembibre*: una aproximación desde la geografía literaria.](https://revistas.um.es/monteagudo/article/view/622501) In: Monteagudo. Revista de Literatura Española, Hispanoamericana y Teoría de la Literatura. Vol. 30 (2025), pp. 31–44. ([doi:10.6018/monteagudo.622501](https://doi.org/10.6018/monteagudo.622501))
