@@ -3,72 +3,88 @@
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 300;
-  src: local(''),
-       url('./fonts/rubik-v21-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('./fonts/rubik-v21-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src:
+    local(''),
+    url('./fonts/rubik-v21-300.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url('./fonts/rubik-v21-300.woff')
+      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* rubik-regular - latin-ext_latin_hebrew_cyrillic-ext_cyrillic */
 @font-face {
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 400;
-  src: local(''),
-       url('./fonts/rubik-v21-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('./fonts/rubik-v21-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src:
+    local(''),
+    url('./fonts/rubik-v21-regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('./fonts/rubik-v21-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* rubik-500 - latin-ext_latin_hebrew_cyrillic-ext_cyrillic */
 @font-face {
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 500;
-  src: local(''),
-       url('./fonts/rubik-v21-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('./fonts/rubik-v21-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src:
+    local(''),
+    url('./fonts/rubik-v21-500.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url('./fonts/rubik-v21-500.woff')
+      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* rubik-700 - latin-ext_latin_hebrew_cyrillic-ext_cyrillic */
 @font-face {
   font-family: 'Rubik';
   font-style: normal;
   font-weight: 700;
-  src: local(''),
-       url('./fonts/rubik-v21-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('./fonts/rubik-v21-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src:
+    local(''),
+    url('./fonts/rubik-v21-700.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */ url('./fonts/rubik-v21-700.woff')
+      format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* rubik-300italic - latin-ext_latin_hebrew_cyrillic-ext_cyrillic */
 @font-face {
   font-family: 'Rubik';
   font-style: italic;
   font-weight: 300;
-  src: local(''),
-       url('./fonts/rubik-v21-300italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('./fonts/rubik-v21-300italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src:
+    local(''),
+    url('./fonts/rubik-v21-300italic.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('./fonts/rubik-v21-300italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* rubik-italic - latin-ext_latin_hebrew_cyrillic-ext_cyrillic */
 @font-face {
   font-family: 'Rubik';
   font-style: italic;
   font-weight: 400;
-  src: local(''),
-       url('./fonts/rubik-v21-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('./fonts/rubik-v21-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src:
+    local(''),
+    url('./fonts/rubik-v21-italic.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('./fonts/rubik-v21-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* rubik-500italic - latin-ext_latin_hebrew_cyrillic-ext_cyrillic */
 @font-face {
   font-family: 'Rubik';
   font-style: italic;
   font-weight: 500;
-  src: local(''),
-       url('./fonts/rubik-v21-500italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('./fonts/rubik-v21-500italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src:
+    local(''),
+    url('./fonts/rubik-v21-500italic.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('./fonts/rubik-v21-500italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 /* rubik-700italic - latin-ext_latin_hebrew_cyrillic-ext_cyrillic */
 @font-face {
   font-family: 'Rubik';
   font-style: italic;
   font-weight: 700;
-  src: local(''),
-       url('./fonts/rubik-v21-700italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('./fonts/rubik-v21-700italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  src:
+    local(''),
+    url('./fonts/rubik-v21-700italic.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('./fonts/rubik-v21-700italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 :root {
@@ -239,12 +255,16 @@ a:hover {
   max-height: 30em;
   margin: 0 var(--bootstrap-padding) var(--bootstrap-padding) 0;
   border-radius: 1em;
-  box-shadow: 0 5px 5px 0 var(--shadow), 0 4px 0px 0 var(--main-shadow);
+  box-shadow:
+    0 5px 5px 0 var(--shadow),
+    0 4px 0px 0 var(--main-shadow);
 }
 
 .dracor-page img[alt~='poster'] {
   max-height: 40em;
-  box-shadow: 0 5px 5px 0 var(--shadow), 0 4px 0px 0 var(--main-shadow);
+  box-shadow:
+    0 5px 5px 0 var(--shadow),
+    0 4px 0px 0 var(--main-shadow);
 }
 
 .dracor-page img[alt~='shirt'] {
@@ -258,7 +278,9 @@ a:hover {
 .corpus-card {
   display: inline-block;
   width: 100%;
-  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2), 0 5px 1em 0 rgba(0, 0, 0, 0.08),
+  box-shadow:
+    0 5px 5px 0 rgba(0, 0, 0, 0.2),
+    0 5px 1em 0 rgba(0, 0, 0, 0.08),
     0 4px 0px 0 #33405220;
   transition: 0.3s ease-in-out;
   border-radius: 0.8em;
@@ -268,8 +290,10 @@ a:hover {
 
 .corpus-card:hover,
 .corpus-card:focus {
-  box-shadow: 0px 10px 35px -15px rgba(0, 0, 0, 0.75),
-    0 5px 1em 0 rgba(0, 0, 0, 0.08), 0 2px 0px 0 #33405220;
+  box-shadow:
+    0px 10px 35px -15px rgba(0, 0, 0, 0.75),
+    0 5px 1em 0 rgba(0, 0, 0, 0.08),
+    0 2px 0px 0 #33405220;
   outline: none;
 }
 
@@ -420,13 +444,16 @@ a:hover {
   background-color: #fff;
   border: 0;
   border-radius: 2em;
-  box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.16), 1px 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow:
+    1px 3px 6px rgba(0, 0, 0, 0.16),
+    1px 3px 6px rgba(0, 0, 0, 0.23);
   transition: 2s ease-in-out;
 }
 
 .search-label .form-control:hover,
 .search-label .form-control:focus {
-  box-shadow: inset 1px 3px 6px rgba(0, 0, 0, 0.16),
+  box-shadow:
+    inset 1px 3px 6px rgba(0, 0, 0, 0.16),
     inset 1px 3px 6px rgba(0, 0, 0, 0.23);
 }
 
@@ -512,9 +539,11 @@ table.table.corpus th:focus {
   background-color: var(--main);
   padding: 0.5em 0.7em;
   line-height: 3.5em;
-  box-shadow: 0 5px 5px 0 var(--shadow), 0 4px 0px 0 var(--main-shadow);
+  box-shadow:
+    0 5px 5px 0 var(--shadow),
+    0 4px 0px 0 var(--main-shadow);
   white-space: nowrap;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .download-button:hover {
@@ -549,7 +578,9 @@ table.table.corpus th:focus {
   border: 0;
   border-radius: 0.5em;
   background-color: var(--background-light);
-  box-shadow: 0 7px 5px 0 rgba(0, 0, 0, 0.2), 0 10px 1em 0 rgba(0, 0, 0, 0.08),
+  box-shadow:
+    0 7px 5px 0 rgba(0, 0, 0, 0.2),
+    0 10px 1em 0 rgba(0, 0, 0, 0.08),
     0 4px 0px 0 #33405220;
 }
 
@@ -620,7 +651,11 @@ table.table.corpus th:focus {
     height: 3em;
     width: calc(100% - 1rem);
     z-index: 1;
-    background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(
+      180deg,
+      rgb(255, 255, 255) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
 
     @media only screen and (max-width: 767px) {
       display: none;
@@ -634,7 +669,11 @@ table.table.corpus th:focus {
     height: 6em;
     width: calc(100% - 1rem);
     z-index: 1;
-    background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(
+      0deg,
+      rgb(255, 255, 255) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
 
     @media only screen and (max-width: 767px) {
       display: none;
@@ -699,7 +738,8 @@ table.table.corpus th:focus {
   }
 }
 
-#eu-funding-note, #dfg-funding-note {
+#eu-funding-note,
+#dfg-funding-note {
   padding: 1em;
   background-color: #e3e8f1;
   font-weight: normal;
@@ -786,7 +826,8 @@ table.table.corpus th:focus {
     padding: 0 !important;
   }
 
-  #eu-funding-note, #dfg-funding-note {
+  #eu-funding-note,
+  #dfg-funding-note {
     flex-wrap: wrap;
   }
 }
