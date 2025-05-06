@@ -1,6 +1,6 @@
 # What is DraCor?
 
-*"DraCor = estrategia de guerrilla mediante estándares" ([José Calvo Tello](https://twitter.com/eumanismo/status/1218066125969412096))*
+_"DraCor = estrategia de guerrilla mediante estándares" ([José Calvo Tello](https://twitter.com/eumanismo/status/1218066125969412096))_
 
 **DraCor is short for "drama corpora",** a growing collection of plays in (mostly) European languages, all encoded in [TEI](https://en.wikipedia.org/wiki/Text_Encoding_Initiative). We are maintaining some in-house corpora which we built from the ground up (GerDraCor and RusDraCor). In addition, we adapted (and enhanced) some corpora that were released under free licenses. We also host corpora maintained by others. Feel free to contact us if you are interested.
 
@@ -40,7 +40,21 @@ Funded by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) 
 
 </div>
 
+<div id="oscars-funding-note">
+
+<img alt="OSCARS" title="Fostering the uptake of Open Science in Europe" src="../img/oscars-eu.png">
+
+OSCARS is a four-year EU-funded project that strives to foster the uptake of
+Open Science in Europe by consolidating the achievements of world-class European
+research infrastructures in the ESFRI roadmap and beyond into lasting
+interdisciplinary FAIR data services and working practices. The project aims to
+strengthen the role of the Science Clusters in the ERA by developing
+domain-based Competence Centres and by fostering the implementation of Open
+Science projects funded through a cascading grant mechanism.
+
+</div>
+
 In 2023, [Transkribus](https://readcoop.eu/transkribus/) supported DraCor with free credits for the digitisation of German-language plays printed in 𝔉𝔯𝔞𝔨𝔱𝔲𝔯 typefaces.
 
-![logo fu berlin](../img/fu-berlin.svg "Free University of Berlin")
-![logo potsdam](../img/uni-potsdam.svg "University of Potsdam")
+![logo fu berlin](../img/fu-berlin.svg 'Free University of Berlin')
+![logo potsdam](../img/uni-potsdam.svg 'University of Potsdam')
