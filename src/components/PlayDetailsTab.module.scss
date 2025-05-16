@@ -9,7 +9,9 @@
   margin-bottom: var(--bootstrap-padding);
   background-color: var(--background-light);
   border-radius: 0.5em;
-  box-shadow: 0 7px 5px 0 rgba(0, 0, 0, 0.2), 0 10px 1em 0 rgba(0, 0, 0, 0.08),
+  box-shadow:
+    0 7px 5px 0 rgba(0, 0, 0, 0.2),
+    0 10px 1em 0 rgba(0, 0, 0, 0.08),
     0 4px 0px 0 #33405220;
   // Since sigma canvas requires a calculated height to fill available space on
   // the page we have to subtract all heights that are not canvas:
@@ -61,7 +63,8 @@
     }
   }
 
-  .characters, .segments {
+  .characters,
+  .segments {
     grid-row: span 2;
   }
 

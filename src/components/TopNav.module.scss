@@ -73,8 +73,9 @@
   width: calc(3 * var(--bootstrap-padding));
   margin-left: var(--bootstrap-padding);
   margin-top: calc(-1 * var(--bootstrap-padding));
-  padding: .3em;
-  border-radius: 0 0 calc(1.5 * var(--bootstrap-padding)) calc(1.5 * var(--bootstrap-padding));
+  padding: 0.3em;
+  border-radius: 0 0 calc(1.5 * var(--bootstrap-padding))
+    calc(1.5 * var(--bootstrap-padding));
 
   @media only screen and (max-width: 767px) {
     width: auto;
@@ -95,9 +96,8 @@
     @media only screen and (max-width: 767px) {
       flex-direction: row;
       align-items: flex-start;
-      gap: .3em;
+      gap: 0.3em;
 
-            
       &:hover {
         border-bottom: solid var(--secondary-accent) 0.17em;
 
@@ -110,22 +110,22 @@
 
   img {
     width: 100%;
-    padding: .1em;
-    margin-bottom: -.2em;
+    padding: 0.1em;
+    margin-bottom: -0.2em;
 
     @media only screen and (max-width: 767px) {
       width: 1.5em;
-      padding: .15em;
+      padding: 0.15em;
       background-color: var(--background-light);
       border-radius: 100%;
-      margin-block: .2em;
+      margin-block: 0.2em;
     }
   }
 
   span {
     color: var(--main);
-    font-size: calc(.375 * var(--bootstrap-padding));
-    line-height: .75;
+    font-size: calc(0.375 * var(--bootstrap-padding));
+    line-height: 0.75;
     white-space: nowrap;
 
     &.prize-year {

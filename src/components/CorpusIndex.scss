@@ -15,12 +15,14 @@ table.table.corpus {
 .download-corpus {
   color: var(--background-light);
   border-radius: 0.5em;
-  font-size: .85em;
+  font-size: 0.85em;
   background-color: var(--main);
   padding: 0.3em 0.6em;
-  box-shadow: 0 5px 5px 0 var(--shadow), 0 4px 0px 0 var(--main-shadow);
+  box-shadow:
+    0 5px 5px 0 var(--shadow),
+    0 4px 0px 0 var(--main-shadow);
   white-space: nowrap;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 
   &:hover {
     text-decoration: none;

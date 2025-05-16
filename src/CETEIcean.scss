@@ -11,9 +11,9 @@ tei-titlePage {
     margin-bottom: 1.5em;
     tei-titlePart {
       display: block;
-      margin-bottom: .5em;
+      margin-bottom: 0.5em;
       font-size: 170%;
-      &[type=main] {
+      &[type='main'] {
         font-size: 200%;
         font-weight: 400;
       }
