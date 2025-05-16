@@ -7,15 +7,24 @@ const cx = classnames.bind(style);
 interface TreeSegment {
   title: string;
   segments: TreeSegment[];
+  n?: number;
   speakers?: string[];
 }
 
-function branch(level: TreeSegment[], title: string, speakers?: string[]) {
-  const seg = level.find((s) => s.title === title);
+function branch(
+  level: TreeSegment[],
+  title: string,
+  n?: number,
+  speakers?: string[]
+) {
+  const seg = level.find((s) => s.title === title && (!n || n === s.n));
   if (seg) {
     return seg.segments;
   }
   const newSeg: TreeSegment = {title, segments: []};
+  if (n) {
+    newSeg.n = n;
+  }
   if (speakers) {
     newSeg.speakers = speakers;
   }
@@ -34,6 +43,7 @@ function buildTree(segments: Segment[], map: CastMap) {
         level = branch(
           level,
           p,
+          segment.number,
           speakers.map((s) => map[s])
         );
       } else {
@@ -75,11 +85,19 @@ const Segments = ({play: {characters, segments}}: Props) => {
 
 const Seg = ({seg}: {seg: TreeSegment}) => (
   <li>
-    <p>{seg.title}</p>
+    <p>
+      {seg.title}
+      {seg.n && (
+        <>
+          {' '}
+          <span>#{seg.n}</span>
+        </>
+      )}
+    </p>
     {seg.segments.length > 0 && (
       <ol>
         {seg.segments.map((s) => (
-          <Seg key={s.title} seg={s} />
+          <Seg key={`${s.n}-${s.title}`} seg={s} />
         ))}
       </ol>
     )}

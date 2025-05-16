@@ -72,6 +72,14 @@
     // segment title
     & > p {
       margin-bottom: 0;
+      // segment number
+      span {
+        color: gray;
+        display: none;
+      }
+      &:hover span {
+        display: inline;
+      }
     }
     // segment speakers
     & > i {
