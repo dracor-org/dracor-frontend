@@ -1,13 +1,13 @@
-FROM node:23 as build
+FROM node:23 AS build
 
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 
 COPY package.json ./
-COPY yarn.lock ./
-RUN yarn --ci
+COPY pnpm-lock.yaml ./
+RUN corepack enable && corepack prepare pnpm@10 && pnpm install
 COPY . ./
-RUN yarn build
+RUN pnpm build
 
 FROM nginx:stable-alpine
 ENV NGINX_RESOLVER=${NGINX_RESOLVER:-8.8.8.8}
