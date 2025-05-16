@@ -35,8 +35,10 @@ jobs:
       - run: ./version.sh
       - run: git describe --tags --dirty --always
       - run: yarn install
+      - run: |
+          echo "VITE_WITH_RAHTZ_PRIZE=yes" >> "$GITHUB_ENV"
+          echo "VITE_DRACOR_LEGACY_API=/api/v0" >> "$GITHUB_ENV"
       - run: yarn build
-
       - uses: webfactory/ssh-agent@a6f90b1f127823b31d4d4a8d96047790581349bd # v0.9.1
         with:
           ssh-private-key: ${{ secrets.deploy-key }}
