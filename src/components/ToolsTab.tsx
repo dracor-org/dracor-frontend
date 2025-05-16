@@ -48,7 +48,8 @@ export default function ToolsTab({corpusId, playId}: Props) {
             {apiInfo &&
               compareVersions(apiInfo.version, '1.1.0-beta.7') >= 0 && (
                 <label onClick={() => setTextType('txt')}>
-                  <input type="radio" checked={textType === 'txt'} /> Plain text{' '}
+                  <input type="radio" checked={textType === 'txt'} /> Plain
+                  text{' '}
                 </label>
               )}
             <label onClick={() => setTextType('spoken-text')}>
