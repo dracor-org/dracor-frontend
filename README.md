@@ -7,7 +7,7 @@ The web app running the [dracor.org](https://dracor.org) website.
 This project uses [Vite](https://vitejs.dev) as a development and build
 environment. In the project directory, you can run:
 
-### `yarn start`
+### `pnpm start`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
@@ -24,14 +24,14 @@ the environment variable `VITE_DRACOR_API` to the respective API base URL,
 e.g.:
 
 ```
-VITE_DRACOR_API=https://dracor.org/api/v1 yarn start
+VITE_DRACOR_API=https://dracor.org/api/v1 pnpm start
 ```
 
-### `yarn test`
+### `pnpm test`
 
 Launches the test runner in the interactive watch mode.
 
-### `yarn build`
+### `pnpm build`
 
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the

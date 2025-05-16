@@ -23,22 +23,25 @@ jobs:
         with:
           fetch-tags: true
           fetch-depth: 0
+      - name: Install pnpm
+        uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
       - uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4.3.0
         with:
-          node-version: '20.x'
+          node-version: 22
+          cache: 'pnpm'
       - name: Restore node_modules
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
         with:
           path: node_modules
-          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
 
       - run: ./version.sh
       - run: git describe --tags --dirty --always
-      - run: yarn install
+      - run: pnpm install
       - run: |
           echo "VITE_WITH_RAHTZ_PRIZE=yes" >> "$GITHUB_ENV"
           echo "VITE_DRACOR_LEGACY_API=/api/v0" >> "$GITHUB_ENV"
-      - run: yarn build
+      - run: pnpm build
       - uses: webfactory/ssh-agent@a6f90b1f127823b31d4d4a8d96047790581349bd # v0.9.1
         with:
           ssh-private-key: ${{ secrets.deploy-key }}
