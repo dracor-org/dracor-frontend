@@ -15,6 +15,7 @@ This constantly updated bibliography is an attempt at collecting all research pu
 * Erik Ketzan: Review of *Computational Drama Analysis: Reflecting on Methods and Interpretations* ed. by Melanie Andresen and Nils Reiter. In: German Studies Review. Vol. 48, no. 1 (2025), pp. 208–210. ([doi:10.1353/gsr.2025.a951988](https://doi.org/10.1353/gsr.2025.a951988))
 * Benjamin Krautter: Dramenanalyse mit Methoden der *Digital Humanities*: Am Beispiel von Karl Kraus, *Die letzten Tage der Menschheit* (1918/19; 1922). In: Andrea Albrecht, Franziska Bomski, Yongqiang Liu (eds.): Text trifft Theorie: Literaturwissenschaftliche Methodenkompetenz in der Praxis. Berlin, Boston: De Gruyter 2025, pp. 295–334. ([doi:10.1515/9783111325019-012](https://doi.org/10.1515/9783111325019-012))
 * Maciej Piasecki, Agnieszka Dziob, Arkadiusz Janz, Jan Kocoń, Tomasz Naskrȩt, Marcin Oleksy, Ewa Rudnicka, Tomasz Walkowiak, Jan Wieczorek, Krzysztof Hwaszcz: CLARIN-PL: a user centred language technology infrastructure. In:  Language Resources and Evaluation. Volume 59, issue 2 (June 2025). ([doi:10.1007/s10579-025-09839-y](https://doi.org/10.1007/s10579-025-09839-y))
+* Botond Szemes, Mihaly Nagy: Temporal Aspects of Structural Differences in Dramatic Genre. In: Zeitschrift für digitale Geisteswissenschaften (ZfdG). Vol. 10 (2025). ([doi:10.17175/2025_007](https://doi.org/10.17175/2025_007))
 
 ## 2024
 
