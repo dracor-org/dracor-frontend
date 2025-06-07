@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  staging:
+  dev:
     uses: dracor-org/dracor-frontend/.github/workflows/deployment.yml@main
     with:
       host: dev.dracor.org
