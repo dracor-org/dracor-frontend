@@ -16,6 +16,7 @@ This constantly updated bibliography is an attempt at collecting all research pu
 * Benjamin Krautter: Dramenanalyse mit Methoden der *Digital Humanities*: Am Beispiel von Karl Kraus, *Die letzten Tage der Menschheit* (1918/19; 1922). In: Andrea Albrecht, Franziska Bomski, Yongqiang Liu (eds.): Text trifft Theorie: Literaturwissenschaftliche Methodenkompetenz in der Praxis. Berlin, Boston: De Gruyter 2025, pp. 295–334. ([doi:10.1515/9783111325019-012](https://doi.org/10.1515/9783111325019-012))
 * Maciej Piasecki, Agnieszka Dziob, Arkadiusz Janz, Jan Kocoń, Tomasz Naskrȩt, Marcin Oleksy, Ewa Rudnicka, Tomasz Walkowiak, Jan Wieczorek, Krzysztof Hwaszcz: CLARIN-PL: a user centred language technology infrastructure. In:  Language Resources and Evaluation. Volume 59, issue 2 (June 2025). ([doi:10.1007/s10579-025-09839-y](https://doi.org/10.1007/s10579-025-09839-y))
 * Botond Szemes, Mihaly Nagy: Temporal Aspects of Structural Differences in Dramatic Genre. In: Zeitschrift für digitale Geisteswissenschaften (ZfdG). Vol. 10 (2025). ([doi:10.17175/2025_007](https://doi.org/10.17175/2025_007))
+* Markus Vollberg: Die Macht der Kammerzofe. Zur Funktion der Figur Lisette in den Jugendkomödien G. E. Lessings und ausgewählten Komödien von Pierre de Marivaux. (Master thesis.) University of Potsdam. 2025. ([doi:10.25932/publishup-67554](https://doi.org/10.25932/publishup-67554))
 
 ## 2024
 
