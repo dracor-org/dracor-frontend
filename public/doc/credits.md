@@ -4,13 +4,13 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 
 ## Platform (dracor.org)
 * Editor-in-chief: [Frank Fischer](https://lehkost.github.io/) (Freie Universität Berlin)
-* Co-editors: [Peer Trilcke](https://www.uni-potsdam.de/de/lit-19-jhd/peertrilcke/) (University of Potsdam), [Julia Jennifer Beine](https://klassischephilologie.univie.ac.at/ueber-uns/mitarbeiterinnen/gastforscherinnen/dr-julia-jennifer-beine/) (University of Vienna), [Daniil Skorinkin](https://www.uni-potsdam.de/de/digital-humanities/daniil-skorinkin) (University of Potsdam)
+* Co-editors: [Peer Trilcke](https://www.uni-potsdam.de/de/lit-19-jhd/peertrilcke/) (University of Potsdam), [Julia Jennifer Beine](https://orcid.org/0000-0001-8979-8706) (Ruhr-Universität Bochum), [Daniil Skorinkin](https://www.uni-potsdam.de/de/digital-humanities/daniil-skorinkin) (University of Potsdam)
 * Technical lead: Carsten Milling (University of Potsdam)
 * Technical co-leads: [Ingo Börner](https://www.uni-potsdam.de/en/lit-19-jhd/team/ingo-boerner) (University of Potsdam), [Mathias Göbel](https://www.sub.uni-goettingen.de/en/contact/staff-a-z/staff-details/person/mathias-goebel/) (University of Göttingen)
 * Art director: [Mark Schwindt](https://www.temporal-communities.de/people/schwindt/index.html) (Freie Universität Berlin)
 
 ## Applications
-* [DraCor Shiny app](https://shiny.dracor.org/): Ivan Pozdniakov (formerly HSE, Moscow)
+* [DraCor Shiny app](https://shiny.dracor.org/): [Ivan Pozdniakov](https://pozdniakov.github.io/) (formerly HSE, Moscow)
 * [dramavis](https://dlina.github.io/dramavis/) (deprecated): [Christopher Kittel](http://www.christopherkittel.eu/) (Open Knowledge Foundation), Frank Fischer
 
 ## API wrappers (experimental)
@@ -23,8 +23,8 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 ### GerDraCor
 * Editors: Frank Fischer, Peer Trilcke
 * Support during the initial compilation of the corpus from TextGrid Repository: Mathias Göbel, [Dario Kampkaspar](https://www.ulb.tu-darmstadt.de/die_bibliothek/ueberuns/organisation/kontakt_details_17792.en.jsp) (Technical University of Darmstadt/ACDH-CH, Vienna)
-* Additional encoders: [Erik Renz](https://www.germanistik.uni-rostock.de/forschung/digital-humanities/mitarbeiterinnen/erik-renz/) (University of Rostock)
-* Bibliographic research: Lilly Welz (Freie Universität Berlin)
+* Additional encoders: [Erik Renz](https://www.germanistik.uni-rostock.de/forschung/digital-humanities/mitarbeiterinnen/) (University of Rostock)
+* Bibliographic research: [Lilly Welz](https://www.temporal-communities.de/people/welz/index.html) (Freie Universität Berlin)
 * Character annotations: [Nathalie Wiedmer](https://uni-tuebingen.de/forschung/forschungsschwerpunkte/sonderforschungsbereiche/sfb-andere-aesthetik/organisation/mitglieder-alphabetisch/nathalie-wiedmer/) (University of Tübingen), [Janis Pagel](https://janispagel.de/), [Nils Reiter](https://nilsreiter.de/) (both University of Cologne)
 
 ### RusDraCor
