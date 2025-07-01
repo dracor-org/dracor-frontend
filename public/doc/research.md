@@ -2,8 +2,6 @@
 
 This continuously updated bibliography aims to compile all research publications by authors who have actively worked with DraCor. To be included, a publication must go beyond merely mentioning DraCor – it must make use of DraCor-provided corpora or data accessed through our interface. Within each year, entries are organised alphabetically by the surname of the first author. For the period between 2015 and 2018, we have also included publications from [DLINA](https://dlina.github.io/), the precursor project to DraCor. In addition, we maintain a [DraCor community in Zenodo](https://zenodo.org/communities/dracor), where we collect not only academic papers but also presentation slides and datasets.
 
-Beine, J. (2025). "Chapter 13 How to Figure out a Schemer: Tracing Types of Roman Comedy in Classical Receptions through Digital Methods". In Transnational Encounters in Early Modern Drama, 1450–1750. Leiden, Niederlande: Brill. https://doi.org/10.1163/9789004724280_015 
-
 ## 2025
 
 * Frederik Arnold, Robert Jäschke, Philip Kraut: [Advances and Challenges in the Automatic Identification of Indirect Quotations in Scholarly Texts and Literary Works.](https://aclanthology.org/2025.nlp4dh-1.15/) In: Proceedings of the 5th International Conference on Natural Language Processing for Digital Humanities (NLP4DH 2025). Albuquerque, USA. Association for Computational Linguistics, pp. 179–190.
