@@ -26,6 +26,8 @@ DigitalCommons@University of Nebraska-Lincoln. 30 April 2025.
 ## 2024
 
 * Arthur Amalvy: Traitement du langage naturel appliqué à la représentation de textes narratifs par réseaux de personnage. \[Natural Language Processing for the Representation of Narrative Texts Through Character Networks.\] (Doctoral dissertation, Avignon University.) 2024. ([tel-04860185](https://hal.science/tel-04860185))
+* Arthur Amalvy, Nicolas Diassinous, Vincent Labatut: Dynamique des relations dans Lorenzaccio : modélisation par réseaux
+complexes. \[Relationships Dynamics in Lorenzaccio: Modeling through Complex Networks.\] In: Journées d’Informatique Théâtrale. 10 October 2024. ([hal-05117674](https://hal.science/hal-05117674))
 * Melanie Andresen, Nils Reiter: Introduction. In: eid. (eds.): Computational Drama Analysis: Reflecting Methods and Interpretations. Berlin, Boston: De Gruyter 2024, pp. 1–6. ([doi:10.1515/9783111071824-001](https://doi.org/10.1515/9783111071824-001))
 * Melanie Andresen, Benjamin Krautter, Janis Pagel, Nils Reiter: Knowledge Distribution in German Drama. In: Journal of Open Humanities Data. Vol. 10 (2024), no. 1, pp. 1–7. ([doi:10.5334/johd.167](https://doi.org/10.5334/johd.167))
 * Fausta Antonucci: [Risa y llanto en la dramaturgia cómica de Calderón: unas calas.](https://recyt.fecyt.es/index.php/acal/article/view/101987) In: Anuario Calderoniano. No. 17 (2024), pp. 19–42.
