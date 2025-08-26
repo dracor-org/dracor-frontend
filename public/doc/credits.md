@@ -4,7 +4,7 @@ DraCor is an open source project. Everybody is welcome to contribute. You are fr
 
 ## Platform (dracor.org)
 * Editor-in-chief: [Frank Fischer](https://lehkost.github.io/) (Freie Universität Berlin)
-* Co-editors: [Peer Trilcke](https://www.uni-potsdam.de/de/lit-19-jhd/peertrilcke/) (University of Potsdam), [Julia Jennifer Beine](https://orcid.org/0000-0001-8979-8706) (Ruhr-Universität Bochum), [Daniil Skorinkin](https://www.uni-potsdam.de/de/digital-humanities/daniil-skorinkin) (University of Potsdam)
+* Co-editors: [Peer Trilcke](https://www.uni-potsdam.de/de/lit-19-jhd/peertrilcke/) (University of Potsdam), [Julia Jennifer Beine](https://orcid.org/0000-0001-8979-8706) (University of Würzburg), [Daniil Skorinkin](https://www.uni-potsdam.de/de/digital-humanities/daniil-skorinkin) (University of Potsdam)
 * Technical lead: Carsten Milling (University of Potsdam)
 * Technical co-leads: [Ingo Börner](https://www.uni-potsdam.de/en/lit-19-jhd/team/ingo-boerner) (University of Potsdam), [Mathias Göbel](https://www.sub.uni-goettingen.de/en/contact/staff-a-z/staff-details/person/mathias-goebel/) (University of Göttingen)
 * Art director: [Mark Schwindt](https://www.temporal-communities.de/people/schwindt/index.html) (Freie Universität Berlin)
