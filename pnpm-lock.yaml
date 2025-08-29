@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@dracor/registry':
-        specifier: ^1.8.0
-        version: 1.8.0
+        specifier: ^1.11.0
+        version: 1.11.0
       '@fortawesome/fontawesome-svg-core':
         specifier: ^6.7.2
         version: 6.7.2
@@ -350,8 +350,8 @@ packages:
     resolution: {integrity: sha512-UJnjoFsmxfKUdNYdWgOB0mWUypuLvAfQPH1+pyvRJs6euowbFkFC6P13w1l8mJyi3vxYMxc9kld5jZEGRQs6bw==}
     engines: {node: '>=18'}
 
-  '@dracor/registry@1.8.0':
-    resolution: {integrity: sha512-ZmzBkz4GhK0LzTSO89sQ1pvl1B1upMrzy285uATdC74D+CgePF4sTUYD5jz6werd6d1u5TF+kxp4HFg4G9e9Tg==}
+  '@dracor/registry@1.11.0':
+    resolution: {integrity: sha512-Nh5lwUVlzcxuS7wJMQMlM2lXOLsPQmkbnVuSXz/HXAui33VtpF7+4cFNw1uBI0bgVAy3g/jKlRd1el7DTp+k3Q==}
 
   '@esbuild/aix-ppc64@0.25.4':
     resolution: {integrity: sha512-1VCICWypeQKhVbE9oW/sJaAmjLxhVqacdkvPLEjwlttjfwENRSClS8EjBz0KzRyFSCPDIkuXW34Je/vk7zdB7Q==}
@@ -1166,6 +1166,9 @@ packages:
 
   '@types/estree@1.0.7':
     resolution: {integrity: sha512-w28IoSUCJpidD/TGviZwwMJckNESJZXFu7NBZ5YJ4mEUnNraUn9Pm8HSZm/jDF1pDWYKspWE7oVphigUPRakIQ==}
+
+  '@types/estree@1.0.8':
+    resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
 
   '@types/hast@2.3.10':
     resolution: {integrity: sha512-McWspRw8xx8J9HurkVBfYj0xKoE25tOFlHGdx4MJ5xORQrMGZNqJhVQWaIbm6Oyla5kYOXtDiopzKRJzEOkwJw==}
@@ -4510,7 +4513,7 @@ snapshots:
 
   '@csstools/css-tokenizer@3.0.3': {}
 
-  '@dracor/registry@1.8.0': {}
+  '@dracor/registry@1.11.0': {}
 
   '@esbuild/aix-ppc64@0.25.4':
     optional: true
@@ -5514,7 +5517,7 @@ snapshots:
 
   '@types/eslint@9.6.1':
     dependencies:
-      '@types/estree': 1.0.7
+      '@types/estree': 1.0.8
       '@types/json-schema': 7.0.15
     optional: true
 
@@ -5523,6 +5526,9 @@ snapshots:
       '@types/estree': 1.0.7
 
   '@types/estree@1.0.7': {}
+
+  '@types/estree@1.0.8':
+    optional: true
 
   '@types/hast@2.3.10':
     dependencies:
