@@ -1816,7 +1816,44 @@ tei-xr {
 tei-zone {
   /* Empty Rule Set */
 }
+tei-castgroup {
+  position: relative;
+  width: fit-content;
+}
+tei-castgroup::after {
+  content: ""; 
+  position: absolute;
+  display: block;
+  width: 20px; 
+  height: calc(100% - 1rem);
+  top: .5rem;
+  right: -20px;  
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  border-top-right-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+}
+tei-castgroup::before {
+  content: ""; 
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: calc(100% + 20px);
+  height: 2px;
+  width: 1em;
+  display: block;
+  background-color: black;
+}
+tei-roledesc {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  left: calc(100% + 40px);
 
+}
 /* styles for html shell and html elements in TEI (e.g.,<a> and <img>) */
 /* html > body {
   margin: 0;
