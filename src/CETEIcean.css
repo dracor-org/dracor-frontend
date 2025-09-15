@@ -267,8 +267,6 @@ tei-case[data-tei-value]:before {
 }
 tei-castGroup {
   display: block;
-  margin-top: 1em;
-  margin-bottom: 1em;
 }
 tei-castItem {
   display: list-item;
@@ -278,7 +276,6 @@ tei-castList {
   list-style-type: none;
   margin-top: 1em;
   margin-bottom: 1em;
-  margin-left: 2em;
 }
 tei-catDesc {
   /* Empty Rule Set */
@@ -1824,7 +1821,7 @@ tei-castgroup::after {
   content: ""; 
   position: absolute;
   display: block;
-  width: 20px; 
+  width: 13px; 
   height: calc(100% - 1rem);
   top: .5rem;
   right: -20px;  
@@ -1841,7 +1838,7 @@ tei-castgroup::before {
   top: 50%;
   left: calc(100% + 20px);
   height: 2px;
-  width: 1em;
+  width: .7em;
   display: block;
   background-color: black;
 }
@@ -1849,10 +1846,19 @@ tei-roledesc {
   position: absolute;
   top: 0;
   height: 100%;
+  width: max-content;
   display: flex;
   align-items: center;
   left: calc(100% + 40px);
+  
 
+}
+tei-castlist > tei-head {
+  font-weight: bold;
+  margin-bottom: .5em;
+}
+tei-role {
+  font-variant: small-caps;
 }
 /* styles for html shell and html elements in TEI (e.g.,<a> and <img>) */
 /* html > body {
