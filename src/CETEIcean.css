@@ -1842,7 +1842,7 @@ tei-castgroup::before {
   display: block;
   background-color: black;
 }
-tei-roledesc {
+tei-castgroup > tei-roledesc {
   position: absolute;
   top: 0;
   height: 100%;
