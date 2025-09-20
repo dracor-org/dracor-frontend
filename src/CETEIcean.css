@@ -1818,13 +1818,13 @@ tei-castgroup {
   width: fit-content;
 }
 tei-castgroup::after {
-  content: ""; 
+  content: "";
   position: absolute;
   display: block;
-  width: 13px; 
+  width: 13px;
   height: calc(100% - 1rem);
   top: .5rem;
-  right: -20px;  
+  right: -20px;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
   border-right: 2px solid black;
@@ -1832,7 +1832,7 @@ tei-castgroup::after {
   border-bottom-right-radius: .5rem;
 }
 tei-castgroup::before {
-  content: ""; 
+  content: "";
   position: absolute;
   display: block;
   top: 50%;
@@ -1850,8 +1850,6 @@ tei-roledesc {
   display: flex;
   align-items: center;
   left: calc(100% + 40px);
-  
-
 }
 tei-castlist > tei-head {
   font-weight: bold;
