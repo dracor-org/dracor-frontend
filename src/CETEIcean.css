@@ -1816,40 +1816,49 @@ tei-zone {
 tei-castgroup {
   position: relative;
   width: fit-content;
+  display: grid;
+  grid-template-columns: auto;
+
 }
-tei-castgroup::after {
+tei-castgroup tei-castitem {
+  grid-column: 1 / 2;
+}
+tei-castgroup > tei-castgroup {
+  grid-column: 1 / 2;
+}
+tei-castgroup > tei-roledesc {
+  position: relative;
+  grid-area: 999 / 2 / -1 / -1;
+  top: 0;
+  height: 100%;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  margin-left: 2.4em;
+}
+tei-castgroup::before {
   content: "";
-  position: absolute;
+  position: relative;
+  grid-area: 999 / 2 / -1 / -1;
   display: block;
   width: 13px;
   height: calc(100% - 1rem);
   top: .5rem;
-  right: -20px;
+  right: -.4em;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
   border-right: 2px solid black;
   border-top-right-radius: .5rem;
   border-bottom-right-radius: .5rem;
 }
-tei-castgroup::before {
+tei-castgroup::after {
   content: "";
-  position: absolute;
-  display: block;
-  top: 50%;
-  left: calc(100% + 20px);
-  height: 2px;
+  position: relative;
+  grid-area: 999 / 2 / -1 / -1;
+  right: -1.3em;
+  height: calc(50% + 1px);
   width: .7em;
-  display: block;
-  background-color: black;
-}
-tei-castgroup > tei-roledesc {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: max-content;
-  display: flex;
-  align-items: center;
-  left: calc(100% + 40px);
+  border-bottom: 2px solid black;
 }
 tei-castlist > tei-head {
   font-weight: bold;
