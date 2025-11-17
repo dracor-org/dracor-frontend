@@ -1876,12 +1876,18 @@ tei-tei[lang="yid"] {
 
   tei-castgroup::before {
     right: initial;
-    left: -1.3rem;
+    left: -.4rem;
+    border-left: 2px solid black;
+    border-right: initial;
+    border-top-left-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+    border-top-right-radius: initial;
+    border-bottom-right-radius: initial;
   }
 
   tei-castgroup::after {
     right: initial;
-    left: -.6rem;
+    left: -1.3rem;
   }
 }
 /* styles for html shell and html elements in TEI (e.g.,<a> and <img>) */
