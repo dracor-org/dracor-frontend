@@ -1867,6 +1867,23 @@ tei-castlist > tei-head {
 tei-role {
   font-variant: small-caps;
 }
+tei-tei[lang="yid"] {
+  
+  tei-castgroup > tei-roledesc {
+    margin-right: 2.4rem;
+    margin-left: initial;
+  }
+
+  tei-castgroup::before {
+    right: initial;
+    left: -1.3rem;
+  }
+
+  tei-castgroup::after {
+    right: initial;
+    left: -.6rem;
+  }
+}
 /* styles for html shell and html elements in TEI (e.g.,<a> and <img>) */
 /* html > body {
   margin: 0;
