@@ -2,7 +2,7 @@
 
 ## T-Shirts
 
-Curated collection of network graphs in DraCor design available as t-shirt. All print templates are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and can be freely downloaded and printed at home or at the manufacturer of your choosing.
+Curated collection of network graphs in DraCor design available as T-shirts. All print templates are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) and can be freely downloaded and printed at home or at the manufacturer of your choosing.
 
 #### Emilia Galotti – Original DraCor Project T-Shirt
 
