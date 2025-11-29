@@ -1,6 +1,6 @@
 # DraCor Moments
 
-Explore photos of our community actively participating in DraCor events and projects. Unless otherwise noted, all photos are released under the CC0 license.
+Explore photos of our community actively participating in DraCor events and projects. Unless otherwise noted, all photos are released under the [CC0 licence](https://creativecommons.org/publicdomain/zero/1.0/).
 
 #### Göttingen, 17 June 2015
 
