@@ -36,7 +36,7 @@ const sitemap: Sitemap = [
       {label: 'API', href: '/doc/api'},
       legacyApiUrl ? {label: 'API v0 (legacy)', href: legacyDocPath} : null,
       {label: 'Encoding Guidelines (ODD)', href: '/doc/odd'},
-      {label: 'FAQ', href: '/doc/merch'},
+      {label: 'FAQ', href: '/doc/faq'},
       {label: 'Tutorials', href: '/doc/tutorials'},
       {
         label: 'DraCor Textbook',
