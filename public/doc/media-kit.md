@@ -2,7 +2,7 @@
 
 ## Welcome to the DraCor Media Kit page!
 
-Here, we assembled an array of high-quality mockups, distinct visuals showcasing our frontend on various devices. Additionally, we included a curated logo collection, offering diverse formats and versions to facilitate seamless integration into publications, collaborations, or promotional materials, while embracing the CC0 (Creative Commons Zero) licence, allowing for unrestricted use and adaptation. A style guide can be found [on the website of DraCor's art director, Mark Schwindt](https://markschwindt.myportfolio.com/dracor-drama-corpora-project).
+Here, we assembled an array of high-quality mockups, distinct visuals showcasing our frontend on various devices. Additionally, we included a curated logo collection, offering diverse formats and versions to facilitate seamless integration into publications, collaborations, or promotional materials, while embracing the [CC0 (Creative Commons Zero) licence](https://creativecommons.org/publicdomain/zero/1.0/), allowing for unrestricted use and adaptation. A style guide can be found [on the website of DraCor's art director, Mark Schwindt](https://markschwindt.myportfolio.com/dracor-drama-corpora-project).
 
 ### Mockups
 
