@@ -13,16 +13,12 @@ import {
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import classnames from 'classnames/bind';
-import {
-  ezlinavisUrl,
-  legacyApiUrl,
-  legacyDocPath,
-  showPrizeBadge,
-} from '../config';
+import {showPrizeBadge} from '../config';
 import CorporaDropdown from './CorporaDropdown';
 import TopNavDropdown from './TopNavDropdown';
 import style from './TopNav.module.scss';
 import svgTEI from '../images/TEI-Logo.svg';
+import sitemap from '../sitemap';
 
 const cx = classnames.bind(style);
 
@@ -38,51 +34,26 @@ const TopNav = () => {
         <NavbarToggler onClick={toggleNav} />
         <Collapse navbar isOpen={navOpen}>
           <Nav navbar tag="div" className={cx('main')}>
-            <TopNavDropdown
-              label="About"
-              items={[
-                {label: 'What is DraCor?', to: '/doc/what-is-dracor'},
-                {label: 'FAQ', to: '/doc/faq'},
-                {label: 'Corpus registry', to: '/doc/corpora'},
-                {label: 'Credits', to: '/doc/credits'},
-                {label: 'Media Kit', to: '/doc/media-kit'},
-                {label: 'Imprint', to: '/doc/imprint-and-gdpr'},
-              ]}
-            />
-            <CorporaDropdown />
-            <TopNavDropdown
-              label="Tools"
-              items={[
-                {label: 'API', to: '/doc/api'},
-                legacyApiUrl
-                  ? {label: 'API v0 (legacy)', to: legacyDocPath}
-                  : null,
-                {label: 'ODD', to: '/doc/odd'},
-                {label: 'SPARQL', to: '/sparql'},
-                {label: 'ezlinavis', href: ezlinavisUrl},
-                {
-                  label: 'pydracor',
-                  href: 'https://pypi.org/project/pydracor/',
-                },
-                {
-                  label: 'rdracor',
-                  href: 'https://github.com/dracor-org/rdracor',
-                },
-                {label: 'Shiny DraCor', href: 'https://shiny.dracor.org/'},
-              ].filter((item) => item)}
-            />
-            <TopNavDropdown
-              label="How To"
-              items={[
-                {label: 'Tutorials', to: '/doc/tutorials'},
-                {label: 'Research', to: '/doc/research'},
-              ]}
-            />
-            <NavItem tag="div">
-              <RouterNavLink to="/doc/merch" className="nav-link">
-                Merch
-              </RouterNavLink>
-            </NavItem>
+            {sitemap.map((entry) =>
+              entry.items ? (
+                <TopNavDropdown
+                  label={entry.label}
+                  items={entry.items.map((item) =>
+                    /^https?:/i.test(item.href)
+                      ? item
+                      : {label: item.label, to: item.href}
+                  )}
+                />
+              ) : entry.component === 'CorporaDropdown' ? (
+                <CorporaDropdown />
+              ) : (
+                <NavItem tag="div">
+                  <RouterNavLink to={entry.href} className="nav-link">
+                    {entry.label}
+                  </RouterNavLink>
+                </NavItem>
+              )
+            )}
           </Nav>
           <Nav navbar className={cx('github')}>
             <NavItem>
