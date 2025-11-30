@@ -15,13 +15,13 @@ const Footer = () => {
 
   let apiVersionUrl = 'https://github.com/dracor-org/dracor-api/releases/';
   if (/^\d+\.\d+\.\d+(-(alpha|beta)(\.\d+)?)?$/.test(apiInfo.version)) {
-    apiVersionUrl += `tag/v${apiInfo.version}`;
+    apiVersionUrl += `tag/${apiInfo.version}`;
   }
 
   let frontendVersionUrl =
     'https://github.com/dracor-org/dracor-frontend/releases/';
   if (/^\d+\.\d+\.\d+(-(alpha|beta)(\.\d+)?)?$/.test(version)) {
-    frontendVersionUrl += `tag/v${version}`;
+    frontendVersionUrl += `tag/${version}`;
   }
 
   return (
