@@ -18,11 +18,10 @@ import CorporaDropdown from './CorporaDropdown';
 import TopNavDropdown from './TopNavDropdown';
 import style from './TopNav.module.scss';
 import svgTEI from '../images/TEI-Logo.svg';
-import sitemap from '../sitemap';
 
 const cx = classnames.bind(style);
 
-const TopNav = () => {
+const TopNav = ({sitemap}) => {
   const [navOpen, setNavOpen] = useState(false);
 
   const toggleNav = () => setNavOpen(!navOpen);

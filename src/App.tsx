@@ -1,9 +1,10 @@
 import {useState, useEffect, lazy} from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import api from './api';
-import {ApiInfo} from './types';
+import {ApiInfo, Sitemap} from './types';
 import {DracorContext} from './context';
-import {legacyApiUrl, legacyDocPath} from './config';
+import {legacyApiUrl, legacyDocPath, sitemapUrl} from './config';
+import defaultSitemap from './sitemap';
 import Home from './components/Home';
 import DocPage from './components/DocPage';
 import TopNav from './components/TopNav';
@@ -22,8 +23,38 @@ const SparqlUi = lazy(() => {
 });
 
 const App = () => {
+  const [sitemap, setSitemap] = useState<Sitemap>([]);
   const [apiInfo, setApiInfo] = useState<ApiInfo>();
   const [corpora, setCorpora] = useState([]);
+
+  useEffect(() => {
+    async function fetchSitemap(url: string) {
+      try {
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            Accept: 'application/json',
+          },
+        });
+        if (response.status !== 200) {
+          // eslint-disable-next-line no-console
+          console.log(response.status);
+          return;
+        }
+        const data = await response.json();
+        setSitemap(data);
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.log(error);
+      }
+    }
+
+    if (sitemapUrl) {
+      fetchSitemap(sitemapUrl);
+    } else {
+      setSitemap(defaultSitemap);
+    }
+  }, []);
 
   useEffect(() => {
     // eslint-disable-next-line no-console
@@ -73,7 +104,7 @@ const App = () => {
     <BrowserRouter>
       <DracorContext.Provider value={{corpora, apiInfo}}>
         <div className="d-flex flex-column" style={{height: '100%'}}>
-          <TopNav />
+          <TopNav sitemap={sitemap} />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/:corpusId">

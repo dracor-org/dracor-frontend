@@ -98,3 +98,17 @@ export interface PlayMetrics {
   size: number;
   wikipediaLinkCount: number | null;
 }
+
+type SitemapLeaf =
+  | {
+      label: string;
+      href: string;
+    }
+  | {component: 'CorporaDropdown'};
+
+interface SitemapNode {
+  label: string;
+  items: SitemapLeaf[];
+}
+
+export type Sitemap = (SitemapLeaf | SitemapNode)[];
