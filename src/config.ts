@@ -2,6 +2,7 @@ import pkg from '../package.json';
 
 export const version = import.meta.env.VITE_VERSION || pkg.version;
 export const apiUrl = import.meta.env.VITE_DRACOR_API;
+export const sitemapUrl = import.meta.env.VITE_SITEMAP_URL;
 export const guidelinesUrl = import.meta.env.VITE_DRACOR_GUIDELINES;
 export const sparqlUrl = import.meta.env.VITE_SPARQL_URL;
 export const ezlinavisUrl = import.meta.env.VITE_EZLINAVIS_URL;

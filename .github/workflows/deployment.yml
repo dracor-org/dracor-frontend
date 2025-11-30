@@ -28,7 +28,7 @@ jobs:
       - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version: 22
-          cache: 'pnpm'
+          cache: "pnpm"
       - name: Restore node_modules
         uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
@@ -39,6 +39,7 @@ jobs:
       - run: git describe --tags --dirty --always
       - run: pnpm install
       - run: |
+          echo "VITE_SITEMAP_URL=/doc/sitemap.json" >> "$GITHUB_ENV"
           echo "VITE_WITH_RAHTZ_PRIZE=yes" >> "$GITHUB_ENV"
           echo "VITE_DRACOR_LEGACY_API=/api/v0" >> "$GITHUB_ENV"
       - run: pnpm build
@@ -49,6 +50,7 @@ jobs:
       - name: Deploy to ${{ inputs.host }}
         run: |
           rsync -rlvz --delete \
+            --exclude=doc \
             --exclude=robots.txt \
             --exclude=schema.rng \
             --exclude=dracor.sch \
