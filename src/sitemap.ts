@@ -18,8 +18,8 @@ const sitemap: Sitemap = [
   {
     label: 'About',
     items: [
-      {label: 'What is DraCor?', href: '/doc/what-is-dracor'},
-      {label: 'Corpus registry', href: '/doc/corpora'},
+      {label: 'What Is DraCor?', href: '/doc/what-is-dracor'},
+      {label: 'Corpus Registry', href: '/doc/corpora'},
       {label: 'Credits', href: '/doc/credits'},
       {label: 'Get in Touch', href: '/doc/get-in-touch'},
       {label: 'DraCor Moments', href: '/doc/dracor-moments'},
@@ -36,7 +36,7 @@ const sitemap: Sitemap = [
       {label: 'API', href: '/doc/api'},
       legacyApiUrl ? {label: 'API v0 (legacy)', href: legacyDocPath} : null,
       {label: 'Encoding Guidelines (ODD)', href: '/doc/odd'},
-      {label: 'FAQ', href: '/doc/faq'},
+      {label: 'FAQs', href: '/doc/faq'},
       {label: 'Tutorials', href: '/doc/tutorials'},
       {
         label: 'DraCor Textbook',
