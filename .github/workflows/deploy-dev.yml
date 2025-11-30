@@ -5,7 +5,7 @@ on:
 
 jobs:
   dev:
-    uses: dracor-org/dracor-frontend/.github/workflows/deployment.yml@main
+    uses: dracor-org/dracor-frontend/.github/workflows/deployment.yml@355-restructure-nav
     with:
       host: dev.dracor.org
       deploy-path: /var/www/html
