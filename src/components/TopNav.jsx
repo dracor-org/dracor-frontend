@@ -36,6 +36,7 @@ const TopNav = ({sitemap}) => {
             {sitemap.map((entry) =>
               entry.items ? (
                 <TopNavDropdown
+                  key={entry.label}
                   label={entry.label}
                   items={entry.items.map((item) =>
                     /^https?:/i.test(item.href)
@@ -44,9 +45,9 @@ const TopNav = ({sitemap}) => {
                   )}
                 />
               ) : entry.component === 'CorporaDropdown' ? (
-                <CorporaDropdown />
+                <CorporaDropdown key="_corpora_" />
               ) : (
-                <NavItem tag="div">
+                <NavItem tag="div" key={entry.label}>
                   <RouterNavLink to={entry.href} className="nav-link">
                     {entry.label}
                   </RouterNavLink>
