@@ -71,7 +71,8 @@
     "lint": "eslint src",
     "test": "vitest",
     "test:coverage": "vitest run --coverage --watch=false",
-    "test:coverage:browse": "vitest run --coverage --watch=false && open-cli coverage/index.html"
+    "test:coverage:browse": "vitest run --coverage --watch=false && open-cli coverage/index.html",
+    "bump-version": "npm version --tag-version-prefix=''"
   },
   "browserslist": {
     "production": [
