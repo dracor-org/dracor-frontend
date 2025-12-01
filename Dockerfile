@@ -1,11 +1,11 @@
 FROM node:25 AS build
 
 WORKDIR /app
-ENV PATH /app/node_modules/.bin:$PATH
+ENV PATH=/app/node_modules/.bin:$PATH
 
 COPY package.json ./
 COPY pnpm-lock.yaml ./
-RUN corepack enable && corepack prepare pnpm@10 && pnpm install
+RUN npm install -g --force corepack && corepack enable && corepack prepare pnpm@10 && pnpm install
 COPY . ./
 RUN pnpm build
 

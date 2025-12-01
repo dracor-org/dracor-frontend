@@ -1,4 +1,4 @@
 node_modules
 build
-.dockerignore
-Dockerfile
+# this may be a symlink
+public/doc
