@@ -6,11 +6,12 @@ import {DracorContext} from '../context';
 import svgBibTex from '../images/bibtex.svg';
 import svgRIS from '../images/ris.svg';
 import svgCC0 from '../images/cc0.svg';
+import SitemapOverview from './SitemapOverview';
 import style from './Footer.module.scss';
 
 const cx = classnames.bind(style);
 
-const Footer = () => {
+const Footer = ({withSitemap = false}) => {
   const {apiInfo = {}} = useContext(DracorContext);
 
   let apiVersionUrl = 'https://github.com/dracor-org/dracor-api/releases/';
@@ -25,86 +26,100 @@ const Footer = () => {
   }
 
   return (
-    <Row className={cx('main')}>
-      <Col className={cx('citation')}>
-        <h5>
-          If you want to cite DraCor, <wbr />
-          please use the following reference:
-        </h5>
-        <a href={'/cite_dracor.bib'} type="application/x-bibtex">
-          <img src={svgBibTex} alt="BibTeX" />
-        </a>
-        <a href={'/cite_dracor.ris'} type="application/x-research-info-systems">
-          <img src={svgRIS} alt="RIS" />
-        </a>
-        <p>
-          Fischer, Frank, et al. (2019). Programmable Corpora: Introducing
-          DraCor, an Infrastructure for the Research on European Drama. In{' '}
-          <em>Proceedings of DH2019: &quot;Complexities&quot;</em>, Utrecht
-          University,{' '}
-          <a
-            href="https://doi.org/10.5281/zenodo.4284002"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            doi:10.5281/zenodo.4284002
-          </a>
-          .
-        </p>
-      </Col>
-      <Col className={cx('license')}>
-        <h5>Drama Corpora Project</h5>
-        <p>
-          Unless otherwise stated, all corpora and the web design
-          <br /> are released under Creative Commons{' '}
-          <a
-            href="https://creativecommons.org/publicdomain/zero/1.0"
-            rel="noopener noreferrer license"
-            target="_blank"
-          >
-            0 1.0
+    <div className={cx('footer')}>
+      {withSitemap && (
+        <Row className={cx('sitemap')}>
+          <SitemapOverview />
+        </Row>
+      )}
+      <Row className={cx('main')}>
+        <Col className={cx('citation')}>
+          <h5>
+            If you want to cite DraCor, <wbr />
+            please use the following reference:
+          </h5>
+          <a href={'/cite_dracor.bib'} type="application/x-bibtex">
+            <img src={svgBibTex} alt="BibTeX" />
           </a>
           <a
-            href="https://creativecommons.org/publicdomain/zero/1.0"
-            rel="noopener noreferrer license"
-            target="_blank"
+            href={'/cite_dracor.ris'}
+            type="application/x-research-info-systems"
           >
-            <img src={svgCC0} alt="CC0" />
+            <img src={svgRIS} alt="RIS" />
           </a>
-        </p>
-        {apiInfo.version && (
-          <p className="api-info">
-            <span className="version-pill">
-              <span>DraCor Frontend</span>
-              <a
-                href={frontendVersionUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {version}
-              </a>
-            </span>{' '}
-            <span className="version-pill">
-              <span>DraCor API</span>
-              <a href={apiVersionUrl} target="_blank" rel="noopener noreferrer">
-                {apiInfo.version}
-              </a>
-            </span>{' '}
-            <wbr />
-            <span className="version-pill">
-              <span>eXist-db</span>
-              <a
-                href={`https://github.com/eXist-db/exist/releases/tag/eXist-${apiInfo.existdb}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {apiInfo.existdb}
-              </a>
-            </span>
+          <p>
+            Fischer, Frank, et al. (2019). Programmable Corpora: Introducing
+            DraCor, an Infrastructure for the Research on European Drama. In{' '}
+            <em>Proceedings of DH2019: &quot;Complexities&quot;</em>, Utrecht
+            University,{' '}
+            <a
+              href="https://doi.org/10.5281/zenodo.4284002"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              doi:10.5281/zenodo.4284002
+            </a>
+            .
           </p>
-        )}
-      </Col>
-    </Row>
+        </Col>
+        <Col className={cx('license')}>
+          <h5>Drama Corpora Project</h5>
+          <p>
+            Unless otherwise stated, all corpora and the web design
+            <br /> are released under Creative Commons{' '}
+            <a
+              href="https://creativecommons.org/publicdomain/zero/1.0"
+              rel="noopener noreferrer license"
+              target="_blank"
+            >
+              0 1.0
+            </a>
+            <a
+              href="https://creativecommons.org/publicdomain/zero/1.0"
+              rel="noopener noreferrer license"
+              target="_blank"
+            >
+              <img src={svgCC0} alt="CC0" />
+            </a>
+          </p>
+          {apiInfo.version && (
+            <p className="api-info">
+              <span className="version-pill">
+                <span>DraCor Frontend</span>
+                <a
+                  href={frontendVersionUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {version}
+                </a>
+              </span>{' '}
+              <span className="version-pill">
+                <span>DraCor API</span>
+                <a
+                  href={apiVersionUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {apiInfo.version}
+                </a>
+              </span>{' '}
+              <wbr />
+              <span className="version-pill">
+                <span>eXist-db</span>
+                <a
+                  href={`https://github.com/eXist-db/exist/releases/tag/eXist-${apiInfo.existdb}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {apiInfo.existdb}
+                </a>
+              </span>
+            </p>
+          )}
+        </Col>
+      </Row>
+    </div>
   );
 };
 

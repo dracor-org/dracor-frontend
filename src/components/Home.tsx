@@ -7,7 +7,7 @@ const Home = () => {
     <>
       <Corpora />
       <Container fluid>
-        <Footer />
+        <Footer withSitemap />
       </Container>
     </>
   );
