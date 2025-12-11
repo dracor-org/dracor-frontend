@@ -7,6 +7,7 @@ export interface ApiInfo {
 
 export interface DracorContext {
   corpora: never[];
+  sitemap?: Sitemap;
   apiInfo?: ApiInfo;
 }
 
@@ -99,14 +100,14 @@ export interface PlayMetrics {
   wikipediaLinkCount: number | null;
 }
 
-type SitemapLeaf =
+export type SitemapLeaf =
   | {
       label: string;
       href: string;
     }
   | {component: 'CorporaDropdown'};
 
-interface SitemapNode {
+export interface SitemapNode {
   label: string;
   items: SitemapLeaf[];
 }

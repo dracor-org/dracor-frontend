@@ -1,10 +1,13 @@
+.footer {
+  margin-top: 3em;
+}
+
 .main {
   font-size: 0.9rem;
   line-height: 1.65;
   padding-top: var(--bootstrap-padding);
   padding-bottom: var(--bootstrap-padding);
   background: linear-gradient(to top, #ebf0f6, #e3e8f1);
-  margin-top: 3em;
 
   & > * {
     flex: 1 1;

@@ -1,0 +1,25 @@
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  width: 100%;
+  padding: var(--bootstrap-padding);
+  background-color: rgb(226, 231, 237);
+  & > div {
+    flex: 1;
+    padding-left: 5px;
+    @media only screen and (max-width: 767px) {
+      flex: 0 0 calc(50% - 1em);
+    }
+  }
+
+  h5 {
+    text-transform: uppercase;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 0;
+  }
+}

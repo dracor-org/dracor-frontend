@@ -102,7 +102,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <DracorContext.Provider value={{corpora, apiInfo}}>
+      <DracorContext.Provider value={{corpora, apiInfo, sitemap}}>
         <div className="d-flex flex-column" style={{height: '100%'}}>
           <TopNav sitemap={sitemap} />
           <Suspense fallback={<div>Loading…</div>}>

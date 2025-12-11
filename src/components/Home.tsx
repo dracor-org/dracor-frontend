@@ -1,4 +1,5 @@
 import {Container} from 'reactstrap';
+import {sitemapUrl} from '../config';
 import Corpora from './Corpora';
 import Footer from './Footer';
 
@@ -7,7 +8,7 @@ const Home = () => {
     <>
       <Corpora />
       <Container fluid>
-        <Footer />
+        <Footer withSitemap={!!sitemapUrl} />
       </Container>
     </>
   );
