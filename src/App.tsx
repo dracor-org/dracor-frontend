@@ -1,4 +1,4 @@
-import {useState, useEffect, lazy} from 'react';
+import {useState, useEffect, lazy, Suspense} from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import api from './api';
 import {ApiInfo, Sitemap} from './types';
@@ -105,21 +105,23 @@ const App = () => {
       <DracorContext.Provider value={{corpora, apiInfo}}>
         <div className="d-flex flex-column" style={{height: '100%'}}>
           <TopNav sitemap={sitemap} />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/:corpusId">
-              <Route index element={<Corpus />} />
-              <Route path=":playId" element={<Play />} />
-            </Route>
-            <Route path="/doc/:slug" element={<DocPage />} />
-            <Route path="/doc/api" element={<APIDoc />} />
-            <Route path="/doc/odd" element={<OddPage />} />
-            <Route path="/doc/corpora" element={<CorpusRegistry />} />
-            {legacyApiUrl && (
-              <Route path={legacyDocPath} element={<APIDoc />} />
-            )}
-            <Route path="/sparql" element={<SparqlUi />} />
-          </Routes>
+          <Suspense fallback={<div>Loading…</div>}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/:corpusId">
+                <Route index element={<Corpus />} />
+                <Route path=":playId" element={<Play />} />
+              </Route>
+              <Route path="/doc/:slug" element={<DocPage />} />
+              <Route path="/doc/api" element={<APIDoc />} />
+              <Route path="/doc/odd" element={<OddPage />} />
+              <Route path="/doc/corpora" element={<CorpusRegistry />} />
+              {legacyApiUrl && (
+                <Route path={legacyDocPath} element={<APIDoc />} />
+              )}
+              <Route path="/sparql" element={<SparqlUi />} />
+            </Routes>
+          </Suspense>
         </div>
       </DracorContext.Provider>
     </BrowserRouter>
