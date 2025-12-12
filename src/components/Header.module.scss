@@ -6,6 +6,7 @@
   padding-top: var(--bootstrap-padding);
   padding-bottom: var(--bootstrap-padding);
   margin-bottom: var(--bootstrap-padding);
+  z-index: 1;
 
   h1 {
     @include mixins.pagetitle;
