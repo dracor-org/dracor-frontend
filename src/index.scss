@@ -251,7 +251,7 @@ a:hover {
   padding: var(--bootstrap-padding);
 }
 
-.dracor-page img[alt~='card'] {
+.dracor-page img[alt~='card'], .dracor-page img[alt*='photo' i] {
   max-height: 30em;
   margin: 0 var(--bootstrap-padding) var(--bootstrap-padding) 0;
   border-radius: 1em;
