@@ -19,6 +19,12 @@ const Odd = () => {
           html.querySelectorAll('body > div').forEach((div) => {
             ref.current?.appendChild(div);
           });
+          if (window.location.hash) {
+            const el = document.querySelector(window.location.hash);
+            if (el) {
+              el.scrollIntoView({behavior: 'smooth'});
+            }
+          }
         } else {
           // eslint-disable-next-line no-console
           console.log('Cannot load html, status: %s', response.status);
