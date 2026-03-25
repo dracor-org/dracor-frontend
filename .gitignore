@@ -14,6 +14,9 @@
 # external doc directory
 /public/doc
 
+# ODD linked from dracor-schema
+/public/odd.html
+
 # misc
 .DS_Store
 .env.local

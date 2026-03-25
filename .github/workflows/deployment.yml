@@ -39,6 +39,7 @@ jobs:
       - run: git describe --tags --dirty --always
       - run: pnpm install
       - run: |
+          echo "VITE_DRACOR_GUIDELINES=/odd.html" >> "$GITHUB_ENV"
           echo "VITE_SITEMAP_URL=/doc/sitemap.json" >> "$GITHUB_ENV"
           echo "VITE_WITH_RAHTZ_PRIZE=yes" >> "$GITHUB_ENV"
           echo "VITE_DRACOR_LEGACY_API=/api/v0" >> "$GITHUB_ENV"
