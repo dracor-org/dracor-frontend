@@ -13,6 +13,10 @@ export default defineConfig(({mode}) => {
     plugins: [eslint(), react()],
     build: {
       outDir: 'build',
+      // This is a workaround to Vite 8 using lightningcss and rejecting IE-era
+      // CSS hacks used in yasgui. It can probably be remove once we replace
+      // yasgui with a modern solution.
+      cssMinify: 'esbuild',
     },
     server: {
       open: true,
