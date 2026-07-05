@@ -1,11 +1,12 @@
-FROM node:25 AS build
+FROM node:26-alpine AS build
 
 WORKDIR /app
 ENV PATH=/app/node_modules/.bin:$PATH
 
+RUN apk add --no-cache git
 COPY package.json ./
 COPY pnpm-lock.yaml ./
-RUN npm install -g --force corepack && corepack enable && corepack prepare pnpm@10 && pnpm install
+RUN npm install -g --force pnpm@10 && pnpm install
 COPY . ./
 RUN pnpm build
 

@@ -1,4 +1,5 @@
 node_modules
 build
-# this may be a symlink
+# this may be a symlinks
 public/doc
+public/odd.html
