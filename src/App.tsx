@@ -23,11 +23,15 @@ const SparqlUi = lazy(() => {
 });
 
 const App = () => {
-  const [sitemap, setSitemap] = useState<Sitemap>([]);
+  const [sitemap, setSitemap] = useState<Sitemap>(
+    sitemapUrl ? [] : defaultSitemap
+  );
   const [apiInfo, setApiInfo] = useState<ApiInfo>();
   const [corpora, setCorpora] = useState([]);
 
   useEffect(() => {
+    if (!sitemapUrl) return;
+
     async function fetchSitemap(url: string) {
       try {
         const response = await fetch(url, {
@@ -49,11 +53,7 @@ const App = () => {
       }
     }
 
-    if (sitemapUrl) {
-      fetchSitemap(sitemapUrl);
-    } else {
-      setSitemap(defaultSitemap);
-    }
+    fetchSitemap(sitemapUrl);
   }, []);
 
   useEffect(() => {
