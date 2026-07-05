@@ -109,8 +109,8 @@ const PlayInfo = ({corpusId, playId}) => {
 
   const playMetrics = <PlayMetrics play={play} />;
 
-  let tabContent = null;
-  let description = null;
+  let tabContent;
+  let description;
   let characters = null;
   let metrics = null;
   let segments = null;
