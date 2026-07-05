@@ -21,6 +21,7 @@ export interface Author {
   fullname?: string;
   shortname?: string;
   refs?: Ref[];
+  role?: string;
   // DEPRECATED
   key?: string;
 }
@@ -54,6 +55,7 @@ export interface Play {
   title: string;
   subtitle?: string;
   authors: Author[];
+  editors?: Author[];
   genre: string;
   libretto: boolean;
   originalSource: string;

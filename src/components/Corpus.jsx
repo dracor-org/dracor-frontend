@@ -32,6 +32,10 @@ const Corpus = () => {
             d.authors = [];
             d.authorNames = 'Anonymous';
           }
+          d.translators = (d.editors || []).filter(
+            (e) => e.role === 'translator'
+          );
+          d.translatorNames = d.translators.map((t) => t.name).join(' · ');
         });
         setCorpus(response.data);
         setLoading(false);

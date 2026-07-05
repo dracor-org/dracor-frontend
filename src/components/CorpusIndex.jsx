@@ -42,6 +42,12 @@ function formatAuthor(authorNames, d) {
           </span>
         ))}
       </small>
+      {d.translators && d.translators.length > 0 && (
+        <>
+          <br />
+          <small className="translators">trans. {d.translatorNames}</small>
+        </>
+      )}
     </span>
   );
 }
@@ -135,17 +141,23 @@ const CorpusIndex = ({data}) => {
       dataField: 'authorNames',
       text: 'Authors',
       sort: true,
-      filterValue: (cell, row) =>
-        `${cell} ${row.authors
-          .map((a) => {
-            const refs = a.refs ? a.refs.map((r) => r.ref).join(' ') : '';
-            let value = refs;
-            if (a.alsoKnownAs) {
-              value += a.alsoKnownAs.join(' ');
-            }
-            return value;
-          })
-          .join(' ')} `,
+      filterValue: (cell, row) => {
+        const buildTokens = (people) =>
+          people
+            .map((a) => {
+              const refs = a.refs ? a.refs.map((r) => r.ref).join(' ') : '';
+              let value = refs;
+              if (a.alsoKnownAs) {
+                value += a.alsoKnownAs.join(' ');
+              }
+              return value;
+            })
+            .join(' ');
+        return (
+          `${cell} ${buildTokens(row.authors)} ` +
+          `${row.translatorNames || ''} ${buildTokens(row.translators || [])} `
+        );
+      },
       formatter: formatAuthor,
     },
     {

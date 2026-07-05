@@ -170,6 +170,11 @@
       content: '';
       margin: 0;
     }
+
+    &.translator {
+      font-style: italic;
+      opacity: 0.85;
+    }
   }
 }
 
