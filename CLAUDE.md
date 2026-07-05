@@ -12,7 +12,7 @@ Package manager is **pnpm** (see `packageManager` field in [package.json](packag
 - `pnpm test` — [Vitest](https://vitest.dev) in watch mode (jsdom env, setup file `src/setupTests.ts`).
 - `pnpm test -- src/App.test.tsx` — run a single test file. `pnpm vitest run -t "pattern"` filters by test name.
 - `pnpm test:coverage` — one-shot coverage report.
-- `pnpm lint` — ESLint over `src`. Note: ESLint also runs at build/dev time via `vite-plugin-eslint`, so lint errors surface in the dev-server console and break `pnpm build`.
+- `pnpm lint` — ESLint over `src`. Lint is *not* wired into the Vite dev server or build, so it only runs on explicit `pnpm lint`, via `lint-staged` on commit, and in CI. Run `pnpm lint` before shipping.
 
 Version bumps use `pnpm bump-version <version>` (no `v` prefix on tags — configured via `--tag-version-prefix=''`).
 
