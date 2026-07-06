@@ -45,7 +45,7 @@ function formatAuthor(authorNames, d) {
       {d.translators && d.translators.length > 0 && (
         <>
           <br />
-          <small className="translators">trans. {d.translatorNames}</small>
+          <small className="translators">transl. {d.translatorNames}</small>
         </>
       )}
     </span>

@@ -92,7 +92,7 @@ const PlayDetailsHeader = ({play, children}) => {
                   key={`translator-${t.fullname}`}
                   className={cx('translator')}
                 >
-                  tr. {t.fullname}
+                  transl. {t.fullname}
                 </h3>
               ))}
             </span>
