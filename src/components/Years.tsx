@@ -31,16 +31,19 @@ export function formatYear(yearString: string) {
     return `${formatEra(years[0])}-${formatEra(years[1], 1000)}`;
   }
 
-  // not before
-  if (yearString.match('^>-?[0-9]{4}')) {
-    const year = yearString.slice(1);
-    return `after ${formatEra(year, 1000)}`;
+  // not before — the API currently emits `>YYYY` for TEI `@notBefore`, which
+  // is semantically inclusive (≥). Accept `≥`/`>=` too so this keeps working
+  // once the API is corrected (see
+  // https://github.com/dracor-org/dracor-frontend/issues/400).
+  if (yearString.match('^(>=?|≥)-?[0-9]{4}')) {
+    const year = yearString.replace(/^(>=?|≥)/, '');
+    return `not before ${formatEra(year, 1000)}`;
   }
 
-  // not after
-  if (yearString.match('^<-?[0-9]{4}')) {
-    const year = yearString.slice(1);
-    return `before ${formatEra(year, 1000)}`;
+  // not after — same story for `<YYYY` (TEI `@notAfter`, inclusive ≤).
+  if (yearString.match('^(<=?|≤)-?[0-9]{4}')) {
+    const year = yearString.replace(/^(<=?|≤)/, '');
+    return `not after ${formatEra(year, 1000)}`;
   }
 
   // single year
