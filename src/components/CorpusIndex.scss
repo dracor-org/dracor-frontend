@@ -2,6 +2,11 @@ table.table.corpus {
   table-layout: auto;
 }
 
+.translators {
+  color: var(--gray, #6c757d);
+  font-style: italic;
+}
+
 .year-details {
   font-size: 60%;
   white-space: nowrap;

@@ -7,7 +7,7 @@ import style from './AuthorInfo.module.scss';
 
 const cx = classnames.bind(style);
 
-const AuthorInfo = ({author: {fullname, refs = []}}) => {
+const AuthorInfo = ({author: {fullname, refs = [], role}}) => {
   const [info, setInfo] = useState(null);
 
   const wikidataRef = refs.find((r) => r.type === 'wikidata');
@@ -64,8 +64,10 @@ const AuthorInfo = ({author: {fullname, refs = []}}) => {
 
   const {name, imageUrl, commonsPage, birth = [], death = []} = info || {};
 
+  const isTranslator = role === 'translator';
+
   return (
-    <div className={cx('main')}>
+    <div className={cx('main', {'is-translator': isTranslator})}>
       <div className={cx('image')}>
         {imageUrl && <img src={imageUrl} title={name} alt="" />}
         {commonsPage && (
@@ -77,6 +79,7 @@ const AuthorInfo = ({author: {fullname, refs = []}}) => {
             />
           </a>
         )}
+        {isTranslator && <span className={cx('role-badge')}>Translator</span>}
       </div>
       <span>
         <h4>{fullname}</h4>

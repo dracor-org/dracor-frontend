@@ -16,6 +16,7 @@ const PlayDetailsHeader = ({play, children}) => {
   const {
     id,
     authors,
+    editors = [],
     corpus,
     title,
     subtitle,
@@ -24,6 +25,8 @@ const PlayDetailsHeader = ({play, children}) => {
     yearPrinted,
     yearWritten,
   } = play;
+
+  const translators = editors.filter((e) => e.role === 'translator');
 
   const {corpora} = useContext(DracorContext);
   const {acronym} = corpora.find((c) => c.name === corpus) || {};
@@ -67,7 +70,10 @@ const PlayDetailsHeader = ({play, children}) => {
         </div>
         <div className={cx('authors')}>
           {authors.map((a) => (
-            <AuthorInfo key={a.fullname} author={a} />
+            <AuthorInfo key={`author-${a.fullname}`} author={a} />
+          ))}
+          {translators.map((t) => (
+            <AuthorInfo key={`translator-${t.fullname}`} author={t} />
           ))}
         </div>
       </div>
@@ -79,7 +85,15 @@ const PlayDetailsHeader = ({play, children}) => {
             <h1>{title}</h1>
             <span>
               {authors.map((a) => (
-                <h3 key={a.fullname}>{a.fullname}</h3>
+                <h3 key={`author-${a.fullname}`}>{a.fullname}</h3>
+              ))}
+              {translators.map((t) => (
+                <h3
+                  key={`translator-${t.fullname}`}
+                  className={cx('translator')}
+                >
+                  transl. {t.fullname}
+                </h3>
               ))}
             </span>
           </div>
