@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@dracor/registry':
-        specifier: ^1.15.0
-        version: 1.15.0
+        specifier: ^1.16.0
+        version: 1.16.0
       '@fortawesome/fontawesome-svg-core':
         specifier: ^7.3.1
         version: 7.3.1
@@ -345,8 +345,8 @@ packages:
     resolution: {integrity: sha512-QxULHAm7cNu72w97JUNCBFODFaXpbDg+dP8b/oWFAZ2MTRppA3U00Y2L1HqaS4J6yBqxwa/Y3nMBaxVKbB/NsA==}
     engines: {node: '>=20.19.0'}
 
-  '@dracor/registry@1.15.0':
-    resolution: {integrity: sha512-Vu5S7hu+5jIP1WJVylzBSwrm4Ga1N9GxOlkA0R2c5MYutLKs+PXNza64HlI7VOBvQyTYkTTWBkorTpCf9G2Jcg==}
+  '@dracor/registry@1.16.0':
+    resolution: {integrity: sha512-SBv3uKoJOu+DSqMigSjF3h1KmxtiDYUGnJQY7bfcvqCB45KbBxXruC3s6lgNDkJP+afOq9mV7ATGQzLhIXSKlw==}
 
   '@emnapi/core@1.11.1':
     resolution: {integrity: sha512-RSvbQmHzdKzNsLYa/wHrbc3KN4sYLKAdPZxqiM2HATqv/SBk2/ENSHpvXGaLOMcsAyz0poEGqkmmKYG3OWiJEQ==}
@@ -4516,7 +4516,7 @@ snapshots:
 
   '@csstools/css-tokenizer@4.0.0': {}
 
-  '@dracor/registry@1.15.0': {}
+  '@dracor/registry@1.16.0': {}
 
   '@emnapi/core@1.11.1':
     dependencies:

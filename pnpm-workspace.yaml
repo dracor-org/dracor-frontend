@@ -3,3 +3,5 @@ allowBuilds:
   core-js-pure: false
   esbuild: false
   msw: false
+minimumReleaseAgeExclude:
+  - '@dracor/registry@1.16.0'
