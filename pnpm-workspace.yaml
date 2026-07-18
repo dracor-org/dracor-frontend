@@ -1,7 +1,14 @@
 allowBuilds:
+  '@fortawesome/fontawesome-common-types': false
+  '@fortawesome/free-solid-svg-icons': false
+  '@parcel/watcher': true
+  '@scarf/scarf': false
+  '@tree-sitter-grammars/tree-sitter-yaml': true
   core-js: false
   core-js-pure: false
   esbuild: false
   msw: false
+  tree-sitter: true
+  tree-sitter-json: true
 minimumReleaseAgeExclude:
   - '@dracor/registry@1.16.0'
