@@ -4,9 +4,8 @@ WORKDIR /app
 ENV PATH=/app/node_modules/.bin:$PATH
 
 RUN apk add --no-cache git
-COPY package.json ./
-COPY pnpm-lock.yaml ./
-RUN npm install -g --force pnpm@10 && pnpm install
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+RUN npm install -g --force pnpm@11.13.1 && pnpm install
 COPY . ./
 RUN pnpm build
 
