@@ -1,5 +1,6 @@
 import {defineConfig, loadEnv} from 'vite';
 import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, process.cwd());
@@ -9,12 +10,11 @@ export default defineConfig(({mode}) => {
 
   return {
     base: '/',
-    plugins: [react()],
+    plugins: [react(), tailwindcss()],
     build: {
       outDir: 'build',
-      // This is a workaround to Vite 8 using lightningcss and rejecting IE-era
-      // CSS hacks used in yasgui. It can probably be remove once we replace
-      // yasgui with a modern solution.
+      // Workaround for Vite 8 lightningcss rejecting IE-era CSS hacks used in
+      // yasgui. Can probably be removed once yasgui is replaced.
       cssMinify: 'esbuild',
     },
     server: {

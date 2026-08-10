@@ -12,3 +12,4 @@ allowBuilds:
   tree-sitter-json: true
 minimumReleaseAgeExclude:
   - '@dracor/registry@1.16.0'
+  - '@dracor/react@1.4.0'

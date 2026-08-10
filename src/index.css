@@ -1,0 +1,4 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+@import '@dracor/react/dracor.css';
+@source '../node_modules/@dracor/react';
