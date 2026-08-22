@@ -1,5 +1,5 @@
 import classnames from 'classnames/bind';
-import api from '../api';
+import {apiUrl} from '../loaders';
 import style from './DownloadLinks.module.scss';
 import svgCSV from '../images/csv.svg';
 import svgGEXF from '../images/gexf.svg';
@@ -10,8 +10,6 @@ import svgTEI from '../images/tei.svg';
 import {Play} from '../types';
 
 const cx = classnames.bind(style);
-
-const apiUrl = api.getBaseURL();
 
 const DownloadLinks = ({play}: {play: Play}) => {
   const playUrl = `${apiUrl}/corpora/${play.corpus}/plays/${play.name}`;

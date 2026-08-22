@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {NavLink} from 'react-router-dom';
+import {Link as NavLink} from '@tanstack/react-router';
 import {Dropdown, DropdownToggle, DropdownMenu} from 'reactstrap';
 
 export interface NavItem {

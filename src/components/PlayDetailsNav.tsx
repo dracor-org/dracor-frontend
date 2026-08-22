@@ -1,4 +1,5 @@
-import {Nav, NavItem, NavLink} from 'reactstrap';
+import {Link} from '@tanstack/react-router';
+import {Nav, NavItem} from 'reactstrap';
 import classnames from 'classnames/bind';
 import style from './PlayDetailsNav.module.scss';
 
@@ -12,19 +13,22 @@ interface Item {
 interface Props {
   items: Item[];
   current?: string;
+  corpusId: string;
+  playId: string;
 }
 
-const PlayDetailsNav = ({items, current}: Props) => {
+const PlayDetailsNav = ({items, current, corpusId, playId}: Props) => {
   return (
     <Nav tabs className={cx('main')}>
       {items.map((item) => (
         <NavItem key={item.name}>
-          <NavLink
-            href={`#${item.name}`}
-            className={cx({active: current === item.name})}
+          <Link
+            to="/$corpusId/$playId/$tab"
+            params={{corpusId, playId, tab: item.name}}
+            className={cx('nav-link', {active: current === item.name})}
           >
             {item.label || item.name}
-          </NavLink>
+          </Link>
         </NavItem>
       ))}
     </Nav>

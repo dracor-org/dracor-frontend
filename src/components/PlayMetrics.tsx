@@ -1,45 +1,17 @@
-import {useEffect, useState} from 'react';
-import api from '../api';
 import {Play, PlayMetrics as Metrics} from '../types';
 
 function round(n: number) {
   return Math.round(n * 100) / 100;
 }
 
-const PlayMetrics = ({play}: {play: Play}) => {
-  const [metrics, setMetrics] = useState<Metrics>();
-  const [error, setError] = useState<Error>();
+interface Props {
+  play: Play;
+  metrics?: Metrics;
+}
 
-  useEffect(() => {
-    const fetchMetrics = async () => {
-      setError(undefined);
-      const url = `/corpora/${play.corpus}/plays/${play.name}/metrics`;
-      try {
-        const response = await api.get(url);
-        if (response.ok) {
-          setMetrics(response.data as Metrics);
-        } else if (response.status === 404) {
-          setError(new Error('not found'));
-        } else {
-          setError(response.originalError);
-        }
-      } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error(error);
-      }
-    };
-
-    fetchMetrics();
-  }, [play]);
-
-  if (error) {
-    // eslint-disable-next-line no-console
-    console.log(error);
-    return <p>Error!</p>;
-  }
-
+const PlayMetrics = ({play, metrics}: Props) => {
   if (!metrics) {
-    return <p>Loading...</p>;
+    return <p>Loading metrics…</p>;
   }
 
   const {
