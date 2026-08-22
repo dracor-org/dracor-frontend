@@ -1,17 +1,15 @@
+import {Link} from '@tanstack/react-router';
 import {Container} from 'reactstrap';
 import {Helmet} from 'react-helmet';
-import {Link, useLocation} from 'react-router-dom';
 import SwaggerUI from 'swagger-ui-react';
-import {apiUrl, legacyApiUrl, legacyDocPath} from '../config';
+import {apiUrl, legacyApiUrl} from '../config';
 import Footer from './Footer';
 
 import 'swagger-ui-react/swagger-ui.css';
 import './APIDoc.scss';
 
-const APIDoc = () => {
-  const location = useLocation();
-
-  if (location.pathname === legacyDocPath) {
+const APIDoc = ({mode = 'current'}) => {
+  if (mode === 'legacy') {
     return (
       <Container fluid>
         <Helmet titleTemplate="%s - DraCor">

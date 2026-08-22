@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {NavLink as RouterNavLink} from 'react-router-dom';
+import {Link as RouterNavLink} from '@tanstack/react-router';
 import Headroom from 'react-headroom';
 import {
   Collapse,
@@ -48,7 +48,11 @@ const TopNav = ({sitemap}) => {
                 <CorporaDropdown key="_corpora_" />
               ) : (
                 <NavItem tag="div" key={entry.label}>
-                  <RouterNavLink to={entry.href} className="nav-link">
+                  <RouterNavLink
+                    to={entry.href}
+                    className="nav-link"
+                    activeProps={{className: 'nav-link active'}}
+                  >
                     {entry.label}
                   </RouterNavLink>
                 </NavItem>

@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom';
+import {Link} from '@tanstack/react-router';
 import Commit from './Commit';
 
 // Numbers received from the API can be in scientific notation (e.g.

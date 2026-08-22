@@ -1,5 +1,4 @@
 import {useEffect, useRef} from 'react';
-import axios from 'axios';
 import {guidelinesUrl} from '../config';
 import './Odd.scss';
 
@@ -7,15 +6,15 @@ const Odd = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    async function fetchMarkdown() {
+    async function fetchOdd() {
       const html = document.createElement('html');
       try {
-        const response = await axios.get(guidelinesUrl);
+        const response = await fetch(guidelinesUrl);
         while (ref.current?.firstChild) {
           ref.current.removeChild(ref.current.firstChild);
         }
-        if (response.status === 200) {
-          html.innerHTML = response.data;
+        if (response.ok) {
+          html.innerHTML = await response.text();
           html.querySelectorAll('body > div').forEach((div) => {
             ref.current?.appendChild(div);
           });
@@ -38,7 +37,7 @@ const Odd = () => {
       }
     }
 
-    fetchMarkdown();
+    fetchOdd();
   }, []);
 
   return (
