@@ -1,6 +1,4 @@
 import {Link} from '@tanstack/react-router';
-import {Container} from 'reactstrap';
-import {Helmet} from 'react-helmet';
 import SwaggerUI from 'swagger-ui-react';
 import {apiUrl, legacyApiUrl} from '../config';
 import Footer from './Footer';
@@ -11,10 +9,8 @@ import './APIDoc.scss';
 const APIDoc = ({mode = 'current'}) => {
   if (mode === 'legacy') {
     return (
-      <Container fluid>
-        <Helmet titleTemplate="%s - DraCor">
-          <title>API Documentation v0 (legacy)</title>
-        </Helmet>
+      <div className="container-fluid">
+        <title>API Documentation v0 (legacy) - DraCor</title>
         <p className="legacy-disclaimer">
           Note: This is the documentation for the legacy v0 API. The current API
           documentation is available <Link to="/doc/api">here</Link>.
@@ -24,18 +20,16 @@ const APIDoc = ({mode = 'current'}) => {
         )}
         {!legacyApiUrl && <p>Legacy API not available!</p>}
         <Footer />
-      </Container>
+      </div>
     );
   }
 
   return (
-    <Container fluid>
-      <Helmet titleTemplate="%s - DraCor">
-        <title>API Documentation</title>
-      </Helmet>
+    <div className="container-fluid">
+      <title>API Documentation - DraCor</title>
       <SwaggerUI url={`${apiUrl}/openapi.yaml`} deepLinking />
       <Footer />
-    </Container>
+    </div>
   );
 };
 
