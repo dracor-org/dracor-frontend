@@ -128,7 +128,6 @@ body {
 #root {
   background-color: var(--background);
   height: auto;
-  margin-top: calc(5 * var(--bootstrap-padding));
 }
 
 ul {
@@ -251,7 +250,8 @@ a:hover {
   padding: var(--bootstrap-padding);
 }
 
-.dracor-page img[alt~='card'], .dracor-page img[alt*='photo' i] {
+.dracor-page img[alt~='card'],
+.dracor-page img[alt*='photo' i] {
   max-height: 30em;
   margin: 0 var(--bootstrap-padding) var(--bootstrap-padding) 0;
   border-radius: 1em;
@@ -416,20 +416,20 @@ a:hover {
   margin-top: 0.1em;
 }
 
-.corpus-description a[rel~="licence"][href="https://creativecommons.org/licenses/by-nc/3.0/deed.en_US"]:after
-{
+.corpus-description
+  a[rel~='licence'][href='https://creativecommons.org/licenses/by-nc/3.0/deed.en_US']:after {
   content: url(./images/cc-by-nc.svg);
   width: 4em;
 }
 
-.corpus-description a[rel~="licence"][href="https://creativecommons.org/licenses/by-sa/3.0/us/"]:after
-{
+.corpus-description
+  a[rel~='licence'][href='https://creativecommons.org/licenses/by-sa/3.0/us/']:after {
   content: url(./images/cc-by-sa.svg);
   width: 4em;
 }
 
-.corpus-description a[rel~="licence"][href="https://creativecommons.org/share-your-work/public-domain/cc0/"]:after
-{
+.corpus-description
+  a[rel~='licence'][href='https://creativecommons.org/share-your-work/public-domain/cc0/']:after {
   content: url(./images/cc0.svg);
   width: 2.6em;
 }
@@ -730,12 +730,6 @@ table.table.corpus th:focus {
 .version-pill > a:hover {
   background-color: #0056b3;
   color: var(--secondary-accent);
-}
-
-@media only screen and (max-width: 1440px) {
-  :root {
-    font-size: 0.85rem;
-  }
 }
 
 #eu-funding-note,

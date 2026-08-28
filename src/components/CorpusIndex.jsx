@@ -1,5 +1,4 @@
 import {Link} from '@tanstack/react-router';
-import {Helmet} from 'react-helmet';
 import BootstrapTable from 'react-bootstrap-table-next';
 // see https://github.com/react-bootstrap-table/react-bootstrap-table2/pull/1506
 import ToolkitProvider, {
@@ -221,9 +220,7 @@ const CorpusIndex = ({data}) => {
 
   return (
     <div>
-      <Helmet titleTemplate="%s - DraCor">
-        <title>{data.title}</title>
-      </Helmet>
+      <title>{`${data.title} - DraCor`}</title>
       <ToolkitProvider
         search
         keyField="name"

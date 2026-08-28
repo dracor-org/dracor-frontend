@@ -1,6 +1,4 @@
 import ReactMarkdown from 'react-markdown';
-import {Helmet} from 'react-helmet';
-import {Container, Col} from 'reactstrap';
 import rehypeRaw from 'rehype-raw';
 import Header from './Header';
 import Footer from './Footer';
@@ -12,16 +10,14 @@ interface Props {
 
 const DocPage = ({markdown, title}: Props) => {
   return (
-    <Container fluid>
+    <div className="container-fluid">
       <div className="dracor-page">
-        <Helmet titleTemplate="%s - DraCor">
-          <title>{title}</title>
-        </Helmet>
+        <title>{`${title} - DraCor`}</title>
         <ReactMarkdown
           components={{
             h1: ({children}) => (
               <Header>
-                <Col tag="h1">{children}</Col>
+                <h1 className="col">{children}</h1>
               </Header>
             ),
           }}
@@ -31,7 +27,7 @@ const DocPage = ({markdown, title}: Props) => {
         </ReactMarkdown>
         <Footer />
       </div>
-    </Container>
+    </div>
   );
 };
 
