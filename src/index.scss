@@ -534,7 +534,7 @@ table.table.corpus th:focus {
   font-size: 60% !important;
 }
 
-.download-button {
+.tei-download-button {
   color: var(--background-light);
   border-radius: 0.5em;
   background-color: var(--main);
@@ -547,7 +547,7 @@ table.table.corpus th:focus {
   transition: all 0.3s ease-in-out;
 }
 
-.download-button:hover {
+.tei-download-button:hover {
   text-decoration: none;
   color: var(--secondary-accent);
   box-shadow: 0 3px 0px 0 #33405220;

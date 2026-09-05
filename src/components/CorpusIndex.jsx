@@ -119,7 +119,7 @@ function formatSource(d, corpusId) {
       )}
       <br />
       <a
-        className="download-button"
+        className="tei-download-button"
         href={teiUrl}
         target="_blank"
         rel="noreferrer noopener"
