@@ -32,11 +32,7 @@ function renderCorpus({
           License: <a href={license.url}>{license.name}</a>
         </>
       )}
-      {description && (
-        <p>
-          <ReactMarkdown>{description}</ReactMarkdown>
-        </p>
-      )}
+      {description && <ReactMarkdown>{description}</ReactMarkdown>}
     </li>
   );
 }
