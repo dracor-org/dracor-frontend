@@ -42,9 +42,7 @@ function RootComponent() {
   const isLoading = useRouterState({select: (s) => s.isLoading});
 
   return (
-    <DracorContext.Provider
-      value={{corpora: corpora as never[], apiInfo, sitemap}}
-    >
+    <DracorContext value={{corpora: corpora as never[], apiInfo, sitemap}}>
       <HeadContent />
       <div className="d-flex flex-column" style={{height: '100%'}}>
         <TopNav sitemap={sitemap} />
@@ -53,6 +51,6 @@ function RootComponent() {
           <Outlet />
         </Suspense>
       </div>
-    </DracorContext.Provider>
+    </DracorContext>
   );
 }

@@ -1,4 +1,4 @@
-import {useContext, type ComponentProps} from 'react';
+import {use, type ComponentProps} from 'react';
 import {NavBar} from '@dracor/react';
 import {DracorContext} from '../context';
 import {showPrizeBadge, version} from '../config';
@@ -94,7 +94,7 @@ const prizeBadge = (
 type NavBarItems = ComponentProps<typeof NavBar>['navItems'];
 
 const TopNav = ({sitemap}: {sitemap: Sitemap}) => {
-  const {corpora = []} = useContext(DracorContext);
+  const {corpora = []} = use(DracorContext);
   const navItems = buildNavItems(
     sitemap,
     corpora as CorpusEntry[]
