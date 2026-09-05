@@ -1,4 +1,4 @@
-import {useContext, useState} from 'react';
+import {use, useState} from 'react';
 import classnames from 'classnames/bind';
 import {compareVersions} from 'compare-versions';
 import {DracorContext} from '../context';
@@ -13,7 +13,7 @@ interface Props {
 }
 
 export default function ToolsTab({corpusId, playId}: Props) {
-  const {apiInfo} = useContext(DracorContext);
+  const {apiInfo} = use(DracorContext);
   const [textType, setTextType] = useState<
     'tei' | 'txt' | 'spoken-text' | 'stage-directions'
   >('tei');

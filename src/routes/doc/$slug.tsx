@@ -1,13 +1,31 @@
 import {createFileRoute} from '@tanstack/react-router';
-import {fetchDocMarkdown} from '../../loaders';
-import DocPage from '../../components/DocPage';
+import {DocPage} from '@dracor/react';
+import rehypeRaw from 'rehype-raw';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 export const Route = createFileRoute('/doc/$slug')({
-  loader: ({params}) => fetchDocMarkdown(params.slug),
   component: DocRoute,
 });
 
 function DocRoute() {
-  const {markdown, title} = Route.useLoaderData();
-  return <DocPage markdown={markdown} title={title} />;
+  const {slug} = Route.useParams();
+  return (
+    <div className="container-fluid">
+      <div className="dracor-page">
+        <DocPage
+          url={`/doc/${slug}.md`}
+          rehypePlugins={[rehypeRaw]}
+          components={{
+            h1: ({children}) => (
+              <Header>
+                <h1 className="col">{children}</h1>
+              </Header>
+            ),
+          }}
+        />
+        <Footer />
+      </div>
+    </div>
+  );
 }

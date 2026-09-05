@@ -141,23 +141,6 @@ export async function fetchWikidataAuthor(
   }
 }
 
-export interface DocMarkdown {
-  markdown: string;
-  title: string;
-}
-
-export async function fetchDocMarkdown(slug: string): Promise<DocMarkdown> {
-  const response = await fetch(`/doc/${slug}.md`);
-  const contentType = response.headers.get('content-type') || '';
-  if (response.status !== 200 || !/^text\/markdown/.test(contentType)) {
-    return {markdown: 'Not Found', title: 'Not Found'};
-  }
-  const markdown = await response.text();
-  const firstLine = markdown.replace(/^\s+/, '').split(/(\n|\r|\r\n){2,}/)[0];
-  const m = firstLine.match(/^#\s*(.+)/);
-  return {markdown, title: m ? m[1] : '...'};
-}
-
 export async function fetchSitemap(url: string): Promise<Sitemap> {
   const response = await fetch(url, {
     headers: {Accept: 'application/json'},

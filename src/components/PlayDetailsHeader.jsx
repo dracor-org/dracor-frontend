@@ -1,4 +1,4 @@
-import {useContext} from 'react';
+import {use} from 'react';
 import classnames from 'classnames/bind';
 import Sticky from 'react-stickynode';
 import AuthorInfo from './AuthorInfo';
@@ -28,7 +28,7 @@ const PlayDetailsHeader = ({play, children}) => {
 
   const translators = editors.filter((e) => e.role === 'translator');
 
-  const {corpora} = useContext(DracorContext);
+  const {corpora} = use(DracorContext);
   const {acronym} = corpora.find((c) => c.name === corpus) || {};
 
   return (
