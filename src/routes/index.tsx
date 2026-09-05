@@ -1,6 +1,4 @@
 import {createFileRoute} from '@tanstack/react-router';
-import {Helmet} from 'react-helmet';
-import {Container} from 'reactstrap';
 import {sitemapUrl} from '../config';
 import {fetchCorpora} from '../loaders';
 import Corpora from '../components/Corpora';
@@ -16,16 +14,14 @@ function HomeRoute() {
   const data = Route.useLoaderData();
   return (
     <>
-      <Helmet titleTemplate="%s - DraCor">
-        <title>Home</title>
-      </Helmet>
-      <Container fluid style={{zIndex: 1}}>
+      <title>Home - DraCor</title>
+      <div className="container-fluid" style={{zIndex: 1}}>
         <Header>DraCor - Open Infrastructure for Drama Analysis</Header>
-      </Container>
+      </div>
       <Corpora data={data} />
-      <Container fluid>
+      <div className="container-fluid">
         <Footer withSitemap={!!sitemapUrl} />
-      </Container>
+      </div>
     </>
   );
 }

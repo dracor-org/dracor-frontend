@@ -1,4 +1,21 @@
-@import 'tailwindcss';
+/*
+  Tailwind is imported with `important` so its utilities beat Bootstrap 4's
+  `!important`-suffixed utility classes (e.g. `.bg-primary`, `.text-white`)
+  which are still loaded until Phase 3 fully retires bootstrap.css. Remove
+  the `important` flag when Bootstrap is gone.
+*/
+@import 'tailwindcss' important;
 @plugin '@tailwindcss/typography';
 @import '@dracor/react/dracor.css';
 @source '../node_modules/@dracor/react';
+
+/*
+  NavBar dropdown from @dracor/react's NavMenu — Headless UI Menu.Items div.
+  Without a max-height, long lists (e.g. all corpora) run past the viewport
+  and neither the page nor the dropdown scrolls. Cap it and let the dropdown
+  scroll internally. Consider contributing this upstream.
+*/
+nav [role='menu'] {
+  max-height: calc(100vh - 6rem);
+  overflow-y: auto;
+}

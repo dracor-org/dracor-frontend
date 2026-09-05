@@ -1,6 +1,4 @@
 import {useMemo, useState} from 'react';
-import {Container} from 'reactstrap';
-import {Helmet} from 'react-helmet';
 import {apiUrl} from '../loaders';
 import {makeGraph} from '../network';
 import PlayDetailsHeader from './PlayDetailsHeader';
@@ -137,9 +135,7 @@ const PlayInfo = ({play, metrics, tab: rawTab}) => {
 
   return (
     <div className="h-100 d-md-flex flex-md-column dracor-page">
-      <Helmet titleTemplate="%s - DraCor">
-        <title>{`${authors}: ${play.title}`}</title>
-      </Helmet>
+      <title>{`${authors}: ${play.title} - DraCor`}</title>
       <PlayDetailsHeader play={play}>
         <PlayDetailsNav
           items={items}
@@ -148,7 +144,7 @@ const PlayInfo = ({play, metrics, tab: rawTab}) => {
           playId={play.name}
         />
       </PlayDetailsHeader>
-      <Container fluid>
+      <div className="container-fluid">
         <PlayDetailsTab
           characters={characters}
           description={description}
@@ -157,7 +153,7 @@ const PlayInfo = ({play, metrics, tab: rawTab}) => {
         >
           {tabContent}
         </PlayDetailsTab>
-      </Container>
+      </div>
     </div>
   );
 };

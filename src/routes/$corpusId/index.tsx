@@ -1,5 +1,4 @@
 import {createFileRoute, notFound} from '@tanstack/react-router';
-import {Helmet} from 'react-helmet';
 import {fetchCorpus, isNotFound} from '../../loaders';
 import Corpus from '../../components/Corpus';
 
@@ -29,9 +28,7 @@ function CorpusRoute() {
   const corpus = Route.useLoaderData();
   return (
     <>
-      <Helmet titleTemplate="%s - DraCor">
-        <title>{corpus.title}</title>
-      </Helmet>
+      <title>{`${corpus.title} - DraCor`}</title>
       <Corpus corpus={corpus} />
     </>
   );

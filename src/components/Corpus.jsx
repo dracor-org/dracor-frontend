@@ -1,4 +1,3 @@
-import {Container} from 'reactstrap';
 import CorpusIndex from './CorpusIndex';
 import Header from './Header';
 import Footer from './Footer';
@@ -10,7 +9,7 @@ const cx = classnames.bind(style);
 
 const Corpus = ({corpus}) => {
   return (
-    <Container fluid>
+    <div className="container-fluid">
       <div>
         <div className={cx('label-wrapper')}>
           <CorpusLabel
@@ -23,7 +22,7 @@ const Corpus = ({corpus}) => {
         <CorpusIndex data={corpus} />
         <Footer />
       </div>
-    </Container>
+    </div>
   );
 };
 
