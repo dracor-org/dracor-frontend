@@ -1,4 +1,4 @@
-import {useContext} from 'react';
+import {use} from 'react';
 import {version} from '../config';
 import {DracorContext} from '../context';
 import svgBibTex from '../images/bibtex.svg';
@@ -13,7 +13,7 @@ interface Props {
 }
 
 const Footer = ({withSitemap = false}: Props) => {
-  const {apiInfo} = useContext(DracorContext);
+  const {apiInfo} = use(DracorContext);
 
   const apiVersion = apiInfo?.version;
   const existdb = apiInfo?.existdb;
@@ -34,7 +34,7 @@ const Footer = ({withSitemap = false}: Props) => {
           <SitemapOverview />
         </div>
       )}
-      <div className="flex flex-wrap gap-6 bg-gradient-to-t from-[#ebf0f6] to-[#e3e8f1] px-4 py-3 text-sm/relaxed max-md:flex-col">
+      <div className="flex flex-wrap gap-6 bg-linear-to-t from-[#ebf0f6] to-[#e3e8f1] px-4 py-3 text-sm/relaxed max-md:flex-col">
         <div className="flex flex-1 flex-wrap items-end">
           <h5 className="w-full whitespace-nowrap max-md:whitespace-normal">
             If you want to cite DraCor, <wbr />

@@ -1,4 +1,4 @@
-import {useContext} from 'react';
+import {use} from 'react';
 import {Link} from '@tanstack/react-router';
 import classnames from 'classnames/bind';
 import {DracorContext} from '../context';
@@ -8,7 +8,7 @@ import style from './SitemapOverview.module.scss';
 const cx = classnames.bind(style);
 
 const SitemapOverview = () => {
-  const {sitemap = []} = useContext(DracorContext);
+  const {sitemap = []} = use(DracorContext);
   const nodes = sitemap.filter(
     (entry): entry is SitemapNode => 'items' in entry
   );
