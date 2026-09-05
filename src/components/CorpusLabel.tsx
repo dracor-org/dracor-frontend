@@ -1,8 +1,4 @@
 import {Link} from '@tanstack/react-router';
-import classnames from 'classnames/bind';
-import style from './CorpusLabel.module.scss';
-
-const cx = classnames.bind(style);
 
 interface Props {
   name: string;
@@ -10,18 +6,24 @@ interface Props {
   acronym?: string;
 }
 
-const CorpusLabel = ({name, title, acronym}: Props) => {
+export default function CorpusLabel({name, title, acronym}: Props) {
   const prefix = acronym
     ? acronym.replace('DraCor', '')
     : name.charAt(0).toUpperCase() + name.slice(1);
 
   return (
-    <span className={cx('main')}>
-      <Link to={`/${name}`} title={title || 'Corpus'}>
-        <em>{prefix}</em>DraCor
+    <span className="inline-flex bg-white text-primary rounded-md text-lg font-medium py-0.5 pr-1 pl-0.5">
+      <Link
+        to="/$corpusId"
+        params={{corpusId: name}}
+        title={title || 'Corpus'}
+        className="text-primary hover:no-underline flex leading-tight"
+      >
+        <em className="bg-primary text-white rounded px-1 mr-0.5 font-normal not-italic capitalize hover:bg-secondary-200">
+          {prefix}
+        </em>
+        DraCor
       </Link>
     </span>
   );
-};
-
-export default CorpusLabel;
+}

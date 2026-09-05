@@ -70,6 +70,7 @@ export interface CorpusDetail {
   acronym?: string;
   description?: string;
   repository?: string;
+  commit?: string;
   licence?: string;
   licenceUrl?: string;
   plays: PlayListEntry[];
@@ -82,10 +83,10 @@ export interface PlayListEntry {
   subtitle?: string;
   authors?: {name: string}[];
   editors?: {name: string; role?: string}[];
-  yearNormalized?: number;
-  yearWritten?: string;
-  yearPremiered?: string;
-  yearPrinted?: string;
+  yearNormalized?: number | null;
+  yearWritten?: string | null;
+  yearPremiered?: string | null;
+  yearPrinted?: string | null;
   networkSize?: number | string;
   wikidataId?: string;
   // Derived on the client — kept because existing CorpusIndex reads them.

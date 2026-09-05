@@ -382,156 +382,33 @@ a:hover {
   line-height: 1em;
 }
 
-// adjust position of prev/next buttons
-.slick-arrow.slick-next {
-  right: 20%;
-}
-.slick-arrow.slick-prev {
-  left: 20%;
-}
-@media (max-width: 1280px) {
-  .slick-arrow.slick-next {
-    right: 15%;
-  }
-  .slick-arrow.slick-prev {
-    left: 15%;
-  }
-}
-
 /* ############################# */
 /* #CORPUS                     # */
 /* ############################# */
 
 .corpus-description {
-  display: flex;
-}
+  a[rel~='licence'] {
+    &:after {
+      position: absolute;
+      margin-left: 0.3em;
+      margin-top: 0.1em;
+    }
 
-.corpus-description > div {
-  width: calc(100% - 20em);
-  margin-right: 2em;
-}
+    &[href='https://creativecommons.org/licenses/by-nc/3.0/deed.en_US']:after {
+      content: url(./images/cc-by-nc.svg);
+      width: 4em;
+    }
 
-.corpus-description a[rel~='licence']:after {
-  position: absolute;
-  margin-left: 0.3em;
-  margin-top: 0.1em;
-}
+    &[href='https://creativecommons.org/licenses/by-sa/3.0/us/']:after {
+      content: url(./images/cc-by-sa.svg);
+      width: 4em;
+    }
 
-.corpus-description
-  a[rel~='licence'][href='https://creativecommons.org/licenses/by-nc/3.0/deed.en_US']:after {
-  content: url(./images/cc-by-nc.svg);
-  width: 4em;
-}
-
-.corpus-description
-  a[rel~='licence'][href='https://creativecommons.org/licenses/by-sa/3.0/us/']:after {
-  content: url(./images/cc-by-sa.svg);
-  width: 4em;
-}
-
-.corpus-description
-  a[rel~='licence'][href='https://creativecommons.org/share-your-work/public-domain/cc0/']:after {
-  content: url(./images/cc0.svg);
-  width: 2.6em;
-}
-
-.search-label {
-  align-self: right;
-}
-
-.search-label .form-control {
-  color: var(--main);
-  width: 20em;
-  background-color: #fff;
-  border: 0;
-  border-radius: 2em;
-  box-shadow:
-    1px 3px 6px rgba(0, 0, 0, 0.16),
-    1px 3px 6px rgba(0, 0, 0, 0.23);
-  transition: 2s ease-in-out;
-}
-
-.search-label .form-control:hover,
-.search-label .form-control:focus {
-  box-shadow:
-    inset 1px 3px 6px rgba(0, 0, 0, 0.16),
-    inset 1px 3px 6px rgba(0, 0, 0, 0.23);
-}
-
-.react-bootstrap-table th .order-4:after,
-.react-bootstrap-table th .caret-4-asc:after,
-.react-bootstrap-table th .caret-4-desc:after {
-  content: '\25BC' !important;
-  font-size: 0.9em;
-}
-
-.react-bootstrap-table th .order-4:before,
-.react-bootstrap-table th .caret-4-asc:before,
-.react-bootstrap-table th .caret-4-desc:before {
-  content: '\25B2' !important;
-}
-
-table a:hover {
-  text-decoration: none;
-}
-
-.corpus-wrapper {
-  margin: var(--bootstrap-padding) calc(0em - var(--bootstrap-padding));
-  color: var(--main);
-  width: calc(100% + var(--bootstrap-padding) * 2);
-  overflow-x: auto;
-}
-
-table.table.corpus tr td:first-child {
-  text-align: right;
-  line-height: 1.65;
-}
-
-table.table.corpus tr:nth-child(odd) {
-  background-color: var(--main-shade);
-}
-
-table.table.corpus tr:nth-child(even) {
-  background-color: var(--background);
-}
-
-table.table.corpus th {
-  background-color: var(--background);
-  font-weight: 500;
-  width: 10em;
-}
-
-table.table.corpus th:first-child {
-  text-align: right;
-}
-
-table.table.corpus th:focus {
-  outline: none;
-}
-
-.table-bordered th,
-.table-bordered td {
-  border: 0;
-}
-
-.table-bordered {
-  border: 0;
-}
-
-.drama-title {
-  font-size: 1.5em;
-  color: var(--main);
-  line-height: 1;
-}
-
-.year {
-  font-weight: 400;
-  font-size: 1.5em;
-  line-height: 0.9;
-}
-
-.year-details {
-  font-size: 60% !important;
+    &[href='https://creativecommons.org/share-your-work/public-domain/cc0/']:after {
+      content: url(./images/cc0.svg);
+      width: 2.6em;
+    }
+  }
 }
 
 .tei-download-button {
@@ -807,12 +684,6 @@ table.table.corpus th:focus {
   }
   .corpus-card table tbody tr {
     height: 3.5rem;
-  }
-  .corpus-description {
-    flex-direction: column;
-  }
-  .corpus-description > div {
-    width: 100%;
   }
   .search-label .form-control {
     width: 94vw;
