@@ -45,7 +45,7 @@ function AuthorsCell({row}: {row: PlayListEntry}) {
             {keys.map((id, i) => (
               <span key={id}>
                 {i > 0 && ' '}
-                <IdLink button>{`wikidata:${id}`}</IdLink>
+                <IdLink>{`wikidata:${id}`}</IdLink>
               </span>
             ))}
           </small>

@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@dracor/react':
-        specifier: ^1.6.0
-        version: 1.6.0(@fortawesome/fontawesome-svg-core@7.3.1)(@fortawesome/free-brands-svg-icons@7.3.1)(@fortawesome/free-solid-svg-icons@7.3.1)(@fortawesome/react-fontawesome@3.5.0(@fortawesome/fontawesome-svg-core@7.3.1)(react@19.2.8))(@headlessui/react@2.2.10(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(@scalar/api-reference-react@0.9.65(axios@1.19.0)(react@19.2.8)(sortablejs@1.15.7)(tailwindcss@4.3.3)(typescript@6.0.3)(zod@4.4.3))(@tanstack/react-router@1.170.31(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(@tanstack/react-table@8.21.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(CETEIcean@1.9.5)(react-dom@19.2.8(react@19.2.8))(react-markdown@10.1.0(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
+        specifier: ^1.7.0
+        version: 1.7.0(@fortawesome/fontawesome-svg-core@7.3.1)(@fortawesome/free-brands-svg-icons@7.3.1)(@fortawesome/free-solid-svg-icons@7.3.1)(@fortawesome/react-fontawesome@3.5.0(@fortawesome/fontawesome-svg-core@7.3.1)(react@19.2.8))(@headlessui/react@2.2.10(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(@scalar/api-reference-react@0.9.65(axios@1.19.0)(react@19.2.8)(sortablejs@1.15.7)(tailwindcss@4.3.3)(typescript@6.0.3)(zod@4.4.3))(@tanstack/react-router@1.170.31(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(@tanstack/react-table@8.21.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(CETEIcean@1.9.5)(react-dom@19.2.8(react@19.2.8))(react-markdown@10.1.0(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)
       '@dracor/registry':
         specifier: ^1.16.0
         version: 1.16.0
@@ -392,8 +392,8 @@ packages:
     resolution: {integrity: sha512-QxULHAm7cNu72w97JUNCBFODFaXpbDg+dP8b/oWFAZ2MTRppA3U00Y2L1HqaS4J6yBqxwa/Y3nMBaxVKbB/NsA==}
     engines: {node: '>=20.19.0'}
 
-  '@dracor/react@1.6.0':
-    resolution: {integrity: sha512-BEsHDE3zrGtBGufsMtwBfPb9jvLOhxvg67VtO53kMBtbDKJU3uj5K6SM2pM763dyFwjntyPPsUqnBbdMfBRvYA==}
+  '@dracor/react@1.7.0':
+    resolution: {integrity: sha512-BztJo35LW3xHkZ/KEDPTREEtBXLXP9FEYqrzEhrUhBSiw3RxnPKpRsKvRoXSZqF71ZfPibbuzARVJWEaNR6+rw==}
     peerDependencies:
       '@fortawesome/fontawesome-svg-core': ^7.2.0
       '@fortawesome/free-brands-svg-icons': ^7.2.0
@@ -5102,7 +5102,7 @@ snapshots:
 
   '@csstools/css-tokenizer@4.0.0': {}
 
-  '@dracor/react@1.6.0(@fortawesome/fontawesome-svg-core@7.3.1)(@fortawesome/free-brands-svg-icons@7.3.1)(@fortawesome/free-solid-svg-icons@7.3.1)(@fortawesome/react-fontawesome@3.5.0(@fortawesome/fontawesome-svg-core@7.3.1)(react@19.2.8))(@headlessui/react@2.2.10(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(@scalar/api-reference-react@0.9.65(axios@1.19.0)(react@19.2.8)(sortablejs@1.15.7)(tailwindcss@4.3.3)(typescript@6.0.3)(zod@4.4.3))(@tanstack/react-router@1.170.31(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(@tanstack/react-table@8.21.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(CETEIcean@1.9.5)(react-dom@19.2.8(react@19.2.8))(react-markdown@10.1.0(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)':
+  '@dracor/react@1.7.0(@fortawesome/fontawesome-svg-core@7.3.1)(@fortawesome/free-brands-svg-icons@7.3.1)(@fortawesome/free-solid-svg-icons@7.3.1)(@fortawesome/react-fontawesome@3.5.0(@fortawesome/fontawesome-svg-core@7.3.1)(react@19.2.8))(@headlessui/react@2.2.10(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(@scalar/api-reference-react@0.9.65(axios@1.19.0)(react@19.2.8)(sortablejs@1.15.7)(tailwindcss@4.3.3)(typescript@6.0.3)(zod@4.4.3))(@tanstack/react-router@1.170.31(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(@tanstack/react-table@8.21.3(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(CETEIcean@1.9.5)(react-dom@19.2.8(react@19.2.8))(react-markdown@10.1.0(@types/react@19.2.18)(react@19.2.8))(react@19.2.8)':
     dependencies:
       '@fortawesome/fontawesome-svg-core': 7.3.1
       '@fortawesome/free-brands-svg-icons': 7.3.1
