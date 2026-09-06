@@ -17,11 +17,7 @@ function DocRoute() {
           url={`/doc/${slug}.md`}
           rehypePlugins={[rehypeRaw]}
           components={{
-            h1: ({children}) => (
-              <Header>
-                <h1 className="col">{children}</h1>
-              </Header>
-            ),
+            h1: ({children}) => <Header>{children}</Header>,
           }}
         />
         <Footer />
