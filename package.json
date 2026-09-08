@@ -26,7 +26,7 @@
     "react-headroom": "^3.0.1",
     "react-helmet": "^6.1.0",
     "react-markdown": "^10.1.0",
-    "react-router-dom": "^6.26.0",
+    "react-router-dom": "^6.30.6",
     "react-sigma": "^1.2.35",
     "react-slick": "^0.30.3",
     "react-stickynode": "^3.0.4",
