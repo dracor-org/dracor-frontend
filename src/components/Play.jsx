@@ -139,7 +139,6 @@ const PlayInfo = ({play, metrics, tab: rawTab}) => {
       <PlayDetailsHeader play={play}>
         <PlayDetailsNav
           items={items}
-          current={tab}
           corpusId={play.corpus}
           playId={play.name}
         />
