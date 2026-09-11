@@ -21,5 +21,9 @@ export default function PlayDetailsNav({items, corpusId, playId}: Props) {
     to: `/${corpusId}/${playId}/${item.name}`,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   })) as any;
-  return <Tabs data={data} />;
+  return (
+    <div className="dracor-tabs">
+      <Tabs data={data} />
+    </div>
+  );
 }

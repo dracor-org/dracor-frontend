@@ -26,3 +26,55 @@ nav [role='menu'] {
   max-height: calc(100vh - 6rem);
   overflow-y: auto;
 }
+
+/*
+  Restyle @dracor/react Tabs to reproduce the pre-migration DraCor
+  tab bar.
+
+  Wrapped in `@layer utilities` because Tailwind's `important` mode
+  puts its `.border-b`, `.text-gray-500`, `.border-b-2`, etc. into
+  the utilities layer with `!important`. For `!important` declarations
+  CSS reverses layer order — same-importance rules from an unlayered
+  block would LOSE to utility-layer rules.
+
+  Drop this block once @dracor/react's Tabs exposes a theming slot
+  (className prop or variant).
+*/
+@layer utilities {
+  .dracor-tabs > div {
+    border-bottom: none !important;
+    color: white !important;
+    font-size: 1rem !important;
+  }
+  .dracor-tabs a {
+    position: relative !important;
+    color: white !important;
+    border-bottom: none !important;
+    padding: 0.5rem 0 !important;
+    margin-right: 1.3em !important;
+  }
+  .dracor-tabs a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0.2em;
+    background-color: var(--color-secondary-100);
+    border-radius: 0.3em 0.3em 0 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  .dracor-tabs a:hover,
+  .dracor-tabs a:focus {
+    color: var(--color-secondary-100) !important;
+    outline: none;
+  }
+  .dracor-tabs a.active {
+    color: white !important;
+  }
+  .dracor-tabs a:hover::after,
+  .dracor-tabs a.active::after {
+    opacity: 1;
+  }
+}
