@@ -1,65 +1,78 @@
-import {Form, FormGroup, Label, Input} from 'reactstrap';
 import Sapogov from './SpeechDistribution/Sapogov';
 import Yarkho from './SpeechDistribution/Yarkho';
 import TrilckeFischer from './SpeechDistribution/TrilckeFischer';
 import {Segment} from '../types';
 
-// const defaultType = 'trilckefischer';
-
 interface NavProps {
   type: string;
-  onChange: (type: string) => null;
+  onChange: (type: string) => void;
+}
+
+function Radio({
+  name,
+  value,
+  checked,
+  onChange,
+  children,
+}: {
+  name: string;
+  value: string;
+  checked: boolean;
+  onChange: (value: string) => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <label className="flex items-center gap-2">
+      <input
+        type="radio"
+        name={name}
+        value={value}
+        checked={checked}
+        onChange={(e) => onChange(e.target.value)}
+        className="appearance-auto accent-primary"
+      />
+      <span>{children}</span>
+    </label>
+  );
 }
 
 export const SpeechDistributionNav = ({type, onChange}: NavProps) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleChange = (e: any) => onChange(e.target.value);
-
   return (
     <div>
       <p>This tab shows different ways of visualising speech distribution.</p>
-      <Form>
-        <FormGroup check>
-          <Label check>
-            <Input
-              type="radio"
-              value="sapogov"
-              checked={type === 'sapogov'}
-              onChange={handleChange}
-            />{' '}
-            Sapogov{' '}
-            <a href="https://www.zotero.org/groups/940512/dlina/items/itemKey/BU7ZB3LY">
-              1974
-            </a>
-          </Label>
-        </FormGroup>
-        <FormGroup check>
-          <Label check>
-            <Input
-              type="radio"
-              value="yarkho"
-              checked={type === 'yarkho'}
-              onChange={handleChange}
-            />{' '}
-            Yarkho{' '}
-            <a href="http://rvb.ru/philologica/04/04iarxo.htm">1997 (ru)</a>
-            {', '}
-            <a href="https://doi.org/10.1515/jlt-2019-0002">2019 (en)</a>
-          </Label>
-        </FormGroup>
-        <FormGroup check>
-          <Label check>
-            <Input
-              type="radio"
-              value="trilckefischer"
-              checked={type === 'trilckefischer'}
-              onChange={handleChange}
-            />{' '}
-            Trilcke/Fischer et al.{' '}
-            <a href="https://dh2017.adho.org/abstracts/071/071.pdf">2017</a>
-          </Label>
-        </FormGroup>
-      </Form>
+      <div className="flex flex-col gap-1">
+        <Radio
+          name="speech-dist"
+          value="sapogov"
+          checked={type === 'sapogov'}
+          onChange={onChange}
+        >
+          Sapogov{' '}
+          <a href="https://www.zotero.org/groups/940512/dlina/items/itemKey/BU7ZB3LY">
+            1974
+          </a>
+        </Radio>
+        <Radio
+          name="speech-dist"
+          value="yarkho"
+          checked={type === 'yarkho'}
+          onChange={onChange}
+        >
+          Yarkho{' '}
+          <a href="http://rvb.ru/philologica/04/04iarxo.htm">1997 (ru)</a>
+          {', '}
+          <a href="https://doi.org/10.1515/jlt-2019-0002">2019 (en)</a>
+        </Radio>
+        <Radio
+          name="speech-dist"
+          value="trilckefischer"
+          checked={type === 'trilckefischer'}
+          onChange={onChange}
+        >
+          Trilcke/Fischer et al.{' '}
+          <a href="https://dh2017.adho.org/abstracts/071/071.pdf">2017</a>
+        </Radio>
+      </div>
     </div>
   );
 };
@@ -82,9 +95,9 @@ const SpeechDistribution = ({type, groups, segments}: Props) => {
   }
 
   return (
-    <div style={{width: '100%'}}>
-      <div className="speech-dist-container d-flex">
-        <div style={{position: 'relative', width: '100%'}}>{chart}</div>
+    <div className="w-full">
+      <div className="flex">
+        <div className="relative w-full">{chart}</div>
       </div>
     </div>
   );
