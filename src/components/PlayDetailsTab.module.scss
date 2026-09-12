@@ -22,10 +22,10 @@
   //   2em min-height on .PlayDetailsNav_main
   //
   // And leave at least one pixel to trigger the sticky header – that's the "-1px".
-  height: calc(100vh - (6.5em - 1px) - (var(--bootstrap-padding) * 3));
+  height: calc(100vh - (5.3em - 1px) - (var(--bootstrap-padding) * 3));
 
   @media only screen and (max-width: 1440px) {
-    height: calc(100vh - (6.5em - 3px) - (var(--bootstrap-padding) * 3));
+    height: calc(100vh - (5.3em - 3px) - (var(--bootstrap-padding) * 3));
   }
 
   .content {
