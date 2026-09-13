@@ -1,0 +1,153 @@
+/* Scrollable frame with top/bottom white fade for TEI viewer */
+.tei-frame {
+  flex-grow: 1;
+  position: relative;
+  width: inherit;
+  display: flex;
+  z-index: 0;
+}
+
+.tei-frame .ceteicean {
+  position: relative;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.tei-frame .ceteicean > div {
+  padding: 35px;
+}
+
+.tei-frame::before,
+.tei-frame::after {
+  content: '';
+  position: absolute;
+  width: calc(100% - 1rem);
+  z-index: 1;
+}
+
+.tei-frame::before {
+  top: 0;
+  height: 3em;
+  background: linear-gradient(
+    180deg,
+    rgb(255, 255, 255) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.tei-frame::after {
+  bottom: 0;
+  height: 6em;
+  background: linear-gradient(
+    0deg,
+    rgb(255, 255, 255) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+@media only screen and (max-width: 767px) {
+  .tei-frame {
+    overflow-y: hidden;
+  }
+  .tei-frame .ceteicean > div {
+    padding: 0;
+  }
+  .tei-frame::before,
+  .tei-frame::after {
+    display: none;
+  }
+}
+
+.dracor-scrollbar::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.dracor-scrollbar::-webkit-scrollbar-track {
+  background: var(--background);
+  border-radius: 0.25rem;
+}
+
+.dracor-scrollbar::-webkit-scrollbar-thumb,
+.dracor-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--main);
+  border: none;
+  border-radius: 0.25rem;
+}
+
+/* DraCor-specific TEI element overrides (formerly CETEIcean.scss) */
+/* FIXME: remove when upgrading to @dracor/react 1.8.0 */
+tei-TEI tei-head {
+  font-family: Rubik, sans-serif;
+}
+
+tei-titlePage {
+  display: block;
+  margin-bottom: 3em;
+}
+tei-titlePage tei-docTitle {
+  display: block;
+  margin-bottom: 1.5em;
+}
+tei-titlePage tei-docTitle tei-titlePart {
+  display: block;
+  margin-bottom: 0.5em;
+  font-size: 170%;
+}
+tei-titlePage tei-docTitle tei-titlePart[type='main'] {
+  font-size: 200%;
+  font-weight: 400;
+}
+tei-titlePage tei-docAuthor {
+  font-size: large;
+}
+
+tei-body > tei-head {
+  text-indent: 0;
+  padding-top: 1.8em;
+}
+
+tei-div[type='epigraph'] {
+  padding: 2em;
+  padding-bottom: 1em;
+  font-style: italic;
+}
+
+tei-teiheader + tei-text > tei-front > tei-div > tei-head {
+  padding-top: 0;
+}
+tei-div > tei-head {
+  text-indent: 0;
+  padding-top: 1.7em;
+}
+tei-div > tei-div > tei-head {
+  padding-top: 1.55em;
+}
+tei-div > tei-div > tei-div > tei-head {
+  padding-top: 1.4em;
+}
+tei-div > tei-div > tei-div > tei-div > tei-head,
+list > tei-head {
+  padding-top: 1.3em;
+}
+tei-div > tei-div > tei-div > tei-div > tei-div > tei-head {
+  padding-top: 1.2em;
+}
+tei-div > tei-div > tei-div > tei-div > tei-div > tei-div tei-head {
+  padding-top: 1.1em;
+}
+
+tei-figure > tei-head {
+  font-family: Rubik, Serif;
+}
+tei-titleStmt > tei-title {
+  font-family: Rubik, sans-serif;
+}
+tei-head tei-note {
+  display: none;
+}
+tei-standoff {
+  display: none;
+}
+tei-teiHeader {
+  display: none;
+}

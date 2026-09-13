@@ -9,13 +9,3 @@
     flex-direction: column;
   }
 }
-
-.tei-frame {
-  flex-grow: 1;
-  position: relative;
-}
-
-/* fix overflow of CETEIcean content */
-.tei-frame #TEI {
-  padding: 35px;
-}
