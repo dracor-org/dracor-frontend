@@ -79,8 +79,7 @@ export const SpeechDistributionNav = ({type, onChange}: NavProps) => {
 
 interface Props {
   type: string;
-  // TODO: fix type
-  groups: unknown[];
+  groups: string[];
   segments: Segment[];
 }
 
