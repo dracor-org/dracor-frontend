@@ -14,6 +14,7 @@
 @import 'tailwindcss' important;
 @plugin '@tailwindcss/typography';
 @import '@dracor/react/dracor.css';
+@import '@dracor/react/tei.css';
 @source '../node_modules/@dracor/react';
 
 /*

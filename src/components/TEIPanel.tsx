@@ -1,5 +1,4 @@
 import {TEIText} from '@dracor/react';
-import '../CETEIcean.css'; // FIXME: remove after upgrade to @dracor/react 1.8.0
 import './TEIPanel.css';
 
 interface Props {
