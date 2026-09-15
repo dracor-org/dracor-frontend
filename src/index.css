@@ -3,6 +3,13 @@
   `!important`-suffixed utility classes (e.g. `.bg-primary`, `.text-white`)
   which are still loaded until Phase 3 fully retires bootstrap.css. Remove
   the `important` flag when Bootstrap is gone.
+
+  Side effect: Scalar (in @dracor/react's ApiDoc) uses Tailwind's `.hidden`
+  and `.group-hover:flex` internally without `!important`. Our `!important`
+  `.hidden` beats Scalar's `.group:hover .group-hover\:flex`, so the JSON /
+  YAML format badges and the search dialog stay hidden. Accept this until
+  Bootstrap is retired in Phase 3c, when the `important` flag can go and
+  Scalar renders correctly.
 */
 @import 'tailwindcss' important;
 @plugin '@tailwindcss/typography';

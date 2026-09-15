@@ -13,4 +13,4 @@ allowBuilds:
   vue-demi: false
 minimumReleaseAgeExclude:
   - '@dracor/registry@1.16.0'
-  - '@dracor/react@1.5.0'
+  - '@dracor/react@1.6.0'
