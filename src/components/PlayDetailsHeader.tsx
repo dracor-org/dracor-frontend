@@ -1,21 +1,17 @@
-import {
-  useLayoutEffect,
-  useState,
-  use,
-  type ReactElement,
-  type ReactNode,
-} from 'react';
-import {IdCopy, IdLink, Years} from '@dracor/react';
-import AuthorInfoImpl from './AuthorInfo';
+import {useLayoutEffect, useState, use, type ReactNode} from 'react';
+import {AuthorInfo, IdCopy, IdLink, Years} from '@dracor/react';
 import CorpusLabel from './CorpusLabel';
 import {DracorContext} from '../context';
+import {fetchWikidataAuthor} from '../loaders';
 import type {Author, Play} from '../types';
 
-// AuthorInfo is still a .jsx file — its inferred prop shape requires
-// `fullname`, but our typed Author has it optional. Wrap the untyped
-// export in a typed shim until the upstream @dracor/react AuthorInfo
-// grows translator-role support and we can swap it in.
-const AuthorInfo = AuthorInfoImpl as (props: {author: Author}) => ReactElement;
+// Route the upstream AuthorInfo's Wikidata fetch through our API proxy
+// (`/wikidata/author/{id}`) so hot authors are served from the backend
+// cache rather than re-queried against Wikidata's SPARQL endpoint.
+const wikidataFetcher = async (id: string) => {
+  const data = await fetchWikidataAuthor(id);
+  return data && data.name ? {...data, name: data.name} : null;
+};
 
 interface Props {
   play: Play;
@@ -105,14 +101,29 @@ export default function PlayDetailsHeader({play, children}: Props) {
           </span>
         </div>
         <div
-          className="flex flex-wrap gap-8 min-w-[50%] overflow-x-auto max-md:flex-col max-md:gap-4 max-md:mb-4"
+          className="authors-tinted flex flex-wrap gap-8 min-w-[50%] overflow-x-auto max-md:flex-col max-md:gap-4 max-md:mb-4"
           style={{scrollbarWidth: 'none'}}
         >
           {authors.map((a: Author) => (
-            <AuthorInfo key={`author-${a.fullname}`} author={a} />
+            <AuthorInfo
+              key={`author-${a.fullname}`}
+              name={a.fullname}
+              wikidataId={
+                (a.refs || []).find((r) => r.type === 'wikidata')?.ref || ''
+              }
+              fetcher={wikidataFetcher}
+            />
           ))}
           {translators.map((t: Author) => (
-            <AuthorInfo key={`translator-${t.fullname}`} author={t} />
+            <AuthorInfo
+              key={`translator-${t.fullname}`}
+              name={t.fullname}
+              wikidataId={
+                (t.refs || []).find((r) => r.type === 'wikidata')?.ref || ''
+              }
+              translator
+              fetcher={wikidataFetcher}
+            />
           ))}
         </div>
       </div>

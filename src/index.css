@@ -29,19 +29,19 @@ nav [role='menu'] {
 }
 
 /*
-  Restyle @dracor/react Tabs to reproduce the pre-migration DraCor
-  tab bar.
+  Local overrides for @dracor/react components.
 
   Wrapped in `@layer utilities` because Tailwind's `important` mode
-  puts its `.border-b`, `.text-gray-500`, `.border-b-2`, etc. into
-  the utilities layer with `!important`. For `!important` declarations
-  CSS reverses layer order — same-importance rules from an unlayered
-  block would LOSE to utility-layer rules.
+  puts its utilities (`.border-b`, `.hidden`, …) into the utilities
+  layer with `!important`. For `!important` declarations CSS reverses
+  layer order — same-importance rules from an unlayered block would
+  LOSE to utility-layer rules.
 
-  Drop this block once @dracor/react's Tabs exposes a theming slot
-  (className prop or variant).
+  Drop each block once the corresponding component exposes a proper
+  theming slot upstream.
 */
 @layer utilities {
+  /* Tabs: reproduce the pre-migration DraCor tab bar. */
   .dracor-tabs > div {
     border-bottom: none !important;
     color: white !important;
@@ -78,5 +78,24 @@ nav [role='menu'] {
   .dracor-tabs a:hover::after,
   .dracor-tabs a.active::after {
     opacity: 1;
+  }
+
+  /*
+    AuthorInfo portraits in PlayDetailsHeader: swap the upstream
+    primary border (invisible on the navy header) for white and lay a
+    `mix-blend-mode: color` overlay in the primary hue over the photo
+    to reproduce the pre-migration duotone tint.
+  */
+  .authors-tinted .border-primary {
+    border-color: white !important;
+  }
+  .authors-tinted .border-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-primary);
+    mix-blend-mode: color;
+    pointer-events: none;
+    z-index: 1;
   }
 }
