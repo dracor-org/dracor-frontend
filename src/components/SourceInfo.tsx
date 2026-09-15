@@ -1,19 +1,14 @@
-import classnames from 'classnames/bind';
-import style from './SourceInfo.module.scss';
-
-const cx = classnames.bind(style);
-
 interface Props {
-  source: {
+  source?: {
     name: string;
     url: string;
   };
-  original: string;
+  original?: string;
 }
 
-const SourceInfo = ({source, original}: Props) => {
+export default function SourceInfo({source, original}: Props) {
   return (
-    <div className={cx('main')}>
+    <div>
       {source && (
         <p>
           Full text originally obtained from{' '}
@@ -35,6 +30,4 @@ const SourceInfo = ({source, original}: Props) => {
       )}
     </div>
   );
-};
-
-export default SourceInfo;
+}

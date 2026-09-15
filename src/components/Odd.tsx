@@ -1,6 +1,6 @@
 import {useEffect, useRef} from 'react';
 import {guidelinesUrl} from '../config';
-import './Odd.scss';
+import './Odd.css';
 
 const Odd = () => {
   const ref = useRef<HTMLDivElement>(null);

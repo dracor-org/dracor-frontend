@@ -1,8 +1,5 @@
-import {Link} from '@tanstack/react-router';
-import classnames from 'classnames/bind';
-import style from './PlayDetailsNav.module.scss';
-
-const cx = classnames.bind(style);
+import {Tabs} from '@dracor/react';
+import type {ComponentProps} from 'react';
 
 interface Item {
   name: string;
@@ -11,27 +8,22 @@ interface Item {
 
 interface Props {
   items: Item[];
-  current?: string;
   corpusId: string;
   playId: string;
 }
 
-const PlayDetailsNav = ({items, current, corpusId, playId}: Props) => {
+export default function PlayDetailsNav({items, corpusId, playId}: Props) {
+  // @dracor/react 1.7.0's Tabs only forwards `to` to its Link and drops
+  // `params`, so build a resolved path string here. Fix is in flight
+  // (dracor-org/dracor-react#87) — drop this workaround once released.
+  const data: ComponentProps<typeof Tabs>['data'] = items.map((item) => ({
+    label: item.label || item.name,
+    to: `/${corpusId}/${playId}/${item.name}`,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  })) as any;
   return (
-    <ul className={`nav nav-tabs ${cx('main')}`}>
-      {items.map((item) => (
-        <li className="nav-item" key={item.name}>
-          <Link
-            to="/$corpusId/$playId/$tab"
-            params={{corpusId, playId, tab: item.name}}
-            className={`nav-link ${current === item.name ? 'active' : ''}`}
-          >
-            {item.label || item.name}
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <div className="dracor-tabs">
+      <Tabs data={data} />
+    </div>
   );
-};
-
-export default PlayDetailsNav;
+}
