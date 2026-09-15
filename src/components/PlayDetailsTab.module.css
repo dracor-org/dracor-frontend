@@ -5,8 +5,8 @@
   overflow-y: auto;
   gap: 1em;
   padding: 1em;
-  margin-top: var(--bootstrap-padding);
-  margin-bottom: var(--bootstrap-padding);
+  margin-top: 15px;
+  margin-bottom: 15px;
   background-color: var(--background-light);
   border-radius: 0.5em;
   box-shadow:
@@ -16,15 +16,15 @@
   /*
    * Since sigma canvas requires a calculated height to fill available space on
    * the page we have to subtract all heights that are not canvas:
-   *   1 var(--bootstrap-padding) padding-top on .main
-   *   1 var(--bootstrap-padding) padding-bottom on .main
-   *   1 var(--bootstrap-padding) padding-top on .sticky-inner-wrapper > span
+   *   1 15px padding-top on .main
+   *   1 15px padding-bottom on .main
+   *   1 15px padding-top on .sticky-inner-wrapper > span
    *   4.5em min-height on .sticky-inner-wrapper > span
    *   2em min-height on .PlayDetailsNav_main
    *
    * And leave at least one pixel to trigger the sticky header — that's the "-1px".
    */
-  height: calc(100vh - (5.3em - 1px) - (var(--bootstrap-padding) * 3));
+  height: calc(100vh - (5.3em - 1px) - (15px * 3));
 }
 
 .content {
@@ -38,7 +38,7 @@
 .characters {
   align-self: start;
   background: var(--background);
-  padding: var(--bootstrap-padding);
+  padding: 15px;
   border-radius: 0.5rem;
   font-size: 0.85em;
   overflow-y: auto;
@@ -68,7 +68,7 @@
 
 @media only screen and (max-width: 1440px) {
   .main {
-    height: calc(100vh - (5.3em - 3px) - (var(--bootstrap-padding) * 3));
+    height: calc(100vh - (5.3em - 3px) - (15px * 3));
   }
 }
 

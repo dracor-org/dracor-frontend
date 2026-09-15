@@ -33,7 +33,7 @@ export default function SparqlUi() {
   }, []);
 
   return (
-    <div className="container-fluid">
+    <div className="w-full px-3.75 mx-auto">
       <div className="dracor-page">
         <title>SPARQL - DraCor</title>
         <Header>SPARQL</Header>

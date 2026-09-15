@@ -12,8 +12,13 @@ export default function Header({
   children: ReactNode;
   className?: string;
 }) {
+  // `-mx-3.75` bleeds through the 15px page-body gutter added by
+  // callers (the ex-`container-fluid` wrapper), matching the way the
+  // pre-migration Bootstrap `.row` cancelled `.container-fluid` padding.
+  // Drop when the page-body gutter moves off the wrapper (see cleanup
+  // option A discussed in the migration).
   const base =
-    'text-white bg-primary py-4 mb-4 z-[1] flex flex-wrap items-baseline';
+    '-mx-3.75 text-white bg-primary py-4 mb-4 z-[1] flex flex-wrap items-baseline';
   return (
     <header className={`${base} ${className}`}>
       {typeof children === 'string' ? (

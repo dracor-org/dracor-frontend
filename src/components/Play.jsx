@@ -132,7 +132,7 @@ const PlayInfo = ({play, metrics, tab: rawTab}) => {
   );
 
   return (
-    <div className="h-100 d-md-flex flex-md-column dracor-page">
+    <div className="h-full md:flex md:flex-col dracor-page">
       <title>{`${authors}: ${play.title} - DraCor`}</title>
       <PlayDetailsHeader play={play}>
         <PlayDetailsNav
@@ -141,7 +141,7 @@ const PlayInfo = ({play, metrics, tab: rawTab}) => {
           playId={play.name}
         />
       </PlayDetailsHeader>
-      <div className="container-fluid">
+      <div className="w-full px-3.75 mx-auto">
         <PlayDetailsTab
           characters={characters}
           description={description}

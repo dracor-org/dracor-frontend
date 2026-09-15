@@ -10,7 +10,7 @@ export const Route = createFileRoute('/doc/api')({
 
 function ApiDocRoute() {
   return (
-    <div className="container-fluid">
+    <div className="w-full px-3.75 mx-auto">
       <title>API Documentation - DraCor</title>
       <Header>DraCor API</Header>
       <ApiDoc

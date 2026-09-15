@@ -1,17 +1,4 @@
-/*
-  Tailwind is imported with `important` so its utilities beat Bootstrap 4's
-  `!important`-suffixed utility classes (e.g. `.bg-primary`, `.text-white`)
-  which are still loaded until Phase 3 fully retires bootstrap.css. Remove
-  the `important` flag when Bootstrap is gone.
-
-  Side effect: Scalar (in @dracor/react's ApiDoc) uses Tailwind's `.hidden`
-  and `.group-hover:flex` internally without `!important`. Our `!important`
-  `.hidden` beats Scalar's `.group:hover .group-hover\:flex`, so the JSON /
-  YAML format badges and the search dialog stay hidden. Accept this until
-  Bootstrap is retired in Phase 3c, when the `important` flag can go and
-  Scalar renders correctly.
-*/
-@import 'tailwindcss' important;
+@import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 @import '@dracor/react/dracor.css';
 @import '@dracor/react/tei.css';
@@ -29,75 +16,66 @@ nav [role='menu'] {
 }
 
 /*
-  Local overrides for @dracor/react components.
-
-  Wrapped in `@layer utilities` because Tailwind's `important` mode
-  puts its utilities (`.border-b`, `.hidden`, …) into the utilities
-  layer with `!important`. For `!important` declarations CSS reverses
-  layer order — same-importance rules from an unlayered block would
-  LOSE to utility-layer rules.
-
-  Drop each block once the corresponding component exposes a proper
-  theming slot upstream.
+  Local overrides for @dracor/react components. Drop each block once
+  the corresponding component exposes a proper theming slot upstream.
 */
-@layer utilities {
-  /* Tabs: reproduce the pre-migration DraCor tab bar. */
-  .dracor-tabs > div {
-    border-bottom: none !important;
-    color: white !important;
-    font-size: 1rem !important;
-  }
-  .dracor-tabs a {
-    position: relative !important;
-    color: white !important;
-    border-bottom: none !important;
-    padding: 0.5rem 0 0.5em !important;
-    margin-right: 1.3em !important;
-  }
-  .dracor-tabs a::after {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0.2em;
-    background-color: var(--color-secondary-100);
-    border-radius: 0.3em 0.3em 0 0;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-  }
-  .dracor-tabs a:hover,
-  .dracor-tabs a:focus {
-    color: var(--color-secondary-100) !important;
-    outline: none;
-  }
-  .dracor-tabs a.active {
-    color: white !important;
-  }
-  .dracor-tabs a:hover::after,
-  .dracor-tabs a.active::after {
-    opacity: 1;
-  }
 
-  /*
-    AuthorInfo portraits in PlayDetailsHeader: swap the upstream
-    primary border (invisible on the navy header) for white and lay a
-    `mix-blend-mode: color` overlay in the primary hue over the photo
-    to reproduce the pre-migration duotone tint.
-  */
-  .authors-tinted .border-primary {
-    border-color: white !important;
-  }
-  .authors-tinted .border-primary::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-color: var(--color-primary);
-    mix-blend-mode: color;
-    pointer-events: none;
-    z-index: 1;
-  }
+/* Tabs: reproduce the pre-migration DraCor tab bar. */
+.dracor-tabs > div {
+  border-bottom: none;
+  color: white;
+  font-size: 1rem;
+}
+.dracor-tabs a {
+  position: relative;
+  color: white;
+  border-bottom: none;
+  padding: 0.5rem 0 0.5em;
+  margin-right: 1.3em;
+}
+.dracor-tabs a::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.2em;
+  background-color: var(--color-secondary-100);
+  border-radius: 0.3em 0.3em 0 0;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.dracor-tabs a:hover,
+.dracor-tabs a:focus {
+  color: var(--color-secondary-100);
+  outline: none;
+}
+.dracor-tabs a.active {
+  color: white;
+}
+.dracor-tabs a:hover::after,
+.dracor-tabs a.active::after {
+  opacity: 1;
+}
+
+/*
+  AuthorInfo portraits in PlayDetailsHeader: swap the upstream
+  primary border (invisible on the navy header) for white and lay a
+  `mix-blend-mode: color` overlay in the primary hue over the photo
+  to reproduce the pre-migration duotone tint.
+*/
+.authors-tinted .border-primary {
+  border-color: white;
+}
+.authors-tinted .border-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-primary);
+  mix-blend-mode: color;
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Rubik webfont */
@@ -175,10 +153,10 @@ nav [role='menu'] {
 }
 
 /*
-  DraCor palette aliases. Kept as legacy names for the handful of local
-  CSS rules below (and `TEIPanel.css`, component `.module.css` files)
-  that still consume them. Prefer the upstream `--color-*` tokens from
-  `@dracor/react/dracor.css` in new code.
+  DraCor palette aliases for the handful of local CSS rules below
+  (and `TEIPanel.css`, `PlayDetailsTab.module.css`) that still use
+  the pre-migration names. Prefer the upstream `--color-*` tokens
+  from `@dracor/react/dracor.css` in new code.
 */
 :root {
   --main: var(--color-primary);
@@ -188,51 +166,57 @@ nav [role='menu'] {
   --background-light: #ffffff;
   --primary-accent: var(--color-secondary-200);
   --secondary-accent: var(--color-secondary-100);
-  --bootstrap-padding: 15px;
 }
 
-html,
-#root {
-  height: 100%;
-  font-family: 'Rubik', sans-serif;
-  position: relative;
-}
+/*
+  Global element defaults are wrapped in `@layer base` so utility
+  classes (Tailwind's `text-*`, `list-*`, etc.) win against them
+  through normal cascade order. Unlayered rules on plain element
+  selectors like `a` would otherwise trump any utility class.
+*/
+@layer base {
+  html,
+  #root {
+    height: 100%;
+    font-family: 'Rubik', sans-serif;
+    position: relative;
+  }
 
-body {
-  height: auto;
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  background-color: var(--main);
-}
+  body {
+    height: auto;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: var(--main);
+  }
 
-body::after {
-  content: '';
-  position: fixed;
-  height: 50%;
-  width: 100%;
-  background-color: var(--background);
-  bottom: 0;
-  z-index: -1;
-}
+  body::after {
+    content: '';
+    position: fixed;
+    height: 50%;
+    width: 100%;
+    background-color: var(--background);
+    bottom: 0;
+    z-index: -1;
+  }
 
-#root {
-  background-color: var(--background);
-  height: auto;
-}
+  #root {
+    background-color: var(--background);
+    height: auto;
+  }
 
-ul {
-  padding-inline-start: 1.2em;
-  margin-block-end: 2em;
-}
+  ul {
+    padding-inline-start: 1.2em;
+    margin-block-end: 2em;
+  }
 
-a {
-  color: var(--primary-accent);
-  transition: color 0.3s ease-in-out;
-}
+  a {
+    transition: color 0.3s ease-in-out;
+  }
 
-a:hover {
-  text-decoration: none;
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 /* Markdown doc pages */
@@ -246,12 +230,12 @@ a:hover {
 }
 .dracor-page img[alt~='logo'] {
   height: 10em;
-  padding: var(--bootstrap-padding);
+  padding: 15px;
 }
 .dracor-page img[alt~='card'],
 .dracor-page img[alt*='photo' i] {
   max-height: 30em;
-  margin: 0 var(--bootstrap-padding) var(--bootstrap-padding) 0;
+  margin: 0 15px 15px 0;
   border-radius: 1em;
   box-shadow:
     0 5px 5px 0 var(--shadow),
@@ -341,4 +325,42 @@ a:hover {
 .version-pill > a:hover {
   background-color: #0056b3;
   color: var(--secondary-accent);
+}
+
+/*
+  Funding note pills in the What Is DraCor markdown page
+  (public/doc/what-is-dracor.md).
+*/
+#eu-funding-note,
+#dfg-funding-note,
+#oscars-funding-note {
+  padding: 1em;
+  background-color: #e3e8f1;
+  font-weight: normal;
+  border-radius: 1em;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+#eu-funding-note p,
+#dfg-funding-note p,
+#oscars-funding-note p {
+  margin: 0;
+}
+#eu-funding-note img {
+  height: 3em;
+}
+#dfg-funding-note img {
+  height: 4em;
+}
+#oscars-funding-note img {
+  height: 3em;
+}
+@media only screen and (max-width: 767px) {
+  #eu-funding-note,
+  #dfg-funding-note,
+  #oscars-funding-note {
+    flex-wrap: wrap;
+  }
 }
