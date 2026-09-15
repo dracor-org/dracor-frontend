@@ -15,8 +15,6 @@ import ToolsTab from './ToolsTab';
 import PlayMetrics from './PlayMetrics';
 import Segments from './Segments';
 
-import './Play.scss';
-
 const edgeColor = '#61affe65';
 const nodeColor = '#61affe';
 

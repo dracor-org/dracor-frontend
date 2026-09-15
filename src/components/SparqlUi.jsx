@@ -5,7 +5,7 @@ import Header from './Header';
 import Footer from './Footer';
 
 import '@triply/yasgui/build/yasgui.min.css';
-import './SparqlUi.scss';
+import './SparqlUi.css';
 
 const endpoint = sparqlUrl;
 

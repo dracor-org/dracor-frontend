@@ -176,7 +176,7 @@ nav [role='menu'] {
 
 /*
   DraCor palette aliases. Kept as legacy names for the handful of local
-  CSS rules below (and `TEIPanel.css`, component `.module.scss` files)
+  CSS rules below (and `TEIPanel.css`, component `.module.css` files)
   that still consume them. Prefer the upstream `--color-*` tokens from
   `@dracor/react/dracor.css` in new code.
 */

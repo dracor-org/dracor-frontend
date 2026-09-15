@@ -19,7 +19,6 @@
     "CETEIcean": "^1.9.5",
     "bootstrap": "^4.5.3",
     "chart.js": "^2.9.4",
-    "classnames": "^2.2.6",
     "compare-versions": "^6.1.1",
     "globals": "^17.7.0",
     "graphology": "^0.26.0",

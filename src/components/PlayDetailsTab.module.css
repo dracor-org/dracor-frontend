@@ -1,0 +1,102 @@
+.main {
+  display: grid;
+  grid-template-columns: 1fr 25%;
+  grid-template-rows: auto auto 1fr;
+  overflow-y: auto;
+  gap: 1em;
+  padding: 1em;
+  margin-top: var(--bootstrap-padding);
+  margin-bottom: var(--bootstrap-padding);
+  background-color: var(--background-light);
+  border-radius: 0.5em;
+  box-shadow:
+    0 7px 5px 0 rgba(0, 0, 0, 0.2),
+    0 10px 1em 0 rgba(0, 0, 0, 0.08),
+    0 4px 0px 0 #33405220;
+  /*
+   * Since sigma canvas requires a calculated height to fill available space on
+   * the page we have to subtract all heights that are not canvas:
+   *   1 var(--bootstrap-padding) padding-top on .main
+   *   1 var(--bootstrap-padding) padding-bottom on .main
+   *   1 var(--bootstrap-padding) padding-top on .sticky-inner-wrapper > span
+   *   4.5em min-height on .sticky-inner-wrapper > span
+   *   2em min-height on .PlayDetailsNav_main
+   *
+   * And leave at least one pixel to trigger the sticky header — that's the "-1px".
+   */
+  height: calc(100vh - (5.3em - 1px) - (var(--bootstrap-padding) * 3));
+}
+
+.content {
+  display: flex;
+  grid-row: span 3 / auto;
+}
+
+.description,
+.metrics,
+.segments,
+.characters {
+  align-self: start;
+  background: var(--background);
+  padding: var(--bootstrap-padding);
+  border-radius: 0.5rem;
+  font-size: 0.85em;
+  overflow-y: auto;
+  max-height: 100%;
+  display: flex;
+}
+
+.description h4,
+.metrics h4,
+.segments h4,
+.characters h4 {
+  font-weight: 400;
+  font-size: 1.3em;
+}
+
+.description p:last-child,
+.metrics p:last-child,
+.segments p:last-child,
+.characters p:last-child {
+  margin-bottom: 0;
+}
+
+.characters,
+.segments {
+  grid-row: span 2;
+}
+
+@media only screen and (max-width: 1440px) {
+  .main {
+    height: calc(100vh - (5.3em - 3px) - (var(--bootstrap-padding) * 3));
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .main {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .content {
+    grid-row: 3 / 4;
+    min-height: calc(100vh - 15em);
+    min-width: 100%;
+    height: auto;
+  }
+  .description {
+    grid-column: 1;
+    grid-row: 1 / 2;
+  }
+  .metrics {
+    grid-column: 1;
+    grid-row: 2 / 3;
+  }
+  .segments {
+    grid-column: 1;
+    grid-row: 2 / 3;
+  }
+  .characters {
+    grid-column: 1;
+    grid-row: 4 / 5;
+  }
+}
