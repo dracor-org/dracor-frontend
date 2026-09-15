@@ -2,16 +2,17 @@ import CorpusIndex from './CorpusIndex';
 import Header from './Header';
 import Footer from './Footer';
 import CorpusLabel from './CorpusLabel';
-import classnames from 'classnames/bind';
-import style from './Corpus.module.scss';
+import type {CorpusDetail} from '../loaders';
 
-const cx = classnames.bind(style);
+interface Props {
+  corpus: CorpusDetail;
+}
 
-const Corpus = ({corpus}) => {
+export default function Corpus({corpus}: Props) {
   return (
     <div className="container-fluid">
       <div>
-        <div className={cx('label-wrapper')}>
+        <div className="-mx-4 pt-1 pl-4 bg-primary">
           <CorpusLabel
             name={corpus.name}
             title={corpus.title}
@@ -24,6 +25,4 @@ const Corpus = ({corpus}) => {
       </div>
     </div>
   );
-};
-
-export default Corpus;
+}
