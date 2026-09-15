@@ -99,3 +99,246 @@ nav [role='menu'] {
     z-index: 1;
   }
 }
+
+/* Rubik webfont */
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 300;
+  src:
+    local(''),
+    url('./fonts/rubik-v21-300.woff2') format('woff2'),
+    url('./fonts/rubik-v21-300.woff') format('woff');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local(''),
+    url('./fonts/rubik-v21-regular.woff2') format('woff2'),
+    url('./fonts/rubik-v21-regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  src:
+    local(''),
+    url('./fonts/rubik-v21-500.woff2') format('woff2'),
+    url('./fonts/rubik-v21-500.woff') format('woff');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 700;
+  src:
+    local(''),
+    url('./fonts/rubik-v21-700.woff2') format('woff2'),
+    url('./fonts/rubik-v21-700.woff') format('woff');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 300;
+  src:
+    local(''),
+    url('./fonts/rubik-v21-300italic.woff2') format('woff2'),
+    url('./fonts/rubik-v21-300italic.woff') format('woff');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 400;
+  src:
+    local(''),
+    url('./fonts/rubik-v21-italic.woff2') format('woff2'),
+    url('./fonts/rubik-v21-italic.woff') format('woff');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 500;
+  src:
+    local(''),
+    url('./fonts/rubik-v21-500italic.woff2') format('woff2'),
+    url('./fonts/rubik-v21-500italic.woff') format('woff');
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: italic;
+  font-weight: 700;
+  src:
+    local(''),
+    url('./fonts/rubik-v21-700italic.woff2') format('woff2'),
+    url('./fonts/rubik-v21-700italic.woff') format('woff');
+}
+
+/*
+  DraCor palette aliases. Kept as legacy names for the handful of local
+  CSS rules below (and `TEIPanel.css`, component `.module.scss` files)
+  that still consume them. Prefer the upstream `--color-*` tokens from
+  `@dracor/react/dracor.css` in new code.
+*/
+:root {
+  --main: var(--color-primary);
+  --main-shadow: #1f244820;
+  --shadow: #1f244835;
+  --background: var(--color-neutral-100);
+  --background-light: #ffffff;
+  --primary-accent: var(--color-secondary-200);
+  --secondary-accent: var(--color-secondary-100);
+  --bootstrap-padding: 15px;
+}
+
+html,
+#root {
+  height: 100%;
+  font-family: 'Rubik', sans-serif;
+  position: relative;
+}
+
+body {
+  height: auto;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: var(--main);
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  height: 50%;
+  width: 100%;
+  background-color: var(--background);
+  bottom: 0;
+  z-index: -1;
+}
+
+#root {
+  background-color: var(--background);
+  height: auto;
+}
+
+ul {
+  padding-inline-start: 1.2em;
+  margin-block-end: 2em;
+}
+
+a {
+  color: var(--primary-accent);
+  transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Markdown doc pages */
+.dracor-page hgroup {
+  color: var(--background-light);
+  background-color: var(--main);
+}
+.dracor-page img {
+  max-width: 100%;
+  display: inline;
+}
+.dracor-page img[alt~='logo'] {
+  height: 10em;
+  padding: var(--bootstrap-padding);
+}
+.dracor-page img[alt~='card'],
+.dracor-page img[alt*='photo' i] {
+  max-height: 30em;
+  margin: 0 var(--bootstrap-padding) var(--bootstrap-padding) 0;
+  border-radius: 1em;
+  box-shadow:
+    0 5px 5px 0 var(--shadow),
+    0 4px 0px 0 var(--main-shadow);
+}
+.dracor-page img[alt~='poster'] {
+  max-height: 40em;
+  box-shadow:
+    0 5px 5px 0 var(--shadow),
+    0 4px 0px 0 var(--main-shadow);
+}
+.dracor-page img[alt~='shirt'] {
+  max-height: 40em;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 50vh;
+  margin: 0;
+}
+.loading em {
+  text-transform: uppercase;
+  margin-left: 1ch;
+}
+
+/* Corpus TEI download buttons */
+.tei-download-button {
+  color: var(--background-light);
+  border-radius: 0.5em;
+  background-color: var(--main);
+  padding: 0.5em 0.7em;
+  line-height: 3.5em;
+  box-shadow:
+    0 5px 5px 0 var(--shadow),
+    0 4px 0px 0 var(--main-shadow);
+  white-space: nowrap;
+  transition: all 0.3s ease-in-out;
+}
+.tei-download-button:hover {
+  text-decoration: none;
+  color: var(--secondary-accent);
+  box-shadow: 0 3px 0px 0 #33405220;
+}
+
+/* Corpus description: append CC licence icon after licence link */
+.corpus-description a[rel~='licence']::after {
+  position: absolute;
+  margin-left: 0.3em;
+  margin-top: 0.1em;
+}
+.corpus-description
+  a[rel~='licence'][href='https://creativecommons.org/licenses/by-nc/3.0/deed.en_US']::after {
+  content: url('./images/cc-by-nc.svg');
+  width: 4em;
+}
+.corpus-description
+  a[rel~='licence'][href='https://creativecommons.org/licenses/by-sa/3.0/us/']::after {
+  content: url('./images/cc-by-sa.svg');
+  width: 4em;
+}
+.corpus-description
+  a[rel~='licence'][href='https://creativecommons.org/share-your-work/public-domain/cc0/']::after {
+  content: url('./images/cc0.svg');
+  width: 2.6em;
+}
+
+/* Version pill in the footer */
+.version-pill {
+  white-space: nowrap;
+}
+.version-pill > span {
+  background-color: var(--main);
+  color: var(--background);
+  border-radius: 1em 0 0 1em;
+  padding: 0.1em 0.3em 0.1em 0.5em;
+}
+.version-pill > a {
+  background-color: var(--primary-accent);
+  color: var(--background);
+  border-radius: 0 1em 1em 0;
+  padding: 0.1em 0.5em 0.1em 0.3em;
+  transition: 0.3s ease-in-out;
+}
+.version-pill > a:hover {
+  background-color: #0056b3;
+  color: var(--secondary-accent);
+}
