@@ -1,6 +1,4 @@
-import {useEffect, useState} from 'react';
 import Slider from 'react-slick';
-import api from '../api';
 import CorpusCard from './CorpusCard';
 import '../slick.css';
 import '../slick-theme.css';
@@ -72,23 +70,7 @@ const settings = {
   ],
 };
 
-const Corpora = () => {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await api.get('/corpora?include=metrics');
-        setData(response.data);
-      } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error(error);
-      }
-    }
-
-    fetchData();
-  }, []);
-
+const Corpora = ({data}) => {
   if (!data) {
     return <p className="loading">Loading...</p>;
   }

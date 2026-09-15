@@ -1,5 +1,5 @@
 import {useContext} from 'react';
-import {Link} from 'react-router-dom';
+import {Link} from '@tanstack/react-router';
 import classnames from 'classnames/bind';
 import {DracorContext} from '../context';
 import {SitemapNode} from '../types';

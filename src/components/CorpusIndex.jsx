@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom';
+import {Link} from '@tanstack/react-router';
 import {Helmet} from 'react-helmet';
 import BootstrapTable from 'react-bootstrap-table-next';
 // see https://github.com/react-bootstrap-table/react-bootstrap-table2/pull/1506

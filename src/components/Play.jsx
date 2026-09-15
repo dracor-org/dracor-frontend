@@ -1,7 +1,7 @@
-import {useEffect, useState} from 'react';
+import {useMemo, useState} from 'react';
 import {Container} from 'reactstrap';
 import {Helmet} from 'react-helmet';
-import api from '../api';
+import {apiUrl} from '../loaders';
 import {makeGraph} from '../network';
 import PlayDetailsHeader from './PlayDetailsHeader';
 import PlayDetailsNav from './PlayDetailsNav';
@@ -18,8 +18,6 @@ import PlayMetrics from './PlayMetrics';
 import Segments from './Segments';
 
 import './Play.scss';
-
-const apiUrl = api.getBaseURL();
 
 const edgeColor = '#61affe65';
 const nodeColor = '#61affe';
@@ -40,79 +38,32 @@ const navItems = [
   {name: 'tools', label: 'Tools'},
 ];
 
-const tabNames = new Set(navItems.map((item) => item.name));
-
-const PlayInfo = ({corpusId, playId}) => {
-  const [play, setPlay] = useState(null);
-  const [graph, setGraph] = useState(null);
-  const [error, setError] = useState(null);
+const PlayInfo = ({play, metrics, tab: rawTab}) => {
   const [chartType, setChartType] = useState('sapogov');
 
-  useEffect(() => {
-    async function fetchPlay() {
-      setError(null);
-      const url = `/corpora/${corpusId}/plays/${playId}`;
-      // eslint-disable-next-line no-console
-      console.log('loading play %s ...', url);
-      try {
-        const response = await api.get(url);
-        if (response.ok && response.data) {
-          const play = response.data;
-          const {characters, segments} = play;
-          const graph = makeGraph(characters, segments, nodeProps, edgeColor);
-          setPlay(play);
-          setGraph(graph);
-        } else if (response.status === 404) {
-          setError(new Error('not found'));
-        } else {
-          setError(response.originalError);
-        }
-      } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error(error);
-      }
-    }
+  const graph = useMemo(
+    () => makeGraph(play.characters, play.segments, nodeProps, edgeColor),
+    [play]
+  );
 
-    fetchPlay();
-  }, [corpusId, playId]);
-
-  if (error && error.message === 'not found') {
-    return <p>No such play!</p>;
-  }
-
-  if (error) {
-    // eslint-disable-next-line no-console
-    console.log(error);
-    return <p>Error!</p>;
-  }
-
-  if (!play) {
-    return <p className="loading">Loading...</p>;
-  }
-
-  if (!graph) {
-    return <p>No Graph!</p>;
-  }
+  // Resolve the active tab from the route param; fall back to network.
+  let tab = rawTab || 'network';
+  if (tab === 'relations' && !play.relations) tab = 'network';
 
   const groups = play.characters
     .filter((m) => Boolean(m.isGroup))
     .map((m) => m.id);
 
-  let tab = document.location.hash.replace('#', '');
-  if (!tabNames.has(tab) || (tab === 'relations' && !play.relations)) {
-    tab = 'network';
-  }
-
   const teiUrl = `${apiUrl}/corpora/${play.corpus}/plays/${play.name}/tei`;
 
   const castList = <CastList hasTitle characters={play.characters || []} />;
 
-  const playMetrics = <PlayMetrics play={play} />;
+  const playMetrics = <PlayMetrics play={play} metrics={metrics} />;
 
   let tabContent;
   let description;
   let characters = null;
-  let metrics = null;
+  let metricsPane = null;
   let segments = null;
 
   if (tab === 'speech') {
@@ -158,7 +109,7 @@ const PlayInfo = ({corpusId, playId}) => {
       </p>
     );
   } else if (tab === 'tools') {
-    tabContent = <ToolsTab corpusId={corpusId} playId={playId} />;
+    tabContent = <ToolsTab corpusId={play.corpus} playId={play.name} />;
     description = (
       <p>
         This tab provides links to third-party tools. The selected text layer
@@ -168,7 +119,7 @@ const PlayInfo = ({corpusId, playId}) => {
   } else {
     tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor, play}} />;
     characters = castList;
-    metrics = playMetrics;
+    metricsPane = playMetrics;
     description = (
       <p>
         This tab shows a co-occurrence network. If characters appear in the same
@@ -179,7 +130,7 @@ const PlayInfo = ({corpusId, playId}) => {
 
   const authors = play.authors.map((a) => a.name).join(' · ');
 
-  // we remove relations from nav items if none are available for the play
+  // Hide the relations tab when the play has no relation data.
   const items = navItems.filter(
     (item) => item.name !== 'relations' || play.relations
   );
@@ -190,13 +141,18 @@ const PlayInfo = ({corpusId, playId}) => {
         <title>{`${authors}: ${play.title}`}</title>
       </Helmet>
       <PlayDetailsHeader play={play}>
-        <PlayDetailsNav items={items} current={tab} />
+        <PlayDetailsNav
+          items={items}
+          current={tab}
+          corpusId={play.corpus}
+          playId={play.name}
+        />
       </PlayDetailsHeader>
       <Container fluid>
         <PlayDetailsTab
           characters={characters}
           description={description}
-          metrics={metrics}
+          metrics={metricsPane}
           segments={segments}
         >
           {tabContent}

@@ -1,6 +1,7 @@
 import {defineConfig, loadEnv} from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
+import {tanstackRouter} from '@tanstack/router-plugin/vite';
 
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, process.cwd());
@@ -10,7 +11,11 @@ export default defineConfig(({mode}) => {
 
   return {
     base: '/',
-    plugins: [react(), tailwindcss()],
+    plugins: [
+      tanstackRouter({target: 'react', autoCodeSplitting: true}),
+      react(),
+      tailwindcss(),
+    ],
     build: {
       outDir: 'build',
       // Workaround for Vite 8 lightningcss rejecting IE-era CSS hacks used in

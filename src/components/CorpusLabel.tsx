@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom';
+import {Link} from '@tanstack/react-router';
 import classnames from 'classnames/bind';
 import style from './CorpusLabel.module.scss';
 

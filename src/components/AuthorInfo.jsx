@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import classnames from 'classnames/bind';
 import IdLink from './IdLink';
 import {formatYear} from './Years';
-import api from '../api';
+import {fetchWikidataAuthor} from '../loaders';
 import style from './AuthorInfo.module.scss';
 
 const cx = classnames.bind(style);
@@ -14,43 +14,33 @@ const AuthorInfo = ({author: {fullname, refs = [], role}}) => {
   const wikidataId = wikidataRef ? wikidataRef.ref : undefined;
 
   useEffect(() => {
-    async function fetchAuthorInfo() {
-      const url = `/wikidata/author/${wikidataId}`;
-      // eslint-disable-next-line no-console
-      console.log('loading author info %s ...', url);
+    async function loadAuthorInfo() {
       try {
-        const response = await api.get(url);
-        if (response.ok) {
-          const info = {...response.data, birth: [], death: []};
-          if (info.birthDate) {
-            info.birth.push(
-              formatYear(info.birthDate.replace(/^(-?\d{4}).*$/, '$1'))
-            );
-          }
-          if (info.birthPlace) info.birth.push(info.birthPlace);
-
-          if (info.deathDate) {
-            info.death.push(
-              formatYear(info.deathDate.replace(/^(-?\d{4}).*$/, '$1'))
-            );
-          }
-          if (info.deathPlace) info.death.push(info.deathPlace);
-
-          if (info.imageUrl) {
-            info.imageUrl = info.imageUrl.replace(/^http:/, 'https:');
-            info.commonsPage = info.imageUrl
-              .replace(/Special:FilePath\//, 'File:')
-              .replace(/^http:/, 'https:');
-          }
-
-          setInfo(info);
-        } else if (response.status === 404) {
-          // eslint-disable-next-line no-console
-          console.log('not found');
-        } else {
-          // eslint-disable-next-line no-console
-          console.log(response.originalError);
+        const data = await fetchWikidataAuthor(wikidataId);
+        if (!data) return;
+        const info = {...data, birth: [], death: []};
+        if (info.birthDate) {
+          info.birth.push(
+            formatYear(info.birthDate.replace(/^(-?\d{4}).*$/, '$1'))
+          );
         }
+        if (info.birthPlace) info.birth.push(info.birthPlace);
+
+        if (info.deathDate) {
+          info.death.push(
+            formatYear(info.deathDate.replace(/^(-?\d{4}).*$/, '$1'))
+          );
+        }
+        if (info.deathPlace) info.death.push(info.deathPlace);
+
+        if (info.imageUrl) {
+          info.imageUrl = info.imageUrl.replace(/^http:/, 'https:');
+          info.commonsPage = info.imageUrl
+            .replace(/Special:FilePath\//, 'File:')
+            .replace(/^http:/, 'https:');
+        }
+
+        setInfo(info);
       } catch (error) {
         // eslint-disable-next-line no-console
         console.error(error);
@@ -58,7 +48,7 @@ const AuthorInfo = ({author: {fullname, refs = [], role}}) => {
     }
 
     if (wikidataId && wikidataId !== 'Q4233718' /* anonymous */) {
-      fetchAuthorInfo();
+      loadAuthorInfo();
     }
   }, [wikidataId]);
 
