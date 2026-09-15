@@ -1,21 +1,22 @@
-import {Col, Row} from 'reactstrap';
 import classnames from 'classnames/bind';
 import style from './Header.module.scss';
 
 const cx = classnames.bind(style);
 
 /**
- * The main header for a DraCor page
- *
- * The header provides a wrapping bootstrap row. Its children should be either
- * a string or one or more bootstrap columns containing a h1 element.
+ * The main header for a DraCor page — a Bootstrap 4 row wrapper. Its children
+ * should be either a string (wrapped in an h1 col) or one or more col divs
+ * containing headings.
  */
-
 const Header = ({children, className = ''}) => {
   return (
-    <Row tag="header" className={cx(['main', className])}>
-      {typeof children === 'string' ? <Col tag="h1">{children}</Col> : children}
-    </Row>
+    <header className={`row ${cx(['main', className])}`}>
+      {typeof children === 'string' ? (
+        <h1 className="col">{children}</h1>
+      ) : (
+        children
+      )}
+    </header>
   );
 };
 

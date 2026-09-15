@@ -1,6 +1,4 @@
 import corpora, {RegistryCorpusInfo} from '@dracor/registry';
-import {Container} from 'reactstrap';
-import {Helmet} from 'react-helmet';
 import ReactMarkdown from 'react-markdown';
 import classnames from 'classnames/bind';
 import Header from './Header';
@@ -53,11 +51,9 @@ export default function CorpusRegistry() {
   const proposed = corpora.filter(({status}) => status === 'proposed');
 
   return (
-    <Container fluid>
+    <div className="container-fluid">
       <div className="dracor-page">
-        <Helmet titleTemplate="%s - DraCor">
-          <title>Corpus Registry</title>
-        </Helmet>
+        <title>Corpus Registry - DraCor</title>
         <div className={cx('main')}>
           <Header>DraCor Corpora</Header>
           <h2>Published ({published.length})</h2>
@@ -74,6 +70,6 @@ export default function CorpusRegistry() {
           <ul>{proposed.map(renderCorpus)}</ul>
         </div>
       </div>
-    </Container>
+    </div>
   );
 }
