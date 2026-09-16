@@ -32,9 +32,18 @@ importers:
       '@react-sigma/core':
         specifier: ^5.0.6
         version: 5.0.6(graphology@0.26.0(graphology-types@0.24.8))(react@19.2.8)(sigma@3.0.3(graphology-types@0.24.8))
+      '@react-sigma/layout-forceatlas2':
+        specifier: ^5.0.6
+        version: 5.0.6(graphology-layout-forceatlas2@0.10.1(graphology-types@0.24.8))(graphology@0.26.0(graphology-types@0.24.8))(react@19.2.8)(sigma@3.0.3(graphology-types@0.24.8))
       '@scalar/api-reference-react':
         specifier: ^0.9.65
         version: 0.9.65(axios@1.19.0)(react@19.2.8)(sortablejs@1.15.7)(tailwindcss@4.3.3)(typescript@6.0.3)(zod@4.4.3)
+      '@sigma/edge-curve':
+        specifier: ^3.1.0
+        version: 3.1.0(sigma@3.0.3(graphology-types@0.24.8))
+      '@sigma/node-square':
+        specifier: ^3.0.0
+        version: 3.0.0(sigma@3.0.3(graphology-types@0.24.8))
       '@tanstack/react-router':
         specifier: ^1.170.0
         version: 1.170.31(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -77,15 +86,15 @@ importers:
       react-markdown:
         specifier: ^10.1.0
         version: 10.1.0(@types/react@19.2.18)(react@19.2.8)
-      react-sigma:
-        specifier: ^1.2.35
-        version: 1.2.35(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       recharts:
         specifier: ^3.9.2
         version: 3.10.1(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react-is@17.0.2)(react@19.2.8)(redux@5.0.1)
       rehype-raw:
         specifier: ^7.0.0
         version: 7.0.0
+      sigma:
+        specifier: ^3.0.3
+        version: 3.0.3(graphology-types@0.24.8)
     devDependencies:
       '@eslint/js':
         specifier: ^10.0.1
@@ -1017,6 +1026,14 @@ packages:
       react: ^18.0.0 || ^19.0.0
       sigma: ^3.0.2
 
+  '@react-sigma/layout-core@5.0.6':
+    resolution: {integrity: sha512-69ec5IrzJamrzSuccBwnjvse2dMmIUGmoxlFnOIoAhqqpNVEnzsrwVRd5G13tAdk30FyxvKw/E1dEgOP8lQM8g==}
+
+  '@react-sigma/layout-forceatlas2@5.0.6':
+    resolution: {integrity: sha512-BYd+6iDMRrpNUxm7xWhtiLLn7sksoH6xHLXvhbDOtbCIVUEceS57Mxbe4NGZs5zR//+YBIGAbwxQKIk3KrhnMQ==}
+    peerDependencies:
+      graphology-layout-forceatlas2: ^0.10.1
+
   '@react-types/shared@3.36.1':
     resolution: {integrity: sha512-AzsuD9OfxTOZMMvTRhlN3oHBwOmFN7tDh27LzqmHt4+uOgPhJT7ZM7/kVs/8/o0WxayMUIk3hBmCFRHv1FUoag==}
     peerDependencies:
@@ -1343,6 +1360,16 @@ packages:
   '@scalar/workspace-store@0.58.1':
     resolution: {integrity: sha512-aKBwM7Tp+VzdxqVC971c8uxM8w9cw+RS7JY5V/VHj29HyNwKQTSJX6+qf8gma46bgUK0W15Ra/T8rN1mAR+EIw==}
     engines: {node: '>=22'}
+
+  '@sigma/edge-curve@3.1.0':
+    resolution: {integrity: sha512-OFWkfAXEsm+X8l1K4K49cC0psB0gQ+gqxKA08HG5piNPdzrDZ5gG9Gza6htZ5AirOVwd/4/uq/gPpD5En+H+3Q==}
+    peerDependencies:
+      sigma: '>=3.0.0-beta.10'
+
+  '@sigma/node-square@3.0.0':
+    resolution: {integrity: sha512-hPX2oWo7WeaSe6M3D56AXsrLyg3F+7N/YsodaJh4Sw3KTce0GAFVWWPZZklu9CITz0xi3kEmlCGulqAH0cVG2w==}
+    peerDependencies:
+      sigma: '>=3.0.0-beta.17'
 
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
@@ -3873,13 +3900,6 @@ packages:
       redux:
         optional: true
 
-  react-sigma@1.2.35:
-    resolution: {integrity: sha512-amjKjaQusefDp8dD9er3wE/lfubSQT5fJSRF4SsS0LjxRue4bpSapAQ1WpmSM6nQEgawbrKel+bQBmatl7MAIw==}
-    engines: {node: '>=8.0'}
-    peerDependencies:
-      react: '>=15.3'
-      react-dom: '>=15.3'
-
   react-stately@3.49.0:
     resolution: {integrity: sha512-13iNq2KzBrRAzxRc+n53hgROfIistiYY/sPtIhCw1qUB7/kmo+X1xEU2uiS5zcCIrc55AUPwoHqOIIpKWSwB9A==}
     peerDependencies:
@@ -5560,6 +5580,23 @@ snapshots:
       react: 19.2.8
       sigma: 3.0.3(graphology-types@0.24.8)
 
+  '@react-sigma/layout-core@5.0.6(graphology@0.26.0(graphology-types@0.24.8))(react@19.2.8)(sigma@3.0.3(graphology-types@0.24.8))':
+    dependencies:
+      '@react-sigma/core': 5.0.6(graphology@0.26.0(graphology-types@0.24.8))(react@19.2.8)(sigma@3.0.3(graphology-types@0.24.8))
+    transitivePeerDependencies:
+      - graphology
+      - react
+      - sigma
+
+  '@react-sigma/layout-forceatlas2@5.0.6(graphology-layout-forceatlas2@0.10.1(graphology-types@0.24.8))(graphology@0.26.0(graphology-types@0.24.8))(react@19.2.8)(sigma@3.0.3(graphology-types@0.24.8))':
+    dependencies:
+      '@react-sigma/layout-core': 5.0.6(graphology@0.26.0(graphology-types@0.24.8))(react@19.2.8)(sigma@3.0.3(graphology-types@0.24.8))
+      graphology-layout-forceatlas2: 0.10.1(graphology-types@0.24.8)
+    transitivePeerDependencies:
+      - graphology
+      - react
+      - sigma
+
   '@react-types/shared@3.36.1(react@19.2.8)':
     dependencies:
       react: 19.2.8
@@ -6032,6 +6069,14 @@ snapshots:
       yaml: 2.9.0
     transitivePeerDependencies:
       - typescript
+
+  '@sigma/edge-curve@3.1.0(sigma@3.0.3(graphology-types@0.24.8))':
+    dependencies:
+      sigma: 3.0.3(graphology-types@0.24.8)
+
+  '@sigma/node-square@3.0.0(sigma@3.0.3(graphology-types@0.24.8))':
+    dependencies:
+      sigma: 3.0.3(graphology-types@0.24.8)
 
   '@standard-schema/spec@1.1.0': {}
 
@@ -8954,11 +8999,6 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.2.18
       redux: 5.0.1
-
-  react-sigma@1.2.35(react-dom@19.2.8(react@19.2.8))(react@19.2.8):
-    dependencies:
-      react: 19.2.8
-      react-dom: 19.2.8(react@19.2.8)
 
   react-stately@3.49.0(react@19.2.8):
     dependencies:
