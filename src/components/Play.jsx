@@ -15,7 +15,9 @@ import ToolsTab from './ToolsTab';
 import PlayMetrics from './PlayMetrics';
 import Segments from './Segments';
 
-const edgeColor = '#61affe65';
+// Sigma v3's WebGL edge program doesn't parse 8-char hex reliably —
+// keep edge color as 6-char and let opacity fall out of the palette.
+const edgeColor = '#61affe';
 const nodeColor = '#61affe';
 
 const nodeProps = (node) => {
