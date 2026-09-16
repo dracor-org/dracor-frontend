@@ -11,7 +11,10 @@
     "@fortawesome/react-fontawesome": "^3.4.0",
     "@headlessui/react": "^2.2.10",
     "@react-sigma/core": "^5.0.6",
+    "@react-sigma/layout-forceatlas2": "^5.0.6",
     "@scalar/api-reference-react": "^0.9.65",
+    "@sigma/edge-curve": "^3.1.0",
+    "@sigma/node-square": "^3.0.0",
     "@tanstack/react-router": "^1.170.0",
     "@tanstack/react-table": "^8.21.3",
     "@triply/yasgui": "^4.2.28",
@@ -26,9 +29,9 @@
     "react-chartjs-2": "^2.11.1",
     "react-dom": "^19.2.8",
     "react-markdown": "^10.1.0",
-    "react-sigma": "^1.2.35",
     "recharts": "^3.9.2",
-    "rehype-raw": "^7.0.0"
+    "rehype-raw": "^7.0.0",
+    "sigma": "^3.0.3"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
