@@ -141,7 +141,7 @@ export default function PlayInfo({play, metrics, tab: rawTab}: Props) {
   );
 
   return (
-    <div className="h-full md:flex md:flex-col dracor-page">
+    <div className="h-full md:flex md:flex-col">
       <title>{`${authors}: ${play.title} - DraCor`}</title>
       <PlayDetailsHeader play={play}>
         <PlayDetailsNav
