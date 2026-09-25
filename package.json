@@ -1,6 +1,6 @@
 {
   "name": "dracor-frontend",
-  "version": "2.7.1",
+  "version": "2.7.2",
   "private": true,
   "dependencies": {
     "@dracor/registry": "^1.16.0",
