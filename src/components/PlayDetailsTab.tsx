@@ -1,21 +1,21 @@
-import {ReactElement} from 'react';
+import type {ReactNode} from 'react';
 import style from './PlayDetailsTab.module.css';
 
 interface Props {
-  children: ReactElement | ReactElement[];
-  characters: ReactElement;
-  description: ReactElement;
-  metrics: ReactElement;
-  segments: ReactElement;
+  children: ReactNode;
+  characters: ReactNode;
+  description: ReactNode;
+  metrics: ReactNode;
+  segments: ReactNode;
 }
 
-const PlayDetailsTab = ({
+export default function PlayDetailsTab({
   children,
   description,
   characters,
   metrics,
   segments,
-}: Props) => {
+}: Props) {
   return (
     <div className={style.main}>
       <div className={style.content}>{children}</div>
@@ -25,6 +25,4 @@ const PlayDetailsTab = ({
       {segments && <div className={style.segments}>{segments}</div>}
     </div>
   );
-};
-
-export default PlayDetailsTab;
+}

@@ -17,7 +17,9 @@ LIMIT 50`;
 
 export default function SparqlUi() {
   useEffect(() => {
-    const yasgui = new Yasgui(document.getElementById('yasgui'), {
+    const container = document.getElementById('yasgui');
+    if (!container) return;
+    const yasgui = new Yasgui(container, {
       requestConfig: {endpoint},
       copyEndpointOnNewTab: false,
       endpointCatalogueOptions: {
@@ -29,7 +31,6 @@ export default function SparqlUi() {
     });
     // eslint-disable-next-line no-console
     console.log(yasgui);
-    return () => {};
   }, []);
 
   return (
