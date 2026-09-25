@@ -1,10 +1,10 @@
 import {useEffect} from 'react';
-import Yasgui from '@triply/yasgui';
+import Yasgui from '@zazuko/yasgui';
 import {sparqlUrl} from '../config';
 import Header from './Header';
 import Footer from './Footer';
 
-import '@triply/yasgui/build/yasgui.min.css';
+import '@zazuko/yasgui/build/yasgui.min.css';
 import './SparqlUi.css';
 
 const endpoint = sparqlUrl;
