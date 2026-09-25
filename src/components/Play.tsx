@@ -1,4 +1,4 @@
-import {useMemo, useState, type ReactNode} from 'react';
+import {Suspense, lazy, useMemo, useState, type ReactNode} from 'react';
 import {apiUrl} from '../loaders';
 import {makeGraph} from '../network';
 import PlayDetailsHeader from './PlayDetailsHeader';
@@ -7,14 +7,18 @@ import PlayDetailsTab from './PlayDetailsTab';
 import CastList from './CastList';
 import SourceInfo from './SourceInfo';
 import DownloadLinks from './DownloadLinks';
-import NetworkGraph from './NetworkGraph';
-import RelationsGraph from './RelationsGraph';
 import SpeechDistribution, {SpeechDistributionNav} from './SpeechDistribution';
 import TEIPanel from './TEIPanel';
 import ToolsTab from './ToolsTab';
 import PlayMetrics from './PlayMetrics';
 import Segments from './Segments';
 import type {Character, Play, PlayMetrics as PlayMetricsData} from '../types';
+
+// Sigma + graphology + edge/node programs run to ~800 KB. Keep them
+// out of the play route's synchronous chunk; the tabs that need them
+// (Network, Relations) pay the load cost on demand.
+const NetworkGraph = lazy(() => import('./NetworkGraph'));
+const RelationsGraph = lazy(() => import('./RelationsGraph'));
 
 // Sigma v3's WebGL edge program doesn't parse 8-char hex reliably —
 // keep edge color as 6-char and let opacity fall out of the palette.
@@ -101,7 +105,11 @@ export default function PlayInfo({play, metrics, tab: rawTab}: Props) {
     );
     segments = <Segments play={play} />;
   } else if (tab === 'relations') {
-    tabContent = <RelationsGraph {...{play, nodeColor, edgeColor}} />;
+    tabContent = (
+      <Suspense fallback={<p className="loading">Loading…</p>}>
+        <RelationsGraph {...{play, nodeColor, edgeColor}} />
+      </Suspense>
+    );
     characters = castList;
     description = (
       <p>
@@ -122,7 +130,11 @@ export default function PlayInfo({play, metrics, tab: rawTab}: Props) {
       </p>
     );
   } else {
-    tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor}} />;
+    tabContent = (
+      <Suspense fallback={<p className="loading">Loading…</p>}>
+        <NetworkGraph {...{graph, nodeColor, edgeColor}} />
+      </Suspense>
+    );
     characters = castList;
     metricsPane = playMetrics;
     description = (
