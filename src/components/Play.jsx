@@ -171,8 +171,12 @@ const PlayInfo = ({corpusId, playId}) => {
     metrics = playMetrics;
     description = (
       <p>
-        This tab shows a co-occurrence network. If characters appear in the same
-        scene or act, they are linked.
+        This tab displays a character network based on a particular
+        formalisation of shared presence within structural units of a play. If
+        you intend to use the data for research, bear in mind that it is derived
+        from baseline TEI annotation. We recommend consulting{' '}
+        <a href="/doc/faq">our FAQs</a> for details on the underlying
+        assumptions and implementation.
       </p>
     );
   }
