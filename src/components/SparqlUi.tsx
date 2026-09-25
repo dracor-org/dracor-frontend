@@ -34,19 +34,17 @@ export default function SparqlUi() {
   }, []);
 
   return (
-    <div className="w-full px-3.75 mx-auto">
-      <div className="dracor-page">
-        <title>SPARQL - DraCor</title>
-        <Header>SPARQL</Header>
-        <p style={{margin: '2em 0 1em', textAlign: 'center'}}>
-          <em>
-            The RDF implementation is still experimental. A stable version will
-            be released at a later date.
-          </em>
-        </p>
-        <div id="yasgui" />
-        <Footer />
-      </div>
+    <div className="dracor-page">
+      <title>SPARQL - DraCor</title>
+      <Header>SPARQL</Header>
+      <p style={{margin: '2em 0 1em', textAlign: 'center'}}>
+        <em>
+          The RDF implementation is still experimental. A stable version will be
+          released at a later date.
+        </em>
+      </p>
+      <div id="yasgui" />
+      <Footer />
     </div>
   );
 }

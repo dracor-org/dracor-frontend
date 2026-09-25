@@ -220,6 +220,10 @@ nav [role='menu'] {
 }
 
 /* Markdown doc pages */
+.dracor-page {
+  padding-left: 15px;
+  padding-right: 15px;
+}
 .dracor-page hgroup {
   color: var(--background-light);
   background-color: var(--main);

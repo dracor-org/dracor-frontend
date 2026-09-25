@@ -2,17 +2,13 @@ import Header from './Header';
 import Footer from './Footer';
 import Odd from './Odd';
 
-const OddPage = () => {
+export default function OddPage() {
   return (
-    <div className="w-full px-3.75 mx-auto">
+    <div className="dracor-page">
       <title>ODD - DraCor</title>
-      <div className="dracor-page">
-        <Header>DraCor ODD</Header>
-        <Odd />
-        <Footer />
-      </div>
+      <Header>DraCor ODD</Header>
+      <Odd />
+      <Footer />
     </div>
   );
-};
-
-export default OddPage;
+}
