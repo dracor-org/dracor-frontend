@@ -29,44 +29,31 @@ The Docker image (see [Dockerfile](Dockerfile) + [nginx.conf](nginx.conf)) uses 
 
 ## Architecture
 
-Single-page React app (React 18, react-router-dom v6) bootstrapped by Vite. Entry: [src/index.tsx](src/index.tsx) → [src/App.tsx](src/App.tsx).
+Single-page React 19 app bootstrapped by Vite. Entry: [src/index.tsx](src/index.tsx) mounts the TanStack Router `RouterProvider`; there is no `App.tsx`.
 
-**Routing** ([src/App.tsx](src/App.tsx)) is corpus-driven: `/` (Home), `/:corpusId` (Corpus index), `/:corpusId/:playId` (Play), plus `/doc/:slug`, `/doc/api`, `/doc/odd`, `/doc/corpora`, `/sparql`. The SPARQL UI is code-split via `React.lazy` and only loads the real YASGUI bundle when `VITE_WITH_SPARQL=yes`.
+**Routing** uses TanStack Router with file-based routes under [src/routes/](src/routes/) and a generated [src/routeTree.gen.ts](src/routeTree.gen.ts). The tree: [`__root.tsx`](src/routes/__root.tsx) (global shell + `/info` + `/corpora` loader), [`index.tsx`](src/routes/index.tsx) (Home), [`$corpusId/index.tsx`](src/routes/$corpusId/index.tsx) (Corpus), [`$corpusId/$playId/`](src/routes/$corpusId/$playId/) (Play — `route.tsx` loads the play + metrics, `$tab.tsx` renders the active tab as its own route segment), plus [`doc/$slug.tsx`](src/routes/doc/$slug.tsx), [`doc/api.tsx`](src/routes/doc/api.tsx), [`doc/odd.tsx`](src/routes/doc/odd.tsx), [`doc/corpora.tsx`](src/routes/doc/corpora.tsx), [`doc/legacy.api.tsx`](src/routes/doc/legacy.api.tsx), [`sparql.tsx`](src/routes/sparql.tsx) (lazy — real YASGUI bundle only loads when `VITE_WITH_SPARQL=yes`).
 
-**Global state** is a single React context [DracorContext](src/context.ts) populated once in `App` after fetching `/info` and `/corpora` from the API. Components consume it with `useContext(DracorContext)`; there is no Redux/Zustand.
+**Global state** is a single React context [DracorContext](src/context.ts) populated by `__root.tsx` via its loader (`/info` + `/corpora`). Components consume it with `use(DracorContext)`.
 
-**API layer** is a thin [apisauce](https://github.com/infinitered/apisauce) client in [src/api.ts](src/api.ts) using `apiUrl` from [src/config.ts](src/config.ts). All backend calls go through it — the base URL is either `VITE_DRACOR_API` or (in dev/prod-behind-nginx) the relative `/api/v1` proxy.
+**API layer** is native `fetch` in [src/loaders.ts](src/loaders.ts). Route loaders call these helpers; components read the result via `Route.useLoaderData()`. The base URL is either `VITE_DRACOR_API` or (in dev / prod-behind-nginx) the relative `/api/v1` proxy — see [src/config.ts](src/config.ts).
 
-**Types** live in [src/types.ts](src/types.ts) (`Play`, `PlayMetrics`, `Author`, `Character`, `Relation`, `Segment`, `Sitemap`, `ApiInfo`, `DracorContext`). New TS components should reuse these rather than inventing overlapping shapes.
+**Types** live in [src/types.ts](src/types.ts) (`Play`, `PlayMetrics`, `Author`, `Character`, `Relation`, `Segment`, `Sitemap`, `ApiInfo`, `DracorContext`). New code should reuse these rather than inventing overlapping shapes.
 
-**Mixed JS/TS**. Many components are still `.jsx` (`Play`, `NetworkGraph`, `RelationsGraph`, `Corpus`, `Header`, `TopNav`, etc.). Newer files are `.tsx`. When touching a `.jsx` file, don't do a wholesale rewrite to TypeScript unless the task calls for it.
-
-**Styling** uses Bootstrap 4 + reactstrap for layout, with per-component SCSS via CSS Modules (`Foo.module.scss` → `import styles from './Foo.module.scss'`) alongside a few plain `.scss` files for globals. Global styles are in [src/index.scss](src/index.scss).
+**Styling** is Tailwind CSS v4 + [@dracor/react](https://www.npmjs.com/package/@dracor/react)'s design tokens. [src/index.css](src/index.css) imports `tailwindcss`, `@dracor/react/dracor.css`, and `@dracor/react/tei.css`, plus a small block of local overrides (Rubik webfont, palette aliases, `.dracor-page` gutter, funding-note pills, `.dracor-tabs` bar, `.authors-tinted` portrait tint). Component-local styling is either Tailwind classes inline or a `.module.css` / `.css` next to the component (`PlayDetailsTab.module.css`, `TEIPanel.css`, `Odd.css`, `SparqlUi.css`).
 
 **Notable visualizations & viewers**:
-- [components/NetworkGraph.jsx](src/components/NetworkGraph.jsx), [components/RelationsGraph.jsx](src/components/RelationsGraph.jsx) — react-sigma character network + relations graphs.
-- [components/SpeechDistribution/](src/components/SpeechDistribution/) — three chart variants (`Sapogov`, `TrilckeFischer`, `Yarkho`) rendered via chart.js/recharts.
-- [components/TEIPanel.jsx](src/components/TEIPanel.jsx) — renders TEI XML in-browser via CETEIcean.
-- [components/SparqlUi.jsx](src/components/SparqlUi.jsx) — YASGUI-backed SPARQL editor (lazy).
-- [components/APIDoc.jsx](src/components/APIDoc.jsx), [components/OddPage.jsx](src/components/OddPage.jsx) — swagger-ui-react + ODD/TEI docs viewer.
+- [components/NetworkGraph.tsx](src/components/NetworkGraph.tsx), [components/RelationsGraph.tsx](src/components/RelationsGraph.tsx) — character network + relations graph via `@react-sigma/core` + `sigma` v3 + `graphology`. Curved edges from `@sigma/edge-curve`, square nodes from `@sigma/node-square`.
+- [components/SpeechDistribution/](src/components/SpeechDistribution/) — three chart variants (`Sapogov`, `TrilckeFischer`, `Yarkho`) via chart.js / recharts.
+- [components/TEIPanel.tsx](src/components/TEIPanel.tsx) — wraps `TEIText` from `@dracor/react` (which uses CETEIcean under the hood). Adds a scrollable frame with top/bottom gradient fades and the DraCor scrollbar chrome.
+- [components/SparqlUi.tsx](src/components/SparqlUi.tsx) — `@zazuko/yasgui`-backed SPARQL editor (lazy).
+- [routes/doc/api.tsx](src/routes/doc/api.tsx) — API docs via `ApiDoc` from `@dracor/react` (Scalar-based). [components/Odd.tsx](src/components/Odd.tsx) — ODD / TEI docs viewer.
 - [components/CorpusRegistry.tsx](src/components/CorpusRegistry.tsx) — pulls corpus metadata from `@dracor/registry`.
 
-**Docs pages**: markdown in [src/docs/](src/docs/) is rendered by [components/DocPage.tsx](src/components/DocPage.tsx) using `react-markdown` + `rehype-raw`.
-
-## Planned migration
-
-The repo is scheduled for a substantial rework — when touching code, prefer patterns compatible with the target stack over doubling down on the current one:
-
-- **Bootstrap 4 / reactstrap → Tailwind CSS** with the [@dracor/react](https://www.npmjs.com/package/@dracor/react) component library. Avoid adding new reactstrap components or SCSS modules if a Tailwind/`@dracor/react` equivalent will replace them.
-- **JS → TypeScript**. New files should be `.tsx`/`.ts`; when meaningfully editing a `.jsx` file, converting it is welcome (but not mandatory for small fixes).
-- **react-router-dom v6 → TanStack Router**, likely with route loaders. Keep route-level data fetching self-contained so migration is straightforward.
-- **apisauce → native `fetch`**. New API calls can use `fetch` directly rather than extending [src/api.ts](src/api.ts).
-
-Confirm with the user before large, migration-flavored refactors — the migration itself is a separate effort, not a side effect of unrelated tasks.
+**Docs pages**: markdown in [public/doc/](public/doc/) is fetched at runtime and rendered by `DocPage` from `@dracor/react` (`react-markdown` + `rehype-raw`).
 
 ## Conventions
 
 - ESLint config ([eslint.config.mjs](eslint.config.mjs)) enables `@eslint/js`, `typescript-eslint`, React (jsx-runtime), and Prettier. `no-console` is a warning — existing code uses `// eslint-disable-next-line no-console` for intentional logs; keep that pattern.
 - Prettier + `lint-staged` run on commit via Husky (`.husky/`). Formatting is enforced through ESLint's Prettier plugin, so run `pnpm lint` before shipping.
 - Path aliases: none — use relative imports.
-- Tests co-located as `*.test.ts(x)` next to source; only [src/App.test.tsx](src/App.test.tsx) exists today.
+- Tests co-located as `*.test.ts(x)` next to source; only [src/App.test.tsx](src/App.test.tsx) exists today. Route-level smoke tests with MSW ([src/mocks/](src/mocks/)) are on the 3.0.0 punch list.
