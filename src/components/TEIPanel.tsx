@@ -1,4 +1,4 @@
-import {TEIText} from '@dracor/react';
+import TEIText from '@dracor/react/TEIText';
 import './TEIPanel.css';
 
 interface Props {

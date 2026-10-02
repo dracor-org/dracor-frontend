@@ -1,4 +1,4 @@
-import {Tabs} from '@dracor/react';
+import Tabs from '@dracor/react/Tabs';
 import type {ComponentProps} from 'react';
 
 interface Item {
