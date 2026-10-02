@@ -5,9 +5,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
 // See the note in `doc/api.tsx` — Scalar is heavy, lazy-load it.
-const ApiDoc = lazy(() =>
-  import('@dracor/react').then((m) => ({default: m.ApiDoc}))
-);
+const ApiDoc = lazy(() => import('@dracor/react/ApiDoc'));
 
 export const Route = createFileRoute('/doc/legacy/api')({
   beforeLoad: () => {
