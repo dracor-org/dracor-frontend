@@ -55,34 +55,27 @@ function buildNavItems(sitemap: Sitemap, corpora: CorpusEntry[]): NavEntry[] {
 // Rahtz Prize badge shown when VITE_WITH_RAHTZ_PRIZE=yes. Rendered inside
 // NavBar via the new v1.5.0 `badge` slot. Mirrors the production dracor.org
 // pill: fixed width, hangs below the nav bar via negative top margin, rounded
-// bottom corners, TEI shield fills the width. Dimensions are anchored to
-// `--bootstrap-padding` (15px) to match the pre-Phase-2 look.
+// bottom corners, TEI shield fills the width.
 const prizeBadge = (
   <a
     href="https://tei-c.org/activities/rahtz-prize-for-tei-ingenuity/"
     title="Rahtz Prize for TEI Ingenuity 2022"
     className="flex flex-col items-center bg-white text-primary hover:no-underline"
     style={{
-      width: 'calc(3 * var(--bootstrap-padding))',
+      width: '45px',
       padding: '0.3em',
-      marginLeft: 'var(--bootstrap-padding)',
+      marginLeft: '15px',
       marginTop: '-1rem',
-      borderRadius:
-        '0 0 calc(1.5 * var(--bootstrap-padding)) calc(1.5 * var(--bootstrap-padding))',
+      borderRadius: '0 0 22.5px 22.5px',
     }}
   >
     <span
       className="uppercase whitespace-nowrap"
-      style={{
-        fontSize: 'calc(0.375 * var(--bootstrap-padding))',
-        lineHeight: '0.75',
-      }}
+      style={{fontSize: '5.625px', lineHeight: '0.75'}}
     >
       Rahtz Prize
     </span>
-    <span style={{fontSize: 'var(--bootstrap-padding)', lineHeight: '1.1'}}>
-      2022
-    </span>
+    <span style={{fontSize: '15px', lineHeight: '1.1'}}>2022</span>
     <img
       src={svgTEI}
       alt="TEI Logo"

@@ -13,7 +13,7 @@ export const Route = createFileRoute('/doc/legacy/api')({
 
 function LegacyApiDocRoute() {
   return (
-    <div className="container-fluid">
+    <div className="w-full px-3.75 mx-auto">
       <title>API Documentation v0 (legacy) - DraCor</title>
       <Header>DraCor API v0</Header>
       <p className="legacy-disclaimer">

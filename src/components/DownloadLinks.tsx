@@ -1,46 +1,32 @@
-import classnames from 'classnames/bind';
+import {DownloadButton} from '@dracor/react';
 import {apiUrl} from '../loaders';
-import style from './DownloadLinks.module.scss';
-import svgCSV from '../images/csv.svg';
-import svgGEXF from '../images/gexf.svg';
-import svgGraphML from '../images/graphml.svg';
-import svgTXT from '../images/txt.svg';
-import svgJSON from '../images/json.svg';
-import svgTEI from '../images/tei.svg';
 import {Play} from '../types';
-
-const cx = classnames.bind(style);
 
 const DownloadLinks = ({play}: {play: Play}) => {
   const playUrl = `${apiUrl}/corpora/${play.corpus}/plays/${play.name}`;
-  const csvUrl = `${playUrl}/networkdata/csv`;
-  const gexfUrl = `${playUrl}/networkdata/gexf`;
-  const graphmlUrl = `${playUrl}/networkdata/graphml`;
-  const csvRelationsUrl = `${playUrl}/relations/csv`;
-  const gexfRelationsUrl = `${playUrl}/relations/gexf`;
-  const graphmlRelationsUrl = `${playUrl}/relations/graphml`;
-  const jsonCharactersUrl = `${playUrl}/characters`;
-  const csvCharactersUrl = `${playUrl}/characters/csv`;
-  const teiUrl = `${playUrl}/tei`;
+  const stem = `${play.id}-${play.name}`;
 
   return (
-    <div className={cx('downloads')}>
+    <div className="grid grid-cols-[repeat(auto-fit,minmax(17em,1fr))] xl:grid-cols-[repeat(3,minmax(15em,1fr))] gap-8 w-full h-auto overflow-y-auto [&_h4]:p-0 [&_h4]:leading-none">
       <span>
         <h4>Network data</h4>
         <p>Co-occurrence network:</p>
-        <span className={cx('formats')}>
-          <a href={csvUrl} download={`${play.id}-${play.name}.network.csv`}>
-            <img src={svgCSV} alt="CSV" />
-          </a>
-          <a href={gexfUrl} download={`${play.id}-${play.name}.network.gexf`}>
-            <img src={svgGEXF} alt="GEFX" />
-          </a>
-          <a
-            href={graphmlUrl}
-            download={`${play.id}-${play.name}.network.graphml`}
-          >
-            <img src={svgGraphML} alt="GraphML" />
-          </a>
+        <span className="flex flex-wrap gap-4">
+          <DownloadButton
+            href={`${playUrl}/networkdata/csv`}
+            name={`${stem}.network.csv`}
+            type="csv"
+          />
+          <DownloadButton
+            href={`${playUrl}/networkdata/gexf`}
+            name={`${stem}.network.gexf`}
+            type="gexf"
+          />
+          <DownloadButton
+            href={`${playUrl}/networkdata/graphml`}
+            name={`${stem}.network.graphml`}
+            type="graphml"
+          />
         </span>
         {play.relations ? (
           <>
@@ -51,105 +37,91 @@ const DownloadLinks = ({play}: {play: Play}) => {
               </a>
               ):
             </p>
-            <span className={cx('formats')}>
-              <a
-                href={csvRelationsUrl}
-                download={`${play.id}-${play.name}.relations.csv`}
-              >
-                <img src={svgCSV} alt="CSV" />
-              </a>
-              <a
-                href={gexfRelationsUrl}
-                download={`${play.id}-${play.name}.relations.gexf`}
-              >
-                <img src={svgGEXF} alt="GEXF" />
-              </a>
-              <a
-                href={graphmlRelationsUrl}
-                download={`${play.id}-${play.name}.relations.graphml`}
-              >
-                <img src={svgGraphML} alt="GraphML" />
-              </a>
+            <span className="flex flex-wrap gap-4">
+              <DownloadButton
+                href={`${playUrl}/relations/csv`}
+                name={`${stem}.relations.csv`}
+                type="csv"
+              />
+              <DownloadButton
+                href={`${playUrl}/relations/gexf`}
+                name={`${stem}.relations.gexf`}
+                type="gexf"
+              />
+              <DownloadButton
+                href={`${playUrl}/relations/graphml`}
+                name={`${stem}.relations.graphml`}
+                type="graphml"
+              />
             </span>
           </>
         ) : (
-          <>
-            <p>Relation data not available.</p>
-            <span className={cx('formats')}>
-              <img className="disabled" src={svgCSV} alt="CSV" />
-              <img className="disabled" src={svgGEXF} alt="GEXF" />
-              <img className="disabled" src={svgGraphML} alt="GraphML" />
-            </span>
-          </>
+          <p>Relation data not available.</p>
         )}
       </span>
       <span>
         <h4>Spoken text</h4>
         <p>By character:</p>
-        <span className={cx('formats')}>
-          <a
+        <span className="flex flex-wrap gap-4">
+          <DownloadButton
             href={`${playUrl}/spoken-text-by-character`}
-            download={`${play.id}-${play.name}.spoken-text-by-character.json`}
-          >
-            <img src={svgJSON} alt="JSON" />
-          </a>
+            name={`${stem}.spoken-text-by-character.json`}
+            type="json"
+          />
         </span>
         <p>Plain (no markup):</p>
-        <span className={cx('formats')}>
-          <a
+        <span className="flex flex-wrap gap-4">
+          <DownloadButton
             href={`${playUrl}/spoken-text`}
-            download={`${play.id}-${play.name}.spoken-text.txt`}
-          >
-            <img src={svgTXT} alt="TXT" />
-          </a>
+            name={`${stem}.spoken-text.txt`}
+            type="txt"
+          />
         </span>
       </span>
       <span>
         <h4>Stage directions</h4>
         <p>Without speaker names:</p>
-        <span className={cx('formats')}>
-          <a
+        <span className="flex flex-wrap gap-4">
+          <DownloadButton
             href={`${playUrl}/stage-directions`}
-            download={`${play.id}-${play.name}.stage-directions.txt`}
-          >
-            <img src={svgTXT} alt="TXT" />
-          </a>
+            name={`${stem}.stage-directions.txt`}
+            type="txt"
+          />
         </span>
         <p>Including speaker names:</p>
-        <span className={cx('formats')}>
-          <a
+        <span className="flex flex-wrap gap-4">
+          <DownloadButton
             href={`${playUrl}/stage-directions-with-speakers`}
-            download={`${play.id}-${play.name}.stage-directions-with-speakers.txt`}
-          >
-            <img src={svgTXT} alt="TXT" />
-          </a>
+            name={`${stem}.stage-directions-with-speakers.txt`}
+            type="txt"
+          />
         </span>
       </span>
       <span>
         <h4>List of characters</h4>
         <p>Including precalculated data:</p>
-        <span className={cx('formats')}>
-          <a
-            href={csvCharactersUrl}
-            download={`${play.id}-${play.name}.characters.csv`}
-          >
-            <img src={svgCSV} alt="CSV" />
-          </a>
-          <a
-            href={jsonCharactersUrl}
-            download={`${play.id}-${play.name}.characters.json`}
-          >
-            <img src={svgJSON} alt="JSON" />
-          </a>
+        <span className="flex flex-wrap gap-4">
+          <DownloadButton
+            href={`${playUrl}/characters/csv`}
+            name={`${stem}.characters.csv`}
+            type="csv"
+          />
+          <DownloadButton
+            href={`${playUrl}/characters`}
+            name={`${stem}.characters.json`}
+            type="json"
+          />
         </span>
       </span>
       <span>
         <h4>Full text</h4>
         <p>TEI-encoded:</p>
-        <span className={cx('formats')}>
-          <a href={teiUrl} download={`${play.id}-${play.name}.tei.xml`}>
-            <img src={svgTEI} alt="TEI" />
-          </a>
+        <span className="flex flex-wrap gap-4">
+          <DownloadButton
+            href={`${playUrl}/tei`}
+            name={`${stem}.tei.xml`}
+            type="tei"
+          />
         </span>
       </span>
     </div>

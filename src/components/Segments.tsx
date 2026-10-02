@@ -1,8 +1,4 @@
-import classnames from 'classnames/bind';
 import {Play, Segment} from '../types';
-import style from './Segments.module.scss';
-
-const cx = classnames.bind(style);
 
 interface TreeSegment {
   title: string;
@@ -72,9 +68,14 @@ const Segments = ({play: {characters, segments}}: Props) => {
   const tree = buildTree(segments, castMap);
 
   return (
-    <div className={cx('main')}>
-      <h4>Segments</h4>
-      <ol className={cx('wrapper', 'dracor-scrollbar')}>
+    <div className="segments-wrapper relative flex w-full">
+      <h4 className="absolute top-0 left-0 right-4 bg-neutral-100 h-[2em] pointer-events-none z-10">
+        Segments
+      </h4>
+      <ol
+        className="w-full overflow-y-auto pt-16 pb-4 mb-0 pl-0 list-none font-bold"
+        style={{scrollbarWidth: 'thin'}}
+      >
         {tree.map((segment) => (
           <Seg key={segment.title} seg={segment} />
         ))}
@@ -84,24 +85,28 @@ const Segments = ({play: {characters, segments}}: Props) => {
 };
 
 const Seg = ({seg}: {seg: TreeSegment}) => (
-  <li>
-    <p>
+  <li className="mb-1">
+    <p className="mb-0 group">
       {seg.title}
       {seg.n && (
         <>
           {' '}
-          <span>#{seg.n}</span>
+          <span className="text-gray-500 hidden group-hover:inline">
+            #{seg.n}
+          </span>
         </>
       )}
     </p>
     {seg.segments.length > 0 && (
-      <ol>
+      <ol className="mt-2 mb-4 pl-4 list-none font-normal">
         {seg.segments.map((s) => (
           <Seg key={`${s.n}-${s.title}`} seg={s} />
         ))}
       </ol>
     )}
-    {seg.speakers && <i>{seg.speakers.join(', ')}</i>}
+    {seg.speakers && (
+      <i className="text-[80%] font-normal">{seg.speakers.join(', ')}</i>
+    )}
   </li>
 );
 

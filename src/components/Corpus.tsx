@@ -10,7 +10,7 @@ interface Props {
 
 export default function Corpus({corpus}: Props) {
   return (
-    <div className="container-fluid">
+    <div className="w-full px-3.75 mx-auto">
       <div>
         <div className="-mx-4 pt-1 pl-4 bg-primary">
           <CorpusLabel

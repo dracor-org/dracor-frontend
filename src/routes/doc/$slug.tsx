@@ -11,17 +11,13 @@ export const Route = createFileRoute('/doc/$slug')({
 function DocRoute() {
   const {slug} = Route.useParams();
   return (
-    <div className="container-fluid">
+    <div className="w-full px-3.75 mx-auto">
       <div className="dracor-page">
         <DocPage
           url={`/doc/${slug}.md`}
           rehypePlugins={[rehypeRaw]}
           components={{
-            h1: ({children}) => (
-              <Header>
-                <h1 className="col">{children}</h1>
-              </Header>
-            ),
+            h1: ({children}) => <Header>{children}</Header>,
           }}
         />
         <Footer />

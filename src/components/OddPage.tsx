@@ -4,7 +4,7 @@ import Odd from './Odd';
 
 const OddPage = () => {
   return (
-    <div className="container-fluid">
+    <div className="w-full px-3.75 mx-auto">
       <title>ODD - DraCor</title>
       <div className="dracor-page">
         <Header>DraCor ODD</Header>

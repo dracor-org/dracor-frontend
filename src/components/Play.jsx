@@ -15,8 +15,6 @@ import ToolsTab from './ToolsTab';
 import PlayMetrics from './PlayMetrics';
 import Segments from './Segments';
 
-import './Play.scss';
-
 const edgeColor = '#61affe65';
 const nodeColor = '#61affe';
 
@@ -134,17 +132,16 @@ const PlayInfo = ({play, metrics, tab: rawTab}) => {
   );
 
   return (
-    <div className="h-100 d-md-flex flex-md-column dracor-page">
+    <div className="h-full md:flex md:flex-col dracor-page">
       <title>{`${authors}: ${play.title} - DraCor`}</title>
       <PlayDetailsHeader play={play}>
         <PlayDetailsNav
           items={items}
-          current={tab}
           corpusId={play.corpus}
           playId={play.name}
         />
       </PlayDetailsHeader>
-      <div className="container-fluid">
+      <div className="w-full px-3.75 mx-auto">
         <PlayDetailsTab
           characters={characters}
           description={description}

@@ -21,7 +21,7 @@ function HomeRoute() {
   return (
     <>
       <title>Home - DraCor</title>
-      <div className="container-fluid" style={{zIndex: 1}}>
+      <div className="w-full px-3.75 mx-auto" style={{zIndex: 1}}>
         <Header>DraCor - Open Infrastructure for Drama Analysis</Header>
       </div>
       {sorted.length === 0 ? (
@@ -45,7 +45,7 @@ function HomeRoute() {
           )}
         </div>
       )}
-      <div className="container-fluid">
+      <div className="w-full px-3.75 mx-auto">
         <Footer withSitemap={!!sitemapUrl} />
       </div>
     </>

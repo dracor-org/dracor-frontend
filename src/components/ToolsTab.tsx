@@ -1,15 +1,33 @@
 import {use, useState} from 'react';
-import classnames from 'classnames/bind';
 import {compareVersions} from 'compare-versions';
 import {DracorContext} from '../context';
-import style from './ToolsTab.module.scss';
 import {apiUrl} from '../config';
-
-const cx = classnames.bind(style);
 
 interface Props {
   corpusId: string;
   playId: string;
+}
+
+function Radio({
+  checked,
+  onSelect,
+  children,
+}: {
+  checked: boolean;
+  onSelect: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <label className="inline-block ml-2" onClick={onSelect}>
+      <input
+        type="radio"
+        checked={checked}
+        readOnly
+        className="mr-1 align-middle appearance-auto accent-primary"
+      />{' '}
+      {children}
+    </label>
+  );
 }
 
 export default function ToolsTab({corpusId, playId}: Props) {
@@ -26,7 +44,7 @@ export default function ToolsTab({corpusId, playId}: Props) {
   const isAccessible = /dracor\.org/.test(apiBase.hostname);
 
   return (
-    <div className={cx('main')}>
+    <div>
       <h1>External Tools</h1>
 
       {!isAccessible && (
@@ -39,27 +57,35 @@ export default function ToolsTab({corpusId, playId}: Props) {
 
       {isAccessible && (
         <>
-          <p className={cx('select')}>
+          <p>
             Text layer for analysis:{' '}
-            <label onClick={() => setTextType('tei')}>
-              <input type="radio" checked={textType === 'tei'} /> Full text
-              (TEI-encoded)
-            </label>{' '}
+            <Radio
+              checked={textType === 'tei'}
+              onSelect={() => setTextType('tei')}
+            >
+              Full text (TEI-encoded)
+            </Radio>{' '}
             {apiInfo &&
               compareVersions(apiInfo.version, '1.1.0-beta.7') >= 0 && (
-                <label onClick={() => setTextType('txt')}>
-                  <input type="radio" checked={textType === 'txt'} /> Plain
-                  text{' '}
-                </label>
+                <Radio
+                  checked={textType === 'txt'}
+                  onSelect={() => setTextType('txt')}
+                >
+                  Plain text
+                </Radio>
               )}
-            <label onClick={() => setTextType('spoken-text')}>
-              <input type="radio" checked={textType === 'spoken-text'} /> Spoken
-              text
-            </label>{' '}
-            <label onClick={() => setTextType('stage-directions')}>
-              <input type="radio" checked={textType === 'stage-directions'} />{' '}
+            <Radio
+              checked={textType === 'spoken-text'}
+              onSelect={() => setTextType('spoken-text')}
+            >
+              Spoken text
+            </Radio>{' '}
+            <Radio
+              checked={textType === 'stage-directions'}
+              onSelect={() => setTextType('stage-directions')}
+            >
               Stage directions
-            </label>
+            </Radio>
           </p>
           <ul>
             <li>
