@@ -1,4 +1,4 @@
-import {useMemo, useState} from 'react';
+import {Suspense, lazy, useMemo, useState, type ReactNode} from 'react';
 import {apiUrl} from '../loaders';
 import {makeGraph} from '../network';
 import PlayDetailsHeader from './PlayDetailsHeader';
@@ -7,20 +7,25 @@ import PlayDetailsTab from './PlayDetailsTab';
 import CastList from './CastList';
 import SourceInfo from './SourceInfo';
 import DownloadLinks from './DownloadLinks';
-import NetworkGraph from './NetworkGraph';
-import RelationsGraph from './RelationsGraph';
 import SpeechDistribution, {SpeechDistributionNav} from './SpeechDistribution';
 import TEIPanel from './TEIPanel';
 import ToolsTab from './ToolsTab';
 import PlayMetrics from './PlayMetrics';
 import Segments from './Segments';
+import type {Character, Play, PlayMetrics as PlayMetricsData} from '../types';
+
+// Sigma + graphology + edge/node programs run to ~800 KB. Keep them
+// out of the play route's synchronous chunk; the tabs that need them
+// (Network, Relations) pay the load cost on demand.
+const NetworkGraph = lazy(() => import('./NetworkGraph'));
+const RelationsGraph = lazy(() => import('./RelationsGraph'));
 
 // Sigma v3's WebGL edge program doesn't parse 8-char hex reliably —
 // keep edge color as 6-char and let opacity fall out of the palette.
 const edgeColor = '#61affe';
 const nodeColor = '#61affe';
 
-const nodeProps = (node) => {
+const nodeProps = (node: Character) => {
   const {sex} = node;
   const color = sex === 'MALE' || sex === 'FEMALE' ? '#1f2448' : '#61affe';
   const type = sex === 'MALE' ? 'square' : 'circle';
@@ -36,7 +41,13 @@ const navItems = [
   {name: 'tools', label: 'Tools'},
 ];
 
-const PlayInfo = ({play, metrics, tab: rawTab}) => {
+interface Props {
+  play: Play;
+  metrics?: PlayMetricsData;
+  tab?: string;
+}
+
+export default function PlayInfo({play, metrics, tab: rawTab}: Props) {
   const [chartType, setChartType] = useState('sapogov');
 
   const graph = useMemo(
@@ -58,11 +69,11 @@ const PlayInfo = ({play, metrics, tab: rawTab}) => {
 
   const playMetrics = <PlayMetrics play={play} metrics={metrics} />;
 
-  let tabContent;
-  let description;
-  let characters = null;
-  let metricsPane = null;
-  let segments = null;
+  let tabContent: ReactNode;
+  let description: ReactNode;
+  let characters: ReactNode = null;
+  let metricsPane: ReactNode = null;
+  let segments: ReactNode = null;
 
   if (tab === 'speech') {
     tabContent = (
@@ -94,7 +105,11 @@ const PlayInfo = ({play, metrics, tab: rawTab}) => {
     );
     segments = <Segments play={play} />;
   } else if (tab === 'relations') {
-    tabContent = <RelationsGraph {...{play, nodeColor, edgeColor}} />;
+    tabContent = (
+      <Suspense fallback={<p className="loading">Loading…</p>}>
+        <RelationsGraph {...{play, nodeColor, edgeColor}} />
+      </Suspense>
+    );
     characters = castList;
     description = (
       <p>
@@ -115,7 +130,11 @@ const PlayInfo = ({play, metrics, tab: rawTab}) => {
       </p>
     );
   } else {
-    tabContent = <NetworkGraph {...{graph, nodeColor, edgeColor, play}} />;
+    tabContent = (
+      <Suspense fallback={<p className="loading">Loading…</p>}>
+        <NetworkGraph {...{graph, nodeColor, edgeColor}} />
+      </Suspense>
+    );
     characters = castList;
     metricsPane = playMetrics;
     description = (
@@ -134,7 +153,7 @@ const PlayInfo = ({play, metrics, tab: rawTab}) => {
   );
 
   return (
-    <div className="h-full md:flex md:flex-col dracor-page">
+    <div className="h-full md:flex md:flex-col">
       <title>{`${authors}: ${play.title} - DraCor`}</title>
       <PlayDetailsHeader play={play}>
         <PlayDetailsNav
@@ -155,6 +174,4 @@ const PlayInfo = ({play, metrics, tab: rawTab}) => {
       </div>
     </div>
   );
-};
-
-export default PlayInfo;
+}
