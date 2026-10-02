@@ -12,7 +12,7 @@ Package manager is **pnpm** (see `packageManager` field in [package.json](packag
 - `pnpm test` — [Vitest](https://vitest.dev) in watch mode (jsdom env, setup file `src/setupTests.ts`).
 - `pnpm test -- src/App.test.tsx` — run a single test file. `pnpm vitest run -t "pattern"` filters by test name.
 - `pnpm test:coverage` — one-shot coverage report.
-- `pnpm lint` — ESLint over `src`. Lint is *not* wired into the Vite dev server or build, so it only runs on explicit `pnpm lint`, via `lint-staged` on commit, and in CI. Run `pnpm lint` before shipping.
+- `pnpm lint` — ESLint over `src`. Lint is *not* wired into the Vite dev server or build, so it only runs on explicit `pnpm lint` and in CI. Note the pre-commit hook does **not** lint `src`: `lint-staged` runs `prettier --write` there and reserves `eslint --fix` for root-level `*.js`. Run `pnpm lint` before shipping.
 
 Version bumps use `pnpm bump-version <version>` (no `v` prefix on tags — configured via `--tag-version-prefix=''`).
 
@@ -55,5 +55,6 @@ Single-page React 19 app bootstrapped by Vite. Entry: [src/index.tsx](src/index.
 
 - ESLint config ([eslint.config.mjs](eslint.config.mjs)) enables `@eslint/js`, `typescript-eslint`, React (jsx-runtime), and Prettier. `no-console` is a warning — existing code uses `// eslint-disable-next-line no-console` for intentional logs; keep that pattern.
 - Prettier + `lint-staged` run on commit via Husky (`.husky/`). Formatting is enforced through ESLint's Prettier plugin, so run `pnpm lint` before shipping.
+- CI ([.github/workflows/ci.yml](.github/workflows/ci.yml)) runs lint, `tsc --noEmit`, the test suite and a production build on every pull request and on pushes to `main`. The other workflows are deployment and Docker publishing only.
 - Path aliases: none — use relative imports.
 - Tests co-located as `*.test.ts(x)` next to source; only [src/App.test.tsx](src/App.test.tsx) exists today. Route-level smoke tests with MSW ([src/mocks/](src/mocks/)) are on the 3.0.0 punch list.
