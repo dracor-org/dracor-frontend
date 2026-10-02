@@ -6,9 +6,7 @@ import Footer from '../../components/Footer';
 
 // `ApiDoc` pulls in Scalar (~2 MB). Load it lazily so it only lands
 // on the wire when the API docs route mounts.
-const ApiDoc = lazy(() =>
-  import('@dracor/react').then((m) => ({default: m.ApiDoc}))
-);
+const ApiDoc = lazy(() => import('@dracor/react/ApiDoc'));
 
 export const Route = createFileRoute('/doc/api')({
   component: ApiDocRoute,
