@@ -1,4 +1,5 @@
 import {Suspense, lazy, useMemo, useState, type ReactNode} from 'react';
+import {Link} from '@tanstack/react-router';
 import {apiUrl} from '../loaders';
 import {makeGraph} from '../network';
 import PlayDetailsHeader from './PlayDetailsHeader';
@@ -143,8 +144,10 @@ export default function PlayInfo({play, metrics, tab: rawTab}: Props) {
         formalisation of shared presence within structural units of a play. If
         you intend to use the data for research, bear in mind that it is derived
         from baseline TEI annotation. We recommend consulting{' '}
-        <a href="/doc/faq">our FAQs</a> for details on the underlying
-        assumptions and implementation.
+        <Link to="/doc/$slug" params={{slug: 'faq'}}>
+          our FAQs
+        </Link>{' '}
+        for details on the underlying assumptions and implementation.
       </p>
     );
   }

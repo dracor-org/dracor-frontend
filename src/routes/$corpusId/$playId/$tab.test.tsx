@@ -1,4 +1,5 @@
 import {screen, waitFor} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import {renderRoute} from '../../../testUtils';
 
 // Sigma needs a WebGL context, which jsdom has no implementation for. The
@@ -38,8 +39,19 @@ test('an unknown tab redirects to the network tab', async () => {
 test('the network tab shows the graph, the cast list and the metrics', async () => {
   await renderRoute(`${PLAY}/network`);
   expect(await screen.findByTestId('network-graph')).toBeInTheDocument();
-  expect(screen.getByText(/co-occurrence network/)).toBeInTheDocument();
+  expect(screen.getByText(/character network/)).toBeInTheDocument();
+  expect(screen.getByRole('link', {name: 'our FAQs'})).toHaveAttribute(
+    'href',
+    '/doc/faq'
+  );
   expect(screen.getByText('König')).toBeInTheDocument();
+});
+
+test('the FAQ link in the network description routes client-side', async () => {
+  // A plain <a href> here would reload the whole app.
+  const {router} = await renderRoute(`${PLAY}/network`);
+  await userEvent.click(await screen.findByRole('link', {name: 'our FAQs'}));
+  await waitFor(() => expect(router.state.location.pathname).toBe('/doc/faq'));
 });
 
 test('the relations tab shows the relations graph', async () => {
