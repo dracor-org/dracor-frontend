@@ -1,8 +1,12 @@
-import '@testing-library/jest-dom';
+// The `/vitest` entry point is what registers the matcher types with
+// Vitest's `expect`; the bare import stopped doing so in jest-dom 7.
+import '@testing-library/jest-dom/vitest';
 import {afterAll, afterEach, beforeAll} from 'vitest';
 import {server} from './mocks/server';
 
-beforeAll(() => server.listen({onUnhandledRequest: 'error'}));
+// msw 3 renamed `onUnhandledRequest` to `onUnhandledFrame` — it now covers
+// WebSocket connections too. Any fetch a test doesn't mock still fails loudly.
+beforeAll(() => server.listen({onUnhandledFrame: 'error'}));
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
