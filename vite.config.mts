@@ -12,7 +12,13 @@ export default defineConfig(({mode}) => {
   return {
     base: '/',
     plugins: [
-      tanstackRouter({target: 'react', autoCodeSplitting: true}),
+      tanstackRouter({
+        target: 'react',
+        autoCodeSplitting: true,
+        // Route tests are co-located under `src/routes/`; without this the
+        // generator warns about each one not exporting a Route.
+        routeFileIgnorePattern: '\\.test\\.tsx?$',
+      }),
       react(),
       tailwindcss(),
     ],
