@@ -1,6 +1,6 @@
 {
   "name": "dracor-frontend",
-  "version": "2.7.1",
+  "version": "3.0.0-beta.1",
   "private": true,
   "dependencies": {
     "@dracor/react": "^1.9.0",
