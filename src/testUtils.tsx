@@ -24,3 +24,16 @@ export async function renderRoute(path: string) {
   const result = render(<RouterProvider router={router as never} />);
   return {...result, router};
 }
+
+/**
+ * Mount without awaiting the loaders, so the pending state is observable.
+ * Use with a handler that holds its response open.
+ */
+export function renderRoutePending(path: string) {
+  const router = createRouter({
+    routeTree,
+    history: createMemoryHistory({initialEntries: [path]}),
+  });
+  const result = render(<RouterProvider router={router as never} />);
+  return {...result, router};
+}

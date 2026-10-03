@@ -5,6 +5,24 @@
 @source '../node_modules/@dracor/react';
 
 /*
+  Route-loading bar (see `RouteProgress.tsx`). Transform-only so the
+  compositor keeps it animating while the main thread renders a large
+  corpus table.
+*/
+@theme {
+  --animate-route-progress: route-progress 1.3s ease-in-out infinite;
+
+  @keyframes route-progress {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(350%);
+    }
+  }
+}
+
+/*
   NavBar dropdown from @dracor/react's NavMenu — Headless UI Menu.Items div.
   Without a max-height, long lists (e.g. all corpora) run past the viewport
   and neither the page nor the dropdown scrolls. Cap it and let the dropdown
