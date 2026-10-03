@@ -36,7 +36,9 @@ const LAYOUT_SETTINGS = {
 
 function GraphLoader({play, nodeColor, edgeColor}: Props) {
   const loadGraph = useLoadGraph();
-  const {start, kill} = useWorkerLayoutForceAtlas2({
+  // See the note in NetworkGraph: `kill` is terminal and makes the next
+  // `start()` throw. The hook kills the supervisor on unmount anyway.
+  const {start, stop} = useWorkerLayoutForceAtlas2({
     settings: LAYOUT_SETTINGS,
   });
 
@@ -61,12 +63,13 @@ function GraphLoader({play, nodeColor, edgeColor}: Props) {
     });
     loadGraph(g);
     start();
-    const timeout = window.setTimeout(() => kill(), 2000);
+    // Let the layout settle, then stop burning CPU on it.
+    const timeout = window.setTimeout(() => stop(), 2000);
     return () => {
       window.clearTimeout(timeout);
-      kill();
+      stop();
     };
-  }, [play, nodeColor, edgeColor, loadGraph, start, kill]);
+  }, [play, nodeColor, edgeColor, loadGraph, start, stop]);
 
   return null;
 }

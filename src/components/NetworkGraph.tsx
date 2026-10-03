@@ -49,7 +49,10 @@ function GraphLoader({
   nodeColor,
 }: GraphData & {nodeColor: string}) {
   const loadGraph = useLoadGraph();
-  const {start, kill} = useWorkerLayoutForceAtlas2({
+  // `stop`, never `kill`: killing is terminal, and the hook keeps handing back
+  // the same dead supervisor afterwards, so the next `start()` throws "layout
+  // was killed". The hook kills it for us when the component unmounts.
+  const {start, stop} = useWorkerLayoutForceAtlas2({
     settings: LAYOUT_SETTINGS,
   });
 
@@ -77,12 +80,13 @@ function GraphLoader({
     });
     loadGraph(g);
     start();
-    const timeout = window.setTimeout(() => kill(), 2000);
+    // Let the layout settle, then stop burning CPU on it.
+    const timeout = window.setTimeout(() => stop(), 2000);
     return () => {
       window.clearTimeout(timeout);
-      kill();
+      stop();
     };
-  }, [nodes, edges, nodeColor, loadGraph, start, kill]);
+  }, [nodes, edges, nodeColor, loadGraph, start, stop]);
 
   return null;
 }
