@@ -14,6 +14,7 @@
 
 .odd-wrapper ul.toc {
   list-style: none;
+  margin-block-end: 0;
 }
 
 .odd-wrapper div.egXML_valid {
@@ -40,7 +41,15 @@
   font-family: monospace;
   font-size: 10pt;
   white-space: pre;
+  /*
+   * `fit-content` sizes these to their longest line, and the schema examples
+   * run to ~300 characters (~2400px). Without a cap they widen the whole
+   * document and the page scrolls sideways; cap them and let the example
+   * scroll on its own.
+   */
   width: fit-content;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .odd-wrapper span.element {
@@ -66,6 +75,19 @@
   width: 85%;
 }
 
-.odd-wrapper .refdoc .table {
-  overflow-x: scroll;
+/*
+ * Every reference table is wrapped in a `div.table`, which the TEI
+ * stylesheet gives `display: table`. Overflow has no effect on a table box
+ * and auto layout sizes it to its content, so a cell holding a wide schema
+ * example stretched the wrapper — and with it the page — to ~2600px.
+ * Making the wrapper a block lets it scroll and leaves the table to take
+ * whatever width it needs inside.
+ *
+ * Replaces a `.refdoc .table` rule that set `overflow-x` on the same
+ * `display: table` box, where it did nothing.
+ */
+.odd-wrapper .table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
 }
