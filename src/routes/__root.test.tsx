@@ -29,17 +29,15 @@ test('still renders the shell when /info fails', async () => {
   expect(screen.getByText('Test Drama Corpus')).toBeInTheDocument();
 });
 
-test('tolerates a corpus list that fails to load in the shell', async () => {
-  // The root loader falls back to an empty list; the Home route has its own
-  // `/corpora` call, so only the nav's corpus menu is affected here.
+test('still renders the shell when /corpora fails', async () => {
+  // Both the root loader and the Home route fetch `/corpora`; neither may
+  // throw past the shell.
   server.use(
-    http.get('*/corpora', ({request}) =>
-      new URL(request.url).search === '?include=metrics'
-        ? HttpResponse.json([])
-        : new HttpResponse(null, {status: 503})
-    )
+    http.get('*/corpora', () => new HttpResponse(null, {status: 503}))
   );
   await renderRoute('/');
   expect(await screen.findByRole('navigation')).toBeInTheDocument();
-  expect(screen.getByText('No corpora found')).toBeInTheDocument();
+  expect(
+    screen.getByText(/Could not load the corpus list/)
+  ).toBeInTheDocument();
 });
