@@ -7,7 +7,10 @@ const DownloadLinks = ({play}: {play: Play}) => {
   const stem = `${play.id}-${play.name}`;
 
   return (
-    <div className="grid grid-cols-[repeat(auto-fit,minmax(17em,1fr))] xl:grid-cols-[repeat(3,minmax(15em,1fr))] gap-8 w-full h-auto overflow-y-auto [&_h4]:p-0 [&_h4]:leading-none">
+    // `content-start`: the grid is stretched to the height of the tab panel,
+    // and grid's default `align-content: normal` behaves as `stretch`, which
+    // hands the surplus to the rows and opens a gap between them.
+    <div className="grid grid-cols-[repeat(auto-fit,minmax(17em,1fr))] xl:grid-cols-[repeat(3,minmax(15em,1fr))] content-start gap-8 w-full h-auto overflow-y-auto [&_h4]:p-0 [&_h4]:leading-none">
       <span>
         <h4>Network data</h4>
         <p>Co-occurrence network:</p>
