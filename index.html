@@ -24,12 +24,84 @@
     <meta property="og:title" content="DraCor – Open Infrastructure for Drama Analysis">
     <meta property="og:description" content="DraCor, the Drama Corpora Project, is an open infrastructure that enables computational analysis of more than 4,000 dramatic texts from Greco-Roman antiquity to the 20th century, encoded in TEI and organised in different corpora. DraCor revolves around an API that provides data extracted from the TEI-encoded corpora. Thus, DraCor is a showcase for the concept of Programmable Corpora.">
     <meta property="og:image" content="/website.png">
+    <style>
+      /* Inlined so the placeholder paints before the CSS bundle arrives. */
+      .app-splash {
+        min-height: 100vh;
+        background-color: #ebf0f7;
+      }
+      .app-splash__bar {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        background-color: #1f2448;
+      }
+      .app-splash__cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        padding: 2.5rem 1rem 0;
+      }
+      .app-splash__card {
+        width: 100%;
+        max-width: 24rem;
+        height: 16rem;
+        border-radius: 0.75rem;
+        background-color: rgba(255, 255, 255, 0.6);
+        box-shadow: 0 10px 15px -3px #1f244820;
+      }
+      .app-splash__logo {
+        height: 3rem;
+        width: 3rem;
+      }
+      .app-splash__track {
+        height: 3px;
+        overflow: hidden;
+        background-color: #1f2448;
+      }
+      .app-splash__pulse {
+        height: 100%;
+        width: 40%;
+        background-color: #aaeeff;
+        /* transform-only so the compositor keeps it moving even while the
+           main thread is busy parsing and executing the bundle */
+        animation: app-splash-slide 1.3s ease-in-out infinite;
+      }
+      @keyframes app-splash-slide {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(350%); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .app-splash__pulse { animation: none; opacity: 0.5; width: 100%; }
+      }
+    </style>
   </head>
   <body>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
-    <div id="root"></div>
+    <div id="root">
+      <!--
+        Initial-load placeholder. The app only paints once the JS bundle has
+        parsed and the root loader has resolved `/info` + `/corpora`; until
+        then `#root` is empty and the page is just the navy/light background
+        from index.css. This mirrors the real top bar so React mounting over
+        it causes no visible jump. React clears these children on first
+        commit, so nothing here needs to be torn down.
+      -->
+      <div class="app-splash" aria-busy="true" aria-label="Loading DraCor">
+        <div class="app-splash__bar">
+          <svg class="app-splash__logo" viewBox="0 0 384 384" role="img" aria-hidden="true"><g id="Layer_2"> <g id="Layer_1-2"> <path fill="#fff" d="M377.7,143C355.4,58.7,279.2,0,192,0H0v384h192c106.2-0.1,192.1-86.3,192-192.5 C384,175.1,381.9,158.8,377.7,143z M157.7,226.3c18.9,19,49.7,19,68.6,0c0,0,0,0,0,0c0.7-0.7,1.4-1.4,2-2.1 c4.3-4.9,7.6-10.6,9.7-16.8h114.4c-0.5,5.6-1.4,11.2-2.5,16.8c-1.2,5.7-2.6,11.3-4.4,16.8c-20.8,65-81.7,112.1-153.5,112.1H30.9 V207.4h38.4c8.6,67.8,70.5,115.8,138.3,107.2c43.4-5.5,80.7-33.5,98-73.6h-42.2c-27.1,39.4-80.9,49.3-120.3,22.3 S93.9,182.4,120.9,143s80.9-49.3,120.3-22.3c8.7,6,16.3,13.6,22.3,22.3h42.2c-27-62.7-99.8-91.7-162.5-64.7 c-40.3,17.3-68.4,54.7-73.8,98.2H30.9V30.9H192c71.8,0,132.7,47.2,153.5,112.1c1.8,5.5,3.2,11.1,4.4,16.8c1.1,5.5,2,11.1,2.5,16.8 H238c-2.1-6.2-5.4-11.9-9.7-16.8c-0.6-0.7-1.3-1.4-2-2.1c-19-18.9-49.7-18.9-68.7,0.1C138.7,176.7,138.7,207.4,157.7,226.3 L157.7,226.3z"/> </g> </g></svg>
+        </div>
+        <div class="app-splash__track"><div class="app-splash__pulse"></div></div>
+        <div class="app-splash__cards">
+          <div class="app-splash__card"></div>
+          <div class="app-splash__card"></div>
+          <div class="app-splash__card"></div>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/index.tsx"></script>
   </body>
 </html>
