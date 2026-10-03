@@ -10,7 +10,7 @@ Package manager is **pnpm** (see `packageManager` field in [package.json](packag
 - `pnpm build` — production build to `build/`.
 - `pnpm serve` — preview the production build.
 - `pnpm test` — [Vitest](https://vitest.dev) in watch mode (jsdom env, setup file `src/setupTests.ts`).
-- `pnpm test -- src/App.test.tsx` — run a single test file. `pnpm vitest run -t "pattern"` filters by test name.
+- `pnpm test -- src/loaders.test.ts` — run a single test file. `pnpm vitest run -t "pattern"` filters by test name.
 - `pnpm test:coverage` — one-shot coverage report.
 - `pnpm lint` — ESLint over `src`. Lint is *not* wired into the Vite dev server or build, so it only runs on explicit `pnpm lint` and in CI. Note the pre-commit hook does **not** lint `src`: `lint-staged` runs `prettier --write` there and reserves `eslint --fix` for root-level `*.js`. Run `pnpm lint` before shipping.
 
@@ -57,4 +57,7 @@ Single-page React 19 app bootstrapped by Vite. Entry: [src/index.tsx](src/index.
 - Prettier + `lint-staged` run on commit via Husky (`.husky/`). Formatting is enforced through ESLint's Prettier plugin, so run `pnpm lint` before shipping.
 - CI ([.github/workflows/ci.yml](.github/workflows/ci.yml)) runs lint, `tsc --noEmit`, the test suite and a production build on every pull request and on pushes to `main`. The other workflows are deployment and Docker publishing only.
 - Path aliases: none — use relative imports.
-- Tests co-located as `*.test.ts(x)` next to source; only [src/App.test.tsx](src/App.test.tsx) exists today. Route-level smoke tests with MSW ([src/mocks/](src/mocks/)) are on the 3.0.0 punch list.
+- Tests co-located as `*.test.ts(x)` next to source. Route-level smoke tests mount the real route tree against MSW: [src/testUtils.tsx](src/testUtils.tsx) exposes `renderRoute(path)`, which builds a router over an in-memory history, runs the loaders and renders. Fixtures live in [src/mocks/fixtures.ts](src/mocks/fixtures.ts) and handlers in [src/mocks/handlers.ts](src/mocks/handlers.ts); override a handler per-test with `server.use(...)`.
+- [.env.test](.env.test) pins the `VITE_*` flags for mode `test` so route tests don't inherit whatever a developer has enabled in `.env.local`. Add a flag there when a new feature gate would otherwise change test behaviour.
+- `onUnhandledRequest: 'error'` is set in [src/setupTests.ts](src/setupTests.ts) — any fetch a test doesn't mock fails loudly rather than hitting the network.
+- Two things that need stubbing in route tests: the sigma graphs (`NetworkGraph` / `RelationsGraph`) need a WebGL context jsdom doesn't have, and `@dracor/react/ApiDoc` pulls in a Scalar stylesheet the node runner can't resolve. Both are `vi.mock`ed where used.

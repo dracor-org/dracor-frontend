@@ -1,5 +1,8 @@
 import {useLayoutEffect, useState, use, type ReactNode} from 'react';
-import {AuthorInfo, IdCopy, IdLink, Years} from '@dracor/react';
+import AuthorInfo from '@dracor/react/AuthorInfo';
+import IdCopy from '@dracor/react/IdCopy';
+import IdLink from '@dracor/react/IdLink';
+import Years from '@dracor/react/Years';
 import CorpusLabel from './CorpusLabel';
 import {DracorContext} from '../context';
 import {fetchWikidataAuthor} from '../loaders';

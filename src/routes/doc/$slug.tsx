@@ -1,5 +1,5 @@
 import {createFileRoute} from '@tanstack/react-router';
-import {DocPage} from '@dracor/react';
+import DocPage from '@dracor/react/DocPage';
 import rehypeRaw from 'rehype-raw';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';

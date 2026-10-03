@@ -1,4 +1,4 @@
-import {DownloadButton} from '@dracor/react';
+import DownloadButton from '@dracor/react/DownloadButton';
 import {apiUrl} from '../loaders';
 import {Play} from '../types';
 

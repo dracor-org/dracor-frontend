@@ -1,5 +1,5 @@
 import {createFileRoute} from '@tanstack/react-router';
-import {DracorCorpusCard} from '@dracor/react';
+import DracorCorpusCard from '@dracor/react/DracorCorpusCard';
 import {sitemapUrl} from '../config';
 import {fetchCorpora, type CorpusListEntry} from '../loaders';
 import Header from '../components/Header';

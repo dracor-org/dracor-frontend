@@ -1,6 +1,10 @@
 import {Link} from '@tanstack/react-router';
 import ReactMarkdown from 'react-markdown';
-import {Commit, IdLink, Table, Years, formatEra} from '@dracor/react';
+import Commit from '@dracor/react/Commit';
+import IdLink from '@dracor/react/IdLink';
+import Table from '@dracor/react/Table';
+import Years from '@dracor/react/Years';
+import {formatEra} from '@dracor/react/utils';
 import type {ColumnDef} from '@tanstack/react-table';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faInfoCircle} from '@fortawesome/free-solid-svg-icons';

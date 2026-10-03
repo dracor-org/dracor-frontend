@@ -1,5 +1,5 @@
 import {use, type ComponentProps} from 'react';
-import {NavBar} from '@dracor/react';
+import NavBar from '@dracor/react/NavBar';
 import {DracorContext} from '../context';
 import {showPrizeBadge, version} from '../config';
 import type {Sitemap} from '../types';
