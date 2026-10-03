@@ -52,3 +52,18 @@ test('skips corpora that have no metrics', async () => {
   expect(await screen.findByText('Measured Corpus')).toBeInTheDocument();
   expect(screen.queryByText('Unmeasured Corpus')).not.toBeInTheDocument();
 });
+
+test('keeps the shell and reports the failure when /corpora errors', async () => {
+  server.use(
+    http.get('*/corpora', () => new HttpResponse(null, {status: 503}))
+  );
+  await renderRoute('/');
+  // The shell must survive — a backend hiccup used to throw past it and
+  // render the error boundary instead of the page.
+  expect(await screen.findByRole('navigation')).toBeInTheDocument();
+  expect(
+    screen.getByText(/Could not load the corpus list/)
+  ).toBeInTheDocument();
+  // ...and it must not masquerade as an empty API response.
+  expect(screen.queryByText('No corpora found')).not.toBeInTheDocument();
+});

@@ -6,7 +6,19 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 export const Route = createFileRoute('/')({
-  loader: () => fetchCorpora(true),
+  // Swallow the failure like the root loader does, so a backend hiccup leaves
+  // the shell standing instead of throwing the whole page to the error
+  // boundary. `failed` keeps "the API is down" distinguishable from "the API
+  // returned nothing".
+  loader: async () => {
+    try {
+      return {corpora: await fetchCorpora(true), failed: false};
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error('Failed to load corpora:', error);
+      return {corpora: [] as CorpusListEntry[], failed: true};
+    }
+  },
   component: HomeRoute,
 });
 
@@ -15,7 +27,7 @@ function byPlaysDesc(a: CorpusListEntry, b: CorpusListEntry): number {
 }
 
 function HomeRoute() {
-  const corpora = Route.useLoaderData();
+  const {corpora, failed} = Route.useLoaderData();
   const sorted = [...corpora].sort(byPlaysDesc);
 
   return (
@@ -24,7 +36,11 @@ function HomeRoute() {
       <div className="w-full px-3.75 mx-auto" style={{zIndex: 1}}>
         <Header>DraCor - Open Infrastructure for Drama Analysis</Header>
       </div>
-      {sorted.length === 0 ? (
+      {failed ? (
+        <p className="loading">
+          Could not load the corpus list. Please try again later.
+        </p>
+      ) : sorted.length === 0 ? (
         <p className="loading">No corpora found</p>
       ) : (
         <div className="flex flex-row flex-wrap justify-center gap-4 px-4 pb-4">
