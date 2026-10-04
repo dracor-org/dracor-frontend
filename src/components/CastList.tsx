@@ -8,22 +8,17 @@ interface Props {
 
 export default function CastList({characters, hasTitle}: Props) {
   return (
-    <div className="relative flex w-full text-sm">
+    <div className="flex w-full flex-col text-sm">
       {hasTitle && (
-        <span
-          className="absolute top-0 left-0 right-4 z-10 bg-neutral-100 pointer-events-none"
-          style={{height: '2em'}}
+        <h4
+          title="Characters in order of appearance"
+          className="shrink-0 text-[1.3rem] font-normal m-0 mb-2 truncate"
         >
-          <h4
-            title="Characters in order of appearance"
-            className="text-[1.3rem] font-normal m-0 truncate"
-          >
-            Characters <small>(in order of appearance)</small>
-          </h4>
-        </span>
+          Characters <small>(in order of appearance)</small>
+        </h4>
       )}
       <ol
-        className="w-full overflow-y-auto pt-[3.3em] pb-6 mb-0 list-decimal list-inside pl-0"
+        className="w-full grow min-h-0 overflow-y-auto pb-6 mb-0 list-decimal list-inside pl-0"
         style={{scrollbarWidth: 'thin'}}
       >
         {characters.map((member) => (

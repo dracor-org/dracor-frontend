@@ -68,12 +68,10 @@ const Segments = ({play: {characters, segments}}: Props) => {
   const tree = buildTree(segments, castMap);
 
   return (
-    <div className="segments-wrapper relative flex w-full">
-      <h4 className="absolute top-0 left-0 right-4 bg-neutral-100 h-[2em] pointer-events-none z-10">
-        Segments
-      </h4>
+    <div className="segments-wrapper flex w-full flex-col">
+      <h4 className="shrink-0 m-0 mb-2">Segments</h4>
       <ol
-        className="w-full overflow-y-auto pt-16 pb-4 mb-0 pl-0 list-none font-bold"
+        className="w-full grow min-h-0 overflow-y-auto pb-4 mb-0 pl-0 list-none font-bold"
         style={{scrollbarWidth: 'thin'}}
       >
         {tree.map((segment) => (
