@@ -33,6 +33,15 @@ test('sorts corpora by play count, descending', async () => {
   ]);
 });
 
+// The intro advertises the research bibliography, which only dracor.org
+// publishes. `.env.test` leaves VITE_SITEMAP_URL empty, so the bundled
+// fallback sitemap applies — and it has no bibliography entry.
+test('leaves out the corpora intro when the sitemap has no bibliography', async () => {
+  await renderRoute('/');
+  expect(await screen.findByText('Test Drama Corpus')).toBeInTheDocument();
+  expect(screen.queryByText(/Explore the corpora/)).not.toBeInTheDocument();
+});
+
 test('shows a message when the API returns no corpora', async () => {
   server.use(http.get('*/corpora', () => HttpResponse.json([])));
   await renderRoute('/');

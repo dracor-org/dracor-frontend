@@ -4,6 +4,7 @@ import {sitemapUrl} from '../config';
 import {fetchCorpora, type CorpusListEntry} from '../loaders';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import CorporaIntro from '../components/CorporaIntro';
 
 export const Route = createFileRoute('/')({
   // Swallow the failure like the root loader does, so a backend hiccup leaves
@@ -43,23 +44,26 @@ function HomeRoute() {
       ) : sorted.length === 0 ? (
         <p className="loading">No corpora found</p>
       ) : (
-        <div className="flex flex-row flex-wrap justify-center gap-4 px-4 pb-4">
-          {sorted.map((corpus) =>
-            corpus.metrics ? (
-              <div key={corpus.name} className="w-full md:w-96">
-                <DracorCorpusCard
-                  name={corpus.name}
-                  title={corpus.title}
-                  to={`/${corpus.name}`}
-                  acronym={corpus.acronym}
-                  commit={corpus.commit}
-                  repo={corpus.repository}
-                  metrics={corpus.metrics}
-                />
-              </div>
-            ) : null
-          )}
-        </div>
+        <>
+          <CorporaIntro />
+          <div className="flex flex-row flex-wrap justify-center gap-4 px-4 pb-4">
+            {sorted.map((corpus) =>
+              corpus.metrics ? (
+                <div key={corpus.name} className="w-full md:w-96">
+                  <DracorCorpusCard
+                    name={corpus.name}
+                    title={corpus.title}
+                    to={`/${corpus.name}`}
+                    acronym={corpus.acronym}
+                    commit={corpus.commit}
+                    repo={corpus.repository}
+                    metrics={corpus.metrics}
+                  />
+                </div>
+              ) : null
+            )}
+          </div>
+        </>
       )}
       <div className="w-full px-3.75 mx-auto">
         <Footer withSitemap={!!sitemapUrl} />
