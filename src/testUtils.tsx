@@ -1,6 +1,8 @@
+import type {ReactNode} from 'react';
 import {render} from '@testing-library/react';
 import {
   createMemoryHistory,
+  createRootRoute,
   createRouter,
   RouterProvider,
 } from '@tanstack/react-router';
@@ -23,6 +25,22 @@ export async function renderRoute(path: string) {
 
   const result = render(<RouterProvider router={router as never} />);
   return {...result, router};
+}
+
+/**
+ * Mount a single component inside a router, for components that render
+ * `Link`s but whose behaviour doesn't depend on the surrounding route. Use
+ * `renderRoute` whenever the real route tree is what's under test.
+ */
+export async function renderWithRouter(ui: ReactNode) {
+  const router = createRouter({
+    routeTree: createRootRoute({component: () => ui}),
+    history: createMemoryHistory({initialEntries: ['/']}),
+  });
+
+  await router.load();
+
+  return render(<RouterProvider router={router as never} />);
 }
 
 /**

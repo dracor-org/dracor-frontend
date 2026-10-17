@@ -214,3 +214,28 @@ export const docMarkdown = `# About DraCor
 
 A paragraph rendered by the doc page test.
 `;
+
+// Shaped like the real bibliography: an intro paragraph, year sections in
+// descending order, and an entry that wraps onto an unbulleted second line.
+export const researchMarkdown = `# Research
+
+This continuously updated bibliography compiles research publications.
+
+## 2026
+
+* Ada Lovelace: A Note on Dramatic Engines. 2026.
+* Bertolt Brecht: Verfremdung, quantifiziert. 2026.
+
+## 2025
+
+* Clara Zetkin: Networks of the Stage. 2025.
+
+## 2024
+
+* Dora Diamant: Counting Scenes. In: Journal of Counting. 2024.
+Continued on a second line without a bullet.
+
+## 2023
+
+* Emmy Noether: Symmetries of Dialogue. 2023.
+`;
