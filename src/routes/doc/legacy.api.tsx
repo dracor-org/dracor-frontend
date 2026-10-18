@@ -27,6 +27,8 @@ function LegacyApiDocRoute() {
         <ApiDoc
           url={`${legacyApiUrl}/openapi.yaml`}
           title="DraCor API v0"
+          plainVersion
+          hidePoweredBy
           configuration={{
             customCss: `
               /* hide the OpenAPI title */

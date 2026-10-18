@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@dracor/react':
-        specifier: ^1.9.0
-        version: 1.9.0(@fortawesome/fontawesome-svg-core@7.3.1)(@fortawesome/free-brands-svg-icons@7.3.1)(@fortawesome/free-solid-svg-icons@7.3.1)(@fortawesome/react-fontawesome@3.5.0(@fortawesome/fontawesome-svg-core@7.3.1)(react@19.3.0))(@headlessui/react@2.2.10(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@scalar/api-reference-react@0.9.76(axios@1.19.0)(react@19.3.0)(sortablejs@1.15.7)(tailwindcss@4.3.3)(typescript@6.0.3)(zod@4.6.5))(@tanstack/react-router@1.170.41(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@tanstack/react-table@8.21.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(CETEIcean@1.9.5)(react-dom@19.3.0(react@19.3.0))(react-markdown@10.1.0(@types/react@19.3.0)(react@19.3.0))(react@19.3.0)
+        specifier: ^1.10.0
+        version: 1.10.0(@fortawesome/fontawesome-svg-core@7.3.1)(@fortawesome/free-brands-svg-icons@7.3.1)(@fortawesome/free-solid-svg-icons@7.3.1)(@fortawesome/react-fontawesome@3.5.0(@fortawesome/fontawesome-svg-core@7.3.1)(react@19.3.0))(@headlessui/react@2.2.10(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@scalar/api-reference-react@0.9.76(axios@1.19.0)(react@19.3.0)(sortablejs@1.15.7)(tailwindcss@4.3.3)(typescript@6.0.3)(zod@4.6.5))(@tanstack/react-router@1.170.41(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@tanstack/react-table@8.21.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(CETEIcean@1.9.5)(react-dom@19.3.0(react@19.3.0))(react-markdown@10.1.0(@types/react@19.3.0)(react@19.3.0))(react@19.3.0)
       '@dracor/registry':
         specifier: ^1.16.0
         version: 1.16.0
@@ -373,15 +373,15 @@ packages:
     resolution: {integrity: sha512-OoKoR0f76dCY666JlcbhmVTs2drYj1GUXZTYTcbUgJjh9Nv41aFfZ21bPQTERm5+L5cBDo466NltB2lplS5GBw==}
     engines: {node: '>=20.19.0'}
 
-  '@dracor/react@1.9.0':
-    resolution: {integrity: sha512-lF4m2eWPJolR4v7Syq4h1lssQsJW3FH4A/Ho8+KSZYX6Y6Xyvw0yTUD6E4J8uK5PXK11C8k58IKAJ4xFPaCqaA==}
+  '@dracor/react@1.10.0':
+    resolution: {integrity: sha512-jM1Bve1/sOPX7JXT7t4GjFM81QEz4L3EJ5waMHt/JQl+FRo4xaJOWl88492O++7iJG4zSHu0GyRcCgjem4FRNA==}
     peerDependencies:
       '@fortawesome/fontawesome-svg-core': ^7.2.0
       '@fortawesome/free-brands-svg-icons': ^7.2.0
       '@fortawesome/free-solid-svg-icons': ^7.2.0
       '@fortawesome/react-fontawesome': ^3.2.0
       '@headlessui/react': ^2.2.9
-      '@scalar/api-reference-react': 0.9.65
+      '@scalar/api-reference-react': ^0.9.65
       '@tanstack/react-router': ^1.166.2
       '@tanstack/react-table': ^8.21.3
       CETEIcean: ^1.9.4
@@ -4691,7 +4691,7 @@ snapshots:
 
   '@csstools/css-tokenizer@4.0.2': {}
 
-  '@dracor/react@1.9.0(@fortawesome/fontawesome-svg-core@7.3.1)(@fortawesome/free-brands-svg-icons@7.3.1)(@fortawesome/free-solid-svg-icons@7.3.1)(@fortawesome/react-fontawesome@3.5.0(@fortawesome/fontawesome-svg-core@7.3.1)(react@19.3.0))(@headlessui/react@2.2.10(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@scalar/api-reference-react@0.9.76(axios@1.19.0)(react@19.3.0)(sortablejs@1.15.7)(tailwindcss@4.3.3)(typescript@6.0.3)(zod@4.6.5))(@tanstack/react-router@1.170.41(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@tanstack/react-table@8.21.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(CETEIcean@1.9.5)(react-dom@19.3.0(react@19.3.0))(react-markdown@10.1.0(@types/react@19.3.0)(react@19.3.0))(react@19.3.0)':
+  '@dracor/react@1.10.0(@fortawesome/fontawesome-svg-core@7.3.1)(@fortawesome/free-brands-svg-icons@7.3.1)(@fortawesome/free-solid-svg-icons@7.3.1)(@fortawesome/react-fontawesome@3.5.0(@fortawesome/fontawesome-svg-core@7.3.1)(react@19.3.0))(@headlessui/react@2.2.10(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@scalar/api-reference-react@0.9.76(axios@1.19.0)(react@19.3.0)(sortablejs@1.15.7)(tailwindcss@4.3.3)(typescript@6.0.3)(zod@4.6.5))(@tanstack/react-router@1.170.41(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@tanstack/react-table@8.21.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(CETEIcean@1.9.5)(react-dom@19.3.0(react@19.3.0))(react-markdown@10.1.0(@types/react@19.3.0)(react@19.3.0))(react@19.3.0)':
     dependencies:
       react: 19.3.0
       react-dom: 19.3.0(react@19.3.0)

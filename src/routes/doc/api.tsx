@@ -21,7 +21,14 @@ function ApiDocRoute() {
         <ApiDoc
           url={`${apiUrl}/openapi.yaml`}
           title="DraCor API"
+          // On wide screens the modern layout only has a search button
+          // inside the sidebar.
+          layoutSwitch={{modern: {showSidebar: true}}}
+          hidePoweredBy
+          plainVersion
           configuration={{
+            // default to the classic layout for now
+            layout: 'classic',
             customCss: `
               /* hide the OpenAPI title */
               .introduction-section .section-header { display: none; }
