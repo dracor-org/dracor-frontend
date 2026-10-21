@@ -54,32 +54,33 @@ function buildNavItems(sitemap: Sitemap, corpora: CorpusEntry[]): NavEntry[] {
 
 // Rahtz Prize badge shown when VITE_WITH_RAHTZ_PRIZE=yes. Rendered inside
 // NavBar via the new v1.5.0 `badge` slot. Mirrors the production dracor.org
-// pill: fixed width, hangs below the nav bar via negative top margin, rounded
-// bottom corners, TEI shield fills the width.
+// pill: on desktop a fixed-width white pill that hangs below the nav bar via
+// negative top margin, rounded bottom corners, TEI shield fills the width. In
+// the collapsed mobile menu it reads as a regular nav entry ("Rahtz Prize
+// 2022") followed by a small round TEI logo.
 const prizeBadge = (
   <a
     href="https://tei-c.org/activities/rahtz-prize-for-tei-ingenuity/"
     title="Rahtz Prize for TEI Ingenuity 2022"
-    className="flex flex-col items-center bg-white text-primary hover:no-underline"
-    style={{
-      width: '45px',
-      padding: '0.3em',
-      marginLeft: '15px',
-      marginTop: '-1rem',
-      borderRadius: '0 0 22.5px 22.5px',
-    }}
+    className={
+      'mt-4 flex items-center gap-[0.3em] uppercase text-white ' +
+      'hover:text-blue-100 hover:no-underline ' +
+      'md:-mt-4 md:ml-[15px] md:w-[45px] md:flex-col md:gap-0 ' +
+      'md:rounded-b-[22.5px] md:bg-white md:p-[0.3em] md:normal-case ' +
+      'md:text-primary md:hover:text-primary'
+    }
   >
-    <span
-      className="uppercase whitespace-nowrap"
-      style={{fontSize: '5.625px', lineHeight: '0.75'}}
-    >
+    <span className="md:whitespace-nowrap md:text-[5.625px] md:leading-[0.75] md:uppercase">
       Rahtz Prize
     </span>
-    <span style={{fontSize: '15px', lineHeight: '1.1'}}>2022</span>
+    <span className="md:text-[15px] md:leading-[1.1]">2022</span>
     <img
       src={svgTEI}
       alt="TEI Logo"
-      style={{width: '100%', padding: '0.1em', marginBottom: '-0.2em'}}
+      className={
+        'w-[1.5em] rounded-full bg-white p-[0.15em] ' +
+        'md:mb-[-0.2em] md:w-full md:rounded-none md:bg-transparent md:p-[0.1em]'
+      }
     />
   </a>
 );
