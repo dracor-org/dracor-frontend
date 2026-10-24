@@ -10,11 +10,9 @@
     "@fortawesome/free-solid-svg-icons": "^7.3.1",
     "@fortawesome/react-fontawesome": "^3.5.0",
     "@headlessui/react": "^2.2.10",
-    "@react-sigma/core": "^5.0.6",
-    "@react-sigma/layout-forceatlas2": "^5.0.6",
+    "@react-sigma/core": "^6.0.0",
+    "@react-sigma/layout-forceatlas2": "^6.0.0",
     "@scalar/api-reference-react": "^0.9.76",
-    "@sigma/edge-curve": "^3.1.0",
-    "@sigma/node-square": "^3.0.0",
     "@tanstack/react-router": "^1.170.41",
     "@tanstack/react-table": "^8.21.3",
     "@zazuko/yasgui": "^4.6.2",
@@ -28,7 +26,7 @@
     "react-markdown": "^10.1.0",
     "recharts": "^3.10.1",
     "rehype-raw": "^7.0.0",
-    "sigma": "^3.0.3"
+    "sigma": "^4.0.3"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

@@ -1,8 +1,14 @@
-import {useEffect} from 'react';
+import {useEffect, useMemo} from 'react';
 import Graph from 'graphology';
+import {DEFAULT_STYLES} from 'sigma';
+import {
+  extremityArrow,
+  layerPlain,
+  pathCurved,
+  pathLoop,
+} from 'sigma/rendering';
 import {SigmaContainer, useLoadGraph} from '@react-sigma/core';
 import {useWorkerLayoutForceAtlas2} from '@react-sigma/layout-forceatlas2';
-import EdgeCurveProgram, {EdgeCurvedArrowProgram} from '@sigma/edge-curve';
 import '@react-sigma/core/lib/style.css';
 import type {Play} from '../types';
 
@@ -58,7 +64,7 @@ function GraphLoader({play, nodeColor, edgeColor}: Props) {
       g.addEdgeWithKey(String(i), r.source, r.target, {
         label: r.type,
         color: edgeColors[r.type] || edgeColor,
-        type: r.directed ? 'curvedArrow' : 'curve',
+        directed: Boolean(r.directed),
       });
     });
     loadGraph(g);
@@ -75,26 +81,63 @@ function GraphLoader({play, nodeColor, edgeColor}: Props) {
 }
 
 export default function RelationsGraph({play, nodeColor, edgeColor}: Props) {
-  if (!play.characters?.length) return null;
-
-  return (
-    <SigmaContainer
-      style={{display: 'flex', flexGrow: 1}}
-      settings={{
-        defaultNodeColor: nodeColor,
-        defaultEdgeColor: edgeColor,
-        edgeProgramClasses: {
-          curve: EdgeCurveProgram,
-          curvedArrow: EdgeCurvedArrowProgram,
+  // SigmaContainer rebuilds the renderer whenever its options change, so
+  // keep them stable across renders.
+  const options = useMemo(
+    () => ({
+      primitives: {
+        edges: {
+          // Sigma 4 spreads parallel edges (several relations between the
+          // same two characters) on its own.
+          paths: [pathCurved(), pathLoop()],
+          extremities: [extremityArrow()],
+          layers: [layerPlain()],
         },
+      },
+      // Passing `styles.nodes` / `styles.edges` replaces sigma's defaults
+      // rather than extending them, so layer our overrides on top.
+      styles: {
+        nodes: [
+          DEFAULT_STYLES.nodes,
+          {
+            color: {attribute: 'color', defaultValue: nodeColor},
+            labelSize: 14,
+          },
+        ],
+        edges: [
+          DEFAULT_STYLES.edges,
+          {
+            path: 'curved',
+            // `pathCurved` draws straight lines unless told otherwise (and
+            // ignores its own `curvature` option), so set it per edge. 0.25
+            // matches @sigma/edge-curve; sigma overrides it for parallel
+            // edges to fan them out.
+            curvature: 0.25,
+            color: {attribute: 'color', defaultValue: edgeColor},
+            labelSize: 12,
+            // Sigma 4 centres edge labels on the edge by default.
+            labelPosition: 'above' as const,
+          },
+          {whenData: {directed: true}, then: {head: 'arrow'}},
+        ],
+      },
+      settings: {
+        // Sigma 4 reads sizes in graph coordinates by default; keep sizing
+        // them in pixels.
+        itemSizesReference: 'screen' as const,
         renderLabels: true,
         renderEdgeLabels: true,
         labelRenderedSizeThreshold: 3,
-        labelSize: 14,
-        edgeLabelSize: 12,
         minEdgeThickness: 2,
-      }}
-    >
+      },
+    }),
+    [nodeColor, edgeColor]
+  );
+
+  if (!play.characters?.length) return null;
+
+  return (
+    <SigmaContainer style={{display: 'flex', flexGrow: 1}} options={options}>
       <GraphLoader play={play} nodeColor={nodeColor} edgeColor={edgeColor} />
     </SigmaContainer>
   );
