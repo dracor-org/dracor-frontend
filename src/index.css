@@ -39,8 +39,10 @@ nav [role='menu'] {
 */
 
 /* Tabs: reproduce the pre-migration DraCor tab bar. */
+.dracor-tabs {
+  --tabs-baseline: transparent;
+}
 .dracor-tabs > div {
-  border-bottom: none;
   color: white;
   font-size: 1rem;
 }

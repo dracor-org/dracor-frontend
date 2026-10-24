@@ -3,7 +3,7 @@
   "version": "3.0.0-beta.4",
   "private": true,
   "dependencies": {
-    "@dracor/react": "^1.10.1",
+    "@dracor/react": "^1.11.0",
     "@dracor/registry": "^1.16.0",
     "@fortawesome/fontawesome-svg-core": "^7.3.1",
     "@fortawesome/free-brands-svg-icons": "^7.3.1",
