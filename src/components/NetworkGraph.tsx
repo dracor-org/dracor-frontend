@@ -1,8 +1,9 @@
-import {useEffect} from 'react';
+import {useEffect, useMemo} from 'react';
 import Graph from 'graphology';
+import {DEFAULT_STYLES} from 'sigma';
+import {layerFill, sdfCircle, sdfSquare} from 'sigma/rendering';
 import {SigmaContainer, useLoadGraph} from '@react-sigma/core';
 import {useWorkerLayoutForceAtlas2} from '@react-sigma/layout-forceatlas2';
-import {NodeSquareProgram} from '@sigma/node-square';
 import '@react-sigma/core/lib/style.css';
 
 interface Node {
@@ -71,8 +72,8 @@ function GraphLoader({
     edges.forEach((e) => {
       if (g.hasNode(e.source) && g.hasNode(e.target) && !g.hasEdge(e.id)) {
         g.addEdgeWithKey(e.id, e.source, e.target, {
-          // Cap thickness; raw co-occurrence counts (10+) would blow
-          // up under sigma v3's WebGL edge program.
+          // Cap thickness; raw co-occurrence counts (10+) would blow up
+          // the edges.
           size: Math.min(Math.max(e.size ?? 1, 1), 5),
           color: e.color,
         });
@@ -92,20 +93,44 @@ function GraphLoader({
 }
 
 export default function NetworkGraph({graph, nodeColor, edgeColor}: Props) {
+  // SigmaContainer rebuilds the renderer whenever its options change, so
+  // keep them stable across renders.
+  const options = useMemo(
+    () => ({
+      primitives: {
+        nodes: {shapes: [sdfCircle(), sdfSquare()], layers: [layerFill()]},
+      },
+      // Passing `styles.nodes` / `styles.edges` replaces sigma's defaults
+      // rather than extending them, so layer our overrides on top.
+      styles: {
+        nodes: [
+          DEFAULT_STYLES.nodes,
+          {
+            shape: {attribute: 'type', defaultValue: 'circle'},
+            color: {attribute: 'color', defaultValue: nodeColor},
+            labelSize: 15,
+          },
+        ],
+        edges: [
+          DEFAULT_STYLES.edges,
+          {color: {attribute: 'color', defaultValue: edgeColor}},
+        ],
+      },
+      settings: {
+        // Sigma 4 reads sizes in graph coordinates by default; keep sizing
+        // them in pixels.
+        itemSizesReference: 'screen' as const,
+        renderLabels: true,
+        labelRenderedSizeThreshold: 5,
+      },
+    }),
+    [nodeColor, edgeColor]
+  );
+
   if (!graph || graph.nodes.length === 0) return null;
 
   return (
-    <SigmaContainer
-      style={{display: 'flex', flexGrow: 1}}
-      settings={{
-        defaultNodeColor: nodeColor,
-        defaultEdgeColor: edgeColor,
-        nodeProgramClasses: {square: NodeSquareProgram},
-        renderLabels: true,
-        labelRenderedSizeThreshold: 5,
-        labelSize: 15,
-      }}
-    >
+    <SigmaContainer style={{display: 'flex', flexGrow: 1}} options={options}>
       <GraphLoader
         nodes={graph.nodes}
         edges={graph.edges}

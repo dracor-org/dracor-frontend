@@ -25,9 +25,14 @@ const supervisor = {
   },
 };
 
-// Sigma's WebGL node programs touch `WebGL2RenderingContext` at import time,
+// Sigma's WebGL programs touch `WebGL2RenderingContext` at import time,
 // which jsdom doesn't define.
-vi.mock('@sigma/node-square', () => ({NodeSquareProgram: class {}}));
+vi.mock('sigma', () => ({DEFAULT_STYLES: {nodes: {}, edges: {}}}));
+vi.mock('sigma/rendering', () => ({
+  layerFill: () => ({}),
+  sdfCircle: () => ({}),
+  sdfSquare: () => ({}),
+}));
 
 vi.mock('@react-sigma/core', () => ({
   SigmaContainer: ({children}: {children: React.ReactNode}) => (
