@@ -55,7 +55,7 @@ To start the frontend container and make it available at port 8088 of the local
 machine run:
 
 ```sh
-docker run -it --rm -p 8088:80 dracor/frontend
+docker run -it --rm -p 8088:8080 dracor/frontend
 # now open http://localhost:8088 in a browser
 ```
 
@@ -64,7 +64,7 @@ connect the frontend to another API instance specify the environment
 variable `DRACOR_API_HOST` like this:
 
 ```sh
-docker run -it --rm -p 8088:80 \
+docker run -it --rm -p 8088:8080 \
   -e DRACOR_API_HOST=https://staging.dracor.org \
   dracor/frontend
 ```
@@ -75,7 +75,7 @@ e.g. in a local development environment, it can be overridden with the
 `DRACOR_API_PREFIX` variable:
 
 ```sh
-docker run -it --rm -p 8088:80 \
+docker run -it --rm -p 8088:8080 \
   -e DRACOR_API_HOST=https://192.168.0.10:8080 \
   -e DRACOR_API_PREFIX=/exist/restxq/v1 \
   dracor/frontend
@@ -86,7 +86,7 @@ may need to specify a DNS server that can resolve the domain name of your API
 host:
 
 ```sh
-docker run -it --rm -p 8088:80 \
+docker run -it --rm -p 8088:8080 \
   -e DRACOR_API_HOST=https://exist:8080 \
   -e DRACOR_API_PREFIX=/exist/restxq/v1 \
   -e NGINX_RESOLVER=192.168.0.1 \
