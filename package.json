@@ -12,7 +12,7 @@
     "@headlessui/react": "^2.2.10",
     "@react-sigma/core": "^6.0.0",
     "@react-sigma/layout-forceatlas2": "^6.0.0",
-    "@scalar/api-reference-react": "^0.9.83",
+    "@scalar/api-reference-react": "^0.9.86",
     "@tanstack/react-router": "^1.170.46",
     "@tanstack/react-table": "^8.21.3",
     "@zazuko/yasgui": "^4.6.2",
@@ -26,7 +26,7 @@
     "react-markdown": "^10.1.0",
     "recharts": "^3.10.1",
     "rehype-raw": "^7.0.0",
-    "sigma": "^4.0.3"
+    "sigma": "^4.0.4"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -44,7 +44,7 @@
     "esbuild": "^0.28.2",
     "eslint": "^10.13.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-mdx": "^3.8.2",
+    "eslint-plugin-mdx": "^3.8.3",
     "eslint-plugin-prettier": "^5.5.7",
     "eslint-plugin-react-dom": "^5.28.8",
     "eslint-plugin-react-hooks": "^7.1.1",
@@ -56,7 +56,7 @@
     "prettier": "^3.9.10",
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.72.0",
+    "typescript-eslint": "^8.72.1",
     "vite": "8.3.5",
     "vite-plugin-svgr": "^5.2.0",
     "vitest": "^5.0.5"
