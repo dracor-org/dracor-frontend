@@ -89,5 +89,5 @@
     ],
     "*.js": "eslint --cache --fix"
   },
-  "packageManager": "pnpm@11.13.1"
+  "packageManager": "pnpm@12.15.0"
 }
