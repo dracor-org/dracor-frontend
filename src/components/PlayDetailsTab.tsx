@@ -1,33 +1,28 @@
-import {ReactElement} from 'react';
-import classnames from 'classnames/bind';
-import style from './PlayDetailsTab.module.scss';
-
-const cx = classnames.bind(style);
+import type {ReactNode} from 'react';
+import style from './PlayDetailsTab.module.css';
 
 interface Props {
-  children: ReactElement | ReactElement[];
-  characters: ReactElement;
-  description: ReactElement;
-  metrics: ReactElement;
-  segments: ReactElement;
+  children: ReactNode;
+  characters: ReactNode;
+  description: ReactNode;
+  metrics: ReactNode;
+  segments: ReactNode;
 }
 
-const PlayDetailsTab = ({
+export default function PlayDetailsTab({
   children,
   description,
   characters,
   metrics,
   segments,
-}: Props) => {
+}: Props) {
   return (
-    <div className={cx('main')}>
-      <div className={cx('content')}>{children}</div>
-      <div className={cx('description')}>{description}</div>
-      {metrics && <div className={cx('metrics')}>{metrics}</div>}
-      {characters && <div className={cx('characters')}>{characters}</div>}
-      {segments && <div className={cx('segments')}>{segments}</div>}
+    <div className={style.main}>
+      <div className={style.content}>{children}</div>
+      <div className={style.description}>{description}</div>
+      {metrics && <div className={style.metrics}>{metrics}</div>}
+      {characters && <div className={style.characters}>{characters}</div>}
+      {segments && <div className={style.segments}>{segments}</div>}
     </div>
   );
-};
-
-export default PlayDetailsTab;
+}

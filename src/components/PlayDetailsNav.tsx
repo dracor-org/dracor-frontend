@@ -1,8 +1,5 @@
-import {Nav, NavItem, NavLink} from 'reactstrap';
-import classnames from 'classnames/bind';
-import style from './PlayDetailsNav.module.scss';
-
-const cx = classnames.bind(style);
+import Tabs from '@dracor/react/Tabs';
+import type {ComponentProps} from 'react';
 
 interface Item {
   name: string;
@@ -11,24 +8,26 @@ interface Item {
 
 interface Props {
   items: Item[];
-  current?: string;
+  corpusId: string;
+  playId: string;
 }
 
-const PlayDetailsNav = ({items, current}: Props) => {
+export default function PlayDetailsNav({items, corpusId, playId}: Props) {
+  // @dracor/react 1.7.0's Tabs only forwards `to` to its Link and drops
+  // `params`, so build a resolved path string here. Fix is in flight
+  // (dracor-org/dracor-react#87) — drop this workaround once released.
+  //
+  // `resetScroll: false` keeps the window scroll position when
+  // switching between tabs (the default is to jump back to the top).
+  const data: ComponentProps<typeof Tabs>['data'] = items.map((item) => ({
+    label: item.label || item.name,
+    to: `/${corpusId}/${playId}/${item.name}`,
+    resetScroll: false,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  })) as any;
   return (
-    <Nav tabs className={cx('main')}>
-      {items.map((item) => (
-        <NavItem key={item.name}>
-          <NavLink
-            href={`#${item.name}`}
-            className={cx({active: current === item.name})}
-          >
-            {item.label || item.name}
-          </NavLink>
-        </NavItem>
-      ))}
-    </Nav>
+    <div className="dracor-tabs">
+      <Tabs data={data} />
+    </div>
   );
-};
-
-export default PlayDetailsNav;
+}

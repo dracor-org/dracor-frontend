@@ -10,9 +10,9 @@ Package manager is **pnpm** (see `packageManager` field in [package.json](packag
 - `pnpm build` — production build to `build/`.
 - `pnpm serve` — preview the production build.
 - `pnpm test` — [Vitest](https://vitest.dev) in watch mode (jsdom env, setup file `src/setupTests.ts`).
-- `pnpm test -- src/App.test.tsx` — run a single test file. `pnpm vitest run -t "pattern"` filters by test name.
+- `pnpm test -- src/loaders.test.ts` — run a single test file. `pnpm vitest run -t "pattern"` filters by test name.
 - `pnpm test:coverage` — one-shot coverage report.
-- `pnpm lint` — ESLint over `src`. Lint is *not* wired into the Vite dev server or build, so it only runs on explicit `pnpm lint`, via `lint-staged` on commit, and in CI. Run `pnpm lint` before shipping.
+- `pnpm lint` — ESLint over `src`. Lint is *not* wired into the Vite dev server or build, so it only runs on explicit `pnpm lint` and in CI. Note the pre-commit hook does **not** lint `src`: `lint-staged` runs `prettier --write` there and reserves `eslint --fix` for root-level `*.js`. Run `pnpm lint` before shipping.
 
 Version bumps use `pnpm bump-version <version>` (no `v` prefix on tags — configured via `--tag-version-prefix=''`).
 
@@ -29,44 +29,35 @@ The Docker image (see [Dockerfile](Dockerfile) + [nginx.conf](nginx.conf)) uses 
 
 ## Architecture
 
-Single-page React app (React 18, react-router-dom v6) bootstrapped by Vite. Entry: [src/index.tsx](src/index.tsx) → [src/App.tsx](src/App.tsx).
+Single-page React 19 app bootstrapped by Vite. Entry: [src/index.tsx](src/index.tsx) mounts the TanStack Router `RouterProvider`; there is no `App.tsx`.
 
-**Routing** ([src/App.tsx](src/App.tsx)) is corpus-driven: `/` (Home), `/:corpusId` (Corpus index), `/:corpusId/:playId` (Play), plus `/doc/:slug`, `/doc/api`, `/doc/odd`, `/doc/corpora`, `/sparql`. The SPARQL UI is code-split via `React.lazy` and only loads the real YASGUI bundle when `VITE_WITH_SPARQL=yes`.
+**Routing** uses TanStack Router with file-based routes under [src/routes/](src/routes/) and a generated [src/routeTree.gen.ts](src/routeTree.gen.ts). The tree: [`__root.tsx`](src/routes/__root.tsx) (global shell + `/info` + `/corpora` loader), [`index.tsx`](src/routes/index.tsx) (Home), [`$corpusId/index.tsx`](src/routes/$corpusId/index.tsx) (Corpus), [`$corpusId/$playId/`](src/routes/$corpusId/$playId/) (Play — `route.tsx` loads the play + metrics, `$tab.tsx` renders the active tab as its own route segment), plus [`doc/$slug.tsx`](src/routes/doc/$slug.tsx), [`doc/api.tsx`](src/routes/doc/api.tsx), [`doc/odd.tsx`](src/routes/doc/odd.tsx), [`doc/corpora.tsx`](src/routes/doc/corpora.tsx), [`doc/legacy.api.tsx`](src/routes/doc/legacy.api.tsx), [`sparql.tsx`](src/routes/sparql.tsx) (lazy — real YASGUI bundle only loads when `VITE_WITH_SPARQL=yes`).
 
-**Global state** is a single React context [DracorContext](src/context.ts) populated once in `App` after fetching `/info` and `/corpora` from the API. Components consume it with `useContext(DracorContext)`; there is no Redux/Zustand.
+**Global state** is a single React context [DracorContext](src/context.ts) populated by `__root.tsx` via its loader (`/info` + `/corpora`). Components consume it with `use(DracorContext)`.
 
-**API layer** is a thin [apisauce](https://github.com/infinitered/apisauce) client in [src/api.ts](src/api.ts) using `apiUrl` from [src/config.ts](src/config.ts). All backend calls go through it — the base URL is either `VITE_DRACOR_API` or (in dev/prod-behind-nginx) the relative `/api/v1` proxy.
+**API layer** is native `fetch` in [src/loaders.ts](src/loaders.ts). Route loaders call these helpers; components read the result via `Route.useLoaderData()`. The base URL is either `VITE_DRACOR_API` or (in dev / prod-behind-nginx) the relative `/api/v1` proxy — see [src/config.ts](src/config.ts).
 
-**Types** live in [src/types.ts](src/types.ts) (`Play`, `PlayMetrics`, `Author`, `Character`, `Relation`, `Segment`, `Sitemap`, `ApiInfo`, `DracorContext`). New TS components should reuse these rather than inventing overlapping shapes.
+**Types** live in [src/types.ts](src/types.ts) (`Play`, `PlayMetrics`, `Author`, `Character`, `Relation`, `Segment`, `Sitemap`, `ApiInfo`, `DracorContext`). New code should reuse these rather than inventing overlapping shapes.
 
-**Mixed JS/TS**. Many components are still `.jsx` (`Play`, `NetworkGraph`, `RelationsGraph`, `Corpus`, `Header`, `TopNav`, etc.). Newer files are `.tsx`. When touching a `.jsx` file, don't do a wholesale rewrite to TypeScript unless the task calls for it.
-
-**Styling** uses Bootstrap 4 + reactstrap for layout, with per-component SCSS via CSS Modules (`Foo.module.scss` → `import styles from './Foo.module.scss'`) alongside a few plain `.scss` files for globals. Global styles are in [src/index.scss](src/index.scss).
+**Styling** is Tailwind CSS v4 + [@dracor/react](https://www.npmjs.com/package/@dracor/react)'s design tokens. [src/index.css](src/index.css) imports `tailwindcss`, `@dracor/react/dracor.css`, and `@dracor/react/tei.css`, plus a small block of local overrides (Rubik webfont, palette aliases, `.dracor-page` gutter, funding-note pills, `.dracor-tabs` bar, `.authors-tinted` portrait tint). Component-local styling is either Tailwind classes inline or a `.module.css` / `.css` next to the component (`PlayDetailsTab.module.css`, `TEIPanel.css`, `Odd.css`, `SparqlUi.css`).
 
 **Notable visualizations & viewers**:
-- [components/NetworkGraph.jsx](src/components/NetworkGraph.jsx), [components/RelationsGraph.jsx](src/components/RelationsGraph.jsx) — react-sigma character network + relations graphs.
-- [components/SpeechDistribution/](src/components/SpeechDistribution/) — three chart variants (`Sapogov`, `TrilckeFischer`, `Yarkho`) rendered via chart.js/recharts.
-- [components/TEIPanel.jsx](src/components/TEIPanel.jsx) — renders TEI XML in-browser via CETEIcean.
-- [components/SparqlUi.jsx](src/components/SparqlUi.jsx) — YASGUI-backed SPARQL editor (lazy).
-- [components/APIDoc.jsx](src/components/APIDoc.jsx), [components/OddPage.jsx](src/components/OddPage.jsx) — swagger-ui-react + ODD/TEI docs viewer.
+- [components/NetworkGraph.tsx](src/components/NetworkGraph.tsx), [components/RelationsGraph.tsx](src/components/RelationsGraph.tsx) — character network + relations graph via `@react-sigma/core` + `sigma` v4 + `graphology`. Square nodes and curved edges use sigma's built-in primitives (`sdfSquare`, `pathCurved`) configured through the `options` prop; note that passing `styles.nodes` / `styles.edges` replaces sigma's `DEFAULT_STYLES` instead of extending them.
+- [components/SpeechDistribution/](src/components/SpeechDistribution/) — three chart variants (`Sapogov`, `TrilckeFischer`, `Yarkho`) via chart.js / recharts.
+- [components/TEIPanel.tsx](src/components/TEIPanel.tsx) — wraps `TEIText` from `@dracor/react` (which uses CETEIcean under the hood). Adds a scrollable frame with top/bottom gradient fades and the DraCor scrollbar chrome.
+- [components/SparqlUi.tsx](src/components/SparqlUi.tsx) — `@zazuko/yasgui`-backed SPARQL editor (lazy).
+- [routes/doc/api.tsx](src/routes/doc/api.tsx) — API docs via `ApiDoc` from `@dracor/react` (Scalar-based). [components/Odd.tsx](src/components/Odd.tsx) — ODD / TEI docs viewer.
 - [components/CorpusRegistry.tsx](src/components/CorpusRegistry.tsx) — pulls corpus metadata from `@dracor/registry`.
 
-**Docs pages**: markdown in [src/docs/](src/docs/) is rendered by [components/DocPage.tsx](src/components/DocPage.tsx) using `react-markdown` + `rehype-raw`.
-
-## Planned migration
-
-The repo is scheduled for a substantial rework — when touching code, prefer patterns compatible with the target stack over doubling down on the current one:
-
-- **Bootstrap 4 / reactstrap → Tailwind CSS** with the [@dracor/react](https://www.npmjs.com/package/@dracor/react) component library. Avoid adding new reactstrap components or SCSS modules if a Tailwind/`@dracor/react` equivalent will replace them.
-- **JS → TypeScript**. New files should be `.tsx`/`.ts`; when meaningfully editing a `.jsx` file, converting it is welcome (but not mandatory for small fixes).
-- **react-router-dom v6 → TanStack Router**, likely with route loaders. Keep route-level data fetching self-contained so migration is straightforward.
-- **apisauce → native `fetch`**. New API calls can use `fetch` directly rather than extending [src/api.ts](src/api.ts).
-
-Confirm with the user before large, migration-flavored refactors — the migration itself is a separate effort, not a side effect of unrelated tasks.
+**Docs pages**: markdown in [public/doc/](public/doc/) is fetched at runtime and rendered by `DocPage` from `@dracor/react` (`react-markdown` + `rehype-raw`).
 
 ## Conventions
 
 - ESLint config ([eslint.config.mjs](eslint.config.mjs)) enables `@eslint/js`, `typescript-eslint`, React (jsx-runtime), and Prettier. `no-console` is a warning — existing code uses `// eslint-disable-next-line no-console` for intentional logs; keep that pattern.
 - Prettier + `lint-staged` run on commit via Husky (`.husky/`). Formatting is enforced through ESLint's Prettier plugin, so run `pnpm lint` before shipping.
+- CI ([.github/workflows/ci.yml](.github/workflows/ci.yml)) runs lint, `tsc --noEmit`, the test suite and a production build on every pull request and on pushes to `main`. The other workflows are deployment and Docker publishing only.
 - Path aliases: none — use relative imports.
-- Tests co-located as `*.test.ts(x)` next to source; only [src/App.test.tsx](src/App.test.tsx) exists today.
+- Tests co-located as `*.test.ts(x)` next to source. Route-level smoke tests mount the real route tree against MSW: [src/testUtils.tsx](src/testUtils.tsx) exposes `renderRoute(path)`, which builds a router over an in-memory history, runs the loaders and renders. Fixtures live in [src/mocks/fixtures.ts](src/mocks/fixtures.ts) and handlers in [src/mocks/handlers.ts](src/mocks/handlers.ts); override a handler per-test with `server.use(...)`.
+- [.env.test](.env.test) pins the `VITE_*` flags for mode `test` so route tests don't inherit whatever a developer has enabled in `.env.local`. Add a flag there when a new feature gate would otherwise change test behaviour.
+- `onUnhandledRequest: 'error'` is set in [src/setupTests.ts](src/setupTests.ts) — any fetch a test doesn't mock fails loudly rather than hitting the network.
+- Two things that need stubbing in route tests: the sigma graphs (`NetworkGraph` / `RelationsGraph`) need a WebGL context jsdom doesn't have, and `@dracor/react/ApiDoc` pulls in a Scalar stylesheet the node runner can't resolve. Both are `vi.mock`ed where used.
