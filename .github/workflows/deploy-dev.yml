@@ -5,10 +5,9 @@ on:
 
 jobs:
   dev:
-    uses: dracor-org/dracor-frontend/.github/workflows/deployment.yml@main
+    uses: ./.github/workflows/deployment.yml
+    # environment secrets only reach the reusable workflow this way
+    secrets: inherit
     with:
+      environment: dev
       host: dev.dracor.org
-      deploy-path: /var/www/html
-    secrets:
-      deploy-key: ${{ secrets.DRACOR_ORG_DEPLOY_KEY }}
-      deploy-user: ${{ secrets.DRACOR_ORG_DEPLOY_USER }}
